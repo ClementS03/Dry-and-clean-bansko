@@ -21,7 +21,6 @@ export default function WhyUs() {
         <div className="text-center mb-14 reveal">
           <h2
             className="font-display text-4xl sm:text-5xl text-cream uppercase tracking-tight"
-            style={{ fontFamily: 'Oswald, sans-serif' }}
           >
             {why.title}
           </h2>
@@ -41,7 +40,6 @@ export default function WhyUs() {
               <div>
                 <h3
                   className="font-display text-base text-gold uppercase tracking-wide mb-1.5"
-                  style={{ fontFamily: 'Oswald, sans-serif' }}
                 >
                   {item.title}
                 </h3>
@@ -57,7 +55,6 @@ export default function WhyUs() {
           <div>
             <div
               className="font-display text-xl text-gold uppercase tracking-wide mb-1"
-              style={{ fontFamily: 'Oswald, sans-serif' }}
             >
               {why.items[1].title}
             </div>

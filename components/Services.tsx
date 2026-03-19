@@ -18,7 +18,6 @@ export default function Services() {
           <div className="section-badge mx-auto">✨ {t.services.subtitle}</div>
           <h2
             className="font-display text-4xl sm:text-5xl text-cream uppercase tracking-tight mt-4"
-            style={{ fontFamily: 'Oswald, sans-serif' }}
           >
             {t.services.title}
           </h2>
@@ -45,7 +44,6 @@ export default function Services() {
               {/* Name */}
               <h3
                 className="font-display text-xl text-cream uppercase tracking-wide mb-2 group-hover:text-gold transition-colors duration-300"
-                style={{ fontFamily: 'Oswald, sans-serif' }}
               >
                 {svc.name}
               </h3>
@@ -55,7 +53,7 @@ export default function Services() {
 
               {/* Price */}
               <div className="flex items-center justify-between pt-4 border-t border-gold/10">
-                <span className="text-gold font-display font-semibold text-lg tracking-wide" style={{ fontFamily: 'Oswald, sans-serif' }}>
+                <span className="text-gold font-display font-semibold text-lg tracking-wide">
                   {svc.price}
                 </span>
                 <span className="text-cream/30 text-xs">→</span>

@@ -15,7 +15,6 @@ export default function Footer() {
           <div className="text-center md:text-left">
             <div
               className="font-display text-base text-cream uppercase tracking-wider"
-              style={{ fontFamily: 'Oswald, sans-serif' }}
             >
               {f.company}
             </div>
@@ -33,7 +32,6 @@ export default function Footer() {
                   document.querySelector(link.href)?.scrollIntoView({ behavior: 'smooth' })
                 }}
                 className="text-cream/40 hover:text-gold text-xs uppercase tracking-widest transition-colors font-display"
-                style={{ fontFamily: 'Oswald, sans-serif' }}
               >
                 {link.label}
               </a>

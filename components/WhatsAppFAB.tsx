@@ -17,7 +17,6 @@ export default function WhatsAppFAB() {
         className={`transition-all duration-300 pointer-events-none ${
           hover ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-2'
         } bg-ink-700 border border-gold/20 text-cream text-xs rounded-sm px-3 py-2 shadow-lg whitespace-nowrap`}
-        style={{ fontFamily: 'DM Sans, sans-serif' }}
       >
         {wa.tooltip}
       </div>

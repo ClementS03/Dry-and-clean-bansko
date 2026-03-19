@@ -23,7 +23,6 @@ export default function Pricing() {
           <div className="section-badge mx-auto">{p.badge}</div>
           <h2
             className="font-display text-4xl sm:text-5xl text-cream uppercase tracking-tight mt-4"
-            style={{ fontFamily: 'Oswald, sans-serif' }}
           >
             {p.title}
           </h2>
@@ -42,7 +41,6 @@ export default function Pricing() {
               <div className="flex-1 min-w-0">
                 <div
                   className="font-display text-sm text-cream uppercase tracking-wide truncate"
-                  style={{ fontFamily: 'Oswald, sans-serif' }}
                 >
                   {item.name}
                 </div>
@@ -50,7 +48,6 @@ export default function Pricing() {
               </div>
               <div
                 className="font-display text-xl text-gold font-bold flex-shrink-0"
-                style={{ fontFamily: 'Oswald, sans-serif' }}
               >
                 {item.price}
               </div>

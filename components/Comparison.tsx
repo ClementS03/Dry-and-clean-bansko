@@ -17,7 +17,6 @@ export default function Comparison() {
           <div className="section-badge mx-auto">{cmp.badge}</div>
           <h2
             className="font-display text-4xl sm:text-5xl text-cream uppercase tracking-tight mt-4"
-            style={{ fontFamily: 'Oswald, sans-serif' }}
           >
             {cmp.title}
           </h2>
@@ -27,14 +26,14 @@ export default function Comparison() {
           <table className="comparison-table w-full">
             <thead>
               <tr>
-                <th className="text-left text-cream/50 font-display tracking-widest uppercase" style={{ fontFamily: 'Oswald, sans-serif' }}>
+                <th className="text-left text-cream/50 font-display tracking-widest uppercase">
                   &nbsp;
                 </th>
-                <th className="text-left" style={{ fontFamily: 'Oswald, sans-serif' }}>
+                <th className="text-left">
                   <span className="text-gold">{cmp.our}</span>
                   <span className="ml-2 text-green-400 text-xs">✓</span>
                 </th>
-                <th className="text-left" style={{ fontFamily: 'Oswald, sans-serif' }}>
+                <th className="text-left">
                   <span className="text-cream/40">{cmp.classic}</span>
                   <span className="ml-2 text-red-400 text-xs">✗</span>
                 </th>

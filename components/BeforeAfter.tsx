@@ -36,7 +36,7 @@ function SliderCard({
   return (
     <div className="reveal card-dark overflow-hidden">
       <div className="px-4 py-2.5 flex items-center justify-between border-b border-gold/10">
-        <span className="font-display text-sm text-cream uppercase tracking-widest" style={{ fontFamily: 'Oswald, sans-serif' }}>
+        <span className="font-display text-sm text-cream uppercase tracking-widest">
           {label}
         </span>
         <div className="flex gap-4 text-xs">
@@ -120,7 +120,6 @@ export default function BeforeAfter() {
           <div className="section-badge mx-auto">{g.badge}</div>
           <h2
             className="font-display text-4xl sm:text-5xl text-cream uppercase tracking-tight mt-4"
-            style={{ fontFamily: 'Oswald, sans-serif' }}
           >
             {g.title}
           </h2>

@@ -129,47 +129,65 @@
     ]
   },
   "technology": {
-    "badge": "Our technology",
-    "title": "Kärcher Puzzi 10/1",
-    "titleSub": "Injection-Extraction",
-    "subtitle": "Not just cleaning — deep disinfection",
-    "description": "The machine injects hot water with cleaning solution deep into the fabric, then immediately extracts all dirt and water. The result is visible from the very first clean.",
-    "features": [
+    "badge": "How we work",
+    "title": "Injection-Extraction",
+    "titleSub": "Deep cleaning from the inside",
+    "subtitle": "Three steps — one visible result",
+    "description": "Unlike traditional surface cleaning, injection-extraction technology penetrates directly into the fabric — injecting water mixed with cleaning solution, then immediately extracting it along with all the dirt. The fabric is left barely damp and dries in hours.",
+    "steps": [
       {
-        "icon": "🌡️",
-        "title": "95°C hot water",
-        "description": "Destroys 99.9% of bacteria, viruses and dust mites."
+        "number": "01",
+        "icon": "💧",
+        "title": "Injection",
+        "description": "Water mixed with the right cleaning solution is sprayed under pressure directly into the fabric — reaching deep into the fibres where dirt hides."
       },
       {
+        "number": "02",
+        "icon": "🌀",
+        "title": "Product action",
+        "description": "The specialised cleaning solution breaks down stains, bacteria, dust mites and allergens. Product choice depends on the fabric type and level of soiling."
+      },
+      {
+        "number": "03",
         "icon": "⚡",
-        "title": "Immediate extraction",
-        "description": "Water is extracted instantly — fabric stays barely damp."
+        "title": "Extraction",
+        "description": "The machine immediately suctions back the water along with all the broken-down dirt. The fabric stays barely damp — no risk of mould."
+      }
+    ],
+    "features": [
+      {
+        "icon": "🎯",
+        "title": "Deep into the fibres",
+        "description": "We reach dirt that surface cleaning simply cannot remove."
+      },
+      {
+        "icon": "🌿",
+        "title": "Right product for each fabric",
+        "description": "We select the product based on the material — safe for children and pets."
       },
       {
         "icon": "⏱️",
         "title": "Dries in 2–4 hours",
-        "description": "Use your furniture the same day."
+        "description": "Minimal water, maximum result. Furniture ready to use the same day."
       },
       {
-        "icon": "🌿",
-        "title": "Safe products",
-        "description": "Certified. Safe for children and pets."
+        "icon": "✅",
+        "title": "Visible result from the 1st clean",
+        "description": "No guessing whether it worked — the difference is immediately visible."
       }
     ],
-    "machineName": "Kärcher Puzzi 10/1",
-    "machineDesc": "Professional cleaning standard",
     "stats": [
       {
-        "value": "95°C",
-        "label": "Temperature"
-      },
-      {
-        "value": "99.9%",
-        "label": "Bacteria"
-      },
-      {
         "value": "2–4h",
-        "label": "Drying time"
+        "label": "Drying"
+      },
+      {
+        "value": "100%",
+        "label": "Extraction"
+      },
+      {
+        "value": "Same day",
+        "label": "Ready"
       }
     ],
     "techBadge": "Injection-Extraction"

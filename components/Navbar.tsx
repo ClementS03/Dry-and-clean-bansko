@@ -36,7 +36,6 @@ export default function Navbar() {
             ? 'bg-ink-800/95 backdrop-blur-md border-b border-gold/10 shadow-lg shadow-black/50'
             : 'bg-transparent'
         }`}
-        style={{ fontFamily: 'var(--font-oswald, Oswald, sans-serif)' }}
       >
         <div className="max-w-6xl mx-auto px-4 sm:px-6 flex items-center justify-between h-16">
           {/* Logo */}

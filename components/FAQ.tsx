@@ -19,7 +19,6 @@ export default function FAQ() {
         <div className="text-center mb-12 reveal">
           <h2
             className="font-display text-4xl sm:text-5xl text-cream uppercase tracking-tight"
-            style={{ fontFamily: 'Oswald, sans-serif' }}
           >
             {faq.title}
           </h2>
@@ -39,7 +38,6 @@ export default function FAQ() {
               >
                 <span
                   className="font-display text-sm text-cream uppercase tracking-wide"
-                  style={{ fontFamily: 'Oswald, sans-serif' }}
                 >
                   {item.q}
                 </span>
