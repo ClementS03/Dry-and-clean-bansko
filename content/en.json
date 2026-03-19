@@ -1,0 +1,395 @@
+{
+  "meta": {
+    "title": "Furniture Cleaning Bansko | Wet&Dry Cleaning",
+    "description": "Professional furniture cleaning in Bansko & surroundings. Injection-extraction technology with Kärcher Puzzi 10/1. We come to you. Prices from 20€.",
+    "keywords": "furniture cleaning Bansko, sofa cleaning Bansko, mattress cleaning Bansko, carpet cleaning Bansko, Wet Dry cleaning Bansko, injection extraction Bansko"
+  },
+  "nav": {
+    "services": "Services",
+    "technology": "Technology",
+    "prices": "Prices",
+    "faq": "FAQ",
+    "contact": "Contact",
+    "cta": "Free Quote",
+    "langSwitch": "БГ"
+  },
+  "hero": {
+    "badge": "📍 Bansko, Razlog & surroundings",
+    "title": "Furniture cleaning",
+    "titleHighlight": "directly at your place",
+    "subtitle": "No stress, no transport — we come to you with professional injection-extraction technology",
+    "form": {
+      "title": "Get a free quote",
+      "subtitle": "We respond within 1 hour",
+      "step1Title": "What to clean?",
+      "step2Title": "Your details",
+      "serviceLabel": "Type of service",
+      "services": [
+        {
+          "value": "sofa",
+          "label": "🛋️ Sofa / Armchair"
+        },
+        {
+          "value": "mattress",
+          "label": "🛏️ Mattress"
+        },
+        {
+          "value": "carpet",
+          "label": "🏠 Carpet / Rug"
+        },
+        {
+          "value": "curtains",
+          "label": "🪟 Curtains"
+        },
+        {
+          "value": "car",
+          "label": "🚗 Car seats"
+        },
+        {
+          "value": "other",
+          "label": "➕ Other"
+        }
+      ],
+      "quantityLabel": "Quantity / Size (optional)",
+      "quantityPlaceholder": "e.g. 1 three-seater sofa, 2 mattresses...",
+      "nameLabel": "Your name",
+      "namePlaceholder": "John Smith",
+      "phoneLabel": "Phone / WhatsApp *",
+      "phonePlaceholder": "+359 8XX XXX XXX",
+      "locationLabel": "Location *",
+      "locationPlaceholder": "Bansko, Razlog, Dobrinishte...",
+      "nextBtn": "Continue →",
+      "backBtn": "← Back",
+      "submitBtn": "Send via WhatsApp →",
+      "disclaimer": "No commitment. You'll receive a reply on WhatsApp within 1 hour.",
+      "successTitle": "✓ Request sent!",
+      "successText": "We'll get back to you on WhatsApp within 1 hour.",
+      "validationPhone": "Please enter a phone number",
+      "validationLocation": "Please enter your location",
+      "newRequest": "New request"
+    }
+  },
+  "trust": [
+    {
+      "icon": "🏠",
+      "label": "We come to you"
+    },
+    {
+      "icon": "⏱️",
+      "label": "Dries in 2–4 hours"
+    },
+    {
+      "icon": "🌿",
+      "label": "Safe products"
+    },
+    {
+      "icon": "⭐",
+      "label": "Results or no charge"
+    }
+  ],
+  "services": {
+    "title": "What we clean",
+    "subtitle": "Full range of home & automotive textile cleaning",
+    "items": [
+      {
+        "icon": "🛋️",
+        "name": "Sofas & Armchairs",
+        "description": "Deep upholstery cleaning, stain removal, dust mites and bacteria elimination. All fabric types.",
+        "price": "from 25€",
+        "tag": "Most popular"
+      },
+      {
+        "icon": "🛏️",
+        "name": "Mattresses",
+        "description": "Deep disinfection and dust mite removal. Essential for healthy sleep.",
+        "price": "from 20€",
+        "tag": null
+      },
+      {
+        "icon": "🏠",
+        "name": "Carpets & Rugs",
+        "description": "Injection-extraction for all types of carpets and rugs. Quick drying.",
+        "price": "from 4€/m²",
+        "tag": null
+      },
+      {
+        "icon": "🪟",
+        "name": "Curtains",
+        "description": "On-site curtain cleaning — no removal needed. Fast and hassle-free.",
+        "price": "from 15€",
+        "tag": null
+      },
+      {
+        "icon": "🚗",
+        "name": "Car Seats",
+        "description": "Deep cleaning of automotive textiles, upholstery, mats and headliner.",
+        "price": "from 25€",
+        "tag": null
+      }
+    ]
+  },
+  "technology": {
+    "badge": "Our technology",
+    "title": "Kärcher Puzzi 10/1",
+    "titleSub": "Injection-Extraction",
+    "subtitle": "Not just cleaning — deep disinfection",
+    "description": "The machine injects hot water with cleaning solution deep into the fabric, then immediately extracts all dirt and water. The result is visible from the very first clean.",
+    "features": [
+      {
+        "icon": "🌡️",
+        "title": "95°C hot water",
+        "description": "Destroys 99.9% of bacteria, viruses and dust mites."
+      },
+      {
+        "icon": "⚡",
+        "title": "Immediate extraction",
+        "description": "Water is extracted instantly — fabric stays barely damp."
+      },
+      {
+        "icon": "⏱️",
+        "title": "Dries in 2–4 hours",
+        "description": "Use your furniture the same day."
+      },
+      {
+        "icon": "🌿",
+        "title": "Safe products",
+        "description": "Certified. Safe for children and pets."
+      }
+    ],
+    "machineName": "Kärcher Puzzi 10/1",
+    "machineDesc": "Professional cleaning standard",
+    "stats": [
+      {
+        "value": "95°C",
+        "label": "Temperature"
+      },
+      {
+        "value": "99.9%",
+        "label": "Bacteria"
+      },
+      {
+        "value": "2–4h",
+        "label": "Drying time"
+      }
+    ],
+    "techBadge": "Injection-Extraction"
+  },
+  "comparison": {
+    "badge": "Comparison",
+    "title": "Injection-Extraction vs traditional cleaning",
+    "our": "Our technology",
+    "classic": "Traditional",
+    "rows": [
+      {
+        "label": "Cleaning depth",
+        "our": "Down to the fibres",
+        "classic": "Surface only",
+        "ourGood": true
+      },
+      {
+        "label": "Mites & bacteria",
+        "our": "99.9% eliminated",
+        "classic": "Remain",
+        "ourGood": true
+      },
+      {
+        "label": "Disinfection",
+        "our": "Yes — 95°C",
+        "classic": "No",
+        "ourGood": true
+      },
+      {
+        "label": "Drying time",
+        "our": "2–4 hours",
+        "classic": "Up to 24 hours",
+        "ourGood": true
+      },
+      {
+        "label": "Mould risk",
+        "our": "Minimal",
+        "classic": "High",
+        "ourGood": true
+      },
+      {
+        "label": "Removal needed",
+        "our": "Not required",
+        "classic": "Sometimes",
+        "ourGood": true
+      }
+    ]
+  },
+  "whyUs": {
+    "title": "Why choose us",
+    "items": [
+      {
+        "icon": "🚐",
+        "title": "We come to you",
+        "description": "No need to transport anything. We arrive with all equipment — at home, hotel or office."
+      },
+      {
+        "icon": "💯",
+        "title": "Results or no charge",
+        "description": "If you're not satisfied with the result — you don't pay. That's how confident we are."
+      },
+      {
+        "icon": "⚡",
+        "title": "Fast & convenient",
+        "description": "Cleaning takes 1–3 hours. Furniture ready to use after 2–4 hours."
+      },
+      {
+        "icon": "🌿",
+        "title": "Family safe",
+        "description": "Certified products. Safe for children, babies and pets."
+      },
+      {
+        "icon": "📍",
+        "title": "Local & accessible",
+        "description": "Bansko, Razlog, Dobrinishte and the whole Bansko-Razlog valley — we know the region."
+      },
+      {
+        "icon": "💬",
+        "title": "Reply within 1 hour",
+        "description": "Message us on WhatsApp and receive a quote within 1 hour."
+      }
+    ]
+  },
+  "pricing": {
+    "badge": "Transparent pricing",
+    "title": "Price list",
+    "subtitle": "No hidden fees. Final price depends on size and level of soiling.",
+    "items": [
+      {
+        "icon": "🛋️",
+        "name": "Sofa / Armchair",
+        "price": "from 25€",
+        "note": "by size"
+      },
+      {
+        "icon": "🛏️",
+        "name": "Mattress",
+        "price": "from 20€",
+        "note": "single / double"
+      },
+      {
+        "icon": "🏠",
+        "name": "Carpet / Rug",
+        "price": "from 4€/m²",
+        "note": "minimum 20€"
+      },
+      {
+        "icon": "🪟",
+        "name": "Curtains",
+        "price": "from 15€",
+        "note": "per set"
+      },
+      {
+        "icon": "🚗",
+        "name": "Car seats",
+        "price": "from 25€",
+        "note": "full interior"
+      }
+    ],
+    "cta": "Get a personal quote",
+    "note": "* Payment accepted in EUR and BGN. Payment is due after the service."
+  },
+  "faq": {
+    "title": "Frequently asked questions",
+    "items": [
+      {
+        "q": "Do I need to move the furniture?",
+        "a": "Absolutely not! We come with everything needed and clean on-site. We only ask you to clear a little space around the furniture."
+      },
+      {
+        "q": "How long does it take to dry?",
+        "a": "With injection-extraction, fabric dries in 2–4 hours — much faster than traditional wet cleaning. You can use your furniture the same day."
+      },
+      {
+        "q": "Is it safe for children and pets?",
+        "a": "Yes. We only use certified, biodegradable products. Once dry, they leave no harmful residues."
+      },
+      {
+        "q": "Can you remove old stains?",
+        "a": "In most cases — yes. Injection-extraction is very effective even on stubborn stains. With prior information about the stain type, we can assess the chance of full removal."
+      },
+      {
+        "q": "How much does it cost and how do I pay?",
+        "a": "Prices depend on type and size. All prices are transparent — no hidden fees. Payment is in cash or bank transfer after the service."
+      },
+      {
+        "q": "Which areas do you cover?",
+        "a": "We cover Bansko, Razlog, Dobrinishte, Belitsa and the entire Bansko-Razlog valley. For more distant locations — contact us."
+      }
+    ]
+  },
+  "contact": {
+    "title": "Get in touch",
+    "subtitle": "We come to you in Bansko & surroundings",
+    "phoneEN": "+359 882 862 228",
+    "phoneBG": "+359 876 850 385",
+    "whatsappNumber": "359876850385",
+    "whatsappMsg": "Hello! I would like to get a quote for furniture cleaning.",
+    "area": "Bansko · Razlog · Dobrinishte · Belitsa",
+    "hours": "Mon–Sun: 08:00 – 20:00",
+    "callBtn": "Call now",
+    "waBtn": "Message on WhatsApp",
+    "reassurance": "✓ No commitment · Reply within 1h · Free quote",
+    "phoneENLabel": "English",
+    "phoneBGLabel": "Bulgarian"
+  },
+  "footer": {
+    "company": "Wet&Dry Cleaning Bansko",
+    "tagline": "Professional furniture cleaning in Bansko & surroundings",
+    "rights": "All rights reserved",
+    "links": [
+      {
+        "label": "Services",
+        "href": "#services"
+      },
+      {
+        "label": "Technology",
+        "href": "#technology"
+      },
+      {
+        "label": "Prices",
+        "href": "#pricing"
+      },
+      {
+        "label": "FAQ",
+        "href": "#faq"
+      },
+      {
+        "label": "Contact",
+        "href": "#contact"
+      }
+    ],
+    "poweredBy": "Powered by",
+    "hostedOn": "Hosted on"
+  },
+  "whatsapp": {
+    "tooltip": "Message us on WhatsApp",
+    "number": "359876850385",
+    "message": "Hello! I would like to get a quote for furniture cleaning."
+  },
+  "gallery": {
+    "badge": "📸 Results",
+    "title": "Before & After",
+    "subtitle": "Drag the slider to see the difference",
+    "beforeLabel": "Before",
+    "afterLabel": "After",
+    "sliderHint": "← Drag to compare →",
+    "placeholderBefore": "BEFORE photo",
+    "placeholderAfter": "AFTER photo",
+    "addPhotoNote": "Add photos to /public/ — see GUIDE.md for instructions",
+    "pairs": [
+      {
+        "label": "Sofa"
+      },
+      {
+        "label": "Mattress"
+      },
+      {
+        "label": "Carpet"
+      }
+    ]
+  }
+}

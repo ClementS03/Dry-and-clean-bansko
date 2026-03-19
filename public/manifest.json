@@ -1,0 +1,32 @@
+{
+  "name": "Wet&Dry Cleaning Bansko",
+  "short_name": "WetDry BG",
+  "description": "Пране на мебели в Банско и региона — injection-extraction технология",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0A0A0A",
+  "theme_color": "#F5C400",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ],
+  "categories": ["business", "home"],
+  "lang": "bg",
+  "dir": "ltr"
+}

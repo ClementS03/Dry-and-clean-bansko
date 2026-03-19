@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# Sitemap — update with your real domain
+Sitemap: https://wetdrybg.com/sitemap.xml
