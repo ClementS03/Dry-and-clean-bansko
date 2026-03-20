@@ -380,8 +380,9 @@
         "href": "#contact"
       }
     ],
-    "poweredBy": "Powered by",
-    "hostedOn": "Hosted on"
+    "credit": "Created by",
+    "creditName": "Clément Seguin",
+    "creditUrl": "https://www.linkedin.com/in/clementseguin"
   },
   "whatsapp": {
     "tooltip": "Message us on WhatsApp",

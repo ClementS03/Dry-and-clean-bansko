@@ -380,8 +380,9 @@
         "href": "#contact"
       }
     ],
-    "poweredBy": "Изработено с",
-    "hostedOn": "Хостинг"
+    "credit": "Създадено от",
+    "creditName": "Clément Seguin",
+    "creditUrl": "https://www.linkedin.com/in/clementseguin"
   },
   "whatsapp": {
     "tooltip": "Пиши ни по WhatsApp",
