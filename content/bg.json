@@ -66,7 +66,10 @@
       "successText": "Ще се свържем с теб по WhatsApp в рамките на 1 час.",
       "validationPhone": "Моля въведи телефонен номер",
       "validationLocation": "Моля въведи населено място",
-      "newRequest": "Ново запитване"
+      "newRequest": "Ново запитване",
+      "orLabel": "или",
+      "emailBtn": "Изпрати по имейл",
+      "sendingLabel": "Изпраща се..."
     }
   },
   "trust": [
@@ -212,7 +215,7 @@
       },
       {
         "label": "Дезинфекция",
-        "our": "Да, с правилния препарат",
+        "our": "Да — 95°C",
         "classic": "Не",
         "ourGood": true
       },
@@ -344,7 +347,7 @@
     "subtitle": "Идваме при вас в Банско и региона",
     "phoneEN": "+359 882 862 228",
     "phoneBG": "+359 876 850 385",
-    "whatsappNumber": "359882862228",
+    "whatsappNumber": "359876850385",
     "whatsappMsg": "Здравейте! Бих искал/а да получа оферта за пране на мебели.",
     "area": "Банско · Разлог · Добринище · Белица",
     "hours": "Пон–Нед: 08:00 – 20:00",
@@ -382,7 +385,7 @@
     ],
     "credit": "Създадено от",
     "creditName": "Clément Seguin",
-    "creditUrl": "https://www.linkedin.com/in/clementseguin"
+    "creditUrl": "https://www.linkedin.com/in/clement-seguin"
   },
   "whatsapp": {
     "tooltip": "Пиши ни по WhatsApp",

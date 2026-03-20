@@ -3,6 +3,8 @@
 import { useState } from "react";
 import { useLanguage } from "@/context/LanguageContext";
 
+const FORMSPREE = "https://formspree.io/f/mjgazwyd";
+
 export default function LeadForm() {
   const { t } = useLanguage();
   const f = t.hero.form;
@@ -10,6 +12,7 @@ export default function LeadForm() {
 
   const [step, setStep] = useState(1);
   const [sent, setSent] = useState(false);
+  const [sendingEmail, setSendingEmail] = useState(false);
   const [selectedServices, setServices] = useState<string[]>([]);
   const [quantity, setQuantity] = useState("");
   const [name, setName] = useState("");
@@ -31,11 +34,12 @@ export default function LeadForm() {
     return Object.keys(e).length === 0;
   };
 
-  const handleSubmit = () => {
+  const svcLabels = selectedServices
+    .map((v) => f.services.find((s) => s.value === v)?.label ?? v)
+    .join(", ");
+
+  const handleWhatsApp = () => {
     if (!validate2()) return;
-    const svcLabels = selectedServices
-      .map((v) => f.services.find((s) => s.value === v)?.label ?? v)
-      .join(", ");
     const lines = [
       `🛋️ *${f.title}*`,
       "",
@@ -49,13 +53,39 @@ export default function LeadForm() {
     ]
       .filter(Boolean)
       .join("\n");
-
     window.open(
       `https://wa.me/${whatsappNum}?text=${encodeURIComponent(lines)}`,
       "_blank",
       "noopener",
     );
     setSent(true);
+  };
+
+  const handleEmail = async () => {
+    if (!validate2()) return;
+    setSendingEmail(true);
+    try {
+      await fetch(FORMSPREE, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          service: svcLabels,
+          quantity: quantity || "—",
+          name: name || "—",
+          phone,
+          location,
+          _subject: `Nouveau lead — ${svcLabels}`,
+        }),
+      });
+      setSent(true);
+    } catch {
+      // silently fail — user can retry
+    } finally {
+      setSendingEmail(false);
+    }
   };
 
   const reset = () => {
@@ -95,7 +125,7 @@ export default function LeadForm() {
             </button>
           </div>
         ) : step === 1 ? (
-          /* ── Step 1: services (multi-select) ── */
+          /* ── Step 1: services ── */
           <div>
             <p className="mb-4 text-xs font-semibold tracking-widest uppercase text-cream/50">
               {f.step1Title}
@@ -115,7 +145,6 @@ export default function LeadForm() {
                     }`}
                   >
                     {svc.label}
-                    {/* Checkmark badge */}
                     {active && (
                       <span className="absolute top-1.5 right-1.5 w-4 h-4 bg-gold rounded-full flex items-center justify-center">
                         <svg
@@ -138,7 +167,6 @@ export default function LeadForm() {
               })}
             </div>
 
-            {/* Selected summary */}
             {selectedServices.length > 0 && (
               <p className="mb-4 text-xs text-cream/40">
                 ✓ {selectedServices.length}{" "}
@@ -168,7 +196,7 @@ export default function LeadForm() {
             </button>
           </div>
         ) : (
-          /* ── Step 2: contact ── */
+          /* ── Step 2: contact + send options ── */
           <div>
             <button
               onClick={() => setStep(1)}
@@ -180,7 +208,7 @@ export default function LeadForm() {
               {f.step2Title}
             </p>
 
-            <div className="space-y-4">
+            <div className="mb-5 space-y-4">
               <div>
                 <label className="block text-xs text-cream/50 uppercase tracking-widest mb-1.5">
                   {f.nameLabel}
@@ -231,12 +259,51 @@ export default function LeadForm() {
               </div>
             </div>
 
+            {/* ── Primary: WhatsApp ── */}
             <button
-              onClick={handleSubmit}
-              className="justify-center w-full py-3 mt-5 text-sm btn-gold animate-pulse-gold"
+              onClick={handleWhatsApp}
+              className="justify-center w-full py-3 text-sm btn-gold animate-pulse-gold"
             >
               {f.submitBtn}
             </button>
+
+            {/* ── Divider ── */}
+            <div className="flex items-center gap-3 my-3">
+              <div className="flex-1 h-px bg-gold/10" />
+              <span className="text-xs tracking-widest uppercase text-cream/25">
+                {f.orLabel}
+              </span>
+              <div className="flex-1 h-px bg-gold/10" />
+            </div>
+
+            {/* ── Fallback: Email ── */}
+            <button
+              onClick={handleEmail}
+              disabled={sendingEmail}
+              className="flex items-center justify-center w-full gap-2 py-3 text-sm transition-all duration-200 border rounded-sm border-gold/20 text-cream/50 hover:text-cream hover:border-gold/40 disabled:opacity-40"
+            >
+              {sendingEmail ? (
+                <span className="animate-pulse">{f.sendingLabel}</span>
+              ) : (
+                <>
+                  <svg
+                    className="w-4 h-4"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={1.5}
+                      d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                    />
+                  </svg>
+                  {f.emailBtn}
+                </>
+              )}
+            </button>
+
             <p className="mt-3 text-xs text-center text-cream/30">
               {f.disclaimer}
             </p>
@@ -244,7 +311,7 @@ export default function LeadForm() {
         )}
       </div>
 
-      {/* Step progress bar */}
+      {/* Progress bar */}
       {!sent && (
         <div className="flex border-t border-gold/10">
           {[1, 2].map((n) => (
