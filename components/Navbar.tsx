@@ -48,14 +48,14 @@ export default function Navbar() {
               e.preventDefault();
               window.scrollTo({ top: 0, behavior: "smooth" });
             }}
-            className="flex items-center rounded-full group"
+            className="flex items-center group"
           >
             <Image
               src="/logo.png"
               alt="Wet&Dry Cleaning Bansko"
-              width={140}
+              width={40}
               height={40}
-              className="w-auto h-10"
+              className="object-cover w-10 h-10 overflow-hidden rounded-full"
             />
           </a>
 
