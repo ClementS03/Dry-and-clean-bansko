@@ -48,7 +48,7 @@ export default function Navbar() {
               e.preventDefault();
               window.scrollTo({ top: 0, behavior: "smooth" });
             }}
-            className="flex items-center group"
+            className="flex items-center rounded-full group"
           >
             <Image
               src="/logo.png"
