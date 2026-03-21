@@ -1,9 +1,9 @@
 "use client";
 
 import { useState, useRef } from "react";
-import Image from "next/image";
 import { useLanguage } from "@/context/LanguageContext";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
+import Image from "next/image";
 
 function SliderCard({
   label,
@@ -34,9 +34,6 @@ function SliderCard({
     setPos(Math.max(5, Math.min(95, p)));
   };
 
-  // Card is ~33vw on desktop (3 cols), 100vw on mobile
-  const imgSizes = "(min-width: 768px) 33vw, 100vw";
-
   return (
     <div className="overflow-hidden reveal card-dark">
       <div className="px-4 py-2.5 flex items-center justify-between border-b border-gold/10">
@@ -60,51 +57,26 @@ function SliderCard({
         onTouchMove={(e) => getPos(e.touches[0].clientX)}
         onClick={(e) => getPos(e.clientX)}
       >
-        {/* Before — full width background */}
-        <div className="absolute inset-0">
-          {before ? (
+        {/* After */}
+        <div className="absolute inset-0 flex items-center justify-center bg-ink-600">
+          {/* TODO: replace with <Image src={before} alt={beforeLabel} fill className="object-cover" /> */}
+          <Image src={after} alt={beforeLabel} fill className="object-cover" />
+        </div>
+
+        {/* before (clipped) */}
+        <div
+          className="absolute inset-0 overflow-hidden"
+          style={{ width: `${pos}%` }}
+        >
+          <div className="absolute inset-0 flex items-center justify-center bg-ink-700">
+            {/* TODO: replace with <Image src={before} alt={afterLabel} fill className="object-cover" /> */}
             <Image
               src={before}
               alt={beforeLabel}
               fill
               className="object-cover"
-              sizes={imgSizes}
-              quality={75}
             />
-          ) : (
-            <div className="flex items-center justify-center w-full h-full bg-ink-600">
-              <div className="text-center">
-                <div className="mb-2 text-4xl">🛋️</div>
-                <div className="text-xs text-cream/30">{placeholderBefore}</div>
-              </div>
-            </div>
-          )}
-        </div>
-
-        {/* After — clipped to left */}
-        <div
-          className="absolute inset-0 overflow-hidden"
-          style={{ width: `${pos}%` }}
-        >
-          {after ? (
-            <div className="relative w-[300%] h-full">
-              <Image
-                src={after}
-                alt={afterLabel}
-                fill
-                className="object-cover"
-                sizes={imgSizes}
-                quality={75}
-              />
-            </div>
-          ) : (
-            <div className="absolute inset-0 flex items-center justify-center bg-ink-700">
-              <div className="text-center">
-                <div className="mb-2 text-4xl">✨</div>
-                <div className="text-xs text-gold">{placeholderAfter}</div>
-              </div>
-            </div>
-          )}
+          </div>
         </div>
 
         {/* Divider */}
@@ -130,10 +102,10 @@ function SliderCard({
         </div>
 
         {/* Corner labels */}
-        <div className="absolute top-3 left-3 bg-black/60 text-red-400 text-xs font-bold uppercase tracking-wide px-2 py-0.5 rounded-sm pointer-events-none z-10">
+        <div className="absolute top-3 left-3 bg-black/60 text-red-400 text-xs font-bold uppercase tracking-wide px-2 py-0.5 rounded-sm pointer-events-none">
           {beforeLabel}
         </div>
-        <div className="absolute top-3 right-3 bg-black/60 text-gold text-xs font-bold uppercase tracking-wide px-2 py-0.5 rounded-sm pointer-events-none z-10">
+        <div className="absolute top-3 right-3 bg-black/60 text-gold text-xs font-bold uppercase tracking-wide px-2 py-0.5 rounded-sm pointer-events-none">
           {afterLabel}
         </div>
       </div>
