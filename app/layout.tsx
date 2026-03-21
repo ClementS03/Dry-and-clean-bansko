@@ -2,13 +2,11 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { LanguageProvider } from "@/context/LanguageContext";
 
-// Single source of truth — change fonts/colors in config/design.js
 // eslint-disable-next-line @typescript-eslint/no-require-imports
-const { colors, fonts } = require("@/config/design");
+const { colors } = require("@/config/design");
 
-const DOMAIN = "https://wetdrycleaningbansko.com/";
+const DOMAIN = "https://wetdrycleaningbansko.com";
 
-// CSS variables injected into <head> — drives all CSS custom properties
 const cssVars = `
 :root {
   --gold:       ${colors.gold};
@@ -21,9 +19,20 @@ const cssVars = `
   --ink-500:    ${colors.ink500};
   --cream:      ${colors.cream};
   --cream-dark: ${colors.creamDark};
-  --font-display: '${fonts.display}', sans-serif;
-  --font-body:    '${fonts.body}', sans-serif;
+  --font-display: 'Oswald', sans-serif;
+  --font-body:    'DM Sans', sans-serif;
 }
+`.trim();
+
+// Async font loading — prevents render blocking
+// preconnect + rel=preload for critical font, async for stylesheet
+const fontScript = `
+(function(){
+  var l=document.createElement('link');
+  l.rel='stylesheet';
+  l.href='https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600&display=swap';
+  document.head.appendChild(l);
+})();
 `.trim();
 
 export const metadata: Metadata = {
@@ -111,19 +120,29 @@ export default function RootLayout({
   return (
     <html lang="bg" suppressHydrationWarning>
       <head>
-        {/* Design tokens injected from config/design.js */}
+        {/* Design tokens */}
         <style dangerouslySetInnerHTML={{ __html: cssVars }} />
 
-        {/* Google Fonts — URL from config/design.js */}
+        {/* Preconnect for faster font resolution */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
           rel="preconnect"
           href="https://fonts.gstatic.com"
           crossOrigin="anonymous"
         />
-        <link rel="stylesheet" href={fonts.googleUrl} />
 
-        {/* LocalBusiness structured data */}
+        {/* Load fonts async — does NOT block render */}
+        <script dangerouslySetInnerHTML={{ __html: fontScript }} />
+
+        {/* Fallback for no-JS */}
+        <noscript>
+          <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600&display=swap"
+          />
+        </noscript>
+
+        {/* LocalBusiness JSON-LD */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
