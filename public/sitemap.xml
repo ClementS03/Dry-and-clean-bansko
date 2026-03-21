@@ -3,13 +3,13 @@
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <!-- TODO: replace wetdrybg.com with your actual domain -->
   <url>
-    <loc>https://wetdrybg.com/</loc>
+    <loc>https://wetdrycleaningbansko.com/</loc>
     <lastmod>2025-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
     <!-- hreflang: same URL, language switched client-side -->
-    <xhtml:link rel="alternate" hreflang="bg" href="https://wetdrybg.com/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://wetdrybg.com/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://wetdrybg.com/"/>
+    <xhtml:link rel="alternate" hreflang="bg" href="https://wetdrycleaningbansko.com/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://wetdrycleaningbansko.com/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wetdrycleaningbansko.com/"/>
   </url>
 </urlset>
