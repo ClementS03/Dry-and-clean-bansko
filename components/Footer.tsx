@@ -57,20 +57,23 @@ export default function Footer() {
 
         {/* Bottom bar */}
         <div className="mt-8 mb-6 gold-divider" />
-        <div className="flex flex-col items-center justify-between gap-2 text-xs sm:flex-row text-cream/25">
-          <span>
-            © {year} {f.company}. {f.rights}.
-          </span>
+        {/* pb-16 on mobile to avoid WhatsApp FAB overlap, sm:pb-0 on desktop */}
+        <div className="flex flex-col items-center justify-between gap-2 pb-16 text-xs sm:flex-row text-cream/25 sm:pb-0">
+          {/* Credit — left side, away from FAB */}
           <span>
             {f.credit}{" "}
             <a
               href={f.creditUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="transition-colors text-gold/70 hover:text-gold"
+              className="underline transition-colors text-gold/70 hover:text-gold underline-offset-2 decoration-gold/30"
             >
               {f.creditName}
             </a>
+          </span>
+          {/* Copyright — right side */}
+          <span>
+            © {year} {f.company}. {f.rights}.
           </span>
         </div>
       </div>
