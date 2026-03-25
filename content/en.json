@@ -215,7 +215,7 @@
       },
       {
         "label": "Disinfection",
-        "our": "Yes — with the right product",
+        "our": "Yes — 95°C",
         "classic": "No",
         "ourGood": true
       },
@@ -347,7 +347,7 @@
     "subtitle": "We come to you in Bansko & surroundings",
     "phoneEN": "+359 882 862 228",
     "phoneBG": "+359 876 850 385",
-    "whatsappNumber": "359882862228",
+    "whatsappNumber": "359876850385",
     "whatsappMsg": "Hello! I would like to get a quote for furniture cleaning.",
     "area": "Bansko · Razlog · Dobrinishte · Belitsa",
     "hours": "Mon–Sun: 08:00 – 20:00",
@@ -385,11 +385,11 @@
     ],
     "credit": "Created by",
     "creditName": "Clément Seguin",
-    "creditUrl": "https://www.linkedin.com/in/clementseguin"
+    "creditUrl": "https://www.linkedin.com/in/clement-seguin"
   },
   "whatsapp": {
     "tooltip": "Message us on WhatsApp",
-    "number": "359882862228",
+    "number": "359876850385",
     "message": "Hello! I would like to get a quote for furniture cleaning."
   },
   "gallery": {
@@ -413,5 +413,10 @@
         "label": "Carpet"
       }
     ]
+  },
+  "reviews": {
+    "badge": "Client reviews",
+    "title": "What clients say",
+    "subtitle": "Real feedback from our clients in Bansko & surroundings."
   }
 }

@@ -189,7 +189,7 @@
         "label": "Екстракция"
       },
       {
-        "value": "същия ден",
+        "value": "1 ден",
         "label": "Готово"
       }
     ],
@@ -215,7 +215,7 @@
       },
       {
         "label": "Дезинфекция",
-        "our": "Да, с правилния препарат",
+        "our": "Да — 95°C",
         "classic": "Не",
         "ourGood": true
       },
@@ -385,7 +385,7 @@
     ],
     "credit": "Създадено от",
     "creditName": "Clément Seguin",
-    "creditUrl": "https://www.linkedin.com/in/clementseguin"
+    "creditUrl": "https://www.linkedin.com/in/clement-seguin"
   },
   "whatsapp": {
     "tooltip": "Пиши ни по WhatsApp",
@@ -413,5 +413,10 @@
         "label": "Килим"
       }
     ]
+  },
+  "reviews": {
+    "badge": "Отзиви от клиенти",
+    "title": "Какво казват клиентите",
+    "subtitle": "Реални мнения от нашите клиенти в Банско и региона."
   }
 }
