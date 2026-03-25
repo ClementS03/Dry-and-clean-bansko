@@ -17,7 +17,7 @@ export async function GET() {
     const response = await notion.databases.query({
       database_id: databaseId,
       filter: {
-        property: "Approuvé",
+        property: "To Approved",
         checkbox: { equals: true },
       },
       sorts: [{ property: "Date", direction: "descending" }],
@@ -28,17 +28,16 @@ export async function GET() {
       const props = page.properties;
 
       const name =
-        props["Prénom"]?.title?.[0]?.plain_text ||
-        props["Prénom"]?.rich_text?.[0]?.plain_text ||
+        props["Firstname Surname"]?.title?.[0]?.plain_text ||
         "Client";
 
-      const rating = props["Étoiles"]?.number ?? 5;
+      const rating = props["Stars"]?.number ?? 5;
 
       const services: string[] = (props["Services"]?.multi_select ?? []).map(
         (s: { name: string }) => s.name,
       );
 
-      const comment = props["Commentaire"]?.rich_text?.[0]?.plain_text || "";
+      const comment = props["Review Text"]?.rich_text?.[0]?.plain_text || "";
 
       return { id: page.id, name, rating, services, comment };
     });
