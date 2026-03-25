@@ -227,6 +227,15 @@ export default function Reviews() {
       .catch(() => setLoaded(true));
   }, []);
 
+  // Trigger reveal after reviews load (observer ran before section existed)
+  useEffect(() => {
+    if (loaded && reviews.length > 0 && ref.current) {
+      ref.current.querySelectorAll(".reveal").forEach((el) => {
+        el.classList.add("visible");
+      });
+    }
+  }, [loaded, reviews, ref]);
+
   // Hidden while loading or if no reviews
   if (!loaded || reviews.length === 0) return null;
 
