@@ -14,10 +14,10 @@
     "langSwitch": "БГ"
   },
   "hero": {
-    "badge": "📍 Bansko, Razlog & surroundings",
-    "title": "Furniture cleaning",
-    "titleHighlight": "directly at your place",
-    "subtitle": "No stress, no transport — we come to you with professional injection-extraction technology",
+    "badge": "📍 Bansko · Razlog · Dobrinishte · Belitsa",
+    "title": "Sofas, mattresses,",
+    "titleHighlight": "like new again.",
+    "subtitle": "We clean sofas, mattresses, carpets, curtains and car seats on-site at your place — no transport, no stress.",
     "form": {
       "title": "Get a free quote",
       "subtitle": "We respond within 1 hour",
@@ -385,7 +385,7 @@
     ],
     "credit": "Created by",
     "creditName": "Clément Seguin",
-    "creditUrl": "https://www.linkedin.com/in/clement-seguin"
+    "creditUrl": "https://clement-seguin.fr"
   },
   "whatsapp": {
     "tooltip": "Message us on WhatsApp",
@@ -407,7 +407,7 @@
         "label": "Sofa"
       },
       {
-        "label": "Mattress"
+        "label": "Carpet"
       },
       {
         "label": "Carpet"

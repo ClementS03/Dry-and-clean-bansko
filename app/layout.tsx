@@ -121,7 +121,7 @@ export default function RootLayout({
     <html lang="bg" suppressHydrationWarning>
       <head>
         {/* Design tokens */}
-        <style dangerouslySetInnerHTML={{ __html: cssVars }} />
+        <style suppressHydrationWarning dangerouslySetInnerHTML={{ __html: cssVars }} />
 
         {/* Preconnect for faster font resolution */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />

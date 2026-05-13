@@ -16,7 +16,7 @@ export default function Hero() {
         <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: 'repeating-linear-gradient(45deg, var(--gold) 0, var(--gold) 1px, transparent 0, transparent 50%)', backgroundSize: '40px 40px' }} />
       </div>
 
-      <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 pt-28 pb-16 grid md:grid-cols-2 gap-12 items-center min-h-screen">
+      <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 pt-24 pb-12 md:pt-28 md:pb-16 grid md:grid-cols-2 gap-10 md:gap-12 items-center min-h-screen">
 
         {/* ── Left: copy ── */}
         <div className="animate-fade-up" style={{ animationDelay: '0.1s', animationFillMode: 'both' }}>

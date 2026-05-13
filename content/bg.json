@@ -14,10 +14,10 @@
     "langSwitch": "EN"
   },
   "hero": {
-    "badge": "📍 Банско, Разлог и региона",
-    "title": "Пране на мебели",
-    "titleHighlight": "директно при вас",
-    "subtitle": "Без транспорт, без стрес — ние идваме с професионална injection-extraction технология",
+    "badge": "📍 Банско · Разлог · Добринище · Белица",
+    "title": "Дивани, матраци,",
+    "titleHighlight": "чисти като нови.",
+    "subtitle": "Почистваме дивани, матраци, килими, завеси и авто седалки на място при вас — без транспорт, без стрес.",
     "form": {
       "title": "Получи безплатна оферта",
       "subtitle": "Отговаряме в рамките на 1 час",
@@ -385,7 +385,7 @@
     ],
     "credit": "Създадено от",
     "creditName": "Clément Seguin",
-    "creditUrl": "https://www.linkedin.com/in/clement-seguin"
+    "creditUrl": "https://clement-seguin.fr"
   },
   "whatsapp": {
     "tooltip": "Пиши ни по WhatsApp",
@@ -407,7 +407,7 @@
         "label": "Диван"
       },
       {
-        "label": "Матрак"
+        "label": "Килим"
       },
       {
         "label": "Килим"
