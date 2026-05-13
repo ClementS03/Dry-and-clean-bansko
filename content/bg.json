@@ -385,7 +385,12 @@
     ],
     "credit": "Създадено от",
     "creditName": "Clément Seguin",
-    "creditUrl": "https://clement-seguin.fr"
+    "creditUrl": "https://clement-seguin.fr",
+    "social": [
+      { "label": "Instagram", "href": "https://www.instagram.com/wetdryclean.bansko/", "icon": "instagram" },
+      { "label": "Facebook", "href": "https://www.facebook.com/profile.php?id=61588508592574", "icon": "facebook" },
+      { "label": "TikTok", "href": "https://www.tiktok.com/@wetdryclean.bansko", "icon": "tiktok" }
+    ]
   },
   "whatsapp": {
     "tooltip": "Пиши ни по WhatsApp",
