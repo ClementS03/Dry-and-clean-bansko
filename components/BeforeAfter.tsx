@@ -125,7 +125,7 @@ export default function BeforeAfter() {
   const pairs = [
     { before: "/before-sofa.jpg", after: "/after-sofa.jpg" },
     { before: "/before-carpet.jpg", after: "/after-carpet.jpg" },
-    { before: "/before-carpet.jpg", after: "/after-carpet.jpg" },
+    { before: "/before-carpet2.jpg", after: "/after-carpet2.jpg" },
   ];
 
   return (
