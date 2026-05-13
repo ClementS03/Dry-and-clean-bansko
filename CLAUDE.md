@@ -210,3 +210,30 @@ Délai avis Notion → site : ~60 secondes (revalidate).
 - ❌ Committer `.env.local` ou tout fichier contenant des tokens
 - ❌ Utiliser `sizes="100vw"` sur des images dans une grille — utiliser `sizes="(min-width: 768px) 33vw, 100vw"`
 - ❌ Utiliser `box-shadow` dans les animations (non GPU composité) — utiliser `opacity` ou `transform`
+- ❌ Mentionner "95°C" ou toute température précise — la machine ne chauffe PAS l'eau à 95°C (corrigé dans Comparison tableau)
+- ❌ Hardcoder les URLs réseaux sociaux dans les composants — tout passe par `footer.social` dans bg.json/en.json
+
+## Vidéo YouTube (Technology section)
+
+Le player vidéo s'affiche **uniquement si** `technology.videoUrl` est une URL YouTube embed valide (commence par `https://www.youtube.com/embed/`). Pour activer :
+1. Upload sur YouTube → Non répertorié
+2. Copier l'ID depuis `youtube.com/watch?v=XXXXXXXX`
+3. Dans `content/bg.json` ET `content/en.json` → `"videoUrl": "https://www.youtube.com/embed/XXXXXXXX"`
+4. Laisser `"videoUrl": ""` = pas d'affichage
+
+## Zone de service (depuis mai 2026)
+
+Bansko · Разлог · Добринище · **Баня** (Banya)
+Belitsa retiré — trop loin.
+
+## Réseaux sociaux
+
+- Instagram : https://www.instagram.com/wetdryclean.bansko/
+- Facebook : https://www.facebook.com/profile.php?id=61588508592574
+- TikTok : https://www.tiktok.com/@wetdryclean.bansko
+
+## Google Business Profile
+
+Fiche créée et vérifiée (mai 2026). Une seule fiche EN. Description EN dans GBP.
+Avis → brancher sur AggregateRating schema dans `app/layout.tsx` (revalide toutes les 1h via Notion).
+Images GBP → `wetdry-bansko-marketing/gbp-images/` (3 PNG 2160×2160).
