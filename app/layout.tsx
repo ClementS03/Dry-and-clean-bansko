@@ -1,9 +1,36 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { LanguageProvider } from "@/context/LanguageContext";
+import { Client } from "@notionhq/client";
+import { unstable_cache } from "next/cache";
+import bgContent from "@/content/bg.json";
 
 // eslint-disable-next-line @typescript-eslint/no-require-imports
 const { colors } = require("@/config/design");
+
+const getReviewStats = unstable_cache(
+  async () => {
+    const token = process.env.NOTION_TOKEN;
+    const databaseId = process.env.NOTION_DATABASE_ID;
+    if (!token || !databaseId) return null;
+    try {
+      const notion = new Client({ auth: token });
+      const response = await notion.databases.query({
+        database_id: databaseId,
+        filter: { property: "To Approved", checkbox: { equals: true } },
+      });
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      const ratings = response.results.map((p: any) => p.properties["Stars"]?.number ?? 5);
+      if (ratings.length === 0) return null;
+      const avg = ratings.reduce((a: number, b: number) => a + b, 0) / ratings.length;
+      return { avg: Math.round(avg * 10) / 10, count: ratings.length };
+    } catch {
+      return null;
+    }
+  },
+  ["reviews-schema"],
+  { revalidate: 3600 }
+);
 
 const DOMAIN = "https://wetdrycleaningbansko.com";
 
@@ -44,17 +71,27 @@ export const metadata: Metadata = {
   description:
     "Професионално пране на дивани, матраци, килими и завеси в Банско и региона. Injection-extraction технология. Идваме при вас. Цени от 20€.",
   keywords: [
-    "пране мебели Банско",
+    "пране на мебели Банско",
     "пране диван Банско",
-    "почистване матраци Банско",
-    "пране килими Банско",
-    "Wet Dry cleaning Банско",
+    "пране килим Банско",
+    "пране матрак Банско",
+    "пране на меки мебели",
+    "пране завеси Банско",
+    "пране авто седалки Банско",
+    "почистване мебели Разлог",
+    "пране на място",
     "injection extraction Банско",
+    "Wet Dry cleaning Банско",
     "furniture cleaning Bansko",
     "sofa cleaning Bansko",
-    "пране на място",
+    "carpet cleaning Bansko",
+    "upholstery cleaning Bansko Bulgaria",
+    "carpet cleaning Razlog",
+    "sofa cleaning Banya Bulgaria",
+    "Банско",
     "Разлог",
     "Добринище",
+    "Баня",
   ],
   authors: [{ name: "Wet&Dry Cleaning Bansko" }],
   creator: "Wet&Dry Cleaning Bansko",
@@ -112,11 +149,99 @@ export const viewport = {
   themeColor: colors.gold,
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const reviewStats = await getReviewStats();
+
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: bgContent.faq.items.map((item) => ({
+      "@type": "Question",
+      name: item.q,
+      acceptedAnswer: { "@type": "Answer", text: item.a },
+    })),
+  };
+
+  const localBusinessSchema = {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    name: "Wet&Dry Cleaning Bansko",
+    description:
+      "Професионално пране на мебели с injection-extraction технология в Банско и региона.",
+    url: DOMAIN,
+    telephone: ["+359882862228", "+359876850385"],
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: "Bansko",
+      addressRegion: "Blagoevgrad",
+      addressCountry: "BG",
+    },
+    geo: {
+      "@type": "GeoCoordinates",
+      latitude: 41.8395,
+      longitude: 23.4882,
+    },
+    openingHours: "Mo-Su 08:00-20:00",
+    priceRange: "€€",
+    currenciesAccepted: "EUR, BGN",
+    paymentAccepted: "Cash, Bank transfer",
+    areaServed: [
+      { "@type": "City", name: "Bansko" },
+      { "@type": "City", name: "Razlog" },
+      { "@type": "City", name: "Dobrinishte" },
+      { "@type": "City", name: "Banya" },
+    ],
+    ...(reviewStats && {
+      aggregateRating: {
+        "@type": "AggregateRating",
+        ratingValue: reviewStats.avg.toString(),
+        reviewCount: reviewStats.count,
+        bestRating: "5",
+        worstRating: "1",
+      },
+    }),
+    hasOfferCatalog: {
+      "@type": "OfferCatalog",
+      name: "Услуги за пране на мебели",
+      itemListElement: [
+        {
+          "@type": "Offer",
+          itemOffered: { "@type": "Service", name: "Пране на диван" },
+          price: "25",
+          priceCurrency: "EUR",
+        },
+        {
+          "@type": "Offer",
+          itemOffered: { "@type": "Service", name: "Пране на матрак" },
+          price: "20",
+          priceCurrency: "EUR",
+        },
+        {
+          "@type": "Offer",
+          itemOffered: { "@type": "Service", name: "Пране на килим" },
+          price: "4",
+          priceCurrency: "EUR",
+        },
+        {
+          "@type": "Offer",
+          itemOffered: { "@type": "Service", name: "Пране на завеси" },
+          price: "15",
+          priceCurrency: "EUR",
+        },
+        {
+          "@type": "Offer",
+          itemOffered: { "@type": "Service", name: "Пране на авто седалки" },
+          price: "25",
+          priceCurrency: "EUR",
+        },
+      ],
+    },
+  };
+
   return (
     <html lang="bg" suppressHydrationWarning>
       <head>
@@ -142,85 +267,16 @@ export default function RootLayout({
           />
         </noscript>
 
-        {/* LocalBusiness JSON-LD */}
+        {/* LocalBusiness + AggregateRating JSON-LD */}
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "LocalBusiness",
-              name: "Wet&Dry Cleaning Bansko",
-              description:
-                "Професионално пране на мебели с injection-extraction технология в Банско и региона.",
-              url: DOMAIN,
-              telephone: ["+359882862228", "+359876850385"],
-              address: {
-                "@type": "PostalAddress",
-                addressLocality: "Bansko",
-                addressRegion: "Blagoevgrad",
-                addressCountry: "BG",
-              },
-              geo: {
-                "@type": "GeoCoordinates",
-                latitude: 41.8395,
-                longitude: 23.4882,
-              },
-              openingHours: "Mo-Su 08:00-20:00",
-              priceRange: "€€",
-              currenciesAccepted: "EUR, BGN",
-              paymentAccepted: "Cash, Bank transfer",
-              areaServed: [
-                { "@type": "City", name: "Bansko" },
-                { "@type": "City", name: "Razlog" },
-                { "@type": "City", name: "Dobrinishte" },
-              ],
-              hasOfferCatalog: {
-                "@type": "OfferCatalog",
-                name: "Услуги за пране на мебели",
-                itemListElement: [
-                  {
-                    "@type": "Offer",
-                    itemOffered: { "@type": "Service", name: "Пране на диван" },
-                    price: "25",
-                    priceCurrency: "EUR",
-                  },
-                  {
-                    "@type": "Offer",
-                    itemOffered: {
-                      "@type": "Service",
-                      name: "Пране на матрак",
-                    },
-                    price: "20",
-                    priceCurrency: "EUR",
-                  },
-                  {
-                    "@type": "Offer",
-                    itemOffered: { "@type": "Service", name: "Пране на килим" },
-                    price: "4",
-                    priceCurrency: "EUR",
-                  },
-                  {
-                    "@type": "Offer",
-                    itemOffered: {
-                      "@type": "Service",
-                      name: "Пране на завеси",
-                    },
-                    price: "15",
-                    priceCurrency: "EUR",
-                  },
-                  {
-                    "@type": "Offer",
-                    itemOffered: {
-                      "@type": "Service",
-                      name: "Пране на авто седалки",
-                    },
-                    price: "25",
-                    priceCurrency: "EUR",
-                  },
-                ],
-              },
-            }),
-          }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
+        />
+
+        {/* FAQPage JSON-LD */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
         />
       </head>
       <body>

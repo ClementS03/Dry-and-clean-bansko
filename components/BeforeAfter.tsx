@@ -59,20 +59,18 @@ function SliderCard({
       >
         {/* After */}
         <div className="absolute inset-0 flex items-center justify-center bg-ink-600">
-          {/* TODO: replace with <Image src={before} alt={beforeLabel} fill className="object-cover" /> */}
-          <Image src={after} alt={beforeLabel} fill className="object-cover" />
+          <Image src={after} alt={`${label} — ${afterLabel}`} fill className="object-cover" />
         </div>
 
-        {/* before (clipped) */}
+        {/* Before (clipped) */}
         <div
           className="absolute inset-0 overflow-hidden"
           style={{ width: `${pos}%` }}
         >
           <div className="absolute inset-0 flex items-center justify-center bg-ink-700">
-            {/* TODO: replace with <Image src={before} alt={afterLabel} fill className="object-cover" /> */}
             <Image
               src={before}
-              alt={beforeLabel}
+              alt={`${label} — ${beforeLabel}`}
               fill
               className="object-cover"
             />
