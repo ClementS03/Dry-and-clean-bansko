@@ -89,6 +89,24 @@ export default function Technology() {
           ))}
         </div>
 
+        {/* ── Video (only if videoUrl is a valid YouTube embed URL) ── */}
+        {tech.videoUrl?.startsWith("https://www.youtube.com/embed/") && (
+          <div className="reveal mb-16 max-w-3xl mx-auto" style={{ transitionDelay: "200ms" }}>
+            <p className="text-center text-xs font-display uppercase tracking-widest text-gold/60 mb-4">
+              {tech.videoLabel}
+            </p>
+            <div className="relative w-full aspect-video rounded-sm overflow-hidden border border-gold/15 shadow-[0_0_40px_rgba(245,196,0,0.06)]">
+              <iframe
+                src={`${tech.videoUrl}?rel=0&modestbranding=1&color=white`}
+                title={tech.videoLabel}
+                className="absolute inset-0 w-full h-full"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              />
+            </div>
+          </div>
+        )}
+
         {/* ── Divider ── */}
         <div className="gold-divider mb-16 opacity-30" />
 
