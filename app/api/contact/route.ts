@@ -61,11 +61,11 @@ export async function POST(req: NextRequest) {
     await resend.emails.send({
       from: FROM,
       to: [TO_EMAIL],
-      subject: `🛋️ Nouveau lead — ${service}`,
+      subject: `🛋️ New lead — ${service}`,
       html: `
         <div style="font-family:sans-serif;max-width:560px;margin:0 auto;color:#1a1a1a;">
           <div style="background:#F5C400;padding:16px 24px;border-radius:4px 4px 0 0;">
-            <h2 style="margin:0;font-size:20px;color:#0A0A0A;">Nouvelle demande de devis</h2>
+            <h2 style="margin:0;font-size:20px;color:#0A0A0A;">New quote request</h2>
             <p style="margin:4px 0 0;font-size:13px;color:#0A0A0A;opacity:0.7;">wetdrycleaningbansko.com</p>
           </div>
           <div style="background:#f9f9f9;padding:24px;border:1px solid #e5e5e5;border-top:none;border-radius:0 0 4px 4px;">
@@ -76,20 +76,20 @@ export async function POST(req: NextRequest) {
               </tr>
               ${quantity && quantity !== '—' ? `
               <tr>
-                <td style="padding:10px 12px;font-weight:600;background:#f5f5f5;border:1px solid #eee;">Quantité / Taille</td>
+                <td style="padding:10px 12px;font-weight:600;background:#f5f5f5;border:1px solid #eee;">Quantity / Size</td>
                 <td style="padding:10px 12px;background:#f5f5f5;border:1px solid #eee;">${quantity}</td>
               </tr>` : ''}
               ${name && name !== '—' ? `
               <tr>
-                <td style="padding:10px 12px;font-weight:600;background:#fff;border:1px solid #eee;">Nom</td>
+                <td style="padding:10px 12px;font-weight:600;background:#fff;border:1px solid #eee;">Name</td>
                 <td style="padding:10px 12px;background:#fff;border:1px solid #eee;">${name}</td>
               </tr>` : ''}
               <tr>
-                <td style="padding:10px 12px;font-weight:600;background:#f5f5f5;border:1px solid #eee;">Téléphone</td>
+                <td style="padding:10px 12px;font-weight:600;background:#f5f5f5;border:1px solid #eee;">Phone</td>
                 <td style="padding:10px 12px;background:#f5f5f5;border:1px solid #eee;font-size:16px;font-weight:700;">${phone}</td>
               </tr>
               <tr>
-                <td style="padding:10px 12px;font-weight:600;background:#fff;border:1px solid #eee;">Localisation</td>
+                <td style="padding:10px 12px;font-weight:600;background:#fff;border:1px solid #eee;">Location</td>
                 <td style="padding:10px 12px;background:#fff;border:1px solid #eee;">${location}</td>
               </tr>
             </table>
