@@ -88,8 +88,8 @@ export default function Contact() {
               <WaSvg />{c.waBtn}
             </a>
 
-            <div className="md:hidden">
-              <a href={`tel:${c.phoneEN.replace(/\s/g, '')}`} className="btn-gold flex items-center justify-center gap-3 px-6 py-5 text-base">
+            <div className="md:hidden w-full">
+              <a href={`tel:${c.phoneEN.replace(/\s/g, '')}`} className="btn-gold w-full justify-center px-6 py-5 text-base">
                 <PhoneSvg />{c.callBtn}
               </a>
             </div>
