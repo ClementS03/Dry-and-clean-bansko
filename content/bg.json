@@ -69,7 +69,10 @@
       "newRequest": "Ново запитване",
       "orLabel": "или",
       "emailBtn": "Изпрати по имейл",
-      "sendingLabel": "Изпраща се..."
+      "sendingLabel": "Изпраща се...",
+      "disclaimerEmail": "Без ангажимент. Ще се свържем с теб по телефон.",
+      "successTextEmail": "Получихме запитването ти. Ще се свържем скоро.",
+      "emailErrorMsg": "Грешка при изпращане. Опитай отново."
     }
   },
   "trust": [
@@ -353,8 +356,10 @@
     "whatsappMsg": "Здравейте! Бих искал/а да получа оферта за пране на мебели.",
     "area": "Банско · Разлог · Добринище · Баня",
     "hours": "Пон–Нед: 08:00 – 20:00",
+    "email": "wetdrycleanbansko@gmail.com",
     "callBtn": "Обади се сега",
     "waBtn": "Пиши по WhatsApp",
+    "emailBtn": "Изпрати имейл",
     "reassurance": "✓ Без ангажимент · Отговор до 1 час · Безплатна оферта",
     "phoneENLabel": "English",
     "phoneBGLabel": "Български"

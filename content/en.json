@@ -69,7 +69,10 @@
       "newRequest": "New request",
       "orLabel": "or",
       "emailBtn": "Send by email",
-      "sendingLabel": "Sending..."
+      "sendingLabel": "Sending...",
+      "disclaimerEmail": "No commitment. We'll contact you by phone.",
+      "successTextEmail": "We received your request. We'll be in touch soon.",
+      "emailErrorMsg": "Failed to send. Please try again."
     }
   },
   "trust": [
@@ -353,8 +356,10 @@
     "whatsappMsg": "Hello! I would like to get a quote for furniture cleaning.",
     "area": "Bansko · Razlog · Dobrinishte · Banya",
     "hours": "Mon–Sun: 08:00 – 20:00",
+    "email": "wetdrycleanbansko@gmail.com",
     "callBtn": "Call now",
     "waBtn": "Message on WhatsApp",
+    "emailBtn": "Send an email",
     "reassurance": "✓ No commitment · Reply within 1h · Free quote",
     "phoneENLabel": "English",
     "phoneBGLabel": "Bulgarian"

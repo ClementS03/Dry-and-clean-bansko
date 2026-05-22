@@ -3,8 +3,6 @@
 import { useState } from "react";
 import { useLanguage } from "@/context/LanguageContext";
 
-const FORMSPREE = "https://formspree.io/f/mjgazwyd";
-
 export default function LeadForm() {
   const { t } = useLanguage();
   const f = t.hero.form;
@@ -12,7 +10,10 @@ export default function LeadForm() {
 
   const [step, setStep] = useState(1);
   const [sent, setSent] = useState(false);
+  const [submitMethod, setSubmitMethod] = useState<"whatsapp" | "email" | null>(null);
   const [sendingEmail, setSendingEmail] = useState(false);
+  const [emailError, setEmailError] = useState(false);
+  const [honeypot, setHoneypot] = useState("");
   const [selectedServices, setServices] = useState<string[]>([]);
   const [quantity, setQuantity] = useState("");
   const [name, setName] = useState("");
@@ -58,31 +59,35 @@ export default function LeadForm() {
       "_blank",
       "noopener",
     );
+    setSubmitMethod("whatsapp");
     setSent(true);
   };
 
   const handleEmail = async () => {
     if (!validate2()) return;
     setSendingEmail(true);
+    setEmailError(false);
     try {
-      await fetch(FORMSPREE, {
+      const res = await fetch("/api/contact", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json",
-        },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           service: svcLabels,
           quantity: quantity || "—",
           name: name || "—",
           phone,
           location,
-          _subject: `Nouveau lead — ${svcLabels}`,
+          _hp: honeypot,
         }),
       });
-      setSent(true);
+      if (res.ok) {
+        setSubmitMethod("email");
+        setSent(true);
+      } else {
+        setEmailError(true);
+      }
     } catch {
-      // silently fail — user can retry
+      setEmailError(true);
     } finally {
       setSendingEmail(false);
     }
@@ -90,13 +95,22 @@ export default function LeadForm() {
 
   const reset = () => {
     setSent(false);
+    setSubmitMethod(null);
     setStep(1);
     setServices([]);
     setQuantity("");
     setName("");
     setPhone("");
     setLocation("");
+    setEmailError(false);
   };
+
+  const EmailIcon = () => (
+    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5}
+        d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+    </svg>
+  );
 
   return (
     <div className="overflow-hidden border rounded-sm shadow-2xl bg-ink-700 border-gold/20 shadow-black/60">
@@ -116,11 +130,10 @@ export default function LeadForm() {
             <h3 className="mb-2 text-xl tracking-wide uppercase font-display text-gold">
               {f.successTitle}
             </h3>
-            <p className="text-sm text-cream/60">{f.successText}</p>
-            <button
-              onClick={reset}
-              className="px-4 py-2 mt-6 text-xs btn-outline"
-            >
+            <p className="text-sm text-cream/60">
+              {submitMethod === "email" ? f.successTextEmail : f.successText}
+            </p>
+            <button onClick={reset} className="px-4 py-2 mt-6 text-xs btn-outline">
               ← {f.newRequest}
             </button>
           </div>
@@ -147,18 +160,8 @@ export default function LeadForm() {
                     {svc.label}
                     {active && (
                       <span className="absolute top-1.5 right-1.5 w-4 h-4 bg-gold rounded-full flex items-center justify-center">
-                        <svg
-                          className="w-2.5 h-2.5 text-ink"
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth={3}
-                            d="M5 13l4 4L19 7"
-                          />
+                        <svg className="w-2.5 h-2.5 text-ink" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
                         </svg>
                       </span>
                     )}
@@ -190,7 +193,11 @@ export default function LeadForm() {
             <button
               onClick={() => setStep(2)}
               disabled={selectedServices.length === 0}
-              className={`btn-gold w-full justify-center text-sm py-3 ${selectedServices.length === 0 ? "opacity-40 cursor-not-allowed hover:bg-gold hover:translate-y-0 hover:shadow-none" : ""}`}
+              className={`btn-gold w-full justify-center text-sm py-3 ${
+                selectedServices.length === 0
+                  ? "opacity-40 cursor-not-allowed hover:bg-gold hover:translate-y-0 hover:shadow-none"
+                  : ""
+              }`}
             >
               {f.nextBtn}
             </button>
@@ -259,16 +266,36 @@ export default function LeadForm() {
               </div>
             </div>
 
-            {/* ── Primary: WhatsApp ── */}
-            <button
-              onClick={handleWhatsApp}
-              className="justify-center w-full py-3 text-sm btn-gold animate-pulse-gold"
-            >
-              {f.submitBtn}
-            </button>
+            {/* ── WhatsApp primary — mobile + tablet (< lg) ── */}
+            <div className="lg:hidden">
+              <button
+                onClick={handleWhatsApp}
+                className="btn-gold w-full justify-center py-3 text-sm animate-pulse-gold"
+              >
+                {f.submitBtn}
+              </button>
+            </div>
 
-            {/* ── Divider ── */}
-            <div className="flex items-center gap-3 my-3">
+            {/* ── Email primary — desktop (lg+) ── */}
+            <div className="hidden lg:block">
+              <button
+                onClick={handleEmail}
+                disabled={sendingEmail}
+                className="btn-gold w-full justify-center py-3 text-sm disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:translate-y-0 disabled:hover:shadow-none"
+              >
+                {sendingEmail ? (
+                  <span className="animate-pulse">{f.sendingLabel}</span>
+                ) : (
+                  <>
+                    <EmailIcon />
+                    {f.emailBtn}
+                  </>
+                )}
+              </button>
+            </div>
+
+            {/* ── Divider — mobile + tablet only ── */}
+            <div className="lg:hidden flex items-center gap-3 my-3">
               <div className="flex-1 h-px bg-gold/10" />
               <span className="text-xs tracking-widest uppercase text-cream/25">
                 {f.orLabel}
@@ -276,40 +303,53 @@ export default function LeadForm() {
               <div className="flex-1 h-px bg-gold/10" />
             </div>
 
-            {/* ── Fallback: Email ── */}
-            <button
-              onClick={handleEmail}
-              disabled={sendingEmail}
-              className="flex items-center justify-center w-full gap-2 py-3 text-sm transition-all duration-200 border rounded-sm border-gold/20 text-cream/50 hover:text-cream hover:border-gold/40 disabled:opacity-40"
-            >
-              {sendingEmail ? (
-                <span className="animate-pulse">{f.sendingLabel}</span>
-              ) : (
-                <>
-                  <svg
-                    className="w-4 h-4"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={1.5}
-                      d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-                    />
-                  </svg>
-                  {f.emailBtn}
-                </>
-              )}
-            </button>
+            {/* ── Email secondary — mobile + tablet only ── */}
+            <div className="lg:hidden">
+              <button
+                onClick={handleEmail}
+                disabled={sendingEmail}
+                className="flex items-center justify-center w-full gap-2 py-3 text-sm transition-all duration-200 border rounded-sm border-gold/20 text-cream/50 hover:text-cream hover:border-gold/40 disabled:opacity-40"
+              >
+                {sendingEmail ? (
+                  <span className="animate-pulse">{f.sendingLabel}</span>
+                ) : (
+                  <>
+                    <EmailIcon />
+                    {f.emailBtn}
+                  </>
+                )}
+              </button>
+            </div>
 
-            <p className="mt-3 text-xs text-center text-cream/30">
+            {/* ── Error message ── */}
+            {emailError && (
+              <p className="mt-2 text-xs text-center text-red-400">
+                {f.emailErrorMsg}
+              </p>
+            )}
+
+            {/* ── Disclaimer (mobile/tablet: WA mention, desktop: email mention) ── */}
+            <p className="mt-3 text-xs text-center text-cream/30 lg:hidden">
               {f.disclaimer}
+            </p>
+            <p className="mt-3 text-xs text-center text-cream/30 hidden lg:block">
+              {f.disclaimerEmail}
             </p>
           </div>
         )}
       </div>
+
+      {/* Honeypot — hidden from humans, auto-filled by bots */}
+      <input
+        type="text"
+        name="website"
+        value={honeypot}
+        onChange={(e) => setHoneypot(e.target.value)}
+        tabIndex={-1}
+        autoComplete="off"
+        aria-hidden="true"
+        style={{ position: "absolute", left: "-9999px", opacity: 0, height: 0, width: 0 }}
+      />
 
       {/* Progress bar */}
       {!sent && (
@@ -317,7 +357,9 @@ export default function LeadForm() {
           {[1, 2].map((n) => (
             <div
               key={n}
-              className={`flex-1 h-0.5 transition-colors duration-300 ${step >= n ? "bg-gold" : "bg-gold/15"}`}
+              className={`flex-1 h-0.5 transition-colors duration-300 ${
+                step >= n ? "bg-gold" : "bg-gold/15"
+              }`}
             />
           ))}
         </div>

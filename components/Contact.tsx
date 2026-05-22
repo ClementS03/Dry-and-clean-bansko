@@ -16,6 +16,12 @@ const PhoneSvg = () => (
   </svg>
 )
 
+const EmailSvg = () => (
+  <svg className="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+  </svg>
+)
+
 export default function Contact() {
   const { t } = useLanguage()
   const c = t.contact
@@ -42,7 +48,8 @@ export default function Contact() {
 
           {/* Left: phone cards + area */}
           <div className="reveal space-y-4">
-            <a href={`tel:${c.phoneEN.replace(/\s/g, '')}`} className="flex items-center gap-4 p-5 card-dark group">
+            <a href={`tel:${c.phoneEN.replace(/\s/g, '')}`}
+              className="flex items-center gap-4 p-5 card-dark group md:pointer-events-none md:cursor-default">
               <span className="text-2xl">🇬🇧</span>
               <div className="flex-1">
                 <div className="text-cream/40 text-xs uppercase tracking-widest mb-0.5">{c.phoneENLabel}</div>
@@ -51,7 +58,8 @@ export default function Contact() {
               <PhoneSvg />
             </a>
 
-            <a href={`tel:${c.phoneBG.replace(/\s/g, '')}`} className="flex items-center gap-4 p-5 card-dark group">
+            <a href={`tel:${c.phoneBG.replace(/\s/g, '')}`}
+              className="flex items-center gap-4 p-5 card-dark group md:pointer-events-none md:cursor-default">
               <span className="text-2xl">🇧🇬</span>
               <div className="flex-1">
                 <div className="text-cream/40 text-xs uppercase tracking-widest mb-0.5">{c.phoneBGLabel}</div>
@@ -75,14 +83,22 @@ export default function Contact() {
           {/* Right: action buttons */}
           <div className="reveal flex flex-col gap-4 justify-center" style={{ transitionDelay: '150ms' }}>
             <a href={waUrl} target="_blank" rel="noopener noreferrer"
-              className="flex items-center justify-center gap-3 px-6 py-5 rounded-sm text-white font-display text-lg uppercase tracking-wider transition-all duration-200 hover:-translate-y-0.5 hover:shadow-[0_8px_32px_rgba(37,211,102,0.35)]"
+              className="lg:hidden flex items-center justify-center gap-3 px-6 py-5 rounded-sm text-white font-display text-lg uppercase tracking-wider transition-all duration-200 hover:-translate-y-0.5 hover:shadow-[0_8px_32px_rgba(37,211,102,0.35)]"
               style={{ background: 'linear-gradient(135deg,#25D366 0%,#1ebe5c 100%)' }}>
               <WaSvg />{c.waBtn}
             </a>
 
-            <a href={`tel:${c.phoneEN.replace(/\s/g, '')}`} className="btn-gold flex items-center justify-center gap-3 px-6 py-5 text-base">
-              <PhoneSvg />{c.callBtn}
-            </a>
+            <div className="md:hidden">
+              <a href={`tel:${c.phoneEN.replace(/\s/g, '')}`} className="btn-gold flex items-center justify-center gap-3 px-6 py-5 text-base">
+                <PhoneSvg />{c.callBtn}
+              </a>
+            </div>
+
+            <div className="hidden lg:block">
+              <a href={`mailto:${c.email}`} className="btn-gold flex items-center justify-center gap-3 px-6 py-5 text-base">
+                <EmailSvg />{c.emailBtn}
+              </a>
+            </div>
 
             <p className="text-center text-cream/35 text-xs">{c.reassurance}</p>
           </div>

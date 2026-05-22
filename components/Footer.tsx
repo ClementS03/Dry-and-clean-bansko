@@ -70,13 +70,13 @@ export default function Footer() {
           <div className="flex flex-col items-center gap-1 md:items-end">
             <a
               href={`tel:${t.contact.phoneEN.replace(/\s/g, "")}`}
-              className="text-sm transition-colors text-cream/50 hover:text-gold"
+              className="text-sm transition-colors text-cream/50 hover:text-gold md:pointer-events-none md:cursor-default"
             >
               🇬🇧 {t.contact.phoneEN}
             </a>
             <a
               href={`tel:${t.contact.phoneBG.replace(/\s/g, "")}`}
-              className="text-sm transition-colors text-cream/50 hover:text-gold"
+              className="text-sm transition-colors text-cream/50 hover:text-gold md:pointer-events-none md:cursor-default"
             >
               🇧🇬 {t.contact.phoneBG}
             </a>
