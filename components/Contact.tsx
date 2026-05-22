@@ -94,8 +94,8 @@ export default function Contact() {
               </a>
             </div>
 
-            <div className="hidden lg:block">
-              <a href={`mailto:${c.email}`} className="btn-gold flex items-center justify-center gap-3 px-6 py-5 text-base">
+            <div className="hidden lg:block text-center">
+              <a href={`mailto:${c.email}`} className="btn-gold w-full justify-center px-6 py-5 text-base">
                 <EmailSvg />{c.emailBtn}
               </a>
             </div>

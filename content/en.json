@@ -20,7 +20,7 @@
     "subtitle": "We clean sofas, mattresses, carpets, curtains and car seats on-site at your place — no transport, no stress.",
     "form": {
       "title": "Get a free quote",
-      "subtitle": "We respond within 1 hour",
+      "subtitle": "We respond within 24 hours",
       "step1Title": "What to clean?",
       "step2Title": "Your details",
       "serviceLabel": "Type of service",
@@ -61,9 +61,9 @@
       "nextBtn": "Continue →",
       "backBtn": "← Back",
       "submitBtn": "Send via WhatsApp →",
-      "disclaimer": "No commitment. You'll receive a reply on WhatsApp within 1 hour.",
+      "disclaimer": "No commitment. You'll receive a reply on WhatsApp within 24 hours.",
       "successTitle": "✓ Request sent!",
-      "successText": "We'll get back to you on WhatsApp within 1 hour.",
+      "successText": "We'll get back to you on WhatsApp within 24 hours.",
       "validationPhone": "Please enter a phone number",
       "validationLocation": "Please enter your location",
       "newRequest": "New request",
@@ -274,8 +274,8 @@
       },
       {
         "icon": "💬",
-        "title": "Reply within 1 hour",
-        "description": "Message us on WhatsApp and receive a quote within 1 hour."
+        "title": "Reply within 24 hours",
+        "description": "Message us on WhatsApp and receive a quote within 24 hours."
       }
     ]
   },
@@ -360,7 +360,7 @@
     "callBtn": "Call now",
     "waBtn": "Message on WhatsApp",
     "emailBtn": "Send an email",
-    "reassurance": "✓ No commitment · Reply within 1h · Free quote",
+    "reassurance": "✓ No commitment · Reply within 24h · Free quote",
     "phoneENLabel": "English",
     "phoneBGLabel": "Bulgarian"
   },
