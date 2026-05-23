@@ -173,7 +173,7 @@ export default function LeadForm() {
             {selectedServices.length > 0 && (
               <p className="mb-4 text-xs text-cream/40">
                 ✓ {selectedServices.length}{" "}
-                {selectedServices.length === 1 ? "sélectionné" : "sélectionnés"}
+                {selectedServices.length === 1 ? f.selectedLabel : f.selectedLabelPlural}
               </p>
             )}
 

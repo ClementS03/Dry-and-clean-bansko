@@ -1,7 +1,7 @@
 {
   "meta": {
     "title": "Furniture Cleaning Bansko | Wet&Dry Cleaning",
-    "description": "Professional furniture cleaning in Bansko & surroundings. Injection-extraction technology with Kärcher Puzzi 10/1. We come to you. Prices from 20€.",
+    "description": "Professional furniture cleaning in Bansko & surroundings. Injection-extraction technology. We come to you. Prices from 20€.",
     "keywords": "furniture cleaning Bansko, sofa cleaning Bansko, mattress cleaning Bansko, carpet cleaning Bansko, Wet Dry cleaning Bansko, injection extraction Bansko"
   },
   "nav": {
@@ -72,7 +72,9 @@
       "sendingLabel": "Sending...",
       "disclaimerEmail": "No commitment. We'll contact you by phone.",
       "successTextEmail": "We received your request. We'll be in touch soon.",
-      "emailErrorMsg": "Failed to send. Please try again."
+      "emailErrorMsg": "Failed to send. Please try again.",
+      "selectedLabel": "selected",
+      "selectedLabelPlural": "selected"
     }
   },
   "trust": [
@@ -467,7 +469,8 @@
   "reviews": {
     "badge": "Client reviews",
     "title": "What clients say",
-    "subtitle": "Real feedback from our clients in Bansko & surroundings."
+    "subtitle": "Real feedback from our clients in Bansko & surroundings.",
+    "ariaLabel": "Review"
   },
   "rentals": {
     "badge": "🏨 For hotels & rentals",

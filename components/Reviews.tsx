@@ -93,6 +93,7 @@ function ReviewCard({ review }: { review: Review }) {
 
 // ── Carousel (2+ reviews) ─────────────────────────────────────────────
 function ReviewCarousel({ reviews }: { reviews: Review[] }) {
+  const { t } = useLanguage();
   const [active, setActive] = useState(0);
   const [direction, setDirection] = useState(1);
 
@@ -157,7 +158,7 @@ function ReviewCarousel({ reviews }: { reviews: Review[] }) {
                   ? "w-5 h-2 bg-gold"
                   : "w-2 h-2 bg-gold/25 hover:bg-gold/50"
               }`}
-              aria-label={`Avis ${i + 1}`}
+              aria-label={`${t.reviews.ariaLabel} ${i + 1}`}
             />
           ))}
         </div>
@@ -252,7 +253,6 @@ export default function Reviews() {
           <div className="mx-auto section-badge">⭐ {t.reviews.badge}</div>
           <h2
             className="mt-4 text-4xl tracking-tight uppercase font-display sm:text-5xl text-cream"
-            style={{ fontFamily: "Oswald, sans-serif" }}
           >
             {t.reviews.title}
           </h2>
