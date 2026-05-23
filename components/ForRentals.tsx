@@ -9,11 +9,10 @@ export default function ForRentals() {
   const r = t.rentals
   const ref = useScrollReveal()
 
-  const waMsg = encodeURIComponent('Здравейте! Бих искал/а корпоративна оферта за почистване на хотел / апартаменти под наем.')
-  const waUrl = `https://wa.me/${t.contact.whatsappNumber}?text=${waMsg}`
+  const waUrl = `https://wa.me/${t.contact.whatsappNumber}?text=${encodeURIComponent(r.whatsappMsg)}`
 
   return (
-    <section id="rentals" className="section-pad relative overflow-hidden" style={{ background: 'linear-gradient(135deg, var(--ink-800) 0%, var(--ink-700) 100%)' }}>
+    <section id="rentals" className="section-pad bg-ink-800 relative overflow-hidden">
       {/* Top border accent */}
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gold/40 to-transparent" />
 
@@ -36,13 +35,13 @@ export default function ForRentals() {
         {/* Two-column: perks left, form right */}
         <div className="grid md:grid-cols-2 gap-12 items-start">
 
-          {/* Left: value props */}
-          <div className="space-y-5 reveal">
+          {/* Left: value props — each card reveals individually (stagger like WhyUs) */}
+          <div className="space-y-5">
             {r.items.map((item, i) => (
               <div
                 key={i}
-                className="flex gap-4 p-5 card-dark"
-                style={{ transitionDelay: `${i * 80}ms` }}
+                className="flex gap-4 p-5 card-dark reveal"
+                style={{ transitionDelay: `${i * 100}ms` }}
               >
                 <div className="text-2xl flex-shrink-0 mt-0.5">{item.icon}</div>
                 <div>
@@ -74,7 +73,7 @@ export default function ForRentals() {
             {/* Email CTA — desktop */}
             <div className="hidden lg:block pt-2">
               <a
-                href={`mailto:${t.contact.email}?subject=Corporate quote request`}
+                href={`mailto:${t.contact.email}?subject=${encodeURIComponent(r.cta)}`}
                 className="btn-gold w-full justify-center py-4 text-base"
               >
                 {r.cta} →
@@ -83,7 +82,7 @@ export default function ForRentals() {
           </div>
 
           {/* Right: quote form */}
-          <div className="reveal" style={{ transitionDelay: '200ms' }}>
+          <div className="reveal" style={{ transitionDelay: '150ms' }}>
             <LeadForm />
           </div>
         </div>
