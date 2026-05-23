@@ -7,6 +7,7 @@ import Technology from "@/components/Technology";
 import BeforeAfter from "@/components/BeforeAfter";
 import Comparison from "@/components/Comparison";
 import WhyUs from "@/components/WhyUs";
+import ForRentals from "@/components/ForRentals";
 import Pricing from "@/components/Pricing";
 import Reviews from "@/components/Reviews";
 import FAQ from "@/components/FAQ";
@@ -90,6 +91,7 @@ export default function HomeEN() {
         <BeforeAfter />
         <Comparison />
         <WhyUs />
+        <ForRentals />
         <Pricing />
         <Reviews />
         <FAQ />

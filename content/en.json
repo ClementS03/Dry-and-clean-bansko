@@ -468,5 +468,35 @@
     "badge": "Client reviews",
     "title": "What clients say",
     "subtitle": "Real feedback from our clients in Bansko & surroundings."
+  },
+  "rentals": {
+    "badge": "🏨 For hotels & rentals",
+    "title": "Cleaning for",
+    "titleHighlight": "hotels & Airbnb.",
+    "subtitle": "Fast turnaround between guests — we take care of the furniture, you take care of the guests.",
+    "items": [
+      {
+        "icon": "⚡",
+        "title": "Fast turnaround",
+        "description": "We clean between check-out and check-in — even same-day with advance notice."
+      },
+      {
+        "icon": "📦",
+        "title": "Volume pricing",
+        "description": "Discounted rates for 3+ units. The more you book, the better the price."
+      },
+      {
+        "icon": "📅",
+        "title": "Seasonal contracts",
+        "description": "End-of-ski-season or pre-summer cleaning contracts. Planned, no surprises."
+      },
+      {
+        "icon": "✅",
+        "title": "Results or no charge",
+        "description": "Our satisfaction guarantee applies to corporate clients too — if you are not happy, you do not pay."
+      }
+    ],
+    "cta": "Request a corporate quote",
+    "trust": "Serving hotels, villas and apartments in Bansko, Razlog, Dobrinishte and Banya"
   }
 }

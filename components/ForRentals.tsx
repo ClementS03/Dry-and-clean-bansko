@@ -1,0 +1,93 @@
+'use client'
+
+import { useLanguage } from '@/context/LanguageContext'
+import { useScrollReveal } from '@/hooks/useScrollReveal'
+import LeadForm from '@/components/LeadForm'
+
+export default function ForRentals() {
+  const { t } = useLanguage()
+  const r = t.rentals
+  const ref = useScrollReveal()
+
+  const waMsg = encodeURIComponent('Здравейте! Бих искал/а корпоративна оферта за почистване на хотел / апартаменти под наем.')
+  const waUrl = `https://wa.me/${t.contact.whatsappNumber}?text=${waMsg}`
+
+  return (
+    <section id="rentals" className="section-pad relative overflow-hidden" style={{ background: 'linear-gradient(135deg, var(--ink-800) 0%, var(--ink-700) 100%)' }}>
+      {/* Top border accent */}
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gold/40 to-transparent" />
+
+      {/* Background glow */}
+      <div className="absolute top-0 right-0 w-[50vw] h-[60vh] opacity-[0.07] pointer-events-none"
+        style={{ background: 'radial-gradient(ellipse at top right, var(--gold), transparent 65%)' }} />
+
+      <div ref={ref} className="max-w-6xl mx-auto px-4 sm:px-6">
+
+        {/* Header */}
+        <div className="text-center mb-14 reveal">
+          <div className="section-badge mb-6">{r.badge}</div>
+          <h2 className="font-display text-4xl sm:text-5xl text-cream uppercase tracking-tight">
+            {r.title}{' '}
+            <span className="text-gold-gradient">{r.titleHighlight}</span>
+          </h2>
+          <p className="text-cream/50 mt-4 text-base max-w-xl mx-auto">{r.subtitle}</p>
+        </div>
+
+        {/* Two-column: perks left, form right */}
+        <div className="grid md:grid-cols-2 gap-12 items-start">
+
+          {/* Left: value props */}
+          <div className="space-y-5 reveal">
+            {r.items.map((item, i) => (
+              <div
+                key={i}
+                className="flex gap-4 p-5 card-dark"
+                style={{ transitionDelay: `${i * 80}ms` }}
+              >
+                <div className="text-2xl flex-shrink-0 mt-0.5">{item.icon}</div>
+                <div>
+                  <div className="font-display text-base text-gold uppercase tracking-wide mb-1">
+                    {item.title}
+                  </div>
+                  <div className="text-cream/60 text-sm leading-relaxed">
+                    {item.description}
+                  </div>
+                </div>
+              </div>
+            ))}
+
+            {/* Trust line */}
+            <p className="text-cream/30 text-xs text-center pt-2">📍 {r.trust}</p>
+
+            {/* WhatsApp CTA — mobile/tablet */}
+            <div className="lg:hidden pt-2">
+              <a
+                href={waUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-gold w-full justify-center py-4 text-base"
+              >
+                {r.cta} →
+              </a>
+            </div>
+
+            {/* Email CTA — desktop */}
+            <div className="hidden lg:block pt-2">
+              <a
+                href={`mailto:${t.contact.email}?subject=Corporate quote request`}
+                className="btn-gold w-full justify-center py-4 text-base"
+              >
+                {r.cta} →
+              </a>
+            </div>
+          </div>
+
+          {/* Right: quote form */}
+          <div className="reveal" style={{ transitionDelay: '200ms' }}>
+            <LeadForm />
+          </div>
+        </div>
+      </div>
+    </section>
+  )
+}
