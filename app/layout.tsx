@@ -173,7 +173,7 @@ export default async function RootLayout({
     "@type": ["LocalBusiness", "ProfessionalService"],
     name: "Wet&Dry Cleaning Bansko",
     description:
-      "Professional furniture cleaning with injection-extraction technology in Bansko and surroundings. We come to you — sofas, mattresses, carpets, curtains, car seats.",
+      "Професионално пране на мебели с injection-extraction технология в Банско и региона. Идваме при вас — дивани, матраци, килими, завеси, авто седалки.",
     url: DOMAIN,
     telephone: ["+359882862228", "+359876850385"],
     email: "wetdrycleanbansko@gmail.com",
@@ -239,35 +239,35 @@ export default async function RootLayout({
     }),
     hasOfferCatalog: {
       "@type": "OfferCatalog",
-      name: "Furniture cleaning services Bansko",
+      name: "Услуги за пране на мебели в Банско",
       itemListElement: [
         {
           "@type": "Offer",
-          itemOffered: { "@type": "Service", name: "Sofa cleaning Bansko" },
+          itemOffered: { "@type": "Service", name: "Пране на диван Банско" },
           price: "25",
           priceCurrency: "EUR",
         },
         {
           "@type": "Offer",
-          itemOffered: { "@type": "Service", name: "Mattress cleaning Bansko" },
+          itemOffered: { "@type": "Service", name: "Пране на матрак Банско" },
           price: "20",
           priceCurrency: "EUR",
         },
         {
           "@type": "Offer",
-          itemOffered: { "@type": "Service", name: "Carpet cleaning Bansko" },
+          itemOffered: { "@type": "Service", name: "Пране на килим Банско" },
           price: "4",
           priceCurrency: "EUR",
         },
         {
           "@type": "Offer",
-          itemOffered: { "@type": "Service", name: "Curtain cleaning Bansko" },
+          itemOffered: { "@type": "Service", name: "Пране на завеси Банско" },
           price: "15",
           priceCurrency: "EUR",
         },
         {
           "@type": "Offer",
-          itemOffered: { "@type": "Service", name: "Car seat cleaning Bansko" },
+          itemOffered: { "@type": "Service", name: "Пране на авто седалки Банско" },
           price: "25",
           priceCurrency: "EUR",
         },

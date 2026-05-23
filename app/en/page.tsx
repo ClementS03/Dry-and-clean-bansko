@@ -53,8 +53,34 @@ export const metadata: Metadata = {
   },
 };
 
+const enBusinessSchema = {
+  "@context": "https://schema.org",
+  "@type": ["LocalBusiness", "ProfessionalService"],
+  name: "Wet&Dry Cleaning Bansko",
+  description:
+    "Professional furniture cleaning with injection-extraction technology in Bansko and surroundings. We come to you — sofas, mattresses, carpets, curtains, car seats.",
+  url: `${DOMAIN}/en`,
+  telephone: ["+359882862228", "+359876850385"],
+  hasOfferCatalog: {
+    "@type": "OfferCatalog",
+    name: "Furniture cleaning services Bansko",
+    itemListElement: [
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Sofa cleaning Bansko" }, price: "25", priceCurrency: "EUR" },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Mattress cleaning Bansko" }, price: "20", priceCurrency: "EUR" },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Carpet cleaning Bansko" }, price: "4", priceCurrency: "EUR" },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Curtain cleaning Bansko" }, price: "15", priceCurrency: "EUR" },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Car seat cleaning Bansko" }, price: "25", priceCurrency: "EUR" },
+    ],
+  },
+};
+
 export default function HomeEN() {
   return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(enBusinessSchema) }}
+      />
     <LanguageProvider initialLang="en">
       <Navbar />
       <main>
@@ -72,5 +98,6 @@ export default function HomeEN() {
       <Footer />
       <WhatsAppFAB />
     </LanguageProvider>
+    </>
   );
 }
