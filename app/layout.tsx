@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { LanguageProvider } from "@/context/LanguageContext";
 import { Client } from "@notionhq/client";
 import { unstable_cache } from "next/cache";
 import bgContent from "@/content/bg.json";
@@ -51,8 +50,6 @@ const cssVars = `
 }
 `.trim();
 
-// Async font loading — prevents render blocking
-// preconnect + rel=preload for critical font, async for stylesheet
 const fontScript = `
 (function(){
   var l=document.createElement('link');
@@ -75,7 +72,6 @@ export const metadata: Metadata = {
     "пране диван Банско",
     "пране килим Банско",
     "пране матрак Банско",
-    "пране на меки мебели",
     "пране завеси Банско",
     "пране авто седалки Банско",
     "почистване мебели Разлог",
@@ -86,8 +82,9 @@ export const metadata: Metadata = {
     "sofa cleaning Bansko",
     "carpet cleaning Bansko",
     "upholstery cleaning Bansko Bulgaria",
-    "carpet cleaning Razlog",
-    "sofa cleaning Banya Bulgaria",
+    "mattress cleaning Bansko",
+    "airbnb cleaning Bansko",
+    "hotel cleaning Bansko",
     "Банско",
     "Разлог",
     "Добринище",
@@ -95,6 +92,14 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "Wet&Dry Cleaning Bansko" }],
   creator: "Wet&Dry Cleaning Bansko",
+  alternates: {
+    canonical: "/",
+    languages: {
+      "bg-BG": "/",
+      "en": "/en",
+      "x-default": "/",
+    },
+  },
   openGraph: {
     type: "website",
     url: DOMAIN,
@@ -103,13 +108,12 @@ export const metadata: Metadata = {
       "Injection-extraction технология — директно при вас. Дивани, матраци, килими, завеси. Цени от 20€.",
     siteName: "Wet&Dry Cleaning Bansko",
     locale: "bg_BG",
-    alternateLocale: "en_US",
     images: [
       {
         url: "/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "Wet&Dry Cleaning Bansko",
+        alt: "Wet&Dry Cleaning Bansko — пране на мебели",
       },
     ],
   },
@@ -124,9 +128,7 @@ export const metadata: Metadata = {
       { url: "/favicon.ico", sizes: "any" },
       { url: "/web-app-manifest-192x192.png", type: "image/png", sizes: "192x192" },
     ],
-    apple: [
-      { url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
-    ],
+    apple: [{ url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" }],
     shortcut: "/favicon.ico",
   },
   manifest: "/manifest.json",
@@ -168,16 +170,21 @@ export default async function RootLayout({
 
   const localBusinessSchema = {
     "@context": "https://schema.org",
-    "@type": "LocalBusiness",
+    "@type": ["LocalBusiness", "ProfessionalService"],
     name: "Wet&Dry Cleaning Bansko",
     description:
-      "Професионално пране на мебели с injection-extraction технология в Банско и региона.",
+      "Professional furniture cleaning with injection-extraction technology in Bansko and surroundings. We come to you — sofas, mattresses, carpets, curtains, car seats.",
     url: DOMAIN,
     telephone: ["+359882862228", "+359876850385"],
+    email: "wetdrycleanbansko@gmail.com",
+    image: [`${DOMAIN}/og-image.jpg`],
+    logo: `${DOMAIN}/logo.png`,
     address: {
       "@type": "PostalAddress",
+      streetAddress: "Sv. Ivan Rilski",
       addressLocality: "Bansko",
       addressRegion: "Blagoevgrad",
+      postalCode: "2770",
       addressCountry: "BG",
     },
     geo: {
@@ -185,7 +192,17 @@ export default async function RootLayout({
       latitude: 41.8395,
       longitude: 23.4882,
     },
-    openingHours: "Mo-Su 08:00-20:00",
+    openingHoursSpecification: [
+      {
+        "@type": "OpeningHoursSpecification",
+        dayOfWeek: [
+          "Monday", "Tuesday", "Wednesday", "Thursday",
+          "Friday", "Saturday", "Sunday",
+        ],
+        opens: "08:00",
+        closes: "20:00",
+      },
+    ],
     priceRange: "€€",
     currenciesAccepted: "EUR, BGN",
     paymentAccepted: "Cash, Bank transfer",
@@ -195,6 +212,22 @@ export default async function RootLayout({
       { "@type": "City", name: "Dobrinishte" },
       { "@type": "City", name: "Banya" },
     ],
+    serviceArea: {
+      "@type": "GeoCircle",
+      geoMidpoint: {
+        "@type": "GeoCoordinates",
+        latitude: 41.8395,
+        longitude: 23.4882,
+      },
+      geoRadius: "20000",
+    },
+    sameAs: [
+      "https://g.page/r/CU4pAGZ9UMLpEBM",
+      "https://www.instagram.com/wetdryclean.bansko/",
+      "https://www.facebook.com/profile.php?id=61588508592574",
+      "https://www.tiktok.com/@wetdryclean.bansko",
+    ],
+    dateModified: new Date().toISOString().split("T")[0],
     ...(reviewStats && {
       aggregateRating: {
         "@type": "AggregateRating",
@@ -206,35 +239,35 @@ export default async function RootLayout({
     }),
     hasOfferCatalog: {
       "@type": "OfferCatalog",
-      name: "Услуги за пране на мебели",
+      name: "Furniture cleaning services Bansko",
       itemListElement: [
         {
           "@type": "Offer",
-          itemOffered: { "@type": "Service", name: "Пране на диван" },
+          itemOffered: { "@type": "Service", name: "Sofa cleaning Bansko" },
           price: "25",
           priceCurrency: "EUR",
         },
         {
           "@type": "Offer",
-          itemOffered: { "@type": "Service", name: "Пране на матрак" },
+          itemOffered: { "@type": "Service", name: "Mattress cleaning Bansko" },
           price: "20",
           priceCurrency: "EUR",
         },
         {
           "@type": "Offer",
-          itemOffered: { "@type": "Service", name: "Пране на килим" },
+          itemOffered: { "@type": "Service", name: "Carpet cleaning Bansko" },
           price: "4",
           priceCurrency: "EUR",
         },
         {
           "@type": "Offer",
-          itemOffered: { "@type": "Service", name: "Пране на завеси" },
+          itemOffered: { "@type": "Service", name: "Curtain cleaning Bansko" },
           price: "15",
           priceCurrency: "EUR",
         },
         {
           "@type": "Offer",
-          itemOffered: { "@type": "Service", name: "Пране на авто седалки" },
+          itemOffered: { "@type": "Service", name: "Car seat cleaning Bansko" },
           price: "25",
           priceCurrency: "EUR",
         },
@@ -245,43 +278,26 @@ export default async function RootLayout({
   return (
     <html lang="bg" suppressHydrationWarning>
       <head>
-        {/* Design tokens */}
         <style suppressHydrationWarning dangerouslySetInnerHTML={{ __html: cssVars }} />
-
-        {/* Preconnect for faster font resolution */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link
-          rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossOrigin="anonymous"
-        />
-
-        {/* Load fonts async — does NOT block render */}
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <script dangerouslySetInnerHTML={{ __html: fontScript }} />
-
-        {/* Fallback for no-JS */}
         <noscript>
           <link
             rel="stylesheet"
             href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600&display=swap"
           />
         </noscript>
-
-        {/* LocalBusiness + AggregateRating JSON-LD */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
         />
-
-        {/* FAQPage JSON-LD */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
         />
       </head>
-      <body>
-        <LanguageProvider>{children}</LanguageProvider>
-      </body>
+      <body>{children}</body>
     </html>
   );
 }

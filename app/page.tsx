@@ -1,3 +1,4 @@
+import { LanguageProvider } from "@/context/LanguageContext";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import Services from "@/components/Services";
@@ -14,7 +15,7 @@ import WhatsAppFAB from "@/components/WhatsAppFAB";
 
 export default function Home() {
   return (
-    <>
+    <LanguageProvider initialLang="bg">
       <Navbar />
       <main>
         <Hero />
@@ -30,6 +31,6 @@ export default function Home() {
       </main>
       <Footer />
       <WhatsAppFAB />
-    </>
+    </LanguageProvider>
   );
 }

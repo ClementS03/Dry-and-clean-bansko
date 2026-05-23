@@ -80,6 +80,14 @@ export default function Footer() {
             >
               🇧🇬 {t.contact.phoneBG}
             </a>
+            <a
+              href={t.contact.reviewUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-1 text-xs text-gold/60 hover:text-gold transition-colors duration-200"
+            >
+              ⭐ {t.contact.reviewCta}
+            </a>
           </div>
         </div>
 

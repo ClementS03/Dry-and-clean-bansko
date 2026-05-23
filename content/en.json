@@ -17,7 +17,7 @@
     "badge": "📍 Bansko · Razlog · Dobrinishte · Banya",
     "title": "Sofas, mattresses,",
     "titleHighlight": "like new again.",
-    "subtitle": "We clean sofas, mattresses, carpets, curtains and car seats on-site at your place — no transport, no stress.",
+    "subtitle": "We clean sofas, mattresses, carpets, curtains and car seats on-site in Bansko and surroundings — no transport, no stress.",
     "form": {
       "title": "Get a free quote",
       "subtitle": "We respond within 24 hours",
@@ -344,6 +344,30 @@
       {
         "q": "Which areas do you cover?",
         "a": "We cover Bansko, Razlog, Dobrinishte, Banya and the entire Bansko-Razlog valley. For more distant locations — contact us."
+      },
+      {
+        "q": "How much does sofa cleaning cost in Bansko?",
+        "a": "Sofa cleaning in Bansko starts from €25 for a 2-seater and up to €45 for a large corner sofa. Mattresses from €20, carpets from €4/m², curtains from €15. All prices are listed on our Pricing page with no hidden fees. Payment is made after the service — cash or bank transfer — only if you are satisfied."
+      },
+      {
+        "q": "Can you remove pet odours and smells?",
+        "a": "Yes. The injection-extraction method extracts contaminants from deep within the fabric, including odours from dogs, cats and cigarette smoke. For stronger odours, we apply enzyme-based treatments at no extra charge. Most clients report complete odour elimination after a single treatment."
+      },
+      {
+        "q": "Do you clean for hotels and Airbnb rentals in Bansko?",
+        "a": "Yes, we serve hotels, villas and rental apartments in Bansko and the surrounding area. We offer priority scheduling between tenant stays, volume pricing for larger properties, and seasonal cleaning contracts at the end of ski season. Contact us for a corporate quote."
+      },
+      {
+        "q": "Do you cover Dobrinishte, Banya and Razlog?",
+        "a": "Yes, we cover Dobrinishte, Banya, Razlog and all villages in the Bansko-Razlog valley with no extra travel charge. For locations outside this area, please contact us in advance to confirm availability."
+      },
+      {
+        "q": "Do you work during ski season and on weekends?",
+        "a": "Yes, we work every day from 08:00 to 20:00, including weekends and public holidays. Ski season (December–March) is our busiest period — we recommend booking at least 1–2 days in advance to secure your preferred time slot."
+      },
+      {
+        "q": "How often should sofas and mattresses be cleaned?",
+        "a": "We recommend cleaning sofas at least once a year with normal use, or every 6 months if you have pets or young children. Mattresses should ideally be cleaned every 6–12 months — dust mites thrive in uncleaned mattresses and are a common cause of allergies and poor sleep."
       }
     ]
   },
@@ -362,7 +386,9 @@
     "emailBtn": "Send an email",
     "reassurance": "✓ No commitment · Reply within 24h · Free quote",
     "phoneENLabel": "English",
-    "phoneBGLabel": "Bulgarian"
+    "phoneBGLabel": "Bulgarian",
+    "reviewUrl": "https://g.page/r/CU4pAGZ9UMLpEBM/review",
+    "reviewCta": "Leave a Google review"
   },
   "footer": {
     "company": "Wet&Dry Cleaning Bansko",
@@ -394,9 +420,21 @@
     "creditName": "Clément Seguin",
     "creditUrl": "https://clement-seguin.fr",
     "social": [
-      { "label": "Instagram", "href": "https://www.instagram.com/wetdryclean.bansko/", "icon": "instagram" },
-      { "label": "Facebook", "href": "https://www.facebook.com/profile.php?id=61588508592574", "icon": "facebook" },
-      { "label": "TikTok", "href": "https://www.tiktok.com/@wetdryclean.bansko", "icon": "tiktok" }
+      {
+        "label": "Instagram",
+        "href": "https://www.instagram.com/wetdryclean.bansko/",
+        "icon": "instagram"
+      },
+      {
+        "label": "Facebook",
+        "href": "https://www.facebook.com/profile.php?id=61588508592574",
+        "icon": "facebook"
+      },
+      {
+        "label": "TikTok",
+        "href": "https://www.tiktok.com/@wetdryclean.bansko",
+        "icon": "tiktok"
+      }
     ]
   },
   "whatsapp": {
