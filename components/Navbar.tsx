@@ -1,12 +1,23 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { usePathname, useRouter } from "next/navigation";
 import { useLanguage } from "@/context/LanguageContext";
 import Image from "next/image";
 
 export default function Navbar() {
-  const { t, toggle } = useLanguage();
+  const { t } = useLanguage();
+  const pathname = usePathname();
+  const router = useRouter();
   const [scrolled, setScrolled] = useState(false);
+
+  const switchLang = () => {
+    if (pathname === "/en") {
+      router.push("/");
+    } else {
+      router.push("/en");
+    }
+  };
   const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
@@ -95,7 +106,7 @@ export default function Navbar() {
           {/* ── Right: lang + CTA + hamburger ── */}
           <div className="flex items-center gap-3">
             <button
-              onClick={toggle}
+              onClick={switchLang}
               className="font-display text-xs font-semibold uppercase tracking-widest text-gold border border-gold/40 px-2.5 py-1 rounded-sm hover:bg-gold/10 transition-colors duration-200"
               aria-label="Switch language"
             >
