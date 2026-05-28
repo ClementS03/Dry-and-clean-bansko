@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import "./globals.css";
+import "../globals.css";
 import { Client } from "@notionhq/client";
 import { unstable_cache } from "next/cache";
 import bgContent from "@/content/bg.json";
@@ -151,7 +151,7 @@ export const viewport = {
   themeColor: colors.gold,
 };
 
-export default async function RootLayout({
+export default async function RootLayoutBG({
   children,
 }: {
   children: React.ReactNode;
@@ -219,7 +219,7 @@ export default async function RootLayout({
         latitude: 41.8395,
         longitude: 23.4882,
       },
-      geoRadius: "20000",
+      geoRadius: 20000,
     },
     sameAs: [
       "https://g.page/r/CU4pAGZ9UMLpEBM",
@@ -231,7 +231,7 @@ export default async function RootLayout({
     ...(reviewStats && {
       aggregateRating: {
         "@type": "AggregateRating",
-        ratingValue: reviewStats.avg.toString(),
+        ratingValue: reviewStats.avg,
         reviewCount: reviewStats.count,
         bestRating: "5",
         worstRating: "1",
