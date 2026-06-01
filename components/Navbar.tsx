@@ -66,6 +66,8 @@ export default function Navbar() {
               alt="Wet&Dry Cleaning Bansko"
               width={40}
               height={40}
+              priority
+              sizes="40px"
               className="object-cover w-10 h-10 overflow-hidden rounded-full"
             />
           </a>

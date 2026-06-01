@@ -3,6 +3,7 @@ import "../globals.css";
 import { Client } from "@notionhq/client";
 import { unstable_cache } from "next/cache";
 import bgContent from "@/content/bg.json";
+import { oswald, dmSans } from "../fonts";
 
 // eslint-disable-next-line @typescript-eslint/no-require-imports
 const { colors } = require("@/config/design");
@@ -45,18 +46,9 @@ const cssVars = `
   --ink-500:    ${colors.ink500};
   --cream:      ${colors.cream};
   --cream-dark: ${colors.creamDark};
-  --font-display: 'Oswald', sans-serif;
-  --font-body:    'DM Sans', sans-serif;
+  --font-display: var(--font-display-next), 'Oswald', sans-serif;
+  --font-body:    var(--font-body-next), 'DM Sans', sans-serif;
 }
-`.trim();
-
-const fontScript = `
-(function(){
-  var l=document.createElement('link');
-  l.rel='stylesheet';
-  l.href='https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600&display=swap';
-  document.head.appendChild(l);
-})();
 `.trim();
 
 export const metadata: Metadata = {
@@ -111,8 +103,8 @@ export const metadata: Metadata = {
     images: [
       {
         url: "/og-image.jpg",
-        width: 1200,
-        height: 630,
+        width: 1024,
+        height: 500,
         alt: "Wet&Dry Cleaning Bansko — пране на мебели",
       },
     ],
@@ -276,18 +268,13 @@ export default async function RootLayoutBG({
   };
 
   return (
-    <html lang="bg" suppressHydrationWarning>
+    <html
+      lang="bg"
+      className={`${oswald.variable} ${dmSans.variable}`}
+      suppressHydrationWarning
+    >
       <head>
         <style suppressHydrationWarning dangerouslySetInnerHTML={{ __html: cssVars }} />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <script dangerouslySetInnerHTML={{ __html: fontScript }} />
-        <noscript>
-          <link
-            rel="stylesheet"
-            href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600&display=swap"
-          />
-        </noscript>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}

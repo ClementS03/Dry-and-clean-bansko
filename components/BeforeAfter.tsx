@@ -59,7 +59,14 @@ function SliderCard({
       >
         {/* After */}
         <div className="absolute inset-0 flex items-center justify-center bg-ink-600">
-          <Image src={after} alt={`${label} — ${afterLabel}`} fill className="object-cover" />
+          <Image
+            src={after}
+            alt={`${label} — ${afterLabel}`}
+            fill
+            sizes="(max-width: 768px) 100vw, 33vw"
+            loading="lazy"
+            className="object-cover"
+          />
         </div>
 
         {/* Before (clipped) */}
@@ -72,6 +79,8 @@ function SliderCard({
               src={before}
               alt={`${label} — ${beforeLabel}`}
               fill
+              sizes="(max-width: 768px) 100vw, 33vw"
+              loading="lazy"
               className="object-cover"
             />
           </div>
