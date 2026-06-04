@@ -502,5 +502,43 @@
     "cta": "Request a corporate quote",
     "trust": "Serving hotels, villas and apartments in Bansko, Razlog, Dobrinishte and Banya",
     "whatsappMsg": "Hello! I would like a corporate quote for hotel / rental apartment cleaning."
+  },
+  "simulator": {
+    "badge": "AI Simulator",
+    "title": "See the result on your furniture",
+    "subtitle": "Upload a photo — AI will show how it looks after cleaning",
+    "cta": "Try for free",
+    "fabLabel": "Simulator",
+    "fabTooltip": "Simulate the cleaning",
+    "types": {
+      "canape": "Sofa",
+      "fauteuil": "Armchair",
+      "matelas": "Mattress",
+      "kilim": "Rug"
+    },
+    "upload": {
+      "label": "Add a photo",
+      "hint": "JPG, PNG or WebP · max 5MB"
+    },
+    "processing": [
+      "Analysing fabric…",
+      "Removing stains…",
+      "Reconstructing fibres…",
+      "Finalising…"
+    ],
+    "result": {
+      "title": "Here is your result",
+      "ctaWhatsapp": "Book the cleaning",
+      "ctaSave": "Receive the result on WhatsApp",
+      "phoneLabel": "Your number",
+      "phoneCta": "Send →",
+      "waMessage": "Hello, I tested the simulator with my"
+    },
+    "error": {
+      "generic": "Something went wrong. Please try again.",
+      "tooLarge": "Photo is too large (max 5MB).",
+      "rateLimit": "Too many attempts. Please try again in an hour.",
+      "retry": "Try again"
+    }
   }
 }
