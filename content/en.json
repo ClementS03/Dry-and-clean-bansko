@@ -510,6 +510,8 @@
     "cta": "Try for free",
     "fabLabel": "Simulator",
     "fabTooltip": "Simulate the cleaning",
+    "closeLabel": "Close",
+    "processingHint": "~20s",
     "types": {
       "canape": "Sofa",
       "fauteuil": "Armchair",

@@ -510,6 +510,8 @@
     "cta": "Тествайте безплатно",
     "fabLabel": "Симулатор",
     "fabTooltip": "Симулирайте почистването",
+    "closeLabel": "Затвори",
+    "processingHint": "~20с",
     "types": {
       "canape": "Диван",
       "fauteuil": "Фотьойл",

@@ -16,7 +16,7 @@ const FURNITURE_ICONS: Record<FurnitureType, string> = {
   canape: "🛋",
   fauteuil: "🪑",
   matelas: "🛏",
-  kilim: "🪞",
+  kilim: "🟫",
 };
 
 export default function SimulatorModal({ isOpen, onClose }: Props) {
@@ -35,10 +35,15 @@ export default function SimulatorModal({ isOpen, onClose }: Props) {
 
   const fileInputRef = useRef<HTMLInputElement>(null);
   const sliderRef = useRef<HTMLDivElement>(null);
+  const abortRef = useRef<AbortController | null>(null);
 
-  // Reset state when modal closes
+  // Scroll lock + reset when modal opens/closes
   useEffect(() => {
-    if (!isOpen) {
+    if (isOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+      abortRef.current?.abort();
       setState("idle");
       setSelectedType(null);
       setOriginalImage(null);
@@ -98,6 +103,7 @@ export default function SimulatorModal({ isOpen, onClose }: Props) {
 
   const handleSubmit = async () => {
     if (!originalImage || !selectedType) return;
+    abortRef.current = new AbortController();
     setState("processing");
     setProgress(0);
     setProcessingStep(0);
@@ -106,6 +112,7 @@ export default function SimulatorModal({ isOpen, onClose }: Props) {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ image: originalImage, type: selectedType, website: "" }),
+        signal: abortRef.current.signal,
       });
       const data = await res.json();
       if (!res.ok) {
@@ -116,37 +123,43 @@ export default function SimulatorModal({ isOpen, onClose }: Props) {
       setResultImage(data.resultUrl);
       setProgress(100);
       setState("result");
-    } catch {
+    } catch (err) {
+      if (err instanceof DOMException && err.name === "AbortError") return;
       setErrorKey("generic");
       setState("error");
     }
   };
 
-  const moveSlider = (clientX: number) => {
+  const moveSlider = useCallback((clientX: number) => {
     const rect = sliderRef.current?.getBoundingClientRect();
     if (!rect) return;
     const p = ((clientX - rect.left) / rect.width) * 100;
     setSliderPos(Math.max(5, Math.min(95, p)));
-  };
+  }, []);
+
+  if (!isOpen) return null;
 
   const waNumber = t.contact.whatsappNumber;
   const waMsg = encodeURIComponent(
     `${s.result.waMessage} ${s.types[selectedType ?? "canape"]}.`
   );
 
-  if (!isOpen) return null;
-
   return (
     <div
       className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm"
       onClick={(e) => e.target === e.currentTarget && onClose()}
     >
-      <div className="relative w-full max-w-lg bg-ink border border-gold/20 rounded-lg shadow-2xl max-h-[90vh] overflow-y-auto">
+      <div
+        className="relative w-full max-w-lg bg-ink border border-gold/20 rounded-lg shadow-2xl max-h-[90vh] overflow-y-auto"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="simulator-title"
+      >
         {/* Close */}
         <button
           onClick={onClose}
           className="absolute top-3 right-3 text-cream/40 hover:text-cream transition-colors z-10"
-          aria-label="Fermer"
+          aria-label={s.closeLabel}
         >
           <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
@@ -159,7 +172,7 @@ export default function SimulatorModal({ isOpen, onClose }: Props) {
             <div className="space-y-5">
               <div className="text-center">
                 <div className="section-badge mx-auto w-fit mb-3">{s.badge}</div>
-                <h3 className="text-xl font-display uppercase text-cream">{s.title}</h3>
+                <h3 id="simulator-title" className="text-xl font-display uppercase text-cream">{s.title}</h3>
                 <p className="text-sm text-cream/50 mt-1">{s.subtitle}</p>
               </div>
 
@@ -234,7 +247,7 @@ export default function SimulatorModal({ isOpen, onClose }: Props) {
                   style={{ width: `${progress}%` }}
                 />
               </div>
-              <p className="text-cream/30 text-xs text-center">~20s</p>
+              <p className="text-cream/30 text-xs text-center">{s.processingHint}</p>
             </div>
           )}
 
@@ -277,8 +290,8 @@ export default function SimulatorModal({ isOpen, onClose }: Props) {
                     </svg>
                   </div>
                 </div>
-                <div className="absolute top-2 left-2 bg-black/60 text-red-400 text-xs font-bold uppercase px-2 py-0.5 rounded-sm pointer-events-none">Avant</div>
-                <div className="absolute top-2 right-2 bg-black/60 text-gold text-xs font-bold uppercase px-2 py-0.5 rounded-sm pointer-events-none">Après</div>
+                <div className="absolute top-2 left-2 bg-black/60 text-red-400 text-xs font-bold uppercase px-2 py-0.5 rounded-sm pointer-events-none">{t.gallery.beforeLabel}</div>
+                <div className="absolute top-2 right-2 bg-black/60 text-gold text-xs font-bold uppercase px-2 py-0.5 rounded-sm pointer-events-none">{t.gallery.afterLabel}</div>
               </div>
 
               {/* Primary CTA — WhatsApp */}
@@ -310,7 +323,7 @@ export default function SimulatorModal({ isOpen, onClose }: Props) {
                   <a
                     href={
                       phone
-                        ? `https://wa.me/${phone.replace(/\D/g, "")}?text=${encodeURIComponent(s.result.ctaWhatsapp)}`
+                        ? `https://wa.me/${phone.replace(/\D/g, "")}?text=${waMsg}`
                         : "#"
                     }
                     target="_blank"

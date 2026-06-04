@@ -4,6 +4,9 @@
   status = 301
   force = true
 
+[functions]
+  timeout = 60
+
 # ── Caching headers ─────────────────────────────────────────────
 # Next.js build assets are content-hashed → safe to cache forever.
 [[headers]]
