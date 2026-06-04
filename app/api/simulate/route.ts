@@ -1,5 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
-import { fal } from "@fal-ai/client";
+import { fal, ApiError } from "@fal-ai/client";
+
+fal.config({ credentials: process.env.FAL_KEY ?? "" });
 
 const ALLOWED_MIME = ["image/jpeg", "image/png", "image/webp"];
 const MAX_BYTES = 5 * 1024 * 1024;
@@ -55,8 +57,6 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: "tooLarge" }, { status: 400 });
   }
 
-  fal.config({ credentials: process.env.FAL_KEY });
-
   try {
     // Cast input to unknown to allow extra fields (negative_prompt) not in SDK types
     const falInput = {
@@ -79,7 +79,7 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ resultUrl: url });
   } catch (err: unknown) {
     const msg = err instanceof Error ? err.message : String(err);
-    if (msg.includes("429")) {
+    if (err instanceof ApiError && err.status === 429) {
       return NextResponse.json({ error: "rateLimit" }, { status: 429 });
     }
     console.error("[simulate] fal.ai error:", msg);
