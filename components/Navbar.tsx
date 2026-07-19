@@ -11,7 +11,8 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [langOpen, setLangOpen] = useState(false);
-  const langDropdownRef = useRef<HTMLDivElement>(null)
+  const langDropdownDesktopRef = useRef<HTMLDivElement>(null)
+  const langDropdownMobileRef = useRef<HTMLDivElement>(null)
 
   const langs: { code: 'bg' | 'en' | 'ru'; label: string; path: string }[] = [
     { code: 'bg', label: 'БГ', path: '/' },
@@ -28,7 +29,9 @@ export default function Navbar() {
   useEffect(() => {
     if (!langOpen) return
     const handler = (e: MouseEvent) => {
-      if (langDropdownRef.current && !langDropdownRef.current.contains(e.target as Node)) {
+      const inDesktop = langDropdownDesktopRef.current?.contains(e.target as Node)
+      const inMobile = langDropdownMobileRef.current?.contains(e.target as Node)
+      if (!inDesktop && !inMobile) {
         setLangOpen(false)
       }
     }
@@ -119,6 +122,7 @@ export default function Navbar() {
           <div className="flex items-center gap-3">
             {/* Desktop lang dropdown — hover to open */}
             <div
+              ref={langDropdownDesktopRef}
               className="relative hidden md:block pb-1"
               onMouseEnter={() => setLangOpen(true)}
               onMouseLeave={() => setLangOpen(false)}
@@ -147,7 +151,7 @@ export default function Navbar() {
             </div>
 
             {/* Mobile lang dropdown — click to toggle */}
-            <div ref={langDropdownRef} className="relative md:hidden">
+            <div ref={langDropdownMobileRef} className="relative md:hidden">
               <button
                 onClick={() => setLangOpen(v => !v)}
                 className="font-display text-xs font-semibold uppercase tracking-widest text-gold border border-gold/40 px-2.5 py-1 rounded-sm hover:bg-gold/10 transition-colors duration-200"
