@@ -3,24 +3,23 @@
 import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react'
 import bg from '@/content/bg.json'
 import en from '@/content/en.json'
+import ru from '@/content/ru.json'
 
-type Lang = 'bg' | 'en'
+type Lang = 'bg' | 'en' | 'ru'
 type Translations = typeof bg
 
-const translations: Record<Lang, Translations> = { bg, en }
+const translations: Record<Lang, Translations> = { bg, en, ru }
 
 interface LanguageContextType {
   lang: Lang
   t: Translations
   setLang: (l: Lang) => void
-  toggle: () => void
 }
 
 const LanguageContext = createContext<LanguageContextType>({
   lang: 'bg',
   t: bg,
   setLang: () => {},
-  toggle: () => {},
 })
 
 export function LanguageProvider({
@@ -35,13 +34,11 @@ export function LanguageProvider({
 
   useEffect(() => {
     setMounted(true)
-    // Set html lang attribute from initial lang
     document.documentElement.lang = initialLang
-    // Only read localStorage on the default BG route — on /en, URL is the source of truth
     if (initialLang === 'bg') {
       try {
         const saved = localStorage.getItem('wetdry_lang') as Lang
-        if (saved === 'bg' || saved === 'en') {
+        if (saved === 'bg' || saved === 'en' || saved === 'ru') {
           setLangState(saved)
           document.documentElement.lang = saved
         }
@@ -55,18 +52,16 @@ export function LanguageProvider({
     try { localStorage.setItem('wetdry_lang', l) } catch {}
   }
 
-  const toggle = () => setLang(lang === 'bg' ? 'en' : 'bg')
-
   if (!mounted) {
     return (
-      <LanguageContext.Provider value={{ lang: initialLang, t: translations[initialLang], setLang, toggle }}>
+      <LanguageContext.Provider value={{ lang: initialLang, t: translations[initialLang], setLang }}>
         {children}
       </LanguageContext.Provider>
     )
   }
 
   return (
-    <LanguageContext.Provider value={{ lang, t: translations[lang], setLang, toggle }}>
+    <LanguageContext.Provider value={{ lang, t: translations[lang], setLang }}>
       {children}
     </LanguageContext.Provider>
   )
