@@ -83,6 +83,7 @@ export const metadata: Metadata = {
     languages: {
       "bg-BG": "/",
       "en": "/en",
+      "ru": "/ru",
       "x-default": "/",
     },
   },
@@ -190,7 +191,7 @@ export default async function RootLayoutEN({
       },
     ],
     priceRange: "€€",
-    currenciesAccepted: "EUR, BGN",
+    currenciesAccepted: "EUR",
     paymentAccepted: "Cash, Bank transfer",
     areaServed: [
       { "@type": "City", name: "Bansko" },

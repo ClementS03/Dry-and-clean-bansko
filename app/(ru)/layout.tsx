@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "../globals.css";
 import { Client } from "@notionhq/client";
 import { unstable_cache } from "next/cache";
-import bgContent from "@/content/bg.json";
+import ruContent from "@/content/ru.json";
 import { oswald, dmSans } from "../fonts";
 
 // eslint-disable-next-line @typescript-eslint/no-require-imports
@@ -28,7 +28,7 @@ const getReviewStats = unstable_cache(
       return null;
     }
   },
-  ["reviews-schema"],
+  ["reviews-schema-ru"],
   { revalidate: 3600 }
 );
 
@@ -54,38 +54,31 @@ const cssVars = `
 export const metadata: Metadata = {
   metadataBase: new URL(DOMAIN),
   title: {
-    default: "Пране на мебели Банско | Wet&Dry Cleaning",
+    default: "Чистка мебели Банско | Wet&Dry Cleaning",
     template: "%s | Wet&Dry Cleaning Банско",
   },
   description:
-    "Професионално пране на дивани, матраци, килими и завеси в Банско и региона. Injection-extraction технология. Идваме при вас. Цени от 20€.",
+    "Профессиональная чистка диванов, матрасов, ковров и штор в Банско и окрестностях. Технология инъекционной экстракции. Приедем к вам. Цены от 20€.",
   keywords: [
-    "пране на мебели Банско",
-    "пране диван Банско",
-    "пране килим Банско",
-    "пране матрак Банско",
-    "пране завеси Банско",
-    "пране авто седалки Банско",
-    "почистване мебели Разлог",
-    "пране на място",
-    "injection extraction Банско",
+    "чистка мебели Банско",
+    "чистка дивана Банско",
+    "химчистка дивана Банско",
+    "чистка матраса Банско",
+    "чистка ковра Банско",
+    "чистка штор Банско",
+    "чистка автомобильных сидений Банско",
+    "химчистка мебели Банско",
+    "инъекция экстракция Банско",
     "Wet Dry cleaning Банско",
-    "furniture cleaning Bansko",
-    "sofa cleaning Bansko",
-    "carpet cleaning Bansko",
-    "upholstery cleaning Bansko Bulgaria",
-    "mattress cleaning Bansko",
-    "airbnb cleaning Bansko",
-    "hotel cleaning Bansko",
     "Банско",
     "Разлог",
-    "Добринище",
+    "Добриниште",
     "Баня",
   ],
   authors: [{ name: "Wet&Dry Cleaning Bansko" }],
   creator: "Wet&Dry Cleaning Bansko",
   alternates: {
-    canonical: "/",
+    canonical: "/ru",
     languages: {
       "bg-BG": "/",
       "en": "/en",
@@ -95,25 +88,25 @@ export const metadata: Metadata = {
   },
   openGraph: {
     type: "website",
-    url: DOMAIN,
-    title: "Пране на мебели Банско | Wet&Dry Cleaning",
+    url: `${DOMAIN}/ru`,
+    title: "Чистка мебели Банско | Wet&Dry Cleaning",
     description:
-      "Injection-extraction технология — директно при вас. Дивани, матраци, килими, завеси. Цени от 20€.",
+      "Профессиональная чистка диванов, матрасов и ковров в Банско. Технология инъекционной экстракции. Приедем к вам. Цены от 20€.",
     siteName: "Wet&Dry Cleaning Bansko",
-    locale: "bg_BG",
+    locale: "ru_RU",
     images: [
       {
         url: "/og-image.jpg",
         width: 1024,
         height: 500,
-        alt: "Wet&Dry Cleaning Bansko — пране на мебели",
+        alt: "Wet&Dry Cleaning Bansko — чистка мебели",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Пране на мебели Банско | Wet&Dry Cleaning",
-    description: "Injection-extraction — директно при вас.",
+    title: "Чистка мебели Банско | Wet&Dry Cleaning",
+    description: "Профессиональная выездная чистка мебели в Банско, Болгария.",
     images: ["/og-image.jpg"],
   },
   icons: {
@@ -144,7 +137,7 @@ export const viewport = {
   themeColor: colors.gold,
 };
 
-export default async function RootLayoutBG({
+export default async function RootLayoutRU({
   children,
 }: {
   children: React.ReactNode;
@@ -154,7 +147,7 @@ export default async function RootLayoutBG({
   const faqSchema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
-    mainEntity: bgContent.faq.items.map((item) => ({
+    mainEntity: ruContent.faq.items.map((item) => ({
       "@type": "Question",
       name: item.q,
       acceptedAnswer: { "@type": "Answer", text: item.a },
@@ -166,7 +159,7 @@ export default async function RootLayoutBG({
     "@type": ["LocalBusiness", "ProfessionalService"],
     name: "Wet&Dry Cleaning Bansko",
     description:
-      "Професионално пране на мебели с injection-extraction технология в Банско и региона. Идваме при вас — дивани, матраци, килими, завеси, авто седалки.",
+      "Профессиональная чистка мебели с технологией инъекционной экстракции в Банско и окрестностях. Приедем к вам — диваны, матрасы, ковры, шторы, автомобильные сиденья.",
     url: DOMAIN,
     telephone: ["+359882862228", "+359876850385"],
     email: "wetdrycleanbansko@gmail.com",
@@ -232,35 +225,35 @@ export default async function RootLayoutBG({
     }),
     hasOfferCatalog: {
       "@type": "OfferCatalog",
-      name: "Услуги за пране на мебели в Банско",
+      name: "Услуги чистки мебели в Банско",
       itemListElement: [
         {
           "@type": "Offer",
-          itemOffered: { "@type": "Service", name: "Пране на диван Банско" },
+          itemOffered: { "@type": "Service", name: "Чистка дивана Банско" },
           price: "25",
           priceCurrency: "EUR",
         },
         {
           "@type": "Offer",
-          itemOffered: { "@type": "Service", name: "Пране на матрак Банско" },
+          itemOffered: { "@type": "Service", name: "Чистка матраса Банско" },
           price: "20",
           priceCurrency: "EUR",
         },
         {
           "@type": "Offer",
-          itemOffered: { "@type": "Service", name: "Пране на килим Банско" },
+          itemOffered: { "@type": "Service", name: "Чистка ковра Банско" },
           price: "4",
           priceCurrency: "EUR",
         },
         {
           "@type": "Offer",
-          itemOffered: { "@type": "Service", name: "Пране на завеси Банско" },
+          itemOffered: { "@type": "Service", name: "Чистка штор Банско" },
           price: "15",
           priceCurrency: "EUR",
         },
         {
           "@type": "Offer",
-          itemOffered: { "@type": "Service", name: "Пране на авто седалки Банско" },
+          itemOffered: { "@type": "Service", name: "Чистка автомобильных сидений Банско" },
           price: "25",
           priceCurrency: "EUR",
         },
@@ -270,7 +263,7 @@ export default async function RootLayoutBG({
 
   return (
     <html
-      lang="bg"
+      lang="ru"
       className={`${oswald.variable} ${dmSans.variable}`}
       suppressHydrationWarning
     >
