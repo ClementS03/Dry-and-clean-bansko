@@ -89,6 +89,18 @@ export default function Footer() {
               ⭐ {t.contact.reviewCta}
             </a>
           </div>
+
+          {/* Extra services — discrete 3-line block */}
+          <div className="text-center md:text-right">
+            <div className="text-xs uppercase tracking-widest font-display text-cream/30 mb-2">
+              {f.extrasTitle}
+            </div>
+            {f.extras.map((service, i) => (
+              <div key={i} className="text-xs text-cream/20 leading-relaxed">
+                {service}
+              </div>
+            ))}
+          </div>
         </div>
 
         <div className="mt-8 mb-6 gold-divider" />
