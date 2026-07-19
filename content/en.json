@@ -689,6 +689,22 @@
         {
           "q": "Do you issue invoices?",
           "a": "Yes, we issue a company invoice for every service."
+        },
+        {
+          "q": "How do you access the property?",
+          "a": "We coordinate with you or your front desk in advance. The owner does not need to be present during the cleaning."
+        },
+        {
+          "q": "Do you work during the ski season?",
+          "a": "Yes, we work year-round including peak ski season. We recommend booking in advance for the December–March period."
+        },
+        {
+          "q": "Can you clean on the check-out / check-in day?",
+          "a": "Yes — that's exactly what we're here for. We schedule around your guest turnover, including tight windows between checkout and check-in."
+        },
+        {
+          "q": "Are the cleaning products safe for the next guests?",
+          "a": "Yes. We use certified low-foam products with no strong odours. Furniture is fully ready to use after 2–4 hours of drying."
         }
       ]
     },
