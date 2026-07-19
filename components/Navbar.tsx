@@ -119,7 +119,7 @@ export default function Navbar() {
           <div className="flex items-center gap-3">
             {/* Desktop lang dropdown — hover to open */}
             <div
-              className="relative hidden md:block"
+              className="relative hidden md:block pb-1"
               onMouseEnter={() => setLangOpen(true)}
               onMouseLeave={() => setLangOpen(false)}
             >
