@@ -390,6 +390,7 @@
     "phoneENLabel": "English",
     "phoneBGLabel": "Български",
     "reviewUrl": "https://g.page/r/CU4pAGZ9UMLpEBM/review",
+    "googleMapsUrl": "https://share.google/clusbr8qexFPhAj92",
     "reviewCta": "Оставете отзив в Google"
   },
   "footer": {
@@ -669,7 +670,8 @@
     "socialProof": {
       "ratingLabel": "в Google",
       "referencesTitle": "Наши бизнес клиенти",
-      "referencesEmpty": "Първите договори предстоят — позицията е ваша."
+      "referencesEmpty": "Първите договори предстоят — позицията е ваша.",
+      "subtitle": "Вижте отзивите на нашите клиенти в Google"
     },
     "faq": {
       "title": "Въпроси & Отговори",

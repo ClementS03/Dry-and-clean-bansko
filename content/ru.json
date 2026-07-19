@@ -391,6 +391,7 @@
     "phoneENLabel": "Английский",
     "phoneBGLabel": "Болгарский",
     "reviewUrl": "https://g.page/r/CU4pAGZ9UMLpEBM/review",
+    "googleMapsUrl": "https://share.google/clusbr8qexFPhAj92",
     "reviewCta": "Оставить отзыв в Google"
   },
   "footer": {
@@ -670,7 +671,8 @@
     "socialProof": {
       "ratingLabel": "в Google",
       "referencesTitle": "Наши бизнес-клиенты",
-      "referencesEmpty": "Первые договоры — на подходе. Ваше место здесь."
+      "referencesEmpty": "Первые договоры — на подходе. Ваше место здесь.",
+      "subtitle": "Читайте отзывы наших клиентов в Google"
     },
     "faq": {
       "title": "Вопросы и ответы",

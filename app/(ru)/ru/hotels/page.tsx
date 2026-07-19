@@ -6,6 +6,7 @@ import HotelsForWho from "@/components/hotels/HotelsForWho"
 import HotelsPricing from "@/components/hotels/HotelsPricing"
 import HotelsHowItWorks from "@/components/hotels/HotelsHowItWorks"
 import HotelsReassurance from "@/components/hotels/HotelsReassurance"
+import HotelsSocialProof from "@/components/hotels/HotelsSocialProof"
 import HotelsFAQ from "@/components/hotels/HotelsFAQ"
 import HotelsCTA from "@/components/hotels/HotelsCTA"
 import Footer from "@/components/Footer"
@@ -35,6 +36,7 @@ export default function HotelsRU() {
         <HotelsPricing />
         <HotelsHowItWorks />
         <HotelsReassurance />
+        <HotelsSocialProof />
         <HotelsFAQ />
         <HotelsCTA />
       </main>

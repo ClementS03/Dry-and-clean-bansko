@@ -9,21 +9,17 @@ export default function HotelsSocialProof() {
   return (
     <section className="section-pad bg-ink-800">
       <div ref={ref} className="max-w-6xl mx-auto px-4 sm:px-6">
-        <div className="reveal mb-10">
+        <div className="reveal flex flex-col sm:flex-row items-center gap-6">
           <a
-            href={t.contact.reviewUrl}
+            href={t.contact.googleMapsUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-4 py-2 bg-gold/10 border border-gold/20 rounded-sm text-gold text-sm font-display uppercase tracking-wide hover:bg-gold/20 transition-colors"
+            className="inline-flex items-center gap-3 px-6 py-3 bg-gold/10 border border-gold/20 rounded-sm text-gold font-display uppercase tracking-wide hover:bg-gold/20 transition-colors text-sm"
           >
-            ★ Google {s.ratingLabel}
+            <span className="text-xl">★</span>
+            <span>Google {s.ratingLabel}</span>
           </a>
-        </div>
-        <div className="reveal">
-          <h2 className="font-display text-2xl text-cream uppercase tracking-tight mb-6">{s.referencesTitle}</h2>
-          <div className="p-8 border border-gold/10 border-dashed rounded-sm text-center">
-            <p className="text-cream/30 text-sm">{s.referencesEmpty}</p>
-          </div>
+          <p className="text-cream/40 text-sm">{s.subtitle}</p>
         </div>
       </div>
     </section>

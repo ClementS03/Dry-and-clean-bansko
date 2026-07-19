@@ -390,6 +390,7 @@
     "phoneENLabel": "English",
     "phoneBGLabel": "Bulgarian",
     "reviewUrl": "https://g.page/r/CU4pAGZ9UMLpEBM/review",
+    "googleMapsUrl": "https://share.google/clusbr8qexFPhAj92",
     "reviewCta": "Leave a Google review"
   },
   "footer": {
@@ -669,7 +670,8 @@
     "socialProof": {
       "ratingLabel": "on Google",
       "referencesTitle": "Our business clients",
-      "referencesEmpty": "First contracts incoming — your spot is here."
+      "referencesEmpty": "First contracts incoming — your spot is here.",
+      "subtitle": "See what our clients say on Google"
     },
     "faq": {
       "title": "Frequently asked questions",
