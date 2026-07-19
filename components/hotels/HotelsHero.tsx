@@ -5,6 +5,7 @@ export default function HotelsHero() {
   const { t } = useLanguage()
   const h = t.hotels.hero
   const waUrl = `https://wa.me/${t.contact.whatsappNumber}?text=${encodeURIComponent(h.ctaWhatsappMsg)}`
+  const emailUrl = `mailto:${t.contact.email}?subject=${encodeURIComponent(h.cta)}`
   return (
     <section className="relative min-h-[60vh] flex items-center section-pad bg-ink overflow-hidden">
       <div className="absolute inset-0 pointer-events-none"
@@ -16,10 +17,17 @@ export default function HotelsHero() {
         </h1>
         <p className="text-cream/60 mt-6 text-lg max-w-xl leading-relaxed">{h.subtitle}</p>
         <div className="mt-10">
-          <a href={waUrl} target="_blank" rel="noopener noreferrer"
-            className="btn-gold px-8 py-4 text-base">
-            {h.cta} →
-          </a>
+          <div className="lg:hidden">
+            <a href={waUrl} target="_blank" rel="noopener noreferrer"
+              className="btn-gold px-8 py-4 text-base">
+              {h.cta} →
+            </a>
+          </div>
+          <div className="hidden lg:block">
+            <a href={emailUrl} className="btn-gold px-8 py-4 text-base">
+              {h.cta} →
+            </a>
+          </div>
         </div>
       </div>
     </section>
