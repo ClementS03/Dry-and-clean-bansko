@@ -1,23 +1,33 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
-import { useRouter } from "next/navigation";
+import { useRouter, usePathname } from "next/navigation";
 import { useLanguage } from "@/context/LanguageContext";
 import Image from "next/image";
 
 export default function Navbar() {
   const { t, lang } = useLanguage();
   const router = useRouter();
+  const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [langOpen, setLangOpen] = useState(false);
   const langDropdownDesktopRef = useRef<HTMLDivElement>(null)
   const langDropdownMobileRef = useRef<HTMLDivElement>(null)
 
-  const langs: { code: 'bg' | 'en' | 'ru'; label: string; path: string }[] = [
-    { code: 'bg', label: 'БГ', path: '/' },
-    { code: 'en', label: 'EN', path: '/en' },
-    { code: 'ru', label: 'RU', path: '/ru' },
+  // Strip /en or /ru prefix to get the base path, then re-apply target lang prefix
+  const getLangPath = (code: 'bg' | 'en' | 'ru') => {
+    let base = pathname
+    if (base.startsWith('/en')) base = base.slice(3) || '/'
+    else if (base.startsWith('/ru')) base = base.slice(3) || '/'
+    if (code === 'bg') return base || '/'
+    return `/${code}${base === '/' ? '' : base}`
+  }
+
+  const langs: { code: 'bg' | 'en' | 'ru'; label: string }[] = [
+    { code: 'bg', label: 'БГ' },
+    { code: 'en', label: 'EN' },
+    { code: 'ru', label: 'RU' },
   ];
 
   useEffect(() => {
@@ -140,7 +150,7 @@ export default function Navbar() {
                   {langs.map(l => (
                     <button
                       key={l.code}
-                      onClick={() => { setLangOpen(false); router.push(l.path) }}
+                      onClick={() => { setLangOpen(false); router.push(getLangPath(l.code)) }}
                       className={`block w-full text-left px-3 py-1.5 text-xs font-display font-semibold uppercase tracking-widest transition-colors ${l.code === lang ? 'text-gold' : 'text-cream/50 hover:text-gold'}`}
                     >
                       {l.label}
@@ -166,7 +176,7 @@ export default function Navbar() {
                   {langs.map(l => (
                     <button
                       key={l.code}
-                      onClick={() => { setLangOpen(false); router.push(l.path) }}
+                      onClick={() => { setLangOpen(false); router.push(getLangPath(l.code)) }}
                       className={`block w-full text-left px-3 py-1.5 text-xs font-display font-semibold uppercase tracking-widest transition-colors ${l.code === lang ? 'text-gold' : 'text-cream/50 hover:text-gold'}`}
                     >
                       {l.label}
