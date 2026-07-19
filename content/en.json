@@ -91,8 +91,8 @@
       "label": "Safe products"
     },
     {
-      "icon": "🛡️",
-      "label": "Fully insured"
+      "icon": "✅",
+      "label": "Results or no charge"
     }
   ],
   "services": {
@@ -255,9 +255,9 @@
         "description": "No need to transport anything. We arrive with all equipment — at home, hotel or office."
       },
       {
-        "icon": "🛡️",
-        "title": "Fully insured",
-        "description": "If we accidentally damage anything during our work, it's covered at our cost. No risk for you."
+        "icon": "✅",
+        "title": "Results or no charge",
+        "description": "If you're not satisfied with the result — you don't pay. That's how confident we are."
       },
       {
         "icon": "⚡",
@@ -501,9 +501,9 @@
         "description": "End-of-ski-season or pre-summer cleaning contracts. Planned, no surprises."
       },
       {
-        "icon": "🛡️",
-        "title": "Fully insured",
-        "description": "If we accidentally damage anything during our work, it's covered at our cost. No risk for you."
+        "icon": "✅",
+        "title": "Results or no charge",
+        "description": "If you're not satisfied with the result — you don't pay. That's how confident we are."
       }
     ],
     "cta": "Request a corporate quote",
