@@ -58,12 +58,22 @@ export default function ForRentals() {
             {/* Trust line */}
             <p className="text-cream/30 text-xs text-center pt-2">📍 {r.trust}</p>
 
-            {/* WhatsApp CTA — all devices */}
-            <div className="pt-2">
+            {/* WhatsApp CTA — mobile/tablet */}
+            <div className="lg:hidden pt-2">
               <a
                 href={waUrl}
                 target="_blank"
                 rel="noopener noreferrer"
+                className="btn-gold w-full justify-center py-4 text-base"
+              >
+                {r.cta} →
+              </a>
+            </div>
+
+            {/* Email CTA — desktop */}
+            <div className="hidden lg:block pt-2">
+              <a
+                href={`mailto:${t.contact.email}?subject=${encodeURIComponent(r.cta)}`}
                 className="btn-gold w-full justify-center py-4 text-base"
               >
                 {r.cta} →
