@@ -1,24 +1,22 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { usePathname, useRouter } from "next/navigation";
+import { useRouter } from "next/navigation";
 import { useLanguage } from "@/context/LanguageContext";
 import Image from "next/image";
 
 export default function Navbar() {
-  const { t } = useLanguage();
-  const pathname = usePathname();
+  const { t, lang } = useLanguage();
   const router = useRouter();
   const [scrolled, setScrolled] = useState(false);
-
-  const switchLang = () => {
-    if (pathname === "/en") {
-      router.push("/");
-    } else {
-      router.push("/en");
-    }
-  };
   const [menuOpen, setMenuOpen] = useState(false);
+  const [langOpen, setLangOpen] = useState(false);
+
+  const langs: { code: 'bg' | 'en' | 'ru'; label: string; path: string }[] = [
+    { code: 'bg', label: 'БГ', path: '/' },
+    { code: 'en', label: 'EN', path: '/en' },
+    { code: 'ru', label: 'RU', path: '/ru' },
+  ];
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
@@ -107,13 +105,60 @@ export default function Navbar() {
 
           {/* ── Right: lang + CTA + hamburger ── */}
           <div className="flex items-center gap-3">
-            <button
-              onClick={switchLang}
-              className="font-display text-xs font-semibold uppercase tracking-widest text-gold border border-gold/40 px-2.5 py-1 rounded-sm hover:bg-gold/10 transition-colors duration-200"
-              aria-label="Switch language"
+            {/* Desktop lang dropdown — hover to open */}
+            <div
+              className="relative hidden md:block"
+              onMouseEnter={() => setLangOpen(true)}
+              onMouseLeave={() => setLangOpen(false)}
             >
-              {t.nav.langSwitch}
-            </button>
+              <button
+                className="font-display text-xs font-semibold uppercase tracking-widest text-gold border border-gold/40 px-2.5 py-1 rounded-sm hover:bg-gold/10 transition-colors duration-200"
+                aria-haspopup="listbox"
+                aria-expanded={langOpen}
+                aria-label="Select language"
+              >
+                {langs.find(l => l.code === lang)?.label ?? 'БГ'} ▾
+              </button>
+              {langOpen && (
+                <div className="absolute right-0 top-full mt-1 bg-ink-800 border border-gold/20 rounded-sm shadow-lg shadow-black/50 py-1 min-w-[56px] z-50">
+                  {langs.map(l => (
+                    <button
+                      key={l.code}
+                      onClick={() => { setLangOpen(false); router.push(l.path) }}
+                      className={`block w-full text-left px-3 py-1.5 text-xs font-display font-semibold uppercase tracking-widest transition-colors ${l.code === lang ? 'text-gold' : 'text-cream/50 hover:text-gold'}`}
+                    >
+                      {l.label}
+                    </button>
+                  ))}
+                </div>
+              )}
+            </div>
+
+            {/* Mobile lang dropdown — click to toggle */}
+            <div className="relative md:hidden">
+              <button
+                onClick={() => setLangOpen(v => !v)}
+                className="font-display text-xs font-semibold uppercase tracking-widest text-gold border border-gold/40 px-2.5 py-1 rounded-sm hover:bg-gold/10 transition-colors duration-200"
+                aria-haspopup="listbox"
+                aria-expanded={langOpen}
+                aria-label="Select language"
+              >
+                {langs.find(l => l.code === lang)?.label ?? 'БГ'} ▾
+              </button>
+              {langOpen && (
+                <div className="absolute right-0 top-full mt-1 bg-ink-800 border border-gold/20 rounded-sm shadow-lg shadow-black/50 py-1 min-w-[56px] z-50">
+                  {langs.map(l => (
+                    <button
+                      key={l.code}
+                      onClick={() => { setLangOpen(false); router.push(l.path) }}
+                      className={`block w-full text-left px-3 py-1.5 text-xs font-display font-semibold uppercase tracking-widest transition-colors ${l.code === lang ? 'text-gold' : 'text-cream/50 hover:text-gold'}`}
+                    >
+                      {l.label}
+                    </button>
+                  ))}
+                </div>
+              )}
+            </div>
 
             <a
               href="#contact"
