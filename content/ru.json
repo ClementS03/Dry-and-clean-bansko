@@ -1,424 +1,425 @@
 {
   "meta": {
-    "title": "Furniture Cleaning Bansko | Wet&Dry Cleaning",
-    "description": "Professional furniture cleaning in Bansko & surroundings. Injection-extraction technology. We come to you. Prices from 20€.",
-    "keywords": "furniture cleaning Bansko, sofa cleaning Bansko, mattress cleaning Bansko, carpet cleaning Bansko, Wet Dry cleaning Bansko, injection extraction Bansko"
+    "title": "Химчистка мебели Банско | Wet&Dry Cleaning",
+    "description": "Профессиональная химчистка мебели в Банско и окрестностях. Технология инжекции-экстракции. Выезжаем к вам. Цены от 20€.",
+    "keywords": "химчистка мебели Банско, чистка дивана Банско, чистка матраса Банско, чистка ковра Банско, Wet Dry cleaning Банско, инжекция экстракция Банско"
   },
   "nav": {
-    "services": "Services",
-    "technology": "Technology",
-    "prices": "Prices",
-    "faq": "FAQ",
-    "contact": "Contact",
-    "cta": "Free Quote",
-    "langSwitch": "БГ"
+    "services": "Услуги",
+    "technology": "Технология",
+    "prices": "Цены",
+    "faq": "Вопросы",
+    "contact": "Контакт",
+    "cta": "Бесплатная оценка",
+    "langSwitch": "RU"
   },
   "hero": {
-    "badge": "📍 Bansko · Razlog · Dobrinishte · Banya",
-    "title": "Sofas, mattresses,",
-    "titleHighlight": "like new again.",
-    "subtitle": "We clean sofas, mattresses, carpets, curtains and car seats on-site in Bansko and surroundings — no transport, no stress.",
+    "badge": "📍 Банско · Разлог · Добриниште · Баня",
+    "title": "Диваны, матрасы,",
+    "titleHighlight": "чистые как новые.",
+    "subtitle": "Чистим диваны, матрасы, ковры, шторы и автомобильные сиденья у вас дома в Банско и окрестностях — без транспортировки, без хлопот.",
     "form": {
-      "title": "Get a free quote",
-      "subtitle": "We respond within 24 hours",
-      "step1Title": "What to clean?",
-      "step2Title": "Your details",
-      "serviceLabel": "Type of service",
+      "title": "Получить бесплатную оценку",
+      "subtitle": "Ответим в течение 24 часов",
+      "step1Title": "Что нужно почистить?",
+      "step2Title": "Ваши данные",
+      "serviceLabel": "Вид услуги",
       "services": [
         {
           "value": "sofa",
-          "label": "🛋️ Sofa / Armchair"
+          "label": "🛋️ Диван / Кресло"
         },
         {
           "value": "mattress",
-          "label": "🛏️ Mattress"
+          "label": "🛏️ Матрас"
         },
         {
           "value": "carpet",
-          "label": "🏠 Carpet / Rug"
+          "label": "🏠 Ковёр / Палас"
         },
         {
           "value": "curtains",
-          "label": "🪟 Curtains"
+          "label": "🪟 Шторы"
         },
         {
           "value": "car",
-          "label": "🚗 Car seats"
+          "label": "🚗 Автосиденья"
         },
         {
           "value": "other",
-          "label": "➕ Other"
+          "label": "➕ Другое"
         }
       ],
-      "quantityLabel": "Quantity / Size (optional)",
-      "quantityPlaceholder": "e.g. 1 three-seater sofa, 2 mattresses...",
-      "nameLabel": "Your name",
-      "namePlaceholder": "John Smith",
-      "phoneLabel": "Phone / WhatsApp *",
+      "quantityLabel": "Количество / Размер (необязательно)",
+      "quantityPlaceholder": "напр. 1 трёхместный диван, 2 матраса...",
+      "nameLabel": "Ваше имя",
+      "namePlaceholder": "Иван Иванов",
+      "phoneLabel": "Телефон / WhatsApp *",
       "phonePlaceholder": "+359 8XX XXX XXX",
-      "locationLabel": "Location *",
-      "locationPlaceholder": "Bansko, Razlog, Dobrinishte...",
-      "nextBtn": "Continue →",
-      "backBtn": "← Back",
-      "submitBtn": "Send via WhatsApp →",
-      "disclaimer": "No commitment. You'll receive a reply on WhatsApp within 24 hours.",
-      "successTitle": "✓ Request sent!",
-      "successText": "We'll get back to you on WhatsApp within 24 hours.",
-      "validationPhone": "Please enter a phone number",
-      "validationLocation": "Please enter your location",
-      "newRequest": "New request",
-      "orLabel": "or",
-      "emailBtn": "Send by email",
-      "sendingLabel": "Sending...",
-      "disclaimerEmail": "No commitment. We'll contact you by phone.",
-      "successTextEmail": "We received your request. We'll be in touch soon.",
-      "emailErrorMsg": "Failed to send. Please try again.",
-      "selectedLabel": "selected",
-      "selectedLabelPlural": "selected"
+      "locationLabel": "Адрес *",
+      "locationPlaceholder": "Банско, Разлог, Добриниште...",
+      "nextBtn": "Далее →",
+      "backBtn": "← Назад",
+      "submitBtn": "Отправить через WhatsApp →",
+      "disclaimer": "Без обязательств. Ответ в WhatsApp в течение 24 часов.",
+      "successTitle": "✓ Запрос отправлен!",
+      "successText": "Мы свяжемся с вами в WhatsApp в течение 24 часов.",
+      "validationPhone": "Пожалуйста, укажите номер телефона",
+      "validationLocation": "Пожалуйста, укажите ваш адрес",
+      "newRequest": "Новый запрос",
+      "orLabel": "или",
+      "emailBtn": "Отправить по email",
+      "sendingLabel": "Отправка...",
+      "disclaimerEmail": "Без обязательств. Мы свяжемся с вами по телефону.",
+      "successTextEmail": "Мы получили ваш запрос. Свяжемся с вами в ближайшее время.",
+      "emailErrorMsg": "Ошибка отправки. Пожалуйста, попробуйте снова.",
+      "selectedLabel": "выбрано",
+      "selectedLabelPlural": "выбрано"
     }
   },
   "trust": [
     {
       "icon": "🏠",
-      "label": "We come to you"
+      "label": "Приедем к вам"
     },
     {
       "icon": "⏱️",
-      "label": "Dries in 2–4 hours"
+      "label": "Сохнет 2–4 часа"
     },
     {
       "icon": "🌿",
-      "label": "Safe products"
+      "label": "Безопасные средства"
     },
     {
       "icon": "🛡️",
-      "label": "Fully insured"
+      "label": "Застрахованы профессионально"
     }
   ],
   "services": {
-    "title": "What we clean",
-    "subtitle": "Full range of home & automotive textile cleaning",
+    "title": "Что мы чистим",
+    "subtitle": "Полный спектр чистки домашнего текстиля и автомобильного салона",
     "items": [
       {
         "icon": "🛋️",
-        "name": "Sofas & Armchairs",
-        "description": "Deep upholstery cleaning, stain removal, dust mites and bacteria elimination. All fabric types.",
-        "price": "from 25€",
-        "tag": "Most popular"
+        "name": "Диваны и кресла",
+        "description": "Глубокая чистка обивки, удаление пятен, клещей и бактерий. Все типы тканей.",
+        "price": "от 25€",
+        "tag": "Самая популярная"
       },
       {
         "icon": "🛏️",
-        "name": "Mattresses",
-        "description": "Deep disinfection and dust mite removal. Essential for healthy sleep.",
-        "price": "from 20€",
+        "name": "Матрасы",
+        "description": "Глубокая дезинфекция и удаление пылевых клещей. Необходима для здорового сна.",
+        "price": "от 20€",
         "tag": null
       },
       {
         "icon": "🏠",
-        "name": "Carpets & Rugs",
-        "description": "Injection-extraction for all types of carpets and rugs. Quick drying.",
-        "price": "from 4€/m²",
+        "name": "Ковры и паласы",
+        "description": "Инжекция-экстракция для всех видов ковров и паласов. Быстрое высыхание.",
+        "price": "от 4€/м²",
         "tag": null
       },
       {
         "icon": "🪟",
-        "name": "Curtains",
-        "description": "On-site curtain cleaning — no removal needed. Fast and hassle-free.",
-        "price": "from 15€",
+        "name": "Шторы",
+        "description": "Чистка штор на месте — без снятия. Быстро и без лишних хлопот.",
+        "price": "от 15€",
         "tag": null
       },
       {
         "icon": "🚗",
-        "name": "Car Seats",
-        "description": "Deep cleaning of automotive textiles, upholstery, mats and headliner.",
-        "price": "from 25€",
+        "name": "Автосиденья",
+        "description": "Глубокая чистка автомобильного текстиля, обивки, ковриков и потолка.",
+        "price": "от 25€",
         "tag": null
       }
     ]
   },
   "technology": {
-    "badge": "How we work",
-    "title": "Injection-Extraction",
-    "titleSub": "Deep cleaning from the inside",
-    "subtitle": "Three steps — one visible result",
-    "description": "Unlike traditional surface cleaning, injection-extraction technology penetrates directly into the fabric — injecting water mixed with cleaning solution, then immediately extracting it along with all the dirt. The fabric is left barely damp and dries in hours.",
+    "badge": "Как мы работаем",
+    "title": "Инжекция-Экстракция",
+    "titleSub": "Глубокая чистка изнутри",
+    "subtitle": "Три этапа — один видимый результат",
+    "description": "В отличие от традиционной поверхностной чистки, технология инжекции-экстракции проникает непосредственно в ткань — вводит воду с моющим раствором, а затем сразу же извлекает её вместе со всей грязью. Ткань остаётся едва влажной и высыхает за несколько часов.",
     "videoUrl": "",
-    "videoLabel": "Watch the machine in action",
+    "videoLabel": "Посмотреть машину в работе",
     "steps": [
       {
         "number": "01",
         "icon": "💧",
-        "title": "Injection",
-        "description": "Water mixed with the right cleaning solution is sprayed under pressure directly into the fabric — reaching deep into the fibres where dirt hides."
+        "title": "Инжекция",
+        "description": "Вода с моющим раствором под давлением впрыскивается непосредственно в ткань — достигая глубоких волокон, где скрывается грязь."
       },
       {
         "number": "02",
         "icon": "🌀",
-        "title": "Product action",
-        "description": "The specialised cleaning solution breaks down stains, bacteria, dust mites and allergens. Product choice depends on the fabric type and level of soiling."
+        "title": "Воздействие состава",
+        "description": "Специализированный моющий раствор разрушает пятна, бактерии, пылевых клещей и аллергены. Выбор средства зависит от типа ткани и степени загрязнения."
       },
       {
         "number": "03",
         "icon": "⚡",
-        "title": "Extraction",
-        "description": "The machine immediately suctions back the water along with all the broken-down dirt. The fabric stays barely damp — no risk of mould."
+        "title": "Экстракция",
+        "description": "Машина немедленно всасывает воду обратно вместе со всей разрушенной грязью. Ткань остаётся едва влажной — без риска появления плесени."
       }
     ],
     "features": [
       {
         "icon": "🎯",
-        "title": "Deep into the fibres",
-        "description": "We reach dirt that surface cleaning simply cannot remove."
+        "title": "Глубоко в волокна",
+        "description": "Мы достигаем загрязнений, которые поверхностная чистка просто не в состоянии удалить."
       },
       {
         "icon": "🌿",
-        "title": "Right product for each fabric",
-        "description": "We select the product based on the material — safe for children and pets."
+        "title": "Подходящее средство для каждой ткани",
+        "description": "Мы подбираем средство в зависимости от материала — безопасно для детей и домашних животных."
       },
       {
         "icon": "⏱️",
-        "title": "Dries in 2–4 hours",
-        "description": "Minimal water, maximum result. Furniture ready to use the same day."
+        "title": "Сохнет 2–4 часа",
+        "description": "Минимум воды, максимум результата. Мебель готова к использованию в тот же день."
       },
       {
         "icon": "✅",
-        "title": "Visible result from the 1st clean",
-        "description": "No guessing whether it worked — the difference is immediately visible."
+        "title": "Видимый результат с первой чистки",
+        "description": "Никаких сомнений — разница заметна сразу."
       }
     ],
     "stats": [
       {
-        "value": "2–4h",
-        "label": "Drying"
+        "value": "2–4ч",
+        "label": "Высыхание"
       },
       {
         "value": "100%",
-        "label": "Extraction"
+        "label": "Экстракция"
       },
       {
-        "value": "Same day",
-        "label": "Ready"
+        "value": "В тот же день",
+        "label": "Готово"
       }
     ],
-    "techBadge": "Injection-Extraction"
+    "techBadge": "Инжекция-Экстракция"
   },
   "comparison": {
-    "badge": "Comparison",
-    "title": "Injection-Extraction vs traditional cleaning",
-    "our": "Our technology",
-    "classic": "Traditional",
+    "badge": "Сравнение",
+    "title": "Инжекция-Экстракция vs традиционная чистка",
+    "our": "Наша технология",
+    "classic": "Традиционная",
     "rows": [
       {
-        "label": "Cleaning depth",
-        "our": "Down to the fibres",
-        "classic": "Surface only",
+        "label": "Глубина чистки",
+        "our": "До волокон",
+        "classic": "Только поверхность",
         "ourGood": true
       },
       {
-        "label": "Mites & bacteria",
-        "our": "99.9% eliminated",
-        "classic": "Remain",
+        "label": "Клещи и бактерии",
+        "our": "99,9% уничтожены",
+        "classic": "Остаются",
         "ourGood": true
       },
       {
-        "label": "Disinfection",
-        "our": "Yes",
-        "classic": "No",
+        "label": "Дезинфекция",
+        "our": "Да",
+        "classic": "Нет",
         "ourGood": true
       },
       {
-        "label": "Drying time",
-        "our": "2–4 hours",
-        "classic": "Up to 24 hours",
+        "label": "Время высыхания",
+        "our": "2–4 часа",
+        "classic": "До 24 часов",
         "ourGood": true
       },
       {
-        "label": "Mould risk",
-        "our": "Minimal",
-        "classic": "High",
+        "label": "Риск плесени",
+        "our": "Минимальный",
+        "classic": "Высокий",
         "ourGood": true
       },
       {
-        "label": "Removal needed",
-        "our": "Not required",
-        "classic": "Sometimes",
+        "label": "Нужно ли вывозить",
+        "our": "Не требуется",
+        "classic": "Иногда",
         "ourGood": true
       }
     ]
   },
   "whyUs": {
-    "title": "Why choose us",
+    "title": "Почему выбирают нас",
     "items": [
       {
         "icon": "🚐",
-        "title": "We come to you",
-        "description": "No need to transport anything. We arrive with all equipment — at home, hotel or office."
+        "title": "Приедем к вам",
+        "description": "Не нужно ничего везти. Мы приезжаем со всем оборудованием — домой, в отель или офис."
       },
       {
         "icon": "🛡️",
-        "title": "Fully insured",
-        "description": "We carry professional liability insurance — any incident is covered at our cost. Full peace of mind for you."
+        "title": "Профессиональная страховка",
+        "description": "Работаем с полной страховкой ответственности — любой инцидент покрыт за наш счёт."
       },
       {
         "icon": "⚡",
-        "title": "Fast & convenient",
-        "description": "Cleaning takes 1–3 hours. Furniture ready to use after 2–4 hours."
+        "title": "Быстро и удобно",
+        "description": "Чистка занимает 1–3 часа. Мебель готова к использованию через 2–4 часа."
       },
       {
         "icon": "🌿",
-        "title": "Family safe",
-        "description": "Certified products. Safe for children, babies and pets."
+        "title": "Безопасно для семьи",
+        "description": "Сертифицированные средства. Безопасно для детей, младенцев и домашних животных."
       },
       {
         "icon": "📍",
-        "title": "Local & accessible",
-        "description": "Bansko, Razlog, Dobrinishte and the whole Bansko-Razlog valley — we know the region."
+        "title": "Местный & доступный",
+        "description": "Банско, Разлог, Добриниште и вся Банско-Разложская котловина — мы знаем регион."
       },
       {
         "icon": "💬",
-        "title": "Reply within 24 hours",
-        "description": "Message us on WhatsApp and receive a quote within 24 hours."
+        "title": "Ответ в течение 24 часов",
+        "description": "Напишите нам в WhatsApp и получите ответ и предложение в течение 24 часов."
       }
     ]
   },
   "pricing": {
-    "badge": "Transparent pricing",
-    "title": "Price list",
-    "subtitle": "No hidden fees. Final price depends on size and level of soiling.",
+    "badge": "Прозрачные цены",
+    "title": "Прайс-лист",
+    "subtitle": "Без скрытых платежей. Итоговая цена зависит от размера и степени загрязнения.",
     "items": [
       {
         "icon": "🛋️",
-        "name": "Sofa / Armchair",
-        "price": "from 25€",
-        "note": "by size"
+        "name": "Диван / Кресло",
+        "price": "от 25€",
+        "note": "по размеру"
       },
       {
         "icon": "🛏️",
-        "name": "Mattress",
-        "price": "from 20€",
-        "note": "single / double"
+        "name": "Матрас",
+        "price": "от 20€",
+        "note": "одно / двуспальный"
       },
       {
         "icon": "🏠",
-        "name": "Carpet / Rug",
-        "price": "from 4€/m²",
-        "note": "minimum 20€"
+        "name": "Ковёр / Палас",
+        "price": "от 4€/м²",
+        "note": "минимум 20€"
       },
       {
         "icon": "🪟",
-        "name": "Curtains",
-        "price": "from 15€",
-        "note": "per set"
+        "name": "Шторы",
+        "price": "от 15€",
+        "note": "за комплект"
       },
       {
         "icon": "🚗",
-        "name": "Car seats",
-        "price": "from 25€",
-        "note": "full interior"
+        "name": "Автосиденья",
+        "price": "от 25€",
+        "note": "полный салон"
       }
     ],
-    "cta": "Get a personal quote",
-    "note": "* Payment is due after the service is completed."
+    "cta": "Получить персональную оценку",
+    "note": "* Оплата производится после оказания услуги."
   },
   "faq": {
-    "title": "Frequently asked questions",
+    "title": "Часто задаваемые вопросы",
     "items": [
       {
-        "q": "Do I need to move the furniture?",
-        "a": "Absolutely not! We come with everything needed and clean on-site. We only ask you to clear a little space around the furniture."
+        "q": "Нужно ли передвигать мебель?",
+        "a": "Совершенно нет! Мы приезжаем со всем необходимым и чистим на месте. Просим лишь освободить небольшое пространство вокруг мебели."
       },
       {
-        "q": "How long does it take to dry?",
-        "a": "With injection-extraction, fabric dries in 2–4 hours — much faster than traditional wet cleaning. You can use your furniture the same day."
+        "q": "Сколько времени занимает высыхание?",
+        "a": "При инжекции-экстракции ткань высыхает за 2–4 часа — намного быстрее, чем при традиционной влажной чистке. Мебелью можно пользоваться в тот же день."
       },
       {
-        "q": "Is it safe for children and pets?",
-        "a": "Yes. We only use certified, biodegradable products. Once dry, they leave no harmful residues."
+        "q": "Это безопасно для детей и домашних животных?",
+        "a": "Да. Мы используем только сертифицированные биоразлагаемые средства. После высыхания они не оставляют вредных остатков."
       },
       {
-        "q": "Can you remove old stains?",
-        "a": "In most cases — yes. Injection-extraction is very effective even on stubborn stains. With prior information about the stain type, we can assess the chance of full removal."
+        "q": "Можно ли вывести старые пятна?",
+        "a": "В большинстве случаев — да. Инжекция-экстракция очень эффективна даже против стойких пятен. Если заранее сообщить о типе пятна, мы оценим вероятность полного удаления."
       },
       {
-        "q": "How much does it cost and how do I pay?",
-        "a": "Prices depend on type and size. All prices are transparent — no hidden fees. Payment is in cash or bank transfer after the service."
+        "q": "Сколько это стоит и как оплачивать?",
+        "a": "Цены зависят от типа и размера. Все цены прозрачны — без скрытых платежей. Оплата наличными или банковским переводом после оказания услуги."
       },
       {
-        "q": "Which areas do you cover?",
-        "a": "We cover Bansko, Razlog, Dobrinishte, Banya and the entire Bansko-Razlog valley. For more distant locations — contact us."
+        "q": "Какие районы вы обслуживаете?",
+        "a": "Мы работаем в Банско, Разлоге, Добриниште, Бане и по всей Банско-Разложской котловине. Для более отдалённых мест — свяжитесь с нами."
       },
       {
-        "q": "How much does sofa cleaning cost in Bansko?",
-        "a": "Sofa cleaning in Bansko starts from €25 for a 2-seater and up to €45 for a large corner sofa. Mattresses from €20, carpets from €4/m², curtains from €15. All prices are listed on our Pricing page with no hidden fees. Payment is made after the service — cash or bank transfer — only if you are satisfied."
+        "q": "Сколько стоит чистка дивана в Банско?",
+        "a": "Чистка дивана в Банско начинается от 25€ за двухместный и до 45€ за большой угловой диван. Матрасы от 20€, ковры от 4€/м², шторы от 15€. Все цены указаны на странице прайс-листа без скрытых платежей. Оплата после услуги — наличными или переводом — только если вы довольны результатом."
       },
       {
-        "q": "Can you remove pet odours and smells?",
-        "a": "Yes. The injection-extraction method extracts contaminants from deep within the fabric, including odours from dogs, cats and cigarette smoke. For stronger odours, we apply enzyme-based treatments at no extra charge. Most clients report complete odour elimination after a single treatment."
+        "q": "Можно ли убрать запахи домашних животных?",
+        "a": "Да. Метод инжекции-экстракции извлекает загрязнения из глубины ткани, включая запахи собак, кошек и табачного дыма. При сильных запахах мы применяем ферментные составы без дополнительной оплаты. Большинство клиентов отмечают полное устранение запаха после одной процедуры."
       },
       {
-        "q": "Do you clean for hotels and Airbnb rentals in Bansko?",
-        "a": "Yes, we serve hotels, villas and rental apartments in Bansko and the surrounding area. We offer priority scheduling between tenant stays, volume pricing for larger properties, and seasonal cleaning contracts at the end of ski season. Contact us for a corporate quote."
+        "q": "Вы чистите мебель для отелей и апартаментов Airbnb в Банско?",
+        "a": "Да, мы обслуживаем отели, виллы и арендные апартаменты в Банско и окрестностях. Предлагаем приоритетное планирование между сменой гостей, объёмные цены для крупных объектов и сезонные договоры на чистку в конце горнолыжного сезона. Свяжитесь с нами для корпоративного предложения."
       },
       {
-        "q": "Do you cover Dobrinishte, Banya and Razlog?",
-        "a": "Yes, we cover Dobrinishte, Banya, Razlog and all villages in the Bansko-Razlog valley with no extra travel charge. For locations outside this area, please contact us in advance to confirm availability."
+        "q": "Вы обслуживаете Добриниште, Баню и Разлог?",
+        "a": "Да, мы работаем в Добриниште, Бане, Разлоге и во всех сёлах Банско-Разложской котловины без дополнительной платы за выезд. Для мест за пределами этой зоны просим заранее уточнить возможность выезда."
       },
       {
-        "q": "Do you work during ski season and on weekends?",
-        "a": "Yes, we work every day from 08:00 to 20:00, including weekends and public holidays. Ski season (December–March) is our busiest period — we recommend booking at least 1–2 days in advance to secure your preferred time slot."
+        "q": "Вы работаете в горнолыжный сезон и по выходным?",
+        "a": "Да, мы работаем каждый день с 08:00 до 20:00, включая выходные и праздничные дни. Горнолыжный сезон (декабрь–март) — наш самый загруженный период, поэтому рекомендуем бронировать за 1–2 дня, чтобы выбрать удобное время."
       },
       {
-        "q": "How often should sofas and mattresses be cleaned?",
-        "a": "We recommend cleaning sofas at least once a year with normal use, or every 6 months if you have pets or young children. Mattresses should ideally be cleaned every 6–12 months — dust mites thrive in uncleaned mattresses and are a common cause of allergies and poor sleep."
+        "q": "Как часто нужно чистить диваны и матрасы?",
+        "a": "Рекомендуем чистить диваны не реже одного раза в год при обычном использовании, или раз в 6 месяцев при наличии домашних животных или маленьких детей. Матрасы желательно чистить каждые 6–12 месяцев — пылевые клещи активно размножаются в нечистых матрасах и являются распространённой причиной аллергии и нарушений сна."
       }
     ]
   },
   "contact": {
-    "title": "Get in touch",
-    "subtitle": "We come to you in Bansko & surroundings",
+    "badge": "Контакт",
+    "title": "Свяжитесь с нами",
+    "subtitle": "Ответим в течение 24 часов",
     "phoneEN": "+359 882 862 228",
     "phoneBG": "+359 876 850 385",
     "whatsappNumber": "359876850385",
-    "whatsappMsg": "Hello! I would like to get a quote for furniture cleaning.",
-    "area": "Bansko · Razlog · Dobrinishte · Banya",
-    "hours": "Mon–Sun: 08:00 – 20:00",
+    "whatsappMsg": "Здравствуйте! Хотел бы получить оценку стоимости чистки мебели.",
+    "area": "Банско · Разлог · Добриниште · Баня",
+    "hours": "Пн–Вс: 08:00 – 20:00",
     "email": "wetdrycleanbansko@gmail.com",
-    "callBtn": "Call now",
-    "waBtn": "Message on WhatsApp",
-    "emailBtn": "Send an email",
-    "reassurance": "✓ No commitment · Reply within 24h · Free quote",
-    "phoneENLabel": "English",
-    "phoneBGLabel": "Bulgarian",
+    "callBtn": "Позвонить",
+    "waBtn": "Написать в WhatsApp",
+    "emailBtn": "Отправить email",
+    "reassurance": "✓ Без обязательств · Ответ в течение 24ч · Бесплатная оценка",
+    "phoneENLabel": "Английский",
+    "phoneBGLabel": "Болгарский",
     "reviewUrl": "https://g.page/r/CU4pAGZ9UMLpEBM/review",
-    "reviewCta": "Leave a Google review"
+    "reviewCta": "Оставить отзыв в Google"
   },
   "footer": {
     "company": "Wet&Dry Cleaning Bansko",
-    "tagline": "Professional furniture cleaning in Bansko & surroundings",
-    "rights": "All rights reserved",
+    "tagline": "Профессиональная чистка мебели в Банско и окрестностях",
+    "rights": "Все права защищены",
     "links": [
       {
-        "label": "Services",
+        "label": "Услуги",
         "href": "#services"
       },
       {
-        "label": "Technology",
+        "label": "Технология",
         "href": "#technology"
       },
       {
-        "label": "Prices",
+        "label": "Цены",
         "href": "#pricing"
       },
       {
-        "label": "FAQ",
+        "label": "Вопросы",
         "href": "#faq"
       },
       {
-        "label": "Contact",
+        "label": "Контакт",
         "href": "#contact"
       }
     ],
-    "credit": "Created by",
+    "credit": "Создано",
     "creditName": "Clément Seguin",
     "creditUrl": "https://clement-seguin.fr",
     "social": [
@@ -440,107 +441,108 @@
     ]
   },
   "whatsapp": {
-    "tooltip": "Message us on WhatsApp",
+    "tooltip": "Написать нам в WhatsApp",
     "number": "359876850385",
-    "message": "Hello! I would like to get a quote for furniture cleaning."
+    "message": "Здравствуйте! Хотел бы получить оценку стоимости чистки мебели."
   },
   "gallery": {
-    "badge": "📸 Results",
-    "title": "Before & After",
-    "subtitle": "Drag the slider to see the difference",
-    "beforeLabel": "Before",
-    "afterLabel": "After",
-    "sliderHint": "← Drag to compare →",
-    "placeholderBefore": "BEFORE photo",
-    "placeholderAfter": "AFTER photo",
-    "addPhotoNote": "Add photos to /public/ — see GUIDE.md for instructions",
+    "badge": "📸 Результаты",
+    "title": "До и После",
+    "subtitle": "Перетащите ползунок, чтобы увидеть разницу",
+    "beforeLabel": "До",
+    "afterLabel": "После",
+    "sliderHint": "← Перетащите для сравнения →",
+    "placeholderBefore": "Фото ДО",
+    "placeholderAfter": "Фото ПОСЛЕ",
+    "addPhotoNote": "Добавьте фото в /public/ — см. GUIDE.md для инструкций",
     "pairs": [
       {
-        "label": "Sofa"
+        "label": "Диван"
       },
       {
-        "label": "Carpet"
+        "label": "Ковёр"
       },
       {
-        "label": "Carpet"
+        "label": "Ковёр"
       }
     ]
   },
   "reviews": {
-    "badge": "Client reviews",
-    "title": "What clients say",
-    "subtitle": "Real feedback from our clients in Bansko & surroundings.",
-    "ariaLabel": "Review"
+    "badge": "Отзывы клиентов",
+    "title": "Что говорят клиенты",
+    "subtitle": "Реальные отзывы наших клиентов в Банско и окрестностях.",
+    "ariaLabel": "Отзыв"
   },
   "rentals": {
-    "badge": "🏨 For hotels & rentals",
-    "title": "Cleaning for",
-    "titleHighlight": "hotels & Airbnb.",
-    "subtitle": "Fast turnaround between guests — we take care of the furniture, you take care of the guests.",
+    "badge": "🏨 Для отелей и аренды",
+    "title": "Для отелей,",
+    "titleHighlight": "апартаментов и ресторанов",
+    "subtitle": "Профессиональная чистка мебели для сферы гостеприимства в Банско.",
     "items": [
       {
-        "icon": "⚡",
-        "title": "Fast turnaround",
-        "description": "We clean between check-out and check-in — even same-day with advance notice."
+        "icon": "📅",
+        "title": "График под гостей",
+        "description": "Работаем ночью, рано утром или между выездом и заездом — без ущерба для бизнеса."
+      },
+      {
+        "icon": "🧾",
+        "title": "Ежемесячные договоры",
+        "description": "Фиксированная стоимость, счёт-фактура, приоритетное обслуживание."
       },
       {
         "icon": "📦",
-        "title": "Volume pricing",
-        "description": "Discounted rates for 3+ units. The more you book, the better the price."
-      },
-      {
-        "icon": "📅",
-        "title": "Seasonal contracts",
-        "description": "End-of-ski-season or pre-summer cleaning contracts. Planned, no surprises."
+        "title": "Объёмные скидки",
+        "description": "Сниженные тарифы для 3+ объектов. Чем больше заказ, тем лучше цена."
       },
       {
         "icon": "🛡️",
-        "title": "Fully insured",
-        "description": "Our professional liability insurance covers any incident — at our cost."
+        "title": "Профессиональная страховка",
+        "description": "Работаем со страховкой ответственности за наш счёт."
       }
     ],
-    "cta": "Request a corporate quote",
-    "trust": "Serving hotels, villas and apartments in Bansko, Razlog, Dobrinishte and Banya",
-    "whatsappMsg": "Hello! I would like a corporate quote for hotel / rental apartment cleaning."
+    "cta": "Запросить корпоративное предложение",
+    "trust": "Обслуживаем отели, виллы и апартаменты в Банско, Разлоге, Добриниште и Бане",
+    "whatsappMsg": "Здравствуйте! Хотел бы получить корпоративное предложение для отеля / апартаментов.",
+    "hotelsLink": "Условия для отелей →"
   },
   "simulator": {
-    "badge": "AI Simulator",
-    "title": "See the result on your furniture",
-    "subtitle": "Upload a photo — AI will show how it looks after cleaning",
-    "cta": "Try for free",
-    "fabLabel": "Simulator",
-    "fabTooltip": "Simulate the cleaning",
-    "closeLabel": "Close",
-    "processingHint": "~20s",
+    "badge": "AI Симулятор",
+    "title": "Посмотрите результат на вашей мебели",
+    "subtitle": "Загрузите фото — AI покажет, как она выглядит после чистки",
+    "cta": "Попробовать бесплатно",
+    "fabLabel": "Симулятор",
+    "fabTooltip": "Симулировать чистку",
+    "closeLabel": "Закрыть",
+    "processingHint": "~20 сек",
     "types": {
-      "canape": "Sofa",
-      "fauteuil": "Armchair",
-      "matelas": "Mattress",
-      "kilim": "Rug"
+      "canape": "Диван",
+      "fauteuil": "Кресло",
+      "matelas": "Матрас",
+      "kilim": "Ковёр"
     },
     "upload": {
-      "label": "Add a photo",
-      "hint": "JPG, PNG or WebP · max 5MB"
+      "label": "Добавить фото",
+      "hint": "JPG, PNG или WebP · макс. 5 МБ"
     },
     "processing": [
-      "Analysing fabric…",
-      "Removing stains…",
-      "Reconstructing fibres…",
-      "Finalising…"
+      "Анализируем ткань…",
+      "Удаляем пятна…",
+      "Восстанавливаем волокна…",
+      "Финальная обработка…"
     ],
     "result": {
-      "title": "Here is your result",
-      "ctaWhatsapp": "Book the cleaning",
-      "ctaSave": "Receive the result on WhatsApp",
-      "phoneLabel": "Your number",
-      "phoneCta": "Send →",
-      "waMessage": "Hello, I tested the simulator with my"
+      "title": "Вот ваш результат",
+      "ctaWhatsapp": "Записаться на чистку",
+      "ctaSave": "Получить результат в WhatsApp",
+      "phoneLabel": "Ваш номер",
+      "phoneCta": "Отправить →",
+      "waMessage": "Здравствуйте, я протестировал симулятор со своим"
     },
     "error": {
-      "generic": "Something went wrong. Please try again.",
-      "tooLarge": "Photo is too large (max 5MB).",
-      "rateLimit": "Too many attempts. Please try again in an hour.",
-      "retry": "Try again"
+      "generic": "Что-то пошло не так. Пожалуйста, попробуйте снова.",
+      "tooLarge": "Фото слишком большое (макс. 5 МБ).",
+      "rateLimit": "Слишком много попыток. Пожалуйста, попробуйте через час.",
+      "retry": "Попробовать снова"
     }
   }
 }
