@@ -2,12 +2,12 @@
 
 import { useLanguage } from '@/context/LanguageContext'
 import { useScrollReveal } from '@/hooks/useScrollReveal'
-import LeadForm from '@/components/LeadForm'
 
 export default function ForRentals() {
-  const { t } = useLanguage()
+  const { t, lang } = useLanguage()
   const r = t.rentals
   const ref = useScrollReveal()
+  const hotelsPath = lang === 'en' ? '/en/hotels' : lang === 'ru' ? '/ru/hotels' : '/hotels'
 
   const waUrl = `https://wa.me/${t.contact.whatsappNumber}?text=${encodeURIComponent(r.whatsappMsg)}`
 
@@ -37,7 +37,7 @@ export default function ForRentals() {
 
           {/* Left: value props — each card reveals individually (stagger like WhyUs) */}
           <div className="space-y-5">
-            {r.items.map((item, i) => (
+            {r.items.slice(0, 3).map((item, i) => (
               <div
                 key={i}
                 className="flex gap-4 p-5 card-dark reveal"
@@ -81,9 +81,13 @@ export default function ForRentals() {
             </div>
           </div>
 
-          {/* Right: quote form */}
-          <div className="reveal" style={{ transitionDelay: '150ms' }}>
-            <LeadForm />
+          {/* Right: link to hotels page */}
+          <div className="reveal flex flex-col items-center justify-center h-full gap-6 p-8 card-dark text-center" style={{ transitionDelay: '150ms' }}>
+            <div className="text-5xl">🏨</div>
+            <p className="text-cream/60 text-sm leading-relaxed max-w-xs">{r.subtitle}</p>
+            <a href={hotelsPath} className="btn-gold px-6 py-3 text-sm">
+              {r.hotelsLink}
+            </a>
           </div>
         </div>
       </div>

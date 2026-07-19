@@ -501,7 +501,8 @@
     ],
     "cta": "Request a corporate quote",
     "trust": "Serving hotels, villas and apartments in Bansko, Razlog, Dobrinishte and Banya",
-    "whatsappMsg": "Hello! I would like a corporate quote for hotel / rental apartment cleaning."
+    "whatsappMsg": "Hello! I would like a corporate quote for hotel / rental apartment cleaning.",
+    "hotelsLink": "See our hotel conditions →"
   },
   "simulator": {
     "badge": "AI Simulator",
