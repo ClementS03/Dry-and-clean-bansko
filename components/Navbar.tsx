@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useRouter } from "next/navigation";
 import { useLanguage } from "@/context/LanguageContext";
 import Image from "next/image";
@@ -11,6 +11,7 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [langOpen, setLangOpen] = useState(false);
+  const langDropdownRef = useRef<HTMLDivElement>(null)
 
   const langs: { code: 'bg' | 'en' | 'ru'; label: string; path: string }[] = [
     { code: 'bg', label: 'БГ', path: '/' },
@@ -23,6 +24,17 @@ export default function Navbar() {
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  useEffect(() => {
+    if (!langOpen) return
+    const handler = (e: MouseEvent) => {
+      if (langDropdownRef.current && !langDropdownRef.current.contains(e.target as Node)) {
+        setLangOpen(false)
+      }
+    }
+    document.addEventListener('mousedown', handler)
+    return () => document.removeEventListener('mousedown', handler)
+  }, [langOpen]);
 
   const links = [
     { label: t.nav.services, href: "#services" },
@@ -135,7 +147,7 @@ export default function Navbar() {
             </div>
 
             {/* Mobile lang dropdown — click to toggle */}
-            <div className="relative md:hidden">
+            <div ref={langDropdownRef} className="relative md:hidden">
               <button
                 onClick={() => setLangOpen(v => !v)}
                 className="font-display text-xs font-semibold uppercase tracking-widest text-gold border border-gold/40 px-2.5 py-1 rounded-sm hover:bg-gold/10 transition-colors duration-200"

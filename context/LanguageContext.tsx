@@ -38,7 +38,7 @@ export function LanguageProvider({
     if (initialLang === 'bg') {
       try {
         const saved = localStorage.getItem('wetdry_lang') as Lang
-        if (saved === 'bg' || saved === 'en' || saved === 'ru') {
+        if (saved === 'bg' || saved === 'en') {
           setLangState(saved)
           document.documentElement.lang = saved
         }
