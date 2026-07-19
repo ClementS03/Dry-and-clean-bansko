@@ -257,7 +257,7 @@
       {
         "icon": "🛡️",
         "title": "Fully insured",
-        "description": "We carry professional liability insurance — any incident is covered at our cost. Full peace of mind for you."
+        "description": "If we accidentally damage anything during our work, it's covered at our cost. No risk for you."
       },
       {
         "icon": "⚡",
@@ -503,7 +503,7 @@
       {
         "icon": "🛡️",
         "title": "Fully insured",
-        "description": "Our professional liability insurance covers any incident — at our cost."
+        "description": "If we accidentally damage anything during our work, it's covered at our cost. No risk for you."
       }
     ],
     "cta": "Request a corporate quote",
@@ -658,7 +658,7 @@
         {
           "icon": "🛡️",
           "title": "Professional liability insurance",
-          "description": "We carry full insurance at our cost. Your property is protected."
+          "description": "If we accidentally damage anything during our work, it's covered at our cost. No risk for you."
         },
         {
           "icon": "🧾",
@@ -668,7 +668,7 @@
       ]
     },
     "socialProof": {
-      "ratingLabel": "on Google",
+      "ratingLabel": "See our reviews on Google",
       "referencesTitle": "Our business clients",
       "referencesEmpty": "First contracts incoming — your spot is here.",
       "subtitle": "See what our clients say on Google"
