@@ -543,5 +543,152 @@
       "rateLimit": "Too many attempts. Please try again in an hour.",
       "retry": "Try again"
     }
+  },
+  "hotels": {
+    "meta": {
+      "title": "Hotel Cleaning Bansko | Wet&Dry Cleaning",
+      "description": "Professional furniture cleaning for hotels, guesthouses and Airbnb in Bansko. Free on-site inspection. Monthly contracts from €400."
+    },
+    "hero": {
+      "badge": "🏨 For businesses",
+      "title": "Your guests notice cleanliness.",
+      "subtitle": "Professional furniture cleaning for hotels, guesthouses, Airbnb and restaurants in Bansko and surroundings.",
+      "cta": "Free on-site inspection & quote",
+      "ctaWhatsappMsg": "Hello! I would like a free on-site inspection and quote for a hotel / rental property."
+    },
+    "forWho": {
+      "title": "Who we work with",
+      "items": [
+        {
+          "icon": "🏨",
+          "label": "Hotels"
+        },
+        {
+          "icon": "🏡",
+          "label": "Guesthouses"
+        },
+        {
+          "icon": "🛋️",
+          "label": "Airbnb apartments"
+        },
+        {
+          "icon": "🍽️",
+          "label": "Restaurants (night service)"
+        }
+      ]
+    },
+    "pricing": {
+      "title": "Business pricing",
+      "publicNote": "Our public prices apply to business clients too.",
+      "publicLinkLabel": "See price list →",
+      "discount": "Discount for 3+ units cleaned at once",
+      "monthly": {
+        "title": "Monthly contracts — Hotels & Guesthouses",
+        "range": "€400 – €2,000 / month",
+        "factors": [
+          {
+            "icon": "🛏️",
+            "label": "Number of units"
+          },
+          {
+            "icon": "📅",
+            "label": "Frequency"
+          },
+          {
+            "icon": "🌤️",
+            "label": "Season"
+          }
+        ]
+      },
+      "seasonal": {
+        "title": "End-of-season cleaning",
+        "description": "Seasonal contracts for a full furniture refresh before or after the tourist season."
+      },
+      "restaurant": {
+        "title": "Night service for restaurants",
+        "description": "Cleaning outside restaurant opening hours — zero disruption to your business.",
+        "price": "By agreement"
+      }
+    },
+    "howItWorks": {
+      "title": "How we work with businesses",
+      "steps": [
+        {
+          "number": "01",
+          "title": "Free on-site inspection",
+          "description": "We visit, assess the property and count the units."
+        },
+        {
+          "number": "02",
+          "title": "Quote in 2 tiers",
+          "description": "Standard cleaning and deep cleaning — clear prices, no surprises."
+        },
+        {
+          "number": "03",
+          "title": "Schedule around your guests",
+          "description": "We work around your guests — night hours, early mornings, between check-out and check-in."
+        }
+      ]
+    },
+    "reassurance": {
+      "title": "Why trust us with your property",
+      "items": [
+        {
+          "icon": "✅",
+          "title": "Guaranteed results",
+          "description": "If you're not satisfied — you don't pay. Applies to business clients too."
+        },
+        {
+          "icon": "⏱️",
+          "title": "Dries in 2–4 hours",
+          "description": "Furniture ready to use shortly after cleaning."
+        },
+        {
+          "icon": "🌿",
+          "title": "Low-foam professional products",
+          "description": "Specialised products for hotel textiles. No foam residue."
+        },
+        {
+          "icon": "🛡️",
+          "title": "Professional liability insurance",
+          "description": "We carry full insurance at our cost. Your property is protected."
+        },
+        {
+          "icon": "🧾",
+          "title": "Invoice issued",
+          "description": "We issue an invoice for every service. Fully compatible with business accounting."
+        }
+      ]
+    },
+    "socialProof": {
+      "ratingLabel": "on Google",
+      "referencesTitle": "Our business clients",
+      "referencesEmpty": "First contracts incoming — your spot is here."
+    },
+    "faq": {
+      "title": "Frequently asked questions",
+      "items": [
+        {
+          "q": "How quickly can you clean after check-out?",
+          "a": "Typically we start within 1–2 hours after check-out. Regular contract clients are prioritised."
+        },
+        {
+          "q": "Do you handle properties with many units?",
+          "a": "Yes. We have capacity for hotels with 20+ rooms. We assess volume during the on-site visit and propose a schedule."
+        },
+        {
+          "q": "Do we sign a contract?",
+          "a": "For monthly contracts — yes. For one-off cleaning we work without a formal contract, just a written quote."
+        },
+        {
+          "q": "Do you issue invoices?",
+          "a": "Yes, we issue a company invoice for every service."
+        }
+      ]
+    },
+    "cta": {
+      "label": "Request a free on-site inspection",
+      "whatsappMsg": "Hello! I would like a free on-site inspection and quote for a hotel / rental property."
+    }
   }
 }
