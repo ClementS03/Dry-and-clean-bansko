@@ -49,18 +49,6 @@ export default function WhyUs() {
           ))}
         </div>
 
-        {/* Guarantee callout */}
-        <div className="reveal mt-14 bg-gold/5 border border-gold/20 rounded-sm p-6 flex flex-col sm:flex-row items-center gap-4 text-center sm:text-left" style={{ transitionDelay: '400ms' }}>
-          <div className="text-4xl flex-shrink-0">💯</div>
-          <div>
-            <div
-              className="font-display text-xl text-gold uppercase tracking-wide mb-1"
-            >
-              {why.items[1].title}
-            </div>
-            <p className="text-cream/60 text-sm">{why.items[1].description}</p>
-          </div>
-        </div>
       </div>
     </section>
   )
