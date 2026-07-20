@@ -26,6 +26,14 @@ export const metadata: Metadata = {
       "x-default": "/hotels",
     },
   },
+  openGraph: {
+    url: "https://wetdrycleaningbansko.com/en/hotels",
+    title: "Hotel Cleaning Bansko",
+    images: [{ url: "/og-hotels.jpg", width: 1200, height: 630, alt: "Wet&Dry Cleaning — furniture cleaning for hotels in Bansko" }],
+  },
+  twitter: {
+    images: ["/og-hotels.jpg"],
+  },
 }
 
 export default function HotelsEN() {

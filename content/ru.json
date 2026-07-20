@@ -721,8 +721,12 @@
       "services": [
         { "value": "sofa", "label": "🛋️ Диваны / Кресла" },
         { "value": "mattress", "label": "🛏️ Матрасы" },
-        { "value": "carpet", "label": "🏠 Ковры / Ковролин" },
-        { "value": "curtains", "label": "🪟 Шторы" }
+        { "value": "chairs", "label": "🪑 Стулья" },
+        { "value": "banquettes", "label": "🍽️ Диваны-скамьи / кабинки" },
+        { "value": "carpet", "label": "🏠 Ковры" },
+        { "value": "moquette", "label": "🧵 Ковролин" },
+        { "value": "curtains", "label": "🪟 Шторы" },
+        { "value": "other", "label": "➕ Другое" }
       ],
       "unitsLabel": "Количество единиц / детали",
       "unitsPlaceholder": "напр. 12 диванов, 20 матрасов...",

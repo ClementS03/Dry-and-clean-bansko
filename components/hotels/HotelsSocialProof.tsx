@@ -9,7 +9,7 @@ export default function HotelsSocialProof() {
   return (
     <section className="section-pad bg-ink-800">
       <div ref={ref} className="max-w-6xl mx-auto px-4 sm:px-6">
-        <div className="reveal flex flex-col sm:flex-row items-center gap-6">
+        <div className="reveal flex flex-col items-center text-center gap-4">
           <a
             href={t.contact.googleMapsUrl}
             target="_blank"

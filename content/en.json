@@ -721,8 +721,12 @@
       "services": [
         { "value": "sofa", "label": "🛋️ Sofas / Armchairs" },
         { "value": "mattress", "label": "🛏️ Mattresses" },
+        { "value": "chairs", "label": "🪑 Chairs" },
+        { "value": "banquettes", "label": "🍽️ Booth / bench seating" },
         { "value": "carpet", "label": "🏠 Carpets / Rugs" },
-        { "value": "curtains", "label": "🪟 Curtains" }
+        { "value": "moquette", "label": "🧵 Wall-to-wall carpet" },
+        { "value": "curtains", "label": "🪟 Curtains" },
+        { "value": "other", "label": "➕ Other" }
       ],
       "unitsLabel": "Number of units / details",
       "unitsPlaceholder": "e.g. 12 sofas, 20 mattresses...",

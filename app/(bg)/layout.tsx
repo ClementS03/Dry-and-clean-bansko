@@ -104,8 +104,8 @@ export const metadata: Metadata = {
     images: [
       {
         url: "/og-image.jpg",
-        width: 1024,
-        height: 500,
+        width: 1200,
+        height: 630,
         alt: "Wet&Dry Cleaning Bansko — пране на мебели",
       },
     ],
