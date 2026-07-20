@@ -20,7 +20,7 @@
     "subtitle": "We clean sofas, mattresses, carpets, curtains and car seats on-site in Bansko and surroundings — no transport, no stress.",
     "form": {
       "title": "Get a free quote",
-      "subtitle": "We respond within 24 hours",
+      "subtitle": "We reply within a few hours",
       "step1Title": "What to clean?",
       "step2Title": "Your details",
       "serviceLabel": "Type of service",
@@ -61,9 +61,9 @@
       "nextBtn": "Continue →",
       "backBtn": "← Back",
       "submitBtn": "Send via WhatsApp →",
-      "disclaimer": "No commitment. You'll receive a reply on WhatsApp within 24 hours.",
+      "disclaimer": "No commitment. You'll receive a reply on WhatsApp within a few hours.",
       "successTitle": "✓ Request sent!",
-      "successText": "We'll get back to you on WhatsApp within 24 hours.",
+      "successText": "We'll get back to you on WhatsApp within a few hours.",
       "validationPhone": "Please enter a phone number",
       "validationLocation": "Please enter your location",
       "newRequest": "New request",
@@ -141,7 +141,7 @@
     "title": "Injection-Extraction",
     "titleSub": "Deep cleaning from the inside",
     "subtitle": "Three steps — one visible result",
-    "description": "Unlike traditional surface cleaning, injection-extraction technology penetrates directly into the fabric — injecting water mixed with cleaning solution, then immediately extracting it along with all the dirt. The fabric is left barely damp and dries in hours.",
+    "description": "Unlike traditional surface cleaning, injection-extraction technology penetrates directly into the fabric — injecting water mixed with cleaning solution, then immediately extracting it along with all the dirt. The fabric is left barely damp and dries in 2–4 hours.",
     "videoUrl": "",
     "videoLabel": "Watch the machine in action",
     "steps": [
@@ -276,8 +276,8 @@
       },
       {
         "icon": "💬",
-        "title": "Reply within 24 hours",
-        "description": "Message us on WhatsApp and receive a quote within 24 hours."
+        "title": "Reply within a few hours",
+        "description": "Message us on WhatsApp and get a quote within a few hours."
       }
     ]
   },
@@ -378,7 +378,7 @@
     "subtitle": "We come to you in Bansko & surroundings",
     "phoneEN": "+359 882 862 228",
     "phoneBG": "+359 876 850 385",
-    "whatsappNumber": "359876850385",
+    "whatsappNumber": "359882862228",
     "whatsappMsg": "Hello! I would like to get a quote for furniture cleaning.",
     "area": "Bansko · Razlog · Dobrinishte · Banya",
     "hours": "Mon–Sun: 08:00 – 20:00",
@@ -386,7 +386,7 @@
     "callBtn": "Call now",
     "waBtn": "Message on WhatsApp",
     "emailBtn": "Send an email",
-    "reassurance": "✓ No commitment · Reply within 24h · Free quote",
+    "reassurance": "✓ No commitment · Reply within a few hours · Free quote",
     "phoneENLabel": "English",
     "phoneBGLabel": "Bulgarian",
     "reviewUrl": "https://g.page/r/CU4pAGZ9UMLpEBM/review",
@@ -735,10 +735,10 @@
       "backBtn": "← Back",
       "submitBtn": "Send via WhatsApp →",
       "emailBtn": "Send by email →",
-      "disclaimer": "No commitment. We reply within 24 hours.",
+      "disclaimer": "No commitment. We reply within a few hours.",
       "disclaimerEmail": "No commitment. We will contact you.",
       "successTitle": "✓ Request sent!",
-      "successText": "We'll get back to you on WhatsApp within 24 hours.",
+      "successText": "We'll get back to you on WhatsApp within a few hours.",
       "successTextEmail": "We received your request. We'll be in touch shortly.",
       "newRequest": "New request",
       "waIntro": "Hello! B2B cleaning enquiry:"

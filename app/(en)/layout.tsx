@@ -28,7 +28,7 @@ const getReviewStats = unstable_cache(
       return null;
     }
   },
-  ["reviews-schema"],
+  ["reviews-schema-en"],
   { revalidate: 3600 }
 );
 
