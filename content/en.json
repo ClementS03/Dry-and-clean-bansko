@@ -705,6 +705,44 @@
         }
       ]
     },
+    "form": {
+      "title": "Request a free on-site inspection",
+      "step1Title": "Your property",
+      "step2Title": "Your contact details",
+      "typeLabel": "Type of establishment",
+      "types": [
+        { "value": "hotel", "label": "🏨 Hotel" },
+        { "value": "guesthouse", "label": "🏡 Guesthouse" },
+        { "value": "airbnb", "label": "🛋️ Airbnb / Apartment" },
+        { "value": "restaurant", "label": "🍽️ Restaurant" }
+      ],
+      "servicesLabel": "Services needed",
+      "services": [
+        { "value": "sofa", "label": "🛋️ Sofas / Armchairs" },
+        { "value": "mattress", "label": "🛏️ Mattresses" },
+        { "value": "carpet", "label": "🏠 Carpets / Rugs" },
+        { "value": "curtains", "label": "🪟 Curtains" }
+      ],
+      "unitsLabel": "Number of units / details",
+      "unitsPlaceholder": "e.g. 12 sofas, 20 mattresses...",
+      "nameLabel": "Your name",
+      "namePlaceholder": "John Smith",
+      "phoneLabel": "Phone / WhatsApp *",
+      "phonePlaceholder": "+359 8XX XXX XXX",
+      "establishmentLabel": "Establishment name",
+      "establishmentPlaceholder": "Bansko Hotel...",
+      "nextBtn": "Continue →",
+      "backBtn": "← Back",
+      "submitBtn": "Send via WhatsApp →",
+      "emailBtn": "Send by email →",
+      "disclaimer": "No commitment. We reply within 24 hours.",
+      "disclaimerEmail": "No commitment. We will contact you.",
+      "successTitle": "✓ Request sent!",
+      "successText": "We'll get back to you on WhatsApp within 24 hours.",
+      "successTextEmail": "We received your request. We'll be in touch shortly.",
+      "newRequest": "New request",
+      "waIntro": "Hello! B2B cleaning enquiry:"
+    },
     "cta": {
       "label": "Request a free on-site inspection",
       "whatsappMsg": "Hello! I would like a free on-site inspection and quote for a hotel / rental property."

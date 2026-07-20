@@ -706,6 +706,44 @@
         }
       ]
     },
+    "form": {
+      "title": "Запросить бесплатный выезд",
+      "step1Title": "Ваш объект",
+      "step2Title": "Ваши контактные данные",
+      "typeLabel": "Тип заведения",
+      "types": [
+        { "value": "hotel", "label": "🏨 Отель" },
+        { "value": "guesthouse", "label": "🏡 Гостевой дом" },
+        { "value": "airbnb", "label": "🛋️ Airbnb / Апартамент" },
+        { "value": "restaurant", "label": "🍽️ Ресторан" }
+      ],
+      "servicesLabel": "Необходимые услуги",
+      "services": [
+        { "value": "sofa", "label": "🛋️ Диваны / Кресла" },
+        { "value": "mattress", "label": "🛏️ Матрасы" },
+        { "value": "carpet", "label": "🏠 Ковры / Ковролин" },
+        { "value": "curtains", "label": "🪟 Шторы" }
+      ],
+      "unitsLabel": "Количество единиц / детали",
+      "unitsPlaceholder": "напр. 12 диванов, 20 матрасов...",
+      "nameLabel": "Ваше имя",
+      "namePlaceholder": "Иван Иванов",
+      "phoneLabel": "Телефон / WhatsApp *",
+      "phonePlaceholder": "+359 8XX XXX XXX",
+      "establishmentLabel": "Название заведения",
+      "establishmentPlaceholder": "Отель Банско...",
+      "nextBtn": "Далее →",
+      "backBtn": "← Назад",
+      "submitBtn": "Отправить через WhatsApp →",
+      "emailBtn": "Отправить по email →",
+      "disclaimer": "Без обязательств. Ответим в течение 24 часов.",
+      "disclaimerEmail": "Без обязательств. Мы свяжемся с вами.",
+      "successTitle": "✓ Запрос отправлен!",
+      "successText": "Мы ответим вам в WhatsApp в течение 24 часов.",
+      "successTextEmail": "Мы получили ваш запрос. Свяжемся с вами в ближайшее время.",
+      "newRequest": "Новый запрос",
+      "waIntro": "Здравствуйте! Запрос на корпоративную чистку:"
+    },
     "cta": {
       "label": "Запросить бесплатный выезд",
       "whatsappMsg": "Здравствуйте! Хочу бесплатный выезд и предложение для отеля / объекта аренды."

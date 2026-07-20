@@ -705,6 +705,44 @@
         }
       ]
     },
+    "form": {
+      "title": "Заявете безплатен оглед",
+      "step1Title": "Вашият обект",
+      "step2Title": "Вашите данни",
+      "typeLabel": "Вид на обекта",
+      "types": [
+        { "value": "hotel", "label": "🏨 Хотел" },
+        { "value": "guesthouse", "label": "🏡 Гестхауз" },
+        { "value": "airbnb", "label": "🛋️ Airbnb / Апартамент" },
+        { "value": "restaurant", "label": "🍽️ Ресторант" }
+      ],
+      "servicesLabel": "Необходими услуги",
+      "services": [
+        { "value": "sofa", "label": "🛋️ Дивани / Кресла" },
+        { "value": "mattress", "label": "🛏️ Матраци" },
+        { "value": "carpet", "label": "🏠 Мокет / Килим" },
+        { "value": "curtains", "label": "🪟 Завеси" }
+      ],
+      "unitsLabel": "Брой единици / детайли",
+      "unitsPlaceholder": "напр. 12 дивана, 20 матрака...",
+      "nameLabel": "Вашето име",
+      "namePlaceholder": "Иван Петров",
+      "phoneLabel": "Телефон / WhatsApp *",
+      "phonePlaceholder": "+359 8XX XXX XXX",
+      "establishmentLabel": "Ime на обекта",
+      "establishmentPlaceholder": "Хотел Банско...",
+      "nextBtn": "Продължи →",
+      "backBtn": "← Назад",
+      "submitBtn": "Изпрати в WhatsApp →",
+      "emailBtn": "Изпрати по имейл →",
+      "disclaimer": "Без ангажимент. Отговаряме в 24 часа.",
+      "disclaimerEmail": "Без ангажимент. Ще се свържем с вас.",
+      "successTitle": "✓ Запитването е изпратено!",
+      "successText": "Ще ви отговорим в WhatsApp в рамките на 24 часа.",
+      "successTextEmail": "Получихме вашето запитване. Ще се свържем скоро.",
+      "newRequest": "Ново запитване",
+      "waIntro": "Здравейте! Запитване за B2B почистване:"
+    },
     "cta": {
       "label": "Заявете безплатен оглед",
       "whatsappMsg": "Здравейте! Искам безплатен оглед и оферта за хотел / обект под наем."
