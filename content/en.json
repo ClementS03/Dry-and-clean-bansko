@@ -749,6 +749,18 @@
       "sub": "Message us and we'll reply within a few hours — no commitment.",
       "label": "Request a free on-site inspection",
       "whatsappMsg": "Hello! I would like a free on-site inspection and quote for a hotel / rental property."
+    },
+    "extras": {
+      "title": "Also for your business",
+      "subtitle": "Beyond cleaning, we help Bansko establishments stand out online.",
+      "items": [
+        { "icon": "📍", "label": "Google Business profile" },
+        { "icon": "⭐", "label": "NFC review stands" },
+        { "icon": "📸", "label": "Photo & video" },
+        { "icon": "💻", "label": "Websites" }
+      ],
+      "cta": "Ask us about it →",
+      "whatsappMsg": "Hello! I'd like to know more about your digital services for my establishment."
     }
   }
 }

@@ -10,6 +10,7 @@ import HotelsReassurance from "@/components/hotels/HotelsReassurance"
 import HotelsSocialProof from "@/components/hotels/HotelsSocialProof"
 import HotelsFAQ from "@/components/hotels/HotelsFAQ"
 import HotelsCTA from "@/components/hotels/HotelsCTA"
+import HotelsExtras from "@/components/hotels/HotelsExtras"
 import Footer from "@/components/Footer"
 import WhatsAppFAB from "@/components/WhatsAppFAB"
 
@@ -45,6 +46,7 @@ export default function HotelsRU() {
           </div>
         </section>
         <HotelsCTA />
+        <HotelsExtras />
       </main>
       <Footer />
       <WhatsAppFAB />
