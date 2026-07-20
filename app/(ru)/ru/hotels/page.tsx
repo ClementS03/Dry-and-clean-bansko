@@ -34,16 +34,16 @@ export default function HotelsRU() {
       <main>
         <HotelsHero />
         <HotelsForWho />
-        <HotelsPricing />
         <HotelsHowItWorks />
-        <section className="section-pad bg-ink">
+        <HotelsPricing />
+        <HotelsReassurance />
+        <HotelsSocialProof />
+        <HotelsFAQ />
+        <section id="hotels-devis" className="section-pad bg-ink">
           <div className="max-w-2xl mx-auto px-4 sm:px-6">
             <HotelsLeadForm />
           </div>
         </section>
-        <HotelsReassurance />
-        <HotelsSocialProof />
-        <HotelsFAQ />
         <HotelsCTA />
       </main>
       <Footer />

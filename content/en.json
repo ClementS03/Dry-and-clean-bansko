@@ -744,6 +744,8 @@
       "waIntro": "Hello! B2B cleaning enquiry:"
     },
     "cta": {
+      "heading": "Prefer to reach us directly?",
+      "sub": "Message us and we'll reply within a few hours — no commitment.",
       "label": "Request a free on-site inspection",
       "whatsappMsg": "Hello! I would like a free on-site inspection and quote for a hotel / rental property."
     }

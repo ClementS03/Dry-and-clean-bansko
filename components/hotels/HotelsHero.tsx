@@ -5,7 +5,11 @@ export default function HotelsHero() {
   const { t } = useLanguage()
   const h = t.hotels.hero
   const waUrl = `https://wa.me/${t.contact.whatsappNumber}?text=${encodeURIComponent(h.ctaWhatsappMsg)}`
-  const emailUrl = `mailto:${t.contact.email}?subject=${encodeURIComponent(h.cta)}`
+
+  const scrollToForm = (e: React.MouseEvent) => {
+    e.preventDefault()
+    document.getElementById('hotels-devis')?.scrollIntoView({ behavior: 'smooth' })
+  }
   return (
     <section className="relative min-h-[60vh] flex items-center section-pad bg-ink overflow-hidden">
       <div className="absolute inset-0 pointer-events-none"
@@ -24,7 +28,7 @@ export default function HotelsHero() {
             </a>
           </div>
           <div className="hidden lg:block">
-            <a href={emailUrl} className="btn-gold px-8 py-4 text-base">
+            <a href="#hotels-devis" onClick={scrollToForm} className="btn-gold px-8 py-4 text-base">
               {h.cta} →
             </a>
           </div>
