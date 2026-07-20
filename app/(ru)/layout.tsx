@@ -96,7 +96,7 @@ export const metadata: Metadata = {
     locale: "ru_RU",
     images: [
       {
-        url: "/og-image.jpg",
+        url: "/og-image-ru.jpg",
         width: 1200,
         height: 630,
         alt: "Wet&Dry Cleaning Bansko — чистка мебели",
@@ -107,7 +107,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Чистка мебели Банско | Wet&Dry Cleaning",
     description: "Профессиональная выездная чистка мебели в Банско, Болгария.",
-    images: ["/og-image.jpg"],
+    images: ["/og-image-ru.jpg"],
   },
   icons: {
     icon: [

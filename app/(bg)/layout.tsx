@@ -103,7 +103,7 @@ export const metadata: Metadata = {
     locale: "bg_BG",
     images: [
       {
-        url: "/og-image.jpg",
+        url: "/og-image-bg.jpg",
         width: 1200,
         height: 630,
         alt: "Wet&Dry Cleaning Bansko — пране на мебели",
@@ -114,7 +114,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Пране на мебели Банско | Wet&Dry Cleaning",
     description: "Injection-extraction — директно при вас.",
-    images: ["/og-image.jpg"],
+    images: ["/og-image-bg.jpg"],
   },
   icons: {
     icon: [

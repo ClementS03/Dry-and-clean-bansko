@@ -29,10 +29,10 @@ export const metadata: Metadata = {
   openGraph: {
     url: "https://wetdrycleaningbansko.com/hotels",
     title: "Почистване за хотели Банско",
-    images: [{ url: "/og-hotels.jpg", width: 1200, height: 630, alt: "Wet&Dry Cleaning — почистване за хотели в Банско" }],
+    images: [{ url: "/og-hotels-bg.jpg", width: 1200, height: 630, alt: "Wet&Dry Cleaning — почистване за хотели в Банско" }],
   },
   twitter: {
-    images: ["/og-hotels.jpg"],
+    images: ["/og-hotels-bg.jpg"],
   },
 }
 
