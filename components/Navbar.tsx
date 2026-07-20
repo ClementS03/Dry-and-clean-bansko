@@ -24,6 +24,12 @@ export default function Navbar() {
     return `/${code}${base === '/' ? '' : base}`
   }
 
+  const homePath = pathname.startsWith('/en') ? '/en' : pathname.startsWith('/ru') ? '/ru' : '/'
+
+  const langCloseTimer = useRef<ReturnType<typeof setTimeout> | null>(null)
+  const openLang = () => { if (langCloseTimer.current) clearTimeout(langCloseTimer.current); setLangOpen(true) }
+  const closeLangDelayed = () => { langCloseTimer.current = setTimeout(() => setLangOpen(false), 250) }
+
   const langs: { code: 'bg' | 'en' | 'ru'; label: string }[] = [
     { code: 'bg', label: 'БГ' },
     { code: 'en', label: 'EN' },
@@ -60,7 +66,21 @@ export default function Navbar() {
   const handleNav = (href: string) => {
     setMenuOpen(false);
     const el = document.querySelector(href);
-    if (el) el.scrollIntoView({ behavior: "smooth" });
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth" });
+    } else {
+      // Not on the home page (e.g. /hotels) — go home, then to the anchor
+      router.push(`${homePath === "/" ? "" : homePath}${href}`);
+    }
+  };
+
+  const handleLogo = (e: React.MouseEvent) => {
+    e.preventDefault();
+    if (pathname === homePath) {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    } else {
+      router.push(homePath);
+    }
   };
 
   return (
@@ -77,11 +97,8 @@ export default function Navbar() {
           {/* OPTION A (actuelle) : logo image — mets ton fichier dans /public/logo.png */}
           {/* OPTION B : logo texte — décommente le bloc en dessous et commente celui-ci */}
           <a
-            href="#"
-            onClick={(e) => {
-              e.preventDefault();
-              window.scrollTo({ top: 0, behavior: "smooth" });
-            }}
+            href={homePath}
+            onClick={handleLogo}
             className="flex items-center group"
           >
             <Image
@@ -134,8 +151,8 @@ export default function Navbar() {
             <div
               ref={langDropdownDesktopRef}
               className="relative hidden md:block pb-1"
-              onMouseEnter={() => setLangOpen(true)}
-              onMouseLeave={() => setLangOpen(false)}
+              onMouseEnter={openLang}
+              onMouseLeave={closeLangDelayed}
             >
               <button
                 className="font-display text-xs font-semibold uppercase tracking-widest text-gold border border-gold/40 px-2.5 py-1 rounded-sm hover:bg-gold/10 transition-colors duration-200"

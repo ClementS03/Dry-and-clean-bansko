@@ -106,6 +106,10 @@ export default function HotelsLeadForm() {
 
       {step === 'step2' && (
         <>
+          <button onClick={() => setStep('step1')}
+            className="flex items-center gap-1.5 text-sm text-gold/70 hover:text-gold transition-colors font-display uppercase tracking-wide">
+            {f.backBtn}
+          </button>
           <h3 className="font-display text-lg text-cream uppercase tracking-wide">{f.step2Title}</h3>
 
           <div className="space-y-3">
@@ -142,11 +146,6 @@ export default function HotelsLeadForm() {
             </a>
             <p className="text-cream/30 text-xs text-center">{f.disclaimerEmail}</p>
           </div>
-
-          <button onClick={() => setStep('step1')}
-            className="text-xs text-cream/40 hover:text-cream/70 transition-colors w-full text-center pt-1">
-            {f.backBtn}
-          </button>
         </>
       )}
     </div>

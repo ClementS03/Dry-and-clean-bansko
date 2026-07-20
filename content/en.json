@@ -92,7 +92,7 @@
     },
     {
       "icon": "✅",
-      "label": "Results or no charge"
+      "label": "Fully insured"
     }
   ],
   "services": {
@@ -256,8 +256,8 @@
       },
       {
         "icon": "✅",
-        "title": "Results or no charge",
-        "description": "If you're not satisfied with the result — you don't pay. That's how confident we are."
+        "title": "Fully insured",
+        "description": "Accidental damage during our work is covered at our cost — no risk to you."
       },
       {
         "icon": "⚡",
@@ -349,7 +349,7 @@
       },
       {
         "q": "How much does sofa cleaning cost in Bansko?",
-        "a": "Sofa cleaning in Bansko starts from €25 for a 2-seater and up to €45 for a large corner sofa. Mattresses from €20, carpets from €4/m², curtains from €15. All prices are listed on our Pricing page with no hidden fees. Payment is made after the service — cash or bank transfer — only if you are satisfied."
+        "a": "Sofa cleaning in Bansko starts from €25 for a 2-seater and up to €45 for a large corner sofa. Mattresses from €20, carpets from €4/m², curtains from €15. All prices are listed on our Pricing page with no hidden fees. Payment is made after the service — cash or bank transfer."
       },
       {
         "q": "Can you remove pet odours and smells?",
@@ -502,8 +502,8 @@
       },
       {
         "icon": "✅",
-        "title": "Results or no charge",
-        "description": "If you're not satisfied with the result — you don't pay. That's how confident we are."
+        "title": "Fully insured",
+        "description": "Accidental damage during our work is covered at our cost — no risk to you."
       }
     ],
     "cta": "Request a corporate quote",

@@ -207,9 +207,9 @@ export default function LeadForm() {
           <div>
             <button
               onClick={() => setStep(1)}
-              className="flex items-center gap-1.5 text-xs text-cream/40 hover:text-cream/70 mb-4 transition-colors"
+              className="flex items-center gap-1.5 text-sm text-gold/70 hover:text-gold mb-4 transition-colors font-display uppercase tracking-wide"
             >
-              ←
+              {f.backBtn}
             </button>
             <p className="mb-4 text-xs font-semibold tracking-widest uppercase text-cream/50">
               {f.step2Title}

@@ -13,8 +13,6 @@ import FAQ from "@/components/FAQ";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import WhatsAppFAB from "@/components/WhatsAppFAB";
-import SimulatorSection from "@/components/SimulatorSection";
-import SimulatorFAB from "@/components/SimulatorFAB";
 
 export default function Home() {
   return (
@@ -25,7 +23,6 @@ export default function Home() {
         <Services />
         <Technology />
         <BeforeAfter />
-        <SimulatorSection />
         <Comparison />
         <WhyUs />
         <ForRentals />
@@ -36,7 +33,6 @@ export default function Home() {
       </main>
       <Footer />
       <WhatsAppFAB />
-      <SimulatorFAB />
     </LanguageProvider>
   );
 }

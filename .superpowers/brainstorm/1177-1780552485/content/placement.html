@@ -1,0 +1,90 @@
+<h2>Où placer l'outil de simulation sur la page ?</h2>
+<p class="subtitle">La position impacte directement la visibilité, le taux d'essai, et la cohérence du flow narratif</p>
+
+<div class="cards" style="grid-template-columns: 1fr 1fr; gap: 20px;">
+
+  <div class="card" data-choice="hero" onclick="toggleSelect(this)">
+    <div class="card-image" style="background:#0a0a0a; padding: 16px; font-family: monospace; font-size: 11px;">
+      <div style="background:#1a1a1a; border:1px solid #333; border-radius:6px; padding:10px; margin-bottom:8px;">
+        <div style="color:#F5C400; font-size:10px; text-transform:uppercase; letter-spacing:2px; margin-bottom:4px;">HERO</div>
+        <div style="background:#2a2a2a; height:30px; border-radius:4px; margin-bottom:6px; display:flex; align-items:center; justify-content:center; color:#F5C400; font-size:10px;">Titre principal + CTA</div>
+      </div>
+      <div style="background:#F5C400; border-radius:6px; padding:10px; text-align:center;">
+        <div style="color:#0a0a0a; font-size:10px; font-weight:bold;">✨ SIMULATEUR ICI</div>
+        <div style="color:#0a0a0a; font-size:9px; opacity:0.7; margin-top:3px;">Upload → résultat en 15s</div>
+      </div>
+      <div style="background:#1a1a1a; border:1px solid #333; border-radius:4px; padding:8px; margin-top:8px; opacity:0.5;">
+        <div style="color:#888; font-size:9px; text-align:center;">Services ↓</div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>A — Dans le Hero</h3>
+      <p>Visible dès l'arrivée sur la page. Impact maximal, mais peut surcharger le Hero qui doit déjà convaincre.</p>
+    </div>
+  </div>
+
+  <div class="card" data-choice="gallery" onclick="toggleSelect(this)">
+    <div class="card-image" style="background:#0a0a0a; padding: 16px; font-family: monospace; font-size: 11px;">
+      <div style="background:#1a1a1a; border:1px solid #333; border-radius:4px; padding:8px; margin-bottom:8px; opacity:0.5;">
+        <div style="color:#888; font-size:9px; text-align:center;">Hero → Services → Tech → …</div>
+      </div>
+      <div style="background:#1a1a1a; border:1px solid #F5C400; border-radius:6px; padding:10px; margin-bottom:8px;">
+        <div style="color:#F5C400; font-size:10px; text-transform:uppercase; letter-spacing:2px; margin-bottom:6px;">SECTION GALERIE</div>
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:6px; margin-bottom:8px;">
+          <div style="background:#2a2a2a; height:35px; border-radius:3px;"></div>
+          <div style="background:#2a2a2a; height:35px; border-radius:3px;"></div>
+        </div>
+        <div style="background:#F5C400; border-radius:4px; padding:6px; text-align:center;">
+          <div style="color:#0a0a0a; font-size:9px; font-weight:bold;">+ Tester avec votre meuble →</div>
+        </div>
+      </div>
+      <div style="background:#1a1a1a; border:1px solid #333; border-radius:4px; padding:8px; opacity:0.5;">
+        <div style="color:#888; font-size:9px; text-align:center;">WhyUs ↓</div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>B — Après la Galerie avant/après</h3>
+      <p>Naturel : l'utilisateur vient de voir les vraies photos, il est chaud. Le simulateur devient "maintenant testez avec le vôtre".</p>
+    </div>
+  </div>
+
+  <div class="card" data-choice="contact" onclick="toggleSelect(this)">
+    <div class="card-image" style="background:#0a0a0a; padding: 16px; font-family: monospace; font-size: 11px;">
+      <div style="background:#1a1a1a; border:1px solid #333; border-radius:4px; padding:8px; margin-bottom:8px; opacity:0.5;">
+        <div style="color:#888; font-size:9px; text-align:center;">… → Pricing → Reviews → FAQ →</div>
+      </div>
+      <div style="background:#1a1a1a; border:1px solid #F5C400; border-radius:6px; padding:10px;">
+        <div style="color:#F5C400; font-size:10px; text-transform:uppercase; letter-spacing:2px; margin-bottom:6px;">SECTION CONTACT</div>
+        <div style="background:#F5C400; border-radius:4px; padding:6px; text-align:center; margin-bottom:6px;">
+          <div style="color:#0a0a0a; font-size:9px; font-weight:bold;">Simulez votre meuble</div>
+        </div>
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:6px;">
+          <div style="background:#2a2a2a; border-radius:3px; padding:5px; text-align:center; color:#888; font-size:9px;">📞 Appeler</div>
+          <div style="background:#2a2a2a; border-radius:3px; padding:5px; text-align:center; color:#888; font-size:9px;">✉️ Email</div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>C — Dans la section Contact</h3>
+      <p>Le simulateur comme déclencheur de prise de contact. Arrive tard dans la page mais l'intention d'achat est maximale.</p>
+    </div>
+  </div>
+
+  <div class="card" data-choice="floating" onclick="toggleSelect(this)">
+    <div class="card-image" style="background:#0a0a0a; padding: 16px; font-family: monospace; font-size: 11px; position:relative; min-height: 100px;">
+      <div style="background:#1a1a1a; border:1px solid #333; border-radius:4px; padding:8px; margin-bottom:6px; opacity:0.5; font-size:9px; color:#888; text-align:center;">Toute la page (scroll)</div>
+      <div style="background:#1a1a1a; border:1px solid #333; border-radius:4px; padding:8px; margin-bottom:6px; opacity:0.5; font-size:9px; color:#888; text-align:center;">…</div>
+      <div style="position:absolute; bottom:16px; right:16px; background:#F5C400; border-radius:50px; padding:8px 12px; display:flex; align-items:center; gap:6px;">
+        <span style="font-size:14px;">✨</span>
+        <span style="color:#0a0a0a; font-size:10px; font-weight:bold;">Simuler</span>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>D — Bouton flottant (FAB)</h3>
+      <p>Comme le WhatsApp FAB existant. Visible sur toute la page, ouvre un modal. Maximum de reach, minimum d'intrusion.</p>
+    </div>
+  </div>
+
+</div>
+
+<p class="subtitle" style="margin-top: 16px; text-align:center;">💡 Ma recommandation : <strong>B + D combinés</strong> — section dédiée après la galerie ET FAB discret sur mobile</p>
