@@ -88,7 +88,7 @@
     },
     {
       "icon": "🌿",
-      "label": "Safe products"
+      "label": "Safe for kids & pets"
     },
     {
       "icon": "✅",
@@ -216,7 +216,7 @@
       },
       {
         "label": "Mites & bacteria",
-        "our": "99.9% eliminated",
+        "our": "Removed deep down",
         "classic": "Remain",
         "ourGood": true
       },
@@ -509,6 +509,7 @@
     "cta": "Request a corporate quote",
     "trust": "Serving hotels, villas and apartments in Bansko, Razlog, Dobrinishte and Banya",
     "whatsappMsg": "Hello! I would like a corporate quote for hotel / rental apartment cleaning.",
+    "teaser": "A dedicated page for hotels, guesthouses & rental apartments — pricing, monthly contracts and how we work around your guests.",
     "hotelsLink": "See our hotel conditions →"
   },
   "simulator": {

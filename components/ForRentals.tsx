@@ -84,7 +84,7 @@ export default function ForRentals() {
           {/* Right: link to hotels page */}
           <div className="reveal flex flex-col items-center justify-center h-full gap-6 p-8 card-dark text-center" style={{ transitionDelay: '150ms' }}>
             <div className="text-5xl">🏨</div>
-            <p className="text-cream/60 text-sm leading-relaxed max-w-xs">{r.subtitle}</p>
+            <p className="text-cream/60 text-sm leading-relaxed max-w-xs">{r.teaser}</p>
             <a href={hotelsPath} className="btn-gold px-6 py-3 text-sm">
               {r.hotelsLink}
             </a>

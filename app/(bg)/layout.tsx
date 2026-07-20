@@ -163,7 +163,7 @@ export default async function RootLayoutBG({
 
   const localBusinessSchema = {
     "@context": "https://schema.org",
-    "@type": ["LocalBusiness", "ProfessionalService"],
+    "@type": ["LocalBusiness", "ProfessionalService", "CleaningService"],
     name: "Wet&Dry Cleaning Bansko",
     description:
       "Професионално пране на мебели с injection-extraction технология в Банско и региона. Идваме при вас — дивани, матраци, килими, завеси, авто седалки.",
