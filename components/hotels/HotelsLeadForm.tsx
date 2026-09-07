@@ -16,7 +16,6 @@ export default function HotelsLeadForm() {
   const [name, setName] = useState('')
   const [phone, setPhone] = useState('')
   const [establishment, setEstablishment] = useState('')
-  const [phoneError, setPhoneError] = useState(false)
 
   const toggleService = (val: string) =>
     setServices(prev => prev.includes(val) ? prev.filter(s => s !== val) : [...prev, val])
@@ -123,16 +122,8 @@ export default function HotelsLeadForm() {
             <div>
               <label htmlFor={`${uid}-phone`} className="block text-xs text-cream/50 uppercase tracking-widest mb-1">{f.phoneLabel}</label>
               <input id={`${uid}-phone`} value={phone}
-                aria-required="true"
-                aria-invalid={phoneError}
-                aria-describedby={phoneError ? `${uid}-phone-error` : undefined}
-                onChange={e => { setPhone(e.target.value); setPhoneError(false) }}
-                placeholder={f.phonePlaceholder} className={`input-dark w-full text-sm ${phoneError ? 'border-red-500' : ''}`} />
-              {phoneError && (
-                <p id={`${uid}-phone-error`} role="alert" className="mt-1 text-xs text-red-400">
-                  {t.hero.form.validationPhone}
-                </p>
-              )}
+                onChange={e => setPhone(e.target.value)}
+                placeholder={f.phonePlaceholder} className="input-dark w-full text-sm" />
             </div>
             <div>
               <label htmlFor={`${uid}-establishment`} className="block text-xs text-cream/50 uppercase tracking-widest mb-1">{f.establishmentLabel}</label>
@@ -142,17 +133,17 @@ export default function HotelsLeadForm() {
           </div>
 
           <div className="lg:hidden space-y-2">
-            <a href={phone ? waUrl : undefined} target="_blank" rel="noopener noreferrer"
-              onClick={() => (phone ? setStep('success') : setPhoneError(true))}
-              className={`btn-gold w-full justify-center py-3 text-sm ${!phone ? 'opacity-40 pointer-events-none' : ''}`}>
+            <a href={waUrl} target="_blank" rel="noopener noreferrer"
+              onClick={() => setStep('success')}
+              className="btn-gold w-full justify-center py-3 text-sm">
               {f.submitBtn}
             </a>
             <p className="text-cream/55 text-xs text-center">{f.disclaimer}</p>
           </div>
 
           <div className="hidden lg:block space-y-2">
-            <a href={phone ? emailUrl : undefined} onClick={() => (phone ? setStep('success') : setPhoneError(true))}
-              className={`btn-gold w-full justify-center py-3 text-sm ${!phone ? 'opacity-40 pointer-events-none' : ''}`}>
+            <a href={emailUrl} onClick={() => setStep('success')}
+              className="btn-gold w-full justify-center py-3 text-sm">
               {f.emailBtn}
             </a>
             <p className="text-cream/55 text-xs text-center">{f.disclaimerEmail}</p>

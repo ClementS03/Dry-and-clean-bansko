@@ -42,6 +42,18 @@ Tu ne peux donc pas casser un aperçu en oubliant un fichier. Chaque image que t
 
 Pas de prix. Pas de numéro de téléphone. Pas d'URL. Pas de QR code. Ce sont les mêmes règles que pour les visuels Google Business, et pour la même raison : ça fait publicité et ça se fait rejeter ou ignorer.
 
+## Régénérer les OG principales
+
+Les six images d'accueil et de page business sont générées par un script, pas dessinées à la main :
+
+```bash
+node scripts/make-og.mjs
+```
+
+Textes, badges et photos se modifient dans `scripts/make-og.mjs`. Les photos sources des pages business sont dans `scripts/og-source/` : elles n'existent nulle part ailleurs, ne les supprime pas. Le script écrit toujours en 1200 × 630 et peut se relancer autant de fois que voulu sans dégrader le résultat.
+
+Playwright n'est pas une dépendance du projet, le script le prend dans le dossier voisin `freelanceos`. Si tu le déplaces : `PLAYWRIGHT_PATH=... node scripts/make-og.mjs`.
+
 ## Les fichiers déjà en place
 
 Ils vivent à la racine de `public/`, pas dans ce dossier, et ils sont déjà en cache chez Facebook et WhatsApp. Les renommer casserait les aperçus des liens déjà partagés en prospection, donc on les laisse où ils sont.
