@@ -216,7 +216,7 @@ export default async function RootLayoutEN({
         <style suppressHydrationWarning dangerouslySetInnerHTML={{ __html: cssVars }} />
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema).replace(/</g, "\\u003c") }}
         />
       </head>
       <body suppressHydrationWarning>{children}</body>

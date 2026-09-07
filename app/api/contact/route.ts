@@ -45,11 +45,48 @@ function row(label: string, value: string, alt: boolean) {
     </tr>`
 }
 
+// Limitation de debit. La memoire n est pas partagee entre instances Netlify,
+// donc ce n est pas un rempart absolu : cela arrete les envois repetes depuis
+// une meme session, pas une attaque distribuee. Un service dedie serait
+// necessaire pour aller plus loin.
+const WINDOW_MS = 10 * 60 * 1000
+const MAX_PER_WINDOW = 5
+const attempts = new Map<string, number[]>()
+
+function clientIp(req: NextRequest): string {
+  return (
+    req.headers.get('x-nf-client-connection-ip') ??
+    req.headers.get('x-forwarded-for')?.split(',')[0]?.trim() ??
+    'unknown'
+  )
+}
+
+function isRateLimited(ip: string): boolean {
+  const now = Date.now()
+  const recent = (attempts.get(ip) ?? []).filter((t) => now - t < WINDOW_MS)
+  recent.push(now)
+  attempts.set(ip, recent)
+
+  if (attempts.size > 500) {
+    for (const [key, times] of attempts) {
+      if (!times.some((t) => now - t < WINDOW_MS)) attempts.delete(key)
+    }
+  }
+
+  return recent.length > MAX_PER_WINDOW
+}
+
 export async function POST(req: NextRequest) {
-  // Origin check, bloque les soumissions cross-origin
+  // Origin exige et compare exactement. L ancien controle laissait passer
+  // une requete sans en-tete Origin, et startsWith acceptait aussi
+  // https://wetdrycleaningbansko.com.exemple-malveillant.com
   const origin = req.headers.get('origin') ?? ''
-  if (origin && !ALLOWED_ORIGINS.some((o) => origin.startsWith(o))) {
+  if (!ALLOWED_ORIGINS.includes(origin)) {
     return NextResponse.json({ error: 'Forbidden' }, { status: 403 })
+  }
+
+  if (isRateLimited(clientIp(req))) {
+    return NextResponse.json({ error: 'Too many requests' }, { status: 429 })
   }
 
   const contentType = req.headers.get('content-type') ?? ''
