@@ -1,5 +1,6 @@
 'use client'
 import { useLanguage } from '@/context/LanguageContext'
+import Icon from '@/components/Icon'
 import { useScrollReveal } from '@/hooks/useScrollReveal'
 
 export default function HotelsExtras() {
@@ -20,7 +21,7 @@ export default function HotelsExtras() {
               className="reveal flex items-center gap-2 text-cream/55 text-sm"
               style={{ transitionDelay: `${i * 60}ms` }}
             >
-              <span className="text-base">{it.icon}</span> {it.label}
+              <Icon name={it.icon} className="w-4 h-4 text-gold" /> {it.label}
             </div>
           ))}
         </div>

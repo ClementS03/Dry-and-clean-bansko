@@ -1,5 +1,6 @@
 'use client'
 import { useLanguage } from '@/context/LanguageContext'
+import Icon from '@/components/Icon'
 import { useScrollReveal } from '@/hooks/useScrollReveal'
 
 export default function HotelsPricing() {
@@ -29,7 +30,7 @@ export default function HotelsPricing() {
           <div className="flex flex-wrap gap-4">
             {p.monthly.factors.map((f, i) => (
               <div key={i} className="flex items-center gap-2 text-cream/60 text-sm">
-                <span>{f.icon}</span> {f.label}
+                <Icon name={f.icon} className="w-4 h-4 text-gold" /> {f.label}
               </div>
             ))}
           </div>

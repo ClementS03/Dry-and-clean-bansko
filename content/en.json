@@ -841,23 +841,23 @@
       "title": "Who we work with",
       "items": [
         {
-          "icon": "🏨",
+          "icon": "building-2",
           "label": "Hotels"
         },
         {
-          "icon": "🏡",
+          "icon": "home",
           "label": "Guesthouses"
         },
         {
-          "icon": "🛋️",
+          "icon": "sofa",
           "label": "Airbnb apartments"
         },
         {
-          "icon": "🍽️",
+          "icon": "utensils",
           "label": "Restaurants (night service)"
         },
         {
-          "icon": "🏭",
+          "icon": "factory",
           "label": "Warehouses & production"
         }
       ]
@@ -872,15 +872,15 @@
         "range": "Individual offer",
         "factors": [
           {
-            "icon": "🛏️",
+            "icon": "bed-double",
             "label": "Number of units"
           },
           {
-            "icon": "📅",
+            "icon": "calendar-days",
             "label": "Frequency"
           },
           {
-            "icon": "🌤️",
+            "icon": "sun",
             "label": "Season"
           }
         ]
@@ -919,22 +919,22 @@
       "title": "Why trust us with your property",
       "items": [
         {
-          "icon": "⏱️",
+          "icon": "clock",
           "title": "Dries in 2–4 hours",
           "description": "Furniture ready to use shortly after cleaning."
         },
         {
-          "icon": "🌿",
+          "icon": "leaf",
           "title": "Low-foam professional products",
           "description": "Specialised products for hotel textiles. No foam residue."
         },
         {
-          "icon": "🛡️",
+          "icon": "shield-check",
           "title": "Professional liability insurance",
           "description": "If we accidentally damage anything during our work, it's covered at our cost. No risk for you."
         },
         {
-          "icon": "🧾",
+          "icon": "receipt",
           "title": "Invoice issued",
           "description": "We issue an invoice for every service. Fully compatible with business accounting."
         }
@@ -989,19 +989,19 @@
       "types": [
         {
           "value": "hotel",
-          "label": "🏨 Hotel"
+          "label": "Hotel"
         },
         {
           "value": "guesthouse",
-          "label": "🏡 Guesthouse"
+          "label": "Guesthouse"
         },
         {
           "value": "airbnb",
-          "label": "🛋️ Airbnb / Apartment"
+          "label": "Airbnb / Apartment"
         },
         {
           "value": "restaurant",
-          "label": "🍽️ Restaurant"
+          "label": "Restaurant"
         }
       ],
       "servicesLabel": "Services needed",
@@ -1070,19 +1070,19 @@
       "subtitle": "We also help your business get found, booked and reviewed online.",
       "items": [
         {
-          "icon": "📍",
+          "icon": "map-pin",
           "label": "Google Business profile"
         },
         {
-          "icon": "⭐",
+          "icon": "star",
           "label": "NFC review stands"
         },
         {
-          "icon": "📸",
+          "icon": "camera",
           "label": "Photo & video"
         },
         {
-          "icon": "💻",
+          "icon": "monitor",
           "label": "Websites"
         }
       ],
