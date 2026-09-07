@@ -1,57 +1,28 @@
 {
   "meta": {
-    "title": "Furniture Cleaning Bansko | Wet&Dry Cleaning",
-    "description": "Professional furniture cleaning in Bansko & surroundings. Injection-extraction technology. We come to you. Prices from 20€.",
-    "keywords": "furniture cleaning Bansko, sofa cleaning Bansko, mattress cleaning Bansko, carpet cleaning Bansko, Wet Dry cleaning Bansko, injection extraction Bansko"
+    "title": "Upholstery & professional cleaning Bansko | Wet&Dry Cleaning",
+    "description": "Upholstery cleaning, deep cleaning, windows, pressure washing and post-construction cleaning in Bansko and the surrounding area. Free offer within a few hours.",
+    "keywords": "cleaning Bansko, upholstery cleaning Bansko, sofa cleaning Bansko, deep cleaning Bansko, post construction cleaning Bansko, window cleaning Bansko, pressure washing Bansko, industrial cleaning Bansko, airbnb turnover cleaning Bansko, Razlog, Dobrinishte, Banya"
   },
   "nav": {
     "services": "Services",
-    "technology": "Technology",
-    "prices": "Prices",
+    "business": "For business",
+    "quote": "Quote",
     "faq": "FAQ",
     "contact": "Contact",
-    "cta": "Free Quote",
+    "cta": "Free offer",
     "langSwitch": "БГ"
   },
   "hero": {
     "badge": "📍 Bansko · Razlog · Dobrinishte · Banya",
-    "title": "Sofas, mattresses,",
-    "titleHighlight": "like new again.",
-    "subtitle": "We clean sofas, mattresses, carpets, curtains and car seats on-site in Bansko and surroundings — no transport, no stress.",
+    "title": "Professional cleaning",
+    "titleHighlight": "for homes and businesses.",
+    "subtitle": "Upholstery cleaning, deep cleaning, windows, pressure washing and post-construction work in Bansko and the valley. We bring the equipment to you.",
     "form": {
       "title": "Get a free quote",
       "subtitle": "We reply within a few hours",
       "step1Title": "What to clean?",
       "step2Title": "Your details",
-      "serviceLabel": "Type of service",
-      "services": [
-        {
-          "value": "sofa",
-          "label": "🛋️ Sofa / Armchair"
-        },
-        {
-          "value": "mattress",
-          "label": "🛏️ Mattress"
-        },
-        {
-          "value": "carpet",
-          "label": "🏠 Carpet / Rug"
-        },
-        {
-          "value": "curtains",
-          "label": "🪟 Curtains"
-        },
-        {
-          "value": "car",
-          "label": "🚗 Car seats"
-        },
-        {
-          "value": "other",
-          "label": "➕ Other"
-        }
-      ],
-      "quantityLabel": "Quantity / Size (optional)",
-      "quantityPlaceholder": "e.g. 1 three-seater sofa, 2 mattresses...",
       "nameLabel": "Your name",
       "namePlaceholder": "John Smith",
       "phoneLabel": "Phone / WhatsApp *",
@@ -74,65 +45,208 @@
       "successTextEmail": "We received your request. We'll be in touch soon.",
       "emailErrorMsg": "Failed to send. Please try again.",
       "selectedLabel": "selected",
-      "selectedLabelPlural": "selected"
+      "selectedLabelPlural": "selected",
+      "audienceLabel": "Who is this for",
+      "audience": [
+        {
+          "value": "private",
+          "label": "Private"
+        },
+        {
+          "value": "business",
+          "label": "Business"
+        }
+      ],
+      "serviceLabel": "Type of service",
+      "services": [
+        {
+          "value": "textile",
+          "label": "Upholstery & textile cleaning"
+        },
+        {
+          "value": "deep",
+          "label": "Deep cleaning"
+        },
+        {
+          "value": "renovation",
+          "label": "Post-construction cleaning"
+        },
+        {
+          "value": "turnover",
+          "label": "Guest turnover cleaning"
+        },
+        {
+          "value": "windows",
+          "label": "Window & glass cleaning"
+        },
+        {
+          "value": "pressure",
+          "label": "Pressure washing"
+        },
+        {
+          "value": "industrial",
+          "label": "Industrial cleaning"
+        },
+        {
+          "value": "other",
+          "label": "Other"
+        }
+      ],
+      "textileLabel": "What needs cleaning",
+      "textileItems": [
+        {
+          "value": "sofa",
+          "label": "Sofa & armchair"
+        },
+        {
+          "value": "mattress",
+          "label": "Mattress"
+        },
+        {
+          "value": "carpet",
+          "label": "Carpet & rug"
+        },
+        {
+          "value": "curtains",
+          "label": "Curtains"
+        },
+        {
+          "value": "car",
+          "label": "Car seats"
+        }
+      ],
+      "frequencyLabel": "How often",
+      "frequency": [
+        {
+          "value": "once",
+          "label": "One-off"
+        },
+        {
+          "value": "recurring",
+          "label": "Recurring"
+        }
+      ],
+      "quantityLabel": "Details (optional)",
+      "quantityPlaceholderTextile": "e.g. 1 three-seater sofa, 2 mattresses",
+      "quantityPlaceholderSurface": "e.g. ~80 m², 3 rooms, 40 m² terrace",
+      "quantityPlaceholderMixed": "e.g. 1 three-seater sofa and a 40 m² terrace"
     }
   },
   "trust": [
     {
-      "icon": "🏠",
+      "icon": "home",
       "label": "We come to you"
     },
     {
-      "icon": "⏱️",
-      "label": "Dries in 2–4 hours"
+      "icon": "zap",
+      "label": "Offer within hours"
     },
     {
-      "icon": "🌿",
-      "label": "Safe for kids & pets"
+      "icon": "building-2",
+      "label": "We work with hotels and businesses"
     },
     {
-      "icon": "✅",
-      "label": "Fully insured"
+      "icon": "shield-check",
+      "label": "Insured, invoice provided"
     }
   ],
   "services": {
     "title": "What we clean",
-    "subtitle": "Full range of home & automotive textile cleaning",
+    "subtitle": "For homes, rental flats and business premises",
+    "cta": "Get your offer",
     "items": [
       {
-        "icon": "🛋️",
-        "name": "Sofas & Armchairs",
-        "description": "Deep upholstery cleaning, stain removal, dust mites and bacteria elimination. All fabric types.",
-        "price": "from 25€",
-        "tag": "Most popular"
+        "key": "textile",
+        "slug": "upholstery-cleaning",
+        "icon": "sofa",
+        "name": "Upholstery & textile cleaning",
+        "description": "Sofas, mattresses, carpets, curtains and car seats. We clean them at your place, with an injection-extraction machine.",
+        "tag": "Most booked",
+        "items": [
+          "Sofa & armchair",
+          "Mattress",
+          "Carpet & rug",
+          "Curtains",
+          "Car seats"
+        ]
       },
       {
-        "icon": "🛏️",
-        "name": "Mattresses",
-        "description": "Deep disinfection and dust mite removal. Essential for healthy sleep.",
-        "price": "from 20€",
+        "key": "deep",
+        "slug": "deep-cleaning",
+        "icon": "sparkles",
+        "name": "Deep cleaning",
+        "description": "Top-to-bottom cleaning of flats and houses. Kitchen, bathroom, floors, dust on every surface.",
         "tag": null
       },
       {
-        "icon": "🏠",
-        "name": "Carpets & Rugs",
-        "description": "Injection-extraction for all types of carpets and rugs. Quick drying.",
-        "price": "from 4€/m²",
+        "key": "renovation",
+        "slug": "post-construction-cleaning",
+        "icon": "hard-hat",
+        "name": "Post-construction cleaning",
+        "description": "Plaster dust, paint marks and glue residue. We hand the place back ready to move into.",
         "tag": null
       },
       {
-        "icon": "🪟",
-        "name": "Curtains",
-        "description": "On-site curtain cleaning — no removal needed. Fast and hassle-free.",
-        "price": "from 15€",
+        "key": "turnover",
+        "slug": "airbnb-turnover",
+        "icon": "key-round",
+        "name": "Guest turnover cleaning",
+        "description": "For rental flats and guesthouses. We work in the window between check-out and check-in.",
         "tag": null
       },
       {
-        "icon": "🚗",
-        "name": "Car Seats",
-        "description": "Deep cleaning of automotive textiles, upholstery, mats and headliner.",
-        "price": "from 25€",
+        "key": "windows",
+        "slug": "window-cleaning",
+        "icon": "app-window",
+        "name": "Window & glass cleaning",
+        "description": "Windows, shopfronts and glass façades, inside and out. We reach the awkward spots too.",
         "tag": null
+      },
+      {
+        "key": "pressure",
+        "slug": "pressure-washing",
+        "icon": "droplets",
+        "name": "Pressure washing",
+        "description": "Terraces, driveways, yards and façades. High pressure against moss, mud and green build-up.",
+        "tag": null
+      },
+      {
+        "key": "industrial",
+        "slug": "industrial-cleaning",
+        "icon": "factory",
+        "name": "Industrial & large-surface cleaning",
+        "description": "Warehouses, production halls and retail floors. We work to a schedule, outside your opening hours.",
+        "tag": null
+      }
+    ]
+  },
+  "howWeWork": {
+    "badge": "How we work",
+    "title": "From first message to finished job",
+    "steps": [
+      {
+        "number": "01",
+        "icon": "message-circle",
+        "title": "Ask",
+        "description": "Tell us what needs cleaning. A photo helps."
+      },
+      {
+        "number": "02",
+        "icon": "file-text",
+        "title": "Offer",
+        "description": "You get a price within hours. We fix it before we start."
+      },
+      {
+        "number": "03",
+        "icon": "truck",
+        "title": "We come to you",
+        "description": "We bring all the equipment. You move nothing."
+      },
+      {
+        "number": "04",
+        "icon": "check",
+        "title": "Done",
+        "description": "You pay after the job, cash or bank transfer. Invoice provided."
       }
     ]
   },
@@ -262,7 +376,7 @@
       {
         "icon": "⚡",
         "title": "Fast & convenient",
-        "description": "Cleaning takes 1–3 hours. Furniture ready to use after 2–4 hours."
+        "description": "Most jobs take between one and three hours. We work weekends too."
       },
       {
         "icon": "🌿",
@@ -281,44 +395,40 @@
       }
     ]
   },
-  "pricing": {
-    "badge": "Transparent pricing",
-    "title": "Price list",
-    "subtitle": "No hidden fees. Final price depends on size and level of soiling.",
-    "items": [
+  "quote": {
+    "badge": "Quote",
+    "title": "How the price is set",
+    "subtitle": "Every job is quoted individually. Here is what it depends on.",
+    "factors": [
       {
-        "icon": "🛋️",
-        "name": "Sofa / Armchair",
-        "price": "from 25€",
-        "note": "by size"
+        "icon": "list",
+        "title": "Type of service",
+        "description": "Upholstery, deep cleaning, windows or pressure washing. Each one needs different equipment and time."
       },
       {
-        "icon": "🛏️",
-        "name": "Mattress",
-        "price": "from 20€",
-        "note": "single / double"
+        "icon": "ruler",
+        "title": "Area or quantity",
+        "description": "The square metres of the site, or the number of items to clean."
       },
       {
-        "icon": "🏠",
-        "name": "Carpet / Rug",
-        "price": "from 4€/m²",
-        "note": "minimum 20€"
+        "icon": "gauge",
+        "title": "Level of soiling",
+        "description": "Fresh stains and years of built-up dirt do not take the same time."
       },
       {
-        "icon": "🪟",
-        "name": "Curtains",
-        "price": "from 15€",
-        "note": "per set"
-      },
-      {
-        "icon": "🚗",
-        "name": "Car seats",
-        "price": "from 25€",
-        "note": "full interior"
+        "icon": "repeat",
+        "title": "Frequency",
+        "description": "On a recurring contract the price per visit goes down."
       }
     ],
-    "cta": "Get a personal quote",
-    "note": "* Payment is due after the service is completed."
+    "reassuranceTitle": "How we handle the price",
+    "reassurance": [
+      "We fix the price before we start.",
+      "You pay after the job, cash or bank transfer.",
+      "We issue an invoice for every job."
+    ],
+    "cta": "Get your offer",
+    "note": "Send photos and you get an offer within a few hours."
   },
   "faq": {
     "title": "Frequently asked questions",
@@ -340,8 +450,8 @@
         "a": "In most cases — yes. Injection-extraction is very effective even on stubborn stains. With prior information about the stain type, we can assess the chance of full removal."
       },
       {
-        "q": "How much does it cost and how do I pay?",
-        "a": "Prices depend on type and size. All prices are transparent — no hidden fees. Payment is in cash or bank transfer after the service."
+        "q": "How do you set the price and how do I pay?",
+        "a": "Send us photos and a few details and you get an offer within a few hours. The price is fixed before we start. You pay after the job, cash or bank transfer. We issue an invoice."
       },
       {
         "q": "Which areas do you cover?",
@@ -349,15 +459,15 @@
       },
       {
         "q": "How much does sofa cleaning cost in Bansko?",
-        "a": "Sofa cleaning in Bansko starts from €25 for a 2-seater and up to €45 for a large corner sofa. Mattresses from €20, carpets from €4/m², curtains from €15. All prices are listed on our Pricing page with no hidden fees. Payment is made after the service — cash or bank transfer."
+        "a": "It depends on the size of the sofa, the fabric and its condition. That is why we quote from photos instead of a flat rate. Send us a photo and you get an exact price within a few hours. We fix it before we start and you pay after the job."
       },
       {
         "q": "Can you remove pet odours and smells?",
         "a": "Yes. The injection-extraction method extracts contaminants from deep within the fabric, including odours from dogs, cats and cigarette smoke. For stronger odours, we apply enzyme-based treatments at no extra charge. Most clients report complete odour elimination after a single treatment."
       },
       {
-        "q": "Do you clean for hotels and Airbnb rentals in Bansko?",
-        "a": "Yes, we serve hotels, villas and rental apartments in Bansko and the surrounding area. We offer priority scheduling between tenant stays, volume pricing for larger properties, and seasonal cleaning contracts at the end of ski season. Contact us for a corporate quote."
+        "q": "Do you work with hotels and rental flats in Bansko?",
+        "a": "Yes. We work with hotels, guesthouses and rental flats in Bansko and the surrounding area. We offer priority slots between guests and recurring cleaning contracts. See the business page or write to us for an offer."
       },
       {
         "q": "Do you cover Dobrinishte, Banya and Razlog?",
@@ -370,6 +480,14 @@
       {
         "q": "How often should sofas and mattresses be cleaned?",
         "a": "We recommend cleaning sofas at least once a year with normal use, or every 6 months if you have pets or young children. Mattresses should ideally be cleaned every 6–12 months — dust mites thrive in uncleaned mattresses and are a common cause of allergies and poor sleep."
+      },
+      {
+        "q": "What do you clean besides upholstery?",
+        "a": "Deep cleaning of flats and houses, post-construction cleaning, guest turnover cleaning, windows and shopfronts, pressure washing for terraces and façades, and industrial cleaning of warehouses and retail floors."
+      },
+      {
+        "q": "Do you work with companies and large premises?",
+        "a": "Yes. We work with warehouses, production halls, retail floors, restaurants and hotels. We do a free site visit, schedule outside your opening hours and issue an invoice for every job."
       }
     ]
   },
@@ -395,7 +513,7 @@
   },
   "footer": {
     "company": "Wet&Dry Cleaning Bansko",
-    "tagline": "Professional furniture cleaning in Bansko & surroundings",
+    "tagline": "Professional cleaning in Bansko and the surrounding area",
     "rights": "All rights reserved",
     "links": [
       {
@@ -403,12 +521,12 @@
         "href": "#services"
       },
       {
-        "label": "Technology",
-        "href": "#technology"
+        "label": "For business",
+        "href": "/business"
       },
       {
-        "label": "Prices",
-        "href": "#pricing"
+        "label": "Quote",
+        "href": "#quote"
       },
       {
         "label": "FAQ",
@@ -438,12 +556,6 @@
         "href": "https://www.tiktok.com/@wetdryclean.bansko",
         "icon": "tiktok"
       }
-    ],
-    "extrasTitle": "Additional services",
-    "extras": [
-      "Google Business Profile optimisation",
-      "NFC review stands",
-      "Photo/video production"
     ]
   },
   "whatsapp": {
@@ -470,6 +582,9 @@
       },
       {
         "label": "Carpet"
+      },
+      {
+        "label": "Mattress"
       }
     ]
   },
@@ -480,10 +595,10 @@
     "ariaLabel": "Review"
   },
   "rentals": {
-    "badge": "🏨 For hotels & rentals",
+    "badge": "For business",
     "title": "Cleaning for",
-    "titleHighlight": "hotels & Airbnb.",
-    "subtitle": "Fast turnaround between guests — we take care of the furniture, you take care of the guests.",
+    "titleHighlight": "hotels and businesses.",
+    "subtitle": "Hotels, guesthouses, rental flats, restaurants and production sites. We work around your guests and your schedule.",
     "items": [
       {
         "icon": "⚡",
@@ -492,8 +607,8 @@
       },
       {
         "icon": "📦",
-        "title": "Volume pricing",
-        "description": "Discounted rates for 3+ units. The more you book, the better the price."
+        "title": "Volume",
+        "description": "More units or repeat visits means better terms."
       },
       {
         "icon": "📅",
@@ -506,61 +621,21 @@
         "description": "Accidental damage during our work is covered at our cost — no risk to you."
       }
     ],
-    "cta": "Request a corporate quote",
+    "cta": "Request a business offer",
     "trust": "Serving hotels, villas and apartments in Bansko, Razlog, Dobrinishte and Banya",
     "whatsappMsg": "Hello! I would like a corporate quote for hotel / rental apartment cleaning.",
-    "teaser": "A dedicated page for hotels, guesthouses & rental apartments — pricing, monthly contracts and how we work around your guests.",
-    "hotelsLink": "See our hotel conditions →"
-  },
-  "simulator": {
-    "badge": "AI Simulator",
-    "title": "See the result on your furniture",
-    "subtitle": "Upload a photo — AI will show how it looks after cleaning",
-    "cta": "Try for free",
-    "fabLabel": "Simulator",
-    "fabTooltip": "Simulate the cleaning",
-    "closeLabel": "Close",
-    "processingHint": "~20s",
-    "types": {
-      "canape": "Sofa",
-      "fauteuil": "Armchair",
-      "matelas": "Mattress",
-      "kilim": "Rug"
-    },
-    "upload": {
-      "label": "Add a photo",
-      "hint": "JPG, PNG or WebP · max 5MB"
-    },
-    "processing": [
-      "Analysing fabric…",
-      "Removing stains…",
-      "Reconstructing fibres…",
-      "Finalising…"
-    ],
-    "result": {
-      "title": "Here is your result",
-      "ctaWhatsapp": "Book the cleaning",
-      "ctaSave": "Receive the result on WhatsApp",
-      "phoneLabel": "Your number",
-      "phoneCta": "Send →",
-      "waMessage": "Hello, I tested the simulator with my"
-    },
-    "error": {
-      "generic": "Something went wrong. Please try again.",
-      "tooLarge": "Photo is too large (max 5MB).",
-      "rateLimit": "Too many attempts. Please try again in an hour.",
-      "retry": "Try again"
-    }
+    "teaser": "A dedicated page for business clients. How we work around your guests, what contracts we offer and how the site visit goes.",
+    "hotelsLink": "See our business terms →"
   },
   "hotels": {
     "meta": {
-      "title": "Hotel Cleaning Bansko | Wet&Dry Cleaning",
-      "description": "Professional furniture cleaning for hotels, guesthouses and Airbnb in Bansko. Free on-site inspection. Monthly contracts from €400."
+      "title": "Cleaning for business in Bansko | Wet&Dry Cleaning",
+      "description": "Professional cleaning for hotels, guesthouses, rental flats, restaurants and production sites in Bansko. Free on-site visit and an individual offer."
     },
     "hero": {
       "badge": "🏨 For businesses",
       "title": "Your guests notice cleanliness.",
-      "subtitle": "Professional furniture cleaning for hotels, guesthouses, Airbnb and restaurants in Bansko and surroundings.",
+      "subtitle": "Professional cleaning for hotels, guesthouses, rental flats, restaurants and production sites in Bansko and the surrounding area.",
       "cta": "Free on-site inspection & quote",
       "ctaWhatsappMsg": "Hello! I would like a free on-site inspection and quote for a hotel / rental property."
     },
@@ -582,17 +657,21 @@
         {
           "icon": "🍽️",
           "label": "Restaurants (night service)"
+        },
+        {
+          "icon": "🏭",
+          "label": "Warehouses & production"
         }
       ]
     },
     "pricing": {
-      "title": "Business pricing",
-      "publicNote": "Our public prices apply to business clients too.",
-      "publicLinkLabel": "See price list →",
-      "discount": "Discount for 3+ units cleaned at once",
+      "title": "Terms for business clients",
+      "publicNote": "Every offer is individual, based on volume, area and frequency.",
+      "publicLinkLabel": "See how we set the price →",
+      "discount": "Better terms when more units are booked together",
       "monthly": {
-        "title": "Monthly contracts — Hotels & Guesthouses",
-        "range": "€400 – €2,000 / month",
+        "title": "Recurring cleaning contracts",
+        "range": "Individual offer",
         "factors": [
           {
             "icon": "🛏️",
@@ -629,7 +708,7 @@
         {
           "number": "02",
           "title": "Quote in 2 tiers",
-          "description": "Standard cleaning and deep cleaning — clear prices, no surprises."
+          "description": "Standard cleaning and deep cleaning. Clear terms, no surprises."
         },
         {
           "number": "03",
@@ -712,21 +791,57 @@
       "step2Title": "Your contact details",
       "typeLabel": "Type of establishment",
       "types": [
-        { "value": "hotel", "label": "🏨 Hotel" },
-        { "value": "guesthouse", "label": "🏡 Guesthouse" },
-        { "value": "airbnb", "label": "🛋️ Airbnb / Apartment" },
-        { "value": "restaurant", "label": "🍽️ Restaurant" }
+        {
+          "value": "hotel",
+          "label": "🏨 Hotel"
+        },
+        {
+          "value": "guesthouse",
+          "label": "🏡 Guesthouse"
+        },
+        {
+          "value": "airbnb",
+          "label": "🛋️ Airbnb / Apartment"
+        },
+        {
+          "value": "restaurant",
+          "label": "🍽️ Restaurant"
+        }
       ],
       "servicesLabel": "Services needed",
       "services": [
-        { "value": "sofa", "label": "🛋️ Sofas / Armchairs" },
-        { "value": "mattress", "label": "🛏️ Mattresses" },
-        { "value": "chairs", "label": "🪑 Chairs" },
-        { "value": "banquettes", "label": "🍽️ Booth / bench seating" },
-        { "value": "carpet", "label": "🏠 Carpets / Rugs" },
-        { "value": "moquette", "label": "🧵 Wall-to-wall carpet" },
-        { "value": "curtains", "label": "🪟 Curtains" },
-        { "value": "other", "label": "➕ Other" }
+        {
+          "value": "textile",
+          "label": "Upholstery & textile cleaning"
+        },
+        {
+          "value": "deep",
+          "label": "Deep cleaning"
+        },
+        {
+          "value": "renovation",
+          "label": "Post-construction cleaning"
+        },
+        {
+          "value": "turnover",
+          "label": "Guest turnover cleaning"
+        },
+        {
+          "value": "windows",
+          "label": "Window & glass cleaning"
+        },
+        {
+          "value": "pressure",
+          "label": "Pressure washing"
+        },
+        {
+          "value": "industrial",
+          "label": "Industrial cleaning"
+        },
+        {
+          "value": "other",
+          "label": "Other"
+        }
       ],
       "unitsLabel": "Number of units / details",
       "unitsPlaceholder": "e.g. 12 sofas, 20 mattresses...",
@@ -758,10 +873,22 @@
       "title": "Also for your business",
       "subtitle": "We also help your business get found, booked and reviewed online.",
       "items": [
-        { "icon": "📍", "label": "Google Business profile" },
-        { "icon": "⭐", "label": "NFC review stands" },
-        { "icon": "📸", "label": "Photo & video" },
-        { "icon": "💻", "label": "Websites" }
+        {
+          "icon": "📍",
+          "label": "Google Business profile"
+        },
+        {
+          "icon": "⭐",
+          "label": "NFC review stands"
+        },
+        {
+          "icon": "📸",
+          "label": "Photo & video"
+        },
+        {
+          "icon": "💻",
+          "label": "Websites"
+        }
       ],
       "cta": "Ask us about it →",
       "whatsappMsg": "Hello! I'd like to know more about your digital services for my establishment."
