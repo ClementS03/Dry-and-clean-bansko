@@ -164,7 +164,7 @@ export default async function RootLayoutEN({
     ],
     priceRange: "€€",
     currenciesAccepted: "EUR",
-    paymentAccepted: "Cash, Bank transfer",
+    paymentAccepted: "Cash, Bank transfer, Revolut",
     areaServed: [
       { "@type": "City", name: "Bansko" },
       { "@type": "City", name: "Razlog" },

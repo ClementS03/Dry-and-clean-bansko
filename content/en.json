@@ -147,7 +147,7 @@
     },
     {
       "icon": "shield-check",
-      "label": "Insured, invoice provided"
+      "label": "Insured, invoices for businesses"
     }
   ],
   "services": {
@@ -424,7 +424,7 @@
         },
         {
           "q": "Do you invoice companies?",
-          "a": "Yes, an invoice is issued for every job. That is standard for us, not an option."
+          "a": "Yes, for every business job. That is standard for us, not an option."
         }
       ]
     }
@@ -455,7 +455,7 @@
         "number": "04",
         "icon": "check",
         "title": "Done",
-        "description": "You pay after the job, cash or bank transfer. Invoice provided."
+        "description": "You pay after the job. Cash, bank transfer or Revolut."
       }
     ]
   },
@@ -633,8 +633,8 @@
     "reassuranceTitle": "How we handle the price",
     "reassurance": [
       "We fix the price before we start.",
-      "You pay after the job, cash or bank transfer.",
-      "We issue an invoice for every job."
+      "You pay after the job. Cash, bank transfer or Revolut.",
+      "We invoice businesses, and private customers on request."
     ],
     "cta": "Get your offer",
     "note": "Send photos and you get an offer within a few hours."
@@ -660,7 +660,7 @@
       },
       {
         "q": "How do you set the price and how do I pay?",
-        "a": "Send us photos and a few details and you get an offer within a few hours. The price is fixed before we start. You pay after the job, cash or bank transfer. We issue an invoice."
+        "a": "Send us photos and a few details and you get an offer within a few hours. The price is fixed before we start. You pay after the job, by cash, bank transfer or Revolut. Businesses get an invoice, private customers on request."
       },
       {
         "q": "Which areas do you cover?",

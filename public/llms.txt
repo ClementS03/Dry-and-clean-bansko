@@ -37,7 +37,7 @@ GPS координати: 41.8395, 23.4882.
 
 Всяка оферта е индивидуална. Цената зависи от вида на услугата, площта или количеството, степента на замърсяване и честотата на посещенията.
 
-Клиентът изпраща снимки и получава оферта в рамките на няколко часа. Цената се фиксира преди започване на работа. Плащането е след услугата, в брой или по банков път, в EUR. Издава се фактура.
+Клиентът изпраща снимки и получава оферта в рамките на няколко часа. Цената се фиксира преди започване на работа. Плащането е след услугата, в брой, по банков път или с Revolut, в EUR. Фирмите получават фактура, частните клиенти при поискване.
 
 Няма публична ценова листа на сайта.
 
@@ -62,7 +62,7 @@ GPS координати: 41.8395, 23.4882.
 - Оферта в рамките на няколко часа след запитване
 - Повечето обекти отнемат между 1 и 3 часа
 - Застраховани, щета по наша вина е за наша сметка
-- Издаваме фактура за всяка услуга
+- Фактура за всяка услуга на бизнес клиент, за частни клиенти при поискване
 - Работим 7 дни в седмицата
 
 ## Снимки преди и след
@@ -100,7 +100,7 @@ GPS координати: 41.8395, 23.4882.
 - Pressure washing: https://wetdrycleaningbansko.com/en/services/pressure-washing
 - Industrial & large-surface cleaning: https://wetdrycleaningbansko.com/en/services/industrial-cleaning
 
-**Pricing:** every job is quoted individually, based on the service, the area or quantity, the level of soiling and the frequency. Send photos and you get an offer within a few hours. The price is fixed before work starts. Payment after the job in EUR, cash or bank transfer. An invoice is issued. There is no public price list.
+**Pricing:** every job is quoted individually, based on the service, the area or quantity, the level of soiling and the frequency. Send photos and you get an offer within a few hours. The price is fixed before work starts. Payment after the job in EUR, by cash, bank transfer or Revolut. Businesses get an invoice, private customers on request. There is no public price list.
 
 **Coverage area:** Bansko, Razlog, Dobrinishte, Banya and the Bansko-Razlog valley, Bulgaria.
 
