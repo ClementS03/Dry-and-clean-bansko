@@ -13,6 +13,7 @@ function SliderCard({
   beforeLabel,
   afterLabel,
   sliderHint,
+  subject,
 }: {
   label: string;
   before: string;
@@ -20,8 +21,10 @@ function SliderCard({
   beforeLabel: string;
   afterLabel: string;
   sliderHint: string;
+  subject?: string;
 }) {
   const [pos, setPos] = useState(50);
+  const altFor = (state: string) => [subject, label, state].filter(Boolean).join(", ");
   const trackRef = useRef<HTMLDivElement>(null);
 
   const getPos = (clientX: number) => {
@@ -58,7 +61,7 @@ function SliderCard({
         <div className="absolute inset-0 flex items-center justify-center bg-ink-600">
           <Image
             src={after}
-            alt={`${label} — ${afterLabel}`}
+            alt={altFor(afterLabel)}
             fill
             sizes="(max-width: 768px) 100vw, 33vw"
             loading="lazy"
@@ -74,7 +77,7 @@ function SliderCard({
           <div className="absolute inset-0 flex items-center justify-center bg-ink-700">
             <Image
               src={before}
-              alt={`${label} — ${beforeLabel}`}
+              alt={altFor(beforeLabel)}
               fill
               sizes="(max-width: 768px) 100vw, 33vw"
               loading="lazy"
@@ -121,7 +124,13 @@ function SliderCard({
   );
 }
 
-export default function BeforeAfter({ pairs }: { pairs: GalleryPair[] }) {
+export default function BeforeAfter({
+  pairs,
+  subject,
+}: {
+  pairs: GalleryPair[];
+  subject?: string;
+}) {
   const { t } = useLanguage();
   const g = t.gallery;
   const ref = useScrollReveal();
@@ -159,6 +168,7 @@ export default function BeforeAfter({ pairs }: { pairs: GalleryPair[] }) {
                 beforeLabel={g.beforeLabel}
                 afterLabel={g.afterLabel}
                 sliderHint={g.sliderHint}
+                subject={subject}
               />
             </div>
           ))}

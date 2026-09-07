@@ -104,7 +104,7 @@ export default function ServicePage({
         </div>
       </section>
 
-      <BeforeAfter pairs={pairs} />
+      <BeforeAfter pairs={pairs} subject={service.name} />
 
       {slug === TEXTILE_SLUG && (
         <>

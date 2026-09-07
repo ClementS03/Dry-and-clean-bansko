@@ -1,4 +1,5 @@
 import type { Metadata } from "next"
+import content from "@/content/ru.json"
 import { LanguageProvider } from "@/context/LanguageContext"
 import Navbar from "@/components/Navbar"
 import HotelsHero from "@/components/hotels/HotelsHero"
@@ -32,6 +33,9 @@ export const metadata: Metadata = {
     images: [{ url: "/og-hotels-ru.jpg", width: 1200, height: 630, alt: "Wet&Dry Cleaning, чистка мебели для отелей в Банско" }],
   },
   twitter: {
+    card: "summary_large_image",
+    title: content.hotels.meta.title,
+    description: content.hotels.meta.description,
     images: ["/og-hotels-ru.jpg"],
   },
 }

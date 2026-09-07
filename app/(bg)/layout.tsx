@@ -88,8 +88,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Пране на мебели Банско | Wet&Dry Cleaning",
-    description: "Injection-extraction — директно при вас.",
+    title: bgContent.meta.title,
+    description: bgContent.meta.description,
     images: ["/og-image-bg.jpg"],
   },
   icons: {

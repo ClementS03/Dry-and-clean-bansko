@@ -1,6 +1,7 @@
 'use client'
 
 import Image from 'next/image'
+import Link from 'next/link'
 import { useLanguage } from '@/context/LanguageContext'
 import { useScrollReveal } from '@/hooks/useScrollReveal'
 import Icon from '@/components/Icon'
@@ -20,8 +21,9 @@ type ServiceItem = {
  * Tant qu'un service n'a pas de photo, sa carte affiche son icone.
  */
 export default function Services({ covers = {} }: { covers?: Record<string, string> }) {
-  const { t } = useLanguage()
+  const { t, lang } = useLanguage()
   const ref = useScrollReveal()
+  const prefix = lang === 'en' ? '/en' : lang === 'ru' ? '/ru' : ''
   const services = t.services.items as ServiceItem[]
 
   return (
@@ -42,8 +44,9 @@ export default function Services({ covers = {} }: { covers?: Record<string, stri
             const wide = i === 0
 
             return (
-              <div
+              <Link
                 key={service.key}
+                href={`${prefix}/services/${service.slug}`}
                 className={`reveal card-dark group relative overflow-hidden flex flex-col ${wide ? 'lg:col-span-2' : ''}`}
                 style={{ transitionDelay: `${i * 70}ms` }}
               >
@@ -89,22 +92,15 @@ export default function Services({ covers = {} }: { covers?: Record<string, stri
                     </ul>
                   )}
                 </div>
-              </div>
+              </Link>
             )
           })}
         </div>
 
         <div className="mt-12 text-center">
-          <a
-            href="#contact"
-            onClick={(e) => {
-              e.preventDefault()
-              document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' })
-            }}
-            className="btn-gold"
-          >
+          <Link href={`${prefix}/services`} className="btn-gold">
             {t.services.cta}
-          </a>
+          </Link>
         </div>
       </div>
     </section>

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import content from "@/content/bg.json";
-import { getGalleryPairs } from "@/lib/gallery";
+import { getGalleryPairs, getGalleryCover } from "@/lib/gallery";
 import { LanguageProvider } from "@/context/LanguageContext";
 import Navbar from "@/components/Navbar";
 import ServicePage from "@/components/ServicePage";
@@ -11,6 +11,8 @@ import WhatsAppFAB from "@/components/WhatsAppFAB";
 
 const DOMAIN = "https://wetdrycleaningbansko.com";
 const PREFIX = "";
+
+const OG_FALLBACK = "/og-image-bg.jpg";
 
 type PageContent = {
   metaTitle: string;
@@ -31,6 +33,8 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const page = PAGES[slug];
   if (!page) return {};
 
+  const image = getGalleryCover(slug) ?? OG_FALLBACK;
+
   return {
     title: { absolute: page.metaTitle },
     description: page.metaDescription,
@@ -47,6 +51,13 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
       url: `${DOMAIN}${PREFIX}/services/${slug}`,
       title: page.metaTitle,
       description: page.metaDescription,
+      images: [image],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: page.metaTitle,
+      description: page.metaDescription,
+      images: [image],
     },
   };
 }

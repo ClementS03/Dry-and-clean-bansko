@@ -37,7 +37,7 @@ export default function ForRentals() {
 
           {/* Left: value props — each card reveals individually (stagger like WhyUs) */}
           <div className="space-y-5">
-            {r.items.slice(0, 3).map((item, i) => (
+            {r.items.map((item, i) => (
               <div
                 key={i}
                 className="flex gap-4 p-5 card-dark reveal"

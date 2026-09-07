@@ -233,7 +233,7 @@
   },
   "servicePages": {
     "upholstery-cleaning": {
-      "metaTitle": "Upholstery and textile cleaning in Bansko | Wet&Dry Cleaning",
+      "metaTitle": "Upholstery cleaning in Bansko | Wet&Dry Cleaning",
       "metaDescription": "Sofas, mattresses, carpets, curtains and car seats cleaned at your place in Bansko. Injection-extraction, dries in 2 to 4 hours. Free offer within a few hours.",
       "h1": "Upholstery and textile cleaning in Bansko",
       "intro": "We clean sofas, mattresses, carpets, curtains and car seats where they are. No transport, no dismantling. The machine injects a cleaning solution deep into the fabric and pulls it straight back out with the dirt, so the textile is left barely damp and dries in 2 to 4 hours.",
@@ -261,7 +261,7 @@
       ]
     },
     "deep-cleaning": {
-      "metaTitle": "Deep cleaning for flats and houses in Bansko | Wet&Dry Cleaning",
+      "metaTitle": "Deep cleaning in Bansko | Wet&Dry Cleaning",
       "metaDescription": "Top-to-bottom deep cleaning of flats and houses in Bansko, Razlog, Dobrinishte and Banya. Free offer within a few hours.",
       "h1": "Deep cleaning in Bansko",
       "intro": "The clean you do once or twice a year, not the weekly one. We take a flat or a house room by room, from degreasing the kitchen to the skirting boards. Useful before moving in, after a season, or when a rental needs to go back to a proper standard.",
@@ -345,8 +345,8 @@
       ]
     },
     "window-cleaning": {
-      "metaTitle": "Window and glass cleaning in Bansko | Wet&Dry Cleaning",
-      "metaDescription": "Windows, shopfronts and glass façades cleaned inside and out in Bansko. Frames and sills included.",
+      "metaTitle": "Window cleaning in Bansko | Wet&Dry Cleaning",
+      "metaDescription": "Windows, shopfronts and glass facades cleaned inside and out in Bansko, Razlog and Dobrinishte. Frames, sills and insect screens included.",
       "h1": "Window and glass cleaning in Bansko",
       "intro": "Glass shows every streak, so we do the frames and the sills too. Homes, shops, restaurants and offices. For anything above the ground floor or hard to reach we use poles, and we tell you upfront how high we can safely get.",
       "includes": [
@@ -374,7 +374,7 @@
     },
     "pressure-washing": {
       "metaTitle": "Pressure washing in Bansko | Wet&Dry Cleaning",
-      "metaDescription": "Terraces, driveways, yards and façades pressure washed in Bansko and the valley. Moss, mud and green build-up removed.",
+      "metaDescription": "Terraces, driveways, yards and facades pressure washed in Bansko, Razlog and Dobrinishte. Moss, mud and green build-up removed. Free offer.",
       "h1": "Pressure washing in Bansko",
       "intro": "Stone, concrete and wood go green here, between the snowmelt and the summer rain. High pressure lifts moss, mud and the black film that builds up over the seasons. We set the pressure to the surface, because the same setting that cleans concrete will destroy soft wood.",
       "includes": [
@@ -401,7 +401,7 @@
       ]
     },
     "industrial-cleaning": {
-      "metaTitle": "Industrial and large-surface cleaning in Bansko | Wet&Dry Cleaning",
+      "metaTitle": "Industrial cleaning in Bansko | Wet&Dry Cleaning",
       "metaDescription": "Warehouses, production halls and retail floors cleaned in Bansko and the region. We work to a schedule, outside your opening hours. Invoice provided.",
       "h1": "Industrial and large-surface cleaning in Bansko",
       "intro": "Large floors need machines and a plan, not more people with mops. We survey the site, agree a schedule that fits around your operation, and come back on the same days so the standard holds. Every job is invoiced.",
@@ -643,20 +643,20 @@
     "title": "Frequently asked questions",
     "items": [
       {
-        "q": "Do I need to move the furniture?",
-        "a": "Absolutely not! We come with everything needed and clean on-site. We only ask you to clear a little space around the furniture."
+        "q": "Do I need to prepare anything before you come?",
+        "a": "Almost nothing. We bring all the equipment and products. We only ask for a little space around what we are cleaning, and access to water and power."
       },
       {
-        "q": "How long does it take to dry?",
-        "a": "With injection-extraction, fabric dries in 2–4 hours, much faster than traditional wet cleaning. You can use your furniture the same day."
+        "q": "How long does upholstery take to dry?",
+        "a": "With injection-extraction the fabric dries in 2 to 4 hours, much faster than traditional wet cleaning. You can use your furniture the same day."
       },
       {
         "q": "Is it safe for children and pets?",
         "a": "Yes. We only use certified, biodegradable products. Once dry, they leave no harmful residues."
       },
       {
-        "q": "Can you remove old stains?",
-        "a": "In most cases, yes. Injection-extraction is very effective even on stubborn stains. With prior information about the stain type, we can assess the chance of full removal."
+        "q": "What if something cannot be cleaned?",
+        "a": "We look at the photos first and tell you honestly what to expect. If a stain or a mark is permanent we say so before we start, so there are no surprises."
       },
       {
         "q": "How do you set the price and how do I pay?",
@@ -820,11 +820,6 @@
         "icon": "📅",
         "title": "Seasonal contracts",
         "description": "End-of-ski-season or pre-summer cleaning contracts. Planned, no surprises."
-      },
-      {
-        "icon": "✅",
-        "title": "Fully insured",
-        "description": "Accidental damage during our work is covered at our cost, no risk to you."
       }
     ],
     "cta": "Request a business offer",
@@ -950,8 +945,6 @@
     },
     "socialProof": {
       "ratingLabel": "See our reviews on Google",
-      "referencesTitle": "Our business clients",
-      "referencesEmpty": "First contracts incoming, your spot is here.",
       "subtitle": "See what our clients say on Google"
     },
     "faq": {

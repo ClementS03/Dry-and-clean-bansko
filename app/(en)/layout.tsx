@@ -88,8 +88,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Furniture Cleaning Bansko | Wet&Dry Cleaning",
-    description: "Professional on-site furniture cleaning in Bansko, Bulgaria.",
+    title: enContent.meta.title,
+    description: enContent.meta.description,
     images: ["/og-image.jpg"],
   },
   icons: {

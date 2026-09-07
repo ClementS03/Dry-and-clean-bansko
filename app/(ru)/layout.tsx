@@ -88,8 +88,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Чистка мебели Банско | Wet&Dry Cleaning",
-    description: "Профессиональная выездная чистка мебели в Банско, Болгария.",
+    title: ruContent.meta.title,
+    description: ruContent.meta.description,
     images: ["/og-image-ru.jpg"],
   },
   icons: {
