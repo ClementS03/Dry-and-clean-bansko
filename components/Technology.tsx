@@ -144,7 +144,7 @@ export default function Technology() {
               >
                 {s.value}
               </div>
-              <div className="text-cream/40 text-xs uppercase tracking-widest mt-1">{s.label}</div>
+              <div className="text-cream/60 text-xs uppercase tracking-widest mt-1">{s.label}</div>
             </div>
           ))}
         </div>

@@ -58,7 +58,7 @@ export default function Hero() {
       </div>
 
       {/* Scroll cue */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 text-cream/30 animate-bounce">
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 text-cream/55 animate-bounce">
         <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 9l-7 7-7-7" />
         </svg>

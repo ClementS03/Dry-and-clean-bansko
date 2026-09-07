@@ -23,7 +23,7 @@ export default function Footer() {
             <div className="text-base tracking-wider uppercase font-display text-cream">
               {f.company}
             </div>
-            <div className="mt-1 text-xs text-cream/35">{f.tagline}</div>
+            <div className="mt-1 text-xs text-cream/55">{f.tagline}</div>
             <div className="flex items-center justify-center md:justify-start gap-4 mt-4">
               {f.social.map((s) => (
                 <a
@@ -32,7 +32,7 @@ export default function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={s.label}
-                  className="text-cream/30 hover:text-gold transition-colors duration-200"
+                  className="text-cream/55 hover:text-gold transition-colors duration-200"
                 >
                   {s.icon === "instagram" && (
                     <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
@@ -67,7 +67,7 @@ export default function Footer() {
                     .querySelector(link.href)
                     ?.scrollIntoView({ behavior: "smooth" });
                 }}
-                className="text-xs tracking-widest uppercase transition-colors text-cream/40 hover:text-gold font-display"
+                className="text-xs tracking-widest uppercase transition-colors text-cream/60 hover:text-gold font-display"
               >
                 {link.label}
               </a>
@@ -101,7 +101,7 @@ export default function Footer() {
 
         <div className="mt-8 mb-6 gold-divider" />
         {/* pb-16 on mobile to avoid WhatsApp FAB overlap, sm:pb-0 on desktop */}
-        <div className="flex flex-col items-center justify-between gap-2 pb-16 text-xs sm:flex-row text-cream/25 sm:pb-0">
+        <div className="flex flex-col items-center justify-between gap-2 pb-16 text-xs sm:flex-row text-cream/55 sm:pb-0">
           <span>
             {f.credit}{" "}
             <a

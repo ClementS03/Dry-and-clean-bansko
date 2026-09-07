@@ -148,6 +148,13 @@ export default function Navbar() {
                   className="relative"
                   onMouseEnter={openServices}
                   onMouseLeave={closeServicesDelayed}
+                  onFocus={openServices}
+                  onBlur={(e) => {
+                    if (!e.currentTarget.contains(e.relatedTarget as Node)) {
+                      setServicesOpen(false);
+                    }
+                  }}
+                  onKeyDown={(e) => e.key === "Escape" && setServicesOpen(false)}
                 >
                   <button
                     onClick={() => go(link.href)}

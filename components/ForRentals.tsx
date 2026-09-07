@@ -56,7 +56,7 @@ export default function ForRentals() {
             ))}
 
             {/* Trust line */}
-            <p className="text-cream/30 text-xs text-center pt-2">📍 {r.trust}</p>
+            <p className="text-cream/55 text-xs text-center pt-2">📍 {r.trust}</p>
 
             {/* WhatsApp CTA — mobile/tablet */}
             <div className="lg:hidden pt-2">

@@ -19,7 +19,7 @@ export default function HotelsSocialProof() {
             <span className="text-xl">★</span>
             <span>{s.ratingLabel}</span>
           </a>
-          <p className="text-cream/40 text-sm">{s.subtitle}</p>
+          <p className="text-cream/60 text-sm">{s.subtitle}</p>
         </div>
       </div>
     </section>

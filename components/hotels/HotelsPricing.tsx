@@ -42,7 +42,7 @@ export default function HotelsPricing() {
           <div className="reveal p-5 card-dark">
             <h3 className="font-display text-base text-gold uppercase tracking-wide mb-2">{p.restaurant.title}</h3>
             <p className="text-cream/55 text-sm leading-relaxed">{p.restaurant.description}</p>
-            <div className="mt-3 text-cream/40 text-xs">{p.restaurant.price}</div>
+            <div className="mt-3 text-cream/60 text-xs">{p.restaurant.price}</div>
           </div>
         </div>
       </div>

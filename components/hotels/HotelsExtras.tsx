@@ -12,7 +12,7 @@ export default function HotelsExtras() {
     <section className="py-14 bg-ink border-t border-gold/5">
       <div ref={ref} className="max-w-4xl mx-auto px-4 sm:px-6 text-center">
         <div className="reveal font-display text-xs uppercase tracking-[0.2em] text-gold/50 mb-2">{e.title}</div>
-        <p className="reveal text-cream/40 text-sm mb-7 max-w-lg mx-auto">{e.subtitle}</p>
+        <p className="reveal text-cream/60 text-sm mb-7 max-w-lg mx-auto">{e.subtitle}</p>
         <div className="flex flex-wrap justify-center gap-x-8 gap-y-3 mb-7">
           {e.items.map((it, i) => (
             <div

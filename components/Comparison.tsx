@@ -40,7 +40,7 @@ export default function Comparison() {
                   <span className="ml-2 text-xs text-green-400">✓</span>
                 </th>
                 <th className="w-1/3 text-left">
-                  <span className="text-cream/40">{cmp.classic}</span>
+                  <span className="text-cream/60">{cmp.classic}</span>
                   <span className="ml-2 text-xs text-red-400">✗</span>
                 </th>
               </tr>
@@ -60,7 +60,7 @@ export default function Comparison() {
                     </span>
                   </td>
                   <td>
-                    <span className="text-sm text-cream/35">{row.classic}</span>
+                    <span className="text-sm text-cream/55">{row.classic}</span>
                   </td>
                 </tr>
               ))}
@@ -79,7 +79,7 @@ export default function Comparison() {
               <span className="ml-1 text-xs text-green-400">✓</span>
             </div>
             <div className="text-center">
-              <span className="text-xs tracking-widest uppercase text-cream/40 font-display">
+              <span className="text-xs tracking-widest uppercase text-cream/60 font-display">
                 {cmp.classic}
               </span>
               <span className="ml-1 text-xs text-red-400">✗</span>
@@ -106,7 +106,7 @@ export default function Comparison() {
                   </span>
                 </div>
                 <div className="px-4 py-3 flex items-center justify-center text-center bg-white/[0.02]">
-                  <span className="text-sm leading-tight text-cream/35">
+                  <span className="text-sm leading-tight text-cream/55">
                     {row.classic}
                   </span>
                 </div>

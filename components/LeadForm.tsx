@@ -1,12 +1,14 @@
 "use client";
 
-import { useState } from "react";
+import { useId, useState } from "react";
 import { useLanguage } from "@/context/LanguageContext";
 
 /** Services dont le devis se raisonne en surface plutot qu en nombre d objets. */
 const SURFACE_SERVICES = ["deep", "renovation", "turnover", "windows", "pressure", "industrial"];
 
 export default function LeadForm({ preselect }: { preselect?: string }) {
+  // Le formulaire est rendu deux fois par page, les id doivent etre uniques
+  const uid = useId();
   const { t } = useLanguage();
   const f = t.hero.form;
   const whatsappNum = t.whatsapp.number;
@@ -176,8 +178,8 @@ export default function LeadForm({ preselect }: { preselect?: string }) {
         ) : step === 1 ? (
           <div>
             {/* Prive ou pro : qualifie le lead avant meme le telephone */}
-            <label className={fieldLabel}>{f.audienceLabel}</label>
-            <div className="grid grid-cols-2 gap-2 mb-6">
+            <span id={`${uid}-audience`} className={fieldLabel}>{f.audienceLabel}</span>
+            <div role="group" aria-labelledby={`${uid}-audience`} className="grid grid-cols-2 gap-2 mb-6">
               {f.audience.map((option) => (
                 <button
                   key={option.value}
@@ -189,14 +191,15 @@ export default function LeadForm({ preselect }: { preselect?: string }) {
               ))}
             </div>
 
-            <label className={fieldLabel}>{f.serviceLabel}</label>
-            <div className="grid grid-cols-2 gap-2 mb-4">
+            <span id={`${uid}-service`} className={fieldLabel}>{f.serviceLabel}</span>
+            <div role="group" aria-labelledby={`${uid}-service`} className="grid grid-cols-2 gap-2 mb-4">
               {f.services.map((service) => {
                 const active = selectedServices.includes(service.value);
                 return (
                   <button
                     key={service.value}
                     onClick={() => toggle(selectedServices, setServices, service.value)}
+                    aria-pressed={active}
                     className={`${chip(active)} relative text-left`}
                   >
                     {service.label}
@@ -225,8 +228,8 @@ export default function LeadForm({ preselect }: { preselect?: string }) {
             {/* Sous-selection textile : se deplie sans ajouter une etape */}
             {textileOpen && (
               <div className="p-4 mb-4 border rounded-sm border-gold/15 bg-gold/[0.04]">
-                <label className={fieldLabel}>{f.textileLabel}</label>
-                <div className="flex flex-wrap gap-2">
+                <span id={`${uid}-textile`} className={fieldLabel}>{f.textileLabel}</span>
+                <div role="group" aria-labelledby={`${uid}-textile`} className="flex flex-wrap gap-2">
                   {f.textileItems.map((item) => (
                     <button
                       key={item.value}
@@ -242,8 +245,8 @@ export default function LeadForm({ preselect }: { preselect?: string }) {
 
             {audience === "business" && (
               <div className="mb-4">
-                <label className={fieldLabel}>{f.frequencyLabel}</label>
-                <div className="grid grid-cols-2 gap-2">
+                <span id={`${uid}-frequency`} className={fieldLabel}>{f.frequencyLabel}</span>
+                <div role="group" aria-labelledby={`${uid}-frequency`} className="grid grid-cols-2 gap-2">
                   {f.frequency.map((option) => (
                     <button
                       key={option.value}
@@ -258,15 +261,16 @@ export default function LeadForm({ preselect }: { preselect?: string }) {
             )}
 
             {selectedServices.length > 0 && (
-              <p className="mb-4 text-xs text-cream/40">
+              <p className="mb-4 text-xs text-cream/60">
                 {selectedServices.length}{" "}
                 {selectedServices.length === 1 ? f.selectedLabel : f.selectedLabelPlural}
               </p>
             )}
 
             <div className="mb-5">
-              <label className={fieldLabel}>{f.quantityLabel}</label>
+              <label htmlFor={`${uid}-details`} className={fieldLabel}>{f.quantityLabel}</label>
               <input
+                id={`${uid}-details`}
                 type="text"
                 className="input-dark"
                 placeholder={quantityPlaceholder}
@@ -301,8 +305,9 @@ export default function LeadForm({ preselect }: { preselect?: string }) {
 
             <div className="mb-5 space-y-4">
               <div>
-                <label className={fieldLabel}>{f.nameLabel}</label>
+                <label htmlFor={`${uid}-name`} className={fieldLabel}>{f.nameLabel}</label>
                 <input
+                  id={`${uid}-name`}
                   type="text"
                   className="input-dark"
                   placeholder={f.namePlaceholder}
@@ -311,9 +316,12 @@ export default function LeadForm({ preselect }: { preselect?: string }) {
                 />
               </div>
               <div>
-                <label className={fieldLabel}>{f.phoneLabel}</label>
+                <label htmlFor={`${uid}-phone`} className={fieldLabel}>{f.phoneLabel}</label>
                 <input
+                  id={`${uid}-phone`}
                   type="tel"
+                  aria-invalid={Boolean(errors.phone)}
+                  aria-describedby={errors.phone ? `${uid}-phone-error` : undefined}
                   className={`input-dark ${errors.phone ? "border-red-500" : ""}`}
                   placeholder={f.phonePlaceholder}
                   value={phone}
@@ -322,12 +330,19 @@ export default function LeadForm({ preselect }: { preselect?: string }) {
                     setErrors((p) => ({ ...p, phone: "" }));
                   }}
                 />
-                {errors.phone && <p className="mt-1 text-xs text-red-400">{errors.phone}</p>}
+                {errors.phone && (
+                  <p id={`${uid}-phone-error`} role="alert" className="mt-1 text-xs text-red-400">
+                    {errors.phone}
+                  </p>
+                )}
               </div>
               <div>
-                <label className={fieldLabel}>{f.locationLabel}</label>
+                <label htmlFor={`${uid}-location`} className={fieldLabel}>{f.locationLabel}</label>
                 <input
+                  id={`${uid}-location`}
                   type="text"
+                  aria-invalid={Boolean(errors.location)}
+                  aria-describedby={errors.location ? `${uid}-location-error` : undefined}
                   className={`input-dark ${errors.location ? "border-red-500" : ""}`}
                   placeholder={f.locationPlaceholder}
                   value={location}
@@ -336,7 +351,11 @@ export default function LeadForm({ preselect }: { preselect?: string }) {
                     setErrors((p) => ({ ...p, location: "" }));
                   }}
                 />
-                {errors.location && <p className="mt-1 text-xs text-red-400">{errors.location}</p>}
+                {errors.location && (
+                  <p id={`${uid}-location-error`} role="alert" className="mt-1 text-xs text-red-400">
+                    {errors.location}
+                  </p>
+                )}
               </div>
             </div>
 
@@ -368,7 +387,7 @@ export default function LeadForm({ preselect }: { preselect?: string }) {
 
             <div className="flex items-center gap-3 my-3 lg:hidden">
               <div className="flex-1 h-px bg-gold/10" />
-              <span className="text-xs tracking-widest uppercase text-cream/25">{f.orLabel}</span>
+              <span className="text-xs tracking-widest uppercase text-cream/55">{f.orLabel}</span>
               <div className="flex-1 h-px bg-gold/10" />
             </div>
 
@@ -393,8 +412,8 @@ export default function LeadForm({ preselect }: { preselect?: string }) {
               <p className="mt-2 text-xs text-center text-red-400">{f.emailErrorMsg}</p>
             )}
 
-            <p className="mt-3 text-xs text-center text-cream/30 lg:hidden">{f.disclaimer}</p>
-            <p className="hidden mt-3 text-xs text-center text-cream/30 lg:block">
+            <p className="mt-3 text-xs text-center text-cream/55 lg:hidden">{f.disclaimer}</p>
+            <p className="hidden mt-3 text-xs text-center text-cream/55 lg:block">
               {f.disclaimerEmail}
             </p>
           </div>

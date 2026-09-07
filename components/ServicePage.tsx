@@ -65,7 +65,7 @@ export default function ServicePage({
 
             <div className="flex items-center gap-3 mb-4">
               <Icon name={service.icon} className="w-8 h-8 text-gold" />
-              <span className="text-xs tracking-widest uppercase font-display text-cream/40">
+              <span className="text-xs tracking-widest uppercase font-display text-cream/60">
                 {hub.badge}
               </span>
             </div>

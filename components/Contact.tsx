@@ -52,7 +52,7 @@ export default function Contact({ preselect }: { preselect?: string }) {
               className="flex items-center gap-4 p-5 card-dark group md:pointer-events-none md:cursor-default">
               <span className="text-2xl">🇬🇧</span>
               <div className="flex-1">
-                <div className="text-cream/40 text-xs uppercase tracking-widest mb-0.5">{c.phoneENLabel}</div>
+                <div className="text-cream/60 text-xs uppercase tracking-widest mb-0.5">{c.phoneENLabel}</div>
                 <div className="font-display text-xl text-cream group-hover:text-gold transition-colors duration-200">{c.phoneEN}</div>
               </div>
               <PhoneSvg />
@@ -62,7 +62,7 @@ export default function Contact({ preselect }: { preselect?: string }) {
               className="flex items-center gap-4 p-5 card-dark group md:pointer-events-none md:cursor-default">
               <span className="text-2xl">🇧🇬</span>
               <div className="flex-1">
-                <div className="text-cream/40 text-xs uppercase tracking-widest mb-0.5">{c.phoneBGLabel}</div>
+                <div className="text-cream/60 text-xs uppercase tracking-widest mb-0.5">{c.phoneBGLabel}</div>
                 <div className="font-display text-xl text-cream group-hover:text-gold transition-colors duration-200">{c.phoneBG}</div>
               </div>
               <PhoneSvg />
@@ -100,7 +100,7 @@ export default function Contact({ preselect }: { preselect?: string }) {
               </a>
             </div>
 
-            <p className="text-center text-cream/35 text-xs">{c.reassurance}</p>
+            <p className="text-center text-cream/55 text-xs">{c.reassurance}</p>
           </div>
         </div>
 

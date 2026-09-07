@@ -69,7 +69,7 @@ export default function Quote() {
           >
             {q.cta}
           </a>
-          <p className="mt-4 text-xs text-cream/35">{q.note}</p>
+          <p className="mt-4 text-xs text-cream/55">{q.note}</p>
         </div>
       </div>
     </section>

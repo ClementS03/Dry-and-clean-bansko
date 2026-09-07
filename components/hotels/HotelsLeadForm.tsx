@@ -136,7 +136,7 @@ export default function HotelsLeadForm() {
               className={`btn-gold w-full justify-center py-3 text-sm ${!phone ? 'opacity-40 pointer-events-none' : ''}`}>
               {f.submitBtn}
             </a>
-            <p className="text-cream/30 text-xs text-center">{f.disclaimer}</p>
+            <p className="text-cream/55 text-xs text-center">{f.disclaimer}</p>
           </div>
 
           <div className="hidden lg:block space-y-2">
@@ -144,7 +144,7 @@ export default function HotelsLeadForm() {
               className={`btn-gold w-full justify-center py-3 text-sm ${!phone ? 'opacity-40 pointer-events-none' : ''}`}>
               {f.emailBtn}
             </a>
-            <p className="text-cream/30 text-xs text-center">{f.disclaimerEmail}</p>
+            <p className="text-cream/55 text-xs text-center">{f.disclaimerEmail}</p>
           </div>
         </>
       )}

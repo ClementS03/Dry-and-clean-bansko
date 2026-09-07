@@ -27,6 +27,17 @@ function SliderCard({
   const altFor = (state: string) => [subject, label, state].filter(Boolean).join(", ");
   const trackRef = useRef<HTMLDivElement>(null);
 
+  // Alternative clavier au glisser : fleches, Home et End
+  const onKeyDown = (e: React.KeyboardEvent) => {
+    const step = e.shiftKey ? 10 : 2;
+    if (e.key === "ArrowLeft") setPos((p) => Math.max(5, p - step));
+    else if (e.key === "ArrowRight") setPos((p) => Math.min(95, p + step));
+    else if (e.key === "Home") setPos(5);
+    else if (e.key === "End") setPos(95);
+    else return;
+    e.preventDefault();
+  };
+
   const getPos = (clientX: number) => {
     const rect = trackRef.current?.getBoundingClientRect();
     if (!rect) return;
@@ -56,6 +67,14 @@ function SliderCard({
         onMouseMove={(e) => e.buttons === 1 && getPos(e.clientX)}
         onTouchMove={(e) => getPos(e.touches[0].clientX)}
         onClick={(e) => getPos(e.clientX)}
+        onKeyDown={onKeyDown}
+        tabIndex={0}
+        role="slider"
+        aria-label={altFor(sliderHint)}
+        aria-valuemin={5}
+        aria-valuemax={95}
+        aria-valuenow={Math.round(pos)}
+        aria-valuetext={`${Math.round(pos)}%`}
       >
         {/* After */}
         <div className="absolute inset-0 flex items-center justify-center bg-ink-600">
@@ -118,7 +137,7 @@ function SliderCard({
       </div>
 
       <div className="px-4 py-2.5 text-center">
-        <span className="text-xs text-cream/35">{sliderHint}</span>
+        <span className="text-xs text-cream/55">{sliderHint}</span>
       </div>
     </div>
   );
