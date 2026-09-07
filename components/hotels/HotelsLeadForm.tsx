@@ -1,10 +1,11 @@
 'use client'
-import { useState } from 'react'
+import { useId, useState } from 'react'
 import { useLanguage } from '@/context/LanguageContext'
 
 type Step = 'step1' | 'step2' | 'success'
 
 export default function HotelsLeadForm() {
+  const uid = useId()
   const { t } = useLanguage()
   const f = t.hotels.form
 
@@ -15,6 +16,7 @@ export default function HotelsLeadForm() {
   const [name, setName] = useState('')
   const [phone, setPhone] = useState('')
   const [establishment, setEstablishment] = useState('')
+  const [phoneError, setPhoneError] = useState(false)
 
   const toggleService = (val: string) =>
     setServices(prev => prev.includes(val) ? prev.filter(s => s !== val) : [...prev, val])
@@ -60,10 +62,10 @@ export default function HotelsLeadForm() {
           <h3 className="font-display text-lg text-cream uppercase tracking-wide">{f.step1Title}</h3>
 
           <div>
-            <label className="block text-xs text-cream/50 uppercase tracking-widest mb-2">{f.typeLabel}</label>
-            <div className="grid grid-cols-2 gap-2">
+            <span id={`${uid}-type`} className="block text-xs text-cream/50 uppercase tracking-widest mb-2">{f.typeLabel}</span>
+            <div role="group" aria-labelledby={`${uid}-type`} className="grid grid-cols-2 gap-2">
               {f.types.map(tp => (
-                <button key={tp.value} onClick={() => setType(tp.value)}
+                <button key={tp.value} onClick={() => setType(tp.value)} aria-pressed={type === tp.value}
                   className={`p-3 text-xs text-left rounded-sm border transition-colors font-body ${
                     type === tp.value
                       ? 'border-gold bg-gold/10 text-gold'
@@ -76,10 +78,10 @@ export default function HotelsLeadForm() {
           </div>
 
           <div>
-            <label className="block text-xs text-cream/50 uppercase tracking-widest mb-2">{f.servicesLabel}</label>
-            <div className="grid grid-cols-2 gap-2">
+            <span id={`${uid}-services`} className="block text-xs text-cream/50 uppercase tracking-widest mb-2">{f.servicesLabel}</span>
+            <div role="group" aria-labelledby={`${uid}-services`} className="grid grid-cols-2 gap-2">
               {f.services.map(sv => (
-                <button key={sv.value} onClick={() => toggleService(sv.value)}
+                <button key={sv.value} onClick={() => toggleService(sv.value)} aria-pressed={services.includes(sv.value)}
                   className={`p-3 text-xs text-left rounded-sm border transition-colors font-body ${
                     services.includes(sv.value)
                       ? 'border-gold bg-gold/10 text-gold'
@@ -92,8 +94,8 @@ export default function HotelsLeadForm() {
           </div>
 
           <div>
-            <label className="block text-xs text-cream/50 uppercase tracking-widest mb-2">{f.unitsLabel}</label>
-            <input value={units} onChange={e => setUnits(e.target.value)}
+            <label htmlFor={`${uid}-units`} className="block text-xs text-cream/50 uppercase tracking-widest mb-2">{f.unitsLabel}</label>
+            <input id={`${uid}-units`} value={units} onChange={e => setUnits(e.target.value)}
               placeholder={f.unitsPlaceholder} className="input-dark w-full text-sm" />
           </div>
 
@@ -114,25 +116,34 @@ export default function HotelsLeadForm() {
 
           <div className="space-y-3">
             <div>
-              <label className="block text-xs text-cream/50 uppercase tracking-widest mb-1">{f.nameLabel}</label>
-              <input value={name} onChange={e => setName(e.target.value)}
+              <label htmlFor={`${uid}-name`} className="block text-xs text-cream/50 uppercase tracking-widest mb-1">{f.nameLabel}</label>
+              <input id={`${uid}-name`} value={name} onChange={e => setName(e.target.value)}
                 placeholder={f.namePlaceholder} className="input-dark w-full text-sm" />
             </div>
             <div>
-              <label className="block text-xs text-cream/50 uppercase tracking-widest mb-1">{f.phoneLabel}</label>
-              <input value={phone} onChange={e => setPhone(e.target.value)}
-                placeholder={f.phonePlaceholder} className="input-dark w-full text-sm" />
+              <label htmlFor={`${uid}-phone`} className="block text-xs text-cream/50 uppercase tracking-widest mb-1">{f.phoneLabel}</label>
+              <input id={`${uid}-phone`} value={phone}
+                aria-required="true"
+                aria-invalid={phoneError}
+                aria-describedby={phoneError ? `${uid}-phone-error` : undefined}
+                onChange={e => { setPhone(e.target.value); setPhoneError(false) }}
+                placeholder={f.phonePlaceholder} className={`input-dark w-full text-sm ${phoneError ? 'border-red-500' : ''}`} />
+              {phoneError && (
+                <p id={`${uid}-phone-error`} role="alert" className="mt-1 text-xs text-red-400">
+                  {t.hero.form.validationPhone}
+                </p>
+              )}
             </div>
             <div>
-              <label className="block text-xs text-cream/50 uppercase tracking-widest mb-1">{f.establishmentLabel}</label>
-              <input value={establishment} onChange={e => setEstablishment(e.target.value)}
+              <label htmlFor={`${uid}-establishment`} className="block text-xs text-cream/50 uppercase tracking-widest mb-1">{f.establishmentLabel}</label>
+              <input id={`${uid}-establishment`} value={establishment} onChange={e => setEstablishment(e.target.value)}
                 placeholder={f.establishmentPlaceholder} className="input-dark w-full text-sm" />
             </div>
           </div>
 
           <div className="lg:hidden space-y-2">
             <a href={phone ? waUrl : undefined} target="_blank" rel="noopener noreferrer"
-              onClick={() => phone && setStep('success')}
+              onClick={() => (phone ? setStep('success') : setPhoneError(true))}
               className={`btn-gold w-full justify-center py-3 text-sm ${!phone ? 'opacity-40 pointer-events-none' : ''}`}>
               {f.submitBtn}
             </a>
@@ -140,7 +151,7 @@ export default function HotelsLeadForm() {
           </div>
 
           <div className="hidden lg:block space-y-2">
-            <a href={phone ? emailUrl : undefined} onClick={() => phone && setStep('success')}
+            <a href={phone ? emailUrl : undefined} onClick={() => (phone ? setStep('success') : setPhoneError(true))}
               className={`btn-gold w-full justify-center py-3 text-sm ${!phone ? 'opacity-40 pointer-events-none' : ''}`}>
               {f.emailBtn}
             </a>
