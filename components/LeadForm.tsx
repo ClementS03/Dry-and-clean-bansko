@@ -269,7 +269,7 @@ export default function LeadForm({ preselect }: { preselect?: string }) {
 
             <div className="mb-5">
               <label htmlFor={`${uid}-details`} className={fieldLabel}>{f.quantityLabel}</label>
-              <input
+              <input suppressHydrationWarning
                 id={`${uid}-details`}
                 type="text"
                 className="input-dark"
@@ -306,7 +306,7 @@ export default function LeadForm({ preselect }: { preselect?: string }) {
             <div className="mb-5 space-y-4">
               <div>
                 <label htmlFor={`${uid}-name`} className={fieldLabel}>{f.nameLabel}</label>
-                <input
+                <input suppressHydrationWarning
                   id={`${uid}-name`}
                   type="text"
                   className="input-dark"
@@ -317,7 +317,7 @@ export default function LeadForm({ preselect }: { preselect?: string }) {
               </div>
               <div>
                 <label htmlFor={`${uid}-phone`} className={fieldLabel}>{f.phoneLabel}</label>
-                <input
+                <input suppressHydrationWarning
                   id={`${uid}-phone`}
                   type="tel"
                   aria-invalid={Boolean(errors.phone)}
@@ -338,7 +338,7 @@ export default function LeadForm({ preselect }: { preselect?: string }) {
               </div>
               <div>
                 <label htmlFor={`${uid}-location`} className={fieldLabel}>{f.locationLabel}</label>
-                <input
+                <input suppressHydrationWarning
                   id={`${uid}-location`}
                   type="text"
                   aria-invalid={Boolean(errors.location)}
@@ -420,7 +420,7 @@ export default function LeadForm({ preselect }: { preselect?: string }) {
         )}
       </div>
 
-      <input
+      <input suppressHydrationWarning
         type="text"
         name="website"
         value={honeypot}

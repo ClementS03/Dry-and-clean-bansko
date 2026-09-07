@@ -94,7 +94,7 @@ export default function HotelsLeadForm() {
 
           <div>
             <label htmlFor={`${uid}-units`} className="block text-xs text-cream/50 uppercase tracking-widest mb-2">{f.unitsLabel}</label>
-            <input id={`${uid}-units`} value={units} onChange={e => setUnits(e.target.value)}
+            <input suppressHydrationWarning id={`${uid}-units`} value={units} onChange={e => setUnits(e.target.value)}
               placeholder={f.unitsPlaceholder} className="input-dark w-full text-sm" />
           </div>
 
@@ -116,18 +116,18 @@ export default function HotelsLeadForm() {
           <div className="space-y-3">
             <div>
               <label htmlFor={`${uid}-name`} className="block text-xs text-cream/50 uppercase tracking-widest mb-1">{f.nameLabel}</label>
-              <input id={`${uid}-name`} value={name} onChange={e => setName(e.target.value)}
+              <input suppressHydrationWarning id={`${uid}-name`} value={name} onChange={e => setName(e.target.value)}
                 placeholder={f.namePlaceholder} className="input-dark w-full text-sm" />
             </div>
             <div>
               <label htmlFor={`${uid}-phone`} className="block text-xs text-cream/50 uppercase tracking-widest mb-1">{f.phoneLabel}</label>
-              <input id={`${uid}-phone`} value={phone}
+              <input suppressHydrationWarning id={`${uid}-phone`} value={phone}
                 onChange={e => setPhone(e.target.value)}
                 placeholder={f.phonePlaceholder} className="input-dark w-full text-sm" />
             </div>
             <div>
               <label htmlFor={`${uid}-establishment`} className="block text-xs text-cream/50 uppercase tracking-widest mb-1">{f.establishmentLabel}</label>
-              <input id={`${uid}-establishment`} value={establishment} onChange={e => setEstablishment(e.target.value)}
+              <input suppressHydrationWarning id={`${uid}-establishment`} value={establishment} onChange={e => setEstablishment(e.target.value)}
                 placeholder={f.establishmentPlaceholder} className="input-dark w-full text-sm" />
             </div>
           </div>
