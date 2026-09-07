@@ -6,30 +6,78 @@ Contexte projet pour Claude Code et tout assistant AI travaillant sur ce repo.
 
 ## Vue d'ensemble
 
-Landing page one-page pour un business de nettoyage de meubles à Bansko, Bulgarie.
-- **Stack** : Next.js 14 (App Router), TypeScript, Tailwind CSS
-- **Hébergement** : Netlify
+Site d'une entreprise de nettoyage professionnel à Bansko, Bulgarie. Positionnement multi-services depuis septembre 2026, cible principalement B2B.
+
+- **Stack** : Next.js 15 (App Router), TypeScript, Tailwind CSS
+- **Hébergement** : Netlify, auto-deploy sur push `main`
 - **Domaine** : wetdrycleaningbansko.com
-- **Langues** : Bulgare (défaut `/`) + Anglais (`/en`) — deux routes statiques indexées par Google
-- **Base de données avis** : Notion (via API)
-- **Formulaire leads** : WhatsApp (mobile/tablette) + Resend email (desktop)
+- **Langues** : bulgare (défaut `/`), anglais (`/en`), russe (`/ru`)
+- **Avis** : Notion via API
+- **Leads** : WhatsApp sur mobile et tablette, Resend sur desktop
+
+---
+
+## Les 7 services
+
+Le nettoyage textile est **un** service appliqué à 5 objets, pas 5 services. Le nettoyage récurrent n'est pas un service mais une modalité de contrat.
+
+| Clé | Service | Slug |
+|---|---|---|
+| `textile` | Пране на мека мебел и текстил | `upholstery-cleaning` |
+| `deep` | Дълбоко почистване | `deep-cleaning` |
+| `renovation` | Почистване след ремонт | `post-construction-cleaning` |
+| `turnover` | Почистване между гости | `airbnb-turnover` |
+| `windows` | Прозорци и витрини | `window-cleaning` |
+| `pressure` | Водоструйка | `pressure-washing` |
+| `industrial` | Индустриално почистване | `industrial-cleaning` |
+
+Sous-objets de `textile` : `sofa` · `mattress` · `carpet` · `curtains` · `car`.
+
+Ces clés sont les identifiants stables du projet : elles servent dans `content/*.json`, dans le formulaire, dans la validation serveur de `/api/contact` et dans les noms de dossiers de galerie. Les slugs sont en anglais et partagés par les trois langues.
 
 ---
 
 ## Règle absolue — contenu 100% JSON
 
-**Tout texte visible sur le site doit venir des fichiers JSON.**
-Ne jamais hardcoder du texte dans les composants TSX.
+**Tout texte visible doit venir des fichiers JSON.** Jamais de texte en dur dans un composant.
 
 ```
-content/bg.json   ← tout le contenu bulgare
-content/en.json   ← tout le contenu anglais
+content/bg.json   ← bulgare (source)
+content/en.json   ← anglais
+content/ru.json   ← russe
 ```
 
-Pour ajouter une nouvelle clé :
-1. Ajoute-la dans `content/bg.json`
-2. Ajoute sa traduction dans `content/en.json`
-3. Accède via `const { t } = useLanguage()` dans le composant
+Une nouvelle clé s'ajoute dans **les trois** fichiers. La parité est stricte : `Translations = typeof bg`, une clé manquante casse le build.
+
+Vérifier la parité :
+```bash
+node -e "const fs=require('fs');const k=o=>{const r=[];(function w(x,p){for(const n of Object.keys(x)){const q=p?p+'.'+n:n;r.push(q);if(x[n]&&typeof x[n]==='object'&&!Array.isArray(x[n]))w(x[n],q)}})(o,'');return r.sort()};const[a,b,c]=['bg','en','ru'].map(l=>k(JSON.parse(fs.readFileSync('content/'+l+'.json','utf8'))));console.log(a.length,b.length,c.length)"
+```
+
+---
+
+## Photos avant/après — convention
+
+Aucun admin, aucun CMS. Tout passe par les noms de fichiers.
+
+```
+public/gallery/home/before-1.jpg     ← photo avant
+public/gallery/home/after-1.jpg      ← la même, après
+public/gallery/home/before-2.jpg
+public/gallery/home/after-2.jpg
+```
+
+- Le numéro fait la paire. `before-3` va avec `after-3`.
+- Extensions acceptées : `.jpg` `.jpeg` `.png` `.webp`
+- Une paire incomplète est ignorée sans erreur.
+- Dossier absent ou vide : la section galerie disparaît entièrement, sans placeholder.
+- La home lit `public/gallery/home/`, plafonnée à 6 paires affichées.
+- Chaque page service lira `public/gallery/<slug>/` avec les slugs du tableau ci-dessus.
+- La première photo `after-1` d'un service sert automatiquement de vignette sur sa carte dans la section Services.
+
+Workflow : déposer les fichiers, commiter, pusher. Aucun code ni JSON à toucher.
+
+`lib/gallery.ts` fait le scan au build. Il est appelé depuis les pages, qui sont des Server Components, et les paires sont passées en props à `BeforeAfter`.
 
 ---
 
@@ -39,272 +87,210 @@ Pour ajouter une nouvelle clé :
 config/design.js   ← couleurs et fonts UNIQUEMENT ici
 ```
 
-Ne jamais hardcoder `fontFamily`, couleurs hex, ou noms de fonts dans les composants.
-Tailwind lit `config/design.js` → génère les classes.
-Layout injecte les CSS vars `--gold`, `--ink`, `--font-display`, etc.
+Jamais de `fontFamily`, de hex ou de nom de font en dur dans un composant. Tailwind lit `config/design.js`, chaque layout injecte les CSS vars.
 
-**Couleurs principales**
-- Gold : `#F5C400` → classe `text-gold`, `bg-gold`, `border-gold`
-- Fond : `#0A0A0A` → `bg-ink`
-- Texte : `#F5F0E8` → `text-cream`
+- Gold `#F5C400` → `text-gold`, `bg-gold`, `border-gold`
+- Fond `#0A0A0A` → `bg-ink`, avec `ink-800` `ink-700` `ink-600` `ink-500`
+- Texte `#F5F0E8` → `text-cream`
+- Display : Oswald → `font-display` · Body : DM Sans → `font-body`
 
-**Fonts**
-- Display (titres) : Oswald → `font-display`
-- Body : DM Sans → `font-body`
+Les icônes viennent de `lucide-react` via `components/Icon.tsx`. Le JSON porte un nom en kebab-case (`sofa`, `hard-hat`, `shield-check`), le composant fait la correspondance. Ajouter une icône = l'importer dans `Icon.tsx` et l'ajouter au dictionnaire.
 
 ---
 
-## Architecture des fichiers
+## Architecture
 
 ```
 app/
-  layout.tsx          ← SEO global, JSON-LD LocalBusiness+FAQ+AggregateRating, CSS vars, fonts async
-  page.tsx            ← Route BG (/) — LanguageProvider initialLang="bg" + toutes les sections
-  globals.css         ← Classes utilitaires (.btn-gold, .card-dark, .input-dark...)
-  en/
-    page.tsx          ← Route EN (/en) — LanguageProvider initialLang="en" + metadata EN + schema EN
-  api/
-    reviews/
-      route.ts        ← GET /api/reviews — fetch Notion, filtre Approuvé=true
-    contact/
-      route.ts        ← POST /api/contact — Resend email, sécurité (origin, honeypot, sanitize)
+  globals.css              classes utilitaires
+  fonts.ts                 next/font, Oswald + DM Sans
+  (bg)/layout.tsx          <html lang="bg">, metadata et JSON-LD BG, CSS vars
+  (bg)/page.tsx            route /
+  (bg)/business/page.tsx   route /business
+  (en)/layout.tsx          idem EN
+  (en)/en/page.tsx         route /en
+  (en)/en/business/page.tsx
+  (ru)/layout.tsx          idem RU
+  (ru)/ru/page.tsx         route /ru
+  (ru)/ru/business/page.tsx
+  api/contact/route.ts     POST, Resend, validation d'enum sur les clés service
+  api/reviews/route.ts     GET, Notion, revalidate 60 s
 
 components/
-  Navbar.tsx          ← Nav responsive + switch BG/EN via router.push('/' ou '/en')
-  Hero.tsx            ← Hero + <LeadForm />
-  LeadForm.tsx        ← Formulaire 2 étapes → WhatsApp (mobile/tablette) + Resend email (desktop)
-  Services.tsx        ← Grille services avec prix
-  Technology.tsx      ← Process injection-extraction en 3 étapes
-  BeforeAfter.tsx     ← Slider avant/après interactif (drag)
-  Comparison.tsx      ← Tableau comparatif (responsive: table desktop, cards mobile)
-  WhyUs.tsx           ← 6 arguments + garantie
-  ForRentals.tsx      ← Section B2B hôtels/Airbnb (entre WhyUs et Pricing)
-  Pricing.tsx         ← Grille tarifaire
-  Reviews.tsx         ← Carousel avis Notion (0=caché, 1=card, 2-6=carousel)
-  FAQ.tsx             ← Accordion (12 questions)
-  Contact.tsx         ← Phones + WhatsApp + <LeadForm /> (même formulaire)
-  Footer.tsx          ← Links + credit + lien review Google
-  WhatsAppFAB.tsx     ← Bouton flottant WhatsApp (masqué sur desktop lg+)
+  Navbar  Hero  LeadForm  Services  HowWeWork  BeforeAfter  WhyUs
+  ForRentals  Quote  Reviews  FAQ  Contact  Footer  WhatsAppFAB  Icon
+  Technology  Comparison        ← plus rendus, réservés à la page textile (phase 2)
+  hotels/                       ← composants de la page /business
 
-config/
-  design.js           ← Design tokens (couleurs + fonts)
-  design.d.ts         ← Types TypeScript pour design.js
-
-content/
-  bg.json             ← Contenu bulgare
-  en.json             ← Contenu anglais
-
-context/
-  LanguageContext.tsx ← Provider i18n, initialLang prop, localStorage (BG route seulement)
-
-hooks/
-  useScrollReveal.ts  ← IntersectionObserver pour animations .reveal
+lib/gallery.ts               scan de public/gallery/<slug>/
+config/design.js             tokens
+content/{bg,en,ru}.json      contenu
+context/LanguageContext.tsx  provider i18n
+hooks/useScrollReveal.ts     IntersectionObserver
 ```
+
+Ordre des sections de la home :
+`Hero → Services → HowWeWork → BeforeAfter → WhyUs → ForRentals → Quote → Reviews → FAQ → Contact`
+
+`Technology` et `Comparison` décrivent l'injection-extraction, qui ne concerne qu'un service sur sept. Ils ont quitté la home et leurs clés JSON (`technology.*`, `comparison.*`) sont conservées intactes pour la page `upholstery-cleaning` de la phase 2.
 
 ---
 
-## i18n — Architecture des routes
+## i18n
 
-Le site a deux routes statiquement pre-rendues :
-- `/` → `app/page.tsx` → bulgare par défaut, `LanguageProvider initialLang="bg"`
-- `/en` → `app/en/page.tsx` → anglais, `LanguageProvider initialLang="en"`
+Trois route groups, chacun avec son propre `layout.tsx`. **Un changement de layout doit être répliqué dans les trois.**
 
-**Règles importantes :**
-- `LanguageProvider` est dans chaque page, PAS dans `app/layout.tsx`
-- Sur `/`, localStorage est lu au mount pour persister la préférence
-- Sur `/en`, localStorage n'est PAS lu (l'URL est la source de vérité)
-- `document.documentElement.lang` est mis à jour côté client par `LanguageContext`
-- Le toggle dans `Navbar.tsx` navigue via `router.push('/')` ou `router.push('/en')`
-- hreflang dans `app/layout.tsx` (metadata.alternates) ET `app/en/page.tsx` ET `public/sitemap.xml`
+- `LanguageProvider initialLang` est posé dans chaque page, jamais dans un layout.
+- localStorage (`wetdry_lang`) n'est lu que si `initialLang === 'bg'`, et n'accepte que `bg` et `en`.
+- Le sélecteur de langue préserve la page courante : `/business` mène à `/en/business`.
+- hreflang déclaré à trois endroits qui doivent rester cohérents : `alternates.languages` de chaque layout, de chaque page `business`, et `public/sitemap.xml`.
 
 ---
 
 ## Variables d'environnement
 
 ```bash
-# .env.local (local) + Netlify Environment Variables (prod)
-NOTION_TOKEN=secret_...          # Clé API Notion Integration
-NOTION_DATABASE_ID=32e0c9a9...   # ID de la database "Avis Clients"
-RESEND_API_KEY=re_...            # Clé API Resend (email formulaire)
+NOTION_TOKEN=secret_...
+NOTION_DATABASE_ID=...
+RESEND_API_KEY=re_...
 ```
 
 ---
 
-## Formulaire de contact — Resend
+## Formulaire de contact
 
-L'email de leads est envoyé via **Resend** (pas Formspree).
+`components/LeadForm.tsx`, deux étapes.
 
-- **Route API** : `app/api/contact/route.ts`
-- **FROM** : `noreply@wetdrycleaningbansko.com` (domaine vérifié sur Resend)
-- **TO** : `wetdrycleanbansko@gmail.com`
-- **Sécurité** : origin check, Content-Type validation, honeypot (`name="website"`), sanitisation inputs, validation champs requis
-- **Comportement par device** :
-  - Mobile / tablette (`< lg`) → bouton primaire = WhatsApp
-  - Desktop (`lg+`) → bouton primaire = email via Resend
-- **Honeypot** : champ `name="website"` caché par CSS dans LeadForm, vérifié server-side (`_hp`)
+Étape 1 : audience privé ou business, les 7 services en multi-sélection, sous-bloc des 5 objets textile qui se déplie si `textile` est coché, fréquence si business, champ détails à placeholder contextuel (objets, surface, ou les deux).
+Étape 2 : nom facultatif, téléphone, localité.
 
----
+Prop `preselect` pour pré-cocher un service depuis une page service.
 
-## Comportement des contacts par device
+`app/api/contact/route.ts` : origin check, Content-Type, honeypot `_hp` (champ `name="website"`), sanitisation, et validation des `serviceKeys` et `textileKeys` sur une enum. **Cette enum doit rester alignée sur `services[].key` dans les JSON.**
 
-| Élément | Mobile | Tablette | Desktop |
+Comportement par device :
+
+| Élément | Mobile | Tablette | Desktop (lg+) |
 |---|---|---|---|
-| Liens `tel:` | Cliquables | Non-cliquables (`pointer-events-none`) | Non-cliquables |
-| Bouton "Appeler maintenant" | Visible | Masqué (`md:hidden`) | Masqué |
-| Bouton WhatsApp (Contact) | Visible | Visible | Masqué (`lg:hidden`) |
-| WhatsApp FAB | Visible | Visible | Masqué (`lg:hidden`) |
-| Formulaire — CTA primaire | WhatsApp | WhatsApp | Email Resend |
-| Bouton "Envoyer un email" (Contact) | Masqué | Masqué | Visible (`hidden lg:block`) |
-
-**Attention CSS** : `btn-gold` est défini APRÈS `@tailwind utilities` dans globals.css → son `display: inline-flex` override les classes Tailwind `hidden`/`lg:flex`. Toujours utiliser un **wrapper `<div>`** pour show/hide des éléments `btn-gold`, jamais directement sur le `<a>` ou `<button>`.
+| Liens `tel:` | cliquables | non cliquables | non cliquables |
+| Bouton Appeler | visible | masqué | masqué |
+| Bouton WhatsApp Contact | visible | visible | masqué |
+| WhatsApp FAB | visible | visible | masqué |
+| LeadForm CTA primaire | WhatsApp | WhatsApp | Email Resend |
 
 ---
 
-## Notion — structure de la database "Avis Clients"
+## Notion — database "Avis Clients"
 
-| Propriété | Type Notion | Notes |
-|---|---|---|
-| `Prénom` | Title | Nom du client |
-| `Étoiles` | Number | 1-5 |
-| `Services` | Multi-select | Canapé/Fauteuil, Matelas, Kilim/Moquette, Rideaux, Sièges auto |
-| `Commentaire` | Rich text | Texte libre |
-| `Date` | Date | Auto via Tally |
-| `Approuvé` | Checkbox | ← cocher pour publier sur le site |
+Noms réels des propriétés lus par le code :
 
-La route `/api/reviews` :
-- Filtre `Approuvé = true`
-- Trie par `Date desc`
-- Revalidate toutes les 60 secondes
-- Le composant `Reviews.tsx` shuffle et cap à 6 avis
+| Propriété | Type |
+|---|---|
+| `Firstname Surname` | Title |
+| `Stars` | Number |
+| `Services` | Multi-select |
+| `Review Text` | Rich text |
+| `Date` | Date |
+| `To Approved` | Checkbox |
+
+`/api/reviews` filtre `To Approved = true`, trie par `Date desc`, revalide toutes les 60 s. `Reviews.tsx` mélange et plafonne à 6. La section disparaît s'il n'y a aucun avis. Le même fetch alimente l'`AggregateRating` du JSON-LD, avec une clé de cache distincte par langue.
 
 ---
 
-## Classes CSS utilitaires importantes
+## Classes CSS
 
-```css
-.btn-gold        /* Bouton doré principal — display: inline-flex — voir note wrapper ci-dessus */
-.btn-outline     /* Bouton contour doré */
-.card-dark       /* Card sombre avec hover gold */
-.input-dark      /* Input sombre avec focus gold */
-.section-pad     /* Padding vertical des sections */
-.section-badge   /* Petit badge doré en haut des sections */
-.gold-divider    /* Ligne horizontale dégradée dorée */
-.reveal          /* Élément animé au scroll — mettre sur chaque item pour stagger */
-.text-gold-gradient  /* Texte dégradé doré */
-.whatsapp-fab    /* Bouton flottant WhatsApp (position: fixed dans la classe CSS) */
-.font-display    /* Police Oswald */
-.font-body       /* Police DM Sans */
+```
+.btn-gold .btn-outline .card-dark .input-dark .section-pad .section-badge
+.gold-divider .reveal .text-gold-gradient .whatsapp-fab .comparison-table
+.font-display .font-body
 ```
 
 ---
 
 ## Conventions
 
-- **Composants** : `'use client'` obligatoire pour tout composant interactif
-- **Scroll reveal stagger** : mettre `.reveal` sur **chaque item** de la liste (pas sur le wrapper parent), avec `style={{ transitionDelay: '${i * 100}ms' }}`
-- **Fonts inline** : ne jamais utiliser `style={{ fontFamily: '...' }}` — utiliser `className="font-display"` ou `font-body`
-- **Images** : toujours spécifier `sizes` approprié dans `<Image>` pour éviter le chargement 1920px inutile
-- **Imports** : alias `@/` configuré pour la racine du projet
-- **Show/hide responsive** : utiliser des wrappers `<div className="lg:hidden">` et `<div className="hidden lg:block">` autour des éléments avec classes CSS custom (btn-gold, whatsapp-fab, etc.)
+- `'use client'` pour tout composant interactif
+- `.reveal` sur **chaque item** d'une liste, pas sur le parent, avec `transitionDelay: ${i * 80}ms`
+- `className="font-display"`, jamais `style={{ fontFamily }}`
+- `sizes` explicite sur chaque `<Image>`
+- alias `@/` vers la racine
+- alternance des fonds de sections : `bg-ink-800` et `bg-ink` en alternance stricte
 
 ---
 
-## Numéros de contact
+## Copywriting
 
-- 🇬🇧 English : +359 882 862 228 (WhatsApp principal EN)
-- 🇧🇬 Bulgare : +359 876 850 385
+Langue humaine et directe, phrases courtes. Pas de tirets cadratins comme ponctuation de style, pas de « не само..., но и », pas de triades décoratives, pas de superlatifs vides. Ce qu'un artisan écrirait à son client.
 
-WhatsApp number EN (sans `+`, sans espaces) : `359882862228`
-WhatsApp number BG (sans `+`, sans espaces) : `359876850385`
-
-**Note** : Les deux JSON (`contact.whatsappNumber`) pointent vers `359876850385` (numéro BG). À vérifier si la page EN devrait pointer vers `359882862228`.
+Les textes se valident en anglais, le bulgare et le russe en sont dérivés.
 
 ---
 
 ## Déploiement
 
 ```bash
-# Développement
-npm run dev
-
-# Build local (toujours vérifier avant push)
-npm run build
-
-# Déployer (Netlify auto-deploy sur push main)
-git add .
-git commit -m "feat: ..."
+npm run dev      # http://localhost:3000, /en, /ru
+npm run build    # obligatoire avant tout push
 git push origin main
 ```
 
-Netlify rebuild automatiquement à chaque push sur `main`.
-Délai après push : ~1-2 minutes.
-Délai avis Notion → site : ~60 secondes (revalidate).
+Netlify redéploie automatiquement. Délai environ 1 à 2 minutes. Délai avis Notion vers site environ 60 s.
 
 ---
 
-## SEO local — ce qui est configuré
+## SEO
 
-- `app/layout.tsx` : JSON-LD `LocalBusiness + ProfessionalService`, `FAQPage` (12 questions), `AggregateRating` dynamique Notion, `hasOfferCatalog` (5 services en bulgare), `sameAs` (GBP + 3 réseaux sociaux), `serviceArea` GeoCircle 20km, `openingHoursSpecification`, adresse Sv. Ivan Rilski, postal 2770
-- `app/en/page.tsx` : JSON-LD schema EN dédié (services en anglais)
-- `public/sitemap.xml` : `/` et `/en` avec hreflang xhtml:link complet, changefreq weekly
-- `public/robots.txt` : indexation autorisée, `Disallow: /api/`
-- Mots-clés : Банско, Разлог, Добринище, Баня (BG) + Bansko, Razlog, Dobrinishte, Banya (EN)
-- hreflang : `bg-BG` → `/`, `en` → `/en`, `x-default` → `/`
-- Coordonnées GPS : 41.8395, 23.4882
-
----
-
-## Vidéo YouTube (Technology section)
-
-Le player vidéo s'affiche **uniquement si** `technology.videoUrl` est une URL YouTube embed valide (commence par `https://www.youtube.com/embed/`). Pour activer :
-1. Upload sur YouTube → Non répertorié
-2. Copier l'ID depuis `youtube.com/watch?v=XXXXXXXX`
-3. Dans `content/bg.json` ET `content/en.json` → `"videoUrl": "https://www.youtube.com/embed/XXXXXXXX"`
-4. Laisser `"videoUrl": ""` = pas d'affichage
+- JSON-LD `LocalBusiness + ProfessionalService + CleaningService` dans les 3 layouts, avec `hasOfferCatalog` généré depuis `services.items` (sans prix), `aggregateRating` Notion, `serviceArea` GeoCircle 20 km, horaires, `sameAs`
+- JSON-LD `FAQPage` généré depuis `faq.items`
+- `metadata` title, description et keywords pilotés par `meta.*` du JSON
+- `public/sitemap.xml` : 6 URLs avec hreflang complet
+- `public/robots.txt` : `Disallow: /api/`
+- `public/llms.txt` : fiche business pour les LLM, à maintenir cohérente avec le site
+- `/hotels` a été renommé `/business` en septembre 2026, 301 dans `netlify.toml`
 
 ---
 
-## Zone de service (depuis mai 2026)
+## Zone de service
 
-Bansko · Разлог · Добринище · **Баня** (Banya)
-Belitsa retiré — trop loin.
+Bansko · Разлог · Добринище · Баня. Belitsa a été retiré, trop loin.
 
 ---
 
-## Réseaux sociaux
+## Réseaux et Google
 
 - Instagram : https://www.instagram.com/wetdryclean.bansko/
 - Facebook : https://www.facebook.com/profile.php?id=61588508592574
 - TikTok : https://www.tiktok.com/@wetdryclean.bansko
+- Avis Google : `https://g.page/r/CU4pAGZ9UMLpEBM/review`
+- Images GBP : pas de prix, pas de téléphone, pas d'URL, pas de QR code, Google rejette
 
 ---
 
-## Google Business Profile
+## Contacts
 
-- Fiche créée et vérifiée (mai 2026). Une seule fiche EN.
-- GBP review URL : `https://g.page/r/CU4pAGZ9UMLpEBM/review` (dans `contact.reviewUrl` JSON + Footer)
-- AggregateRating schema dans `app/layout.tsx` (revalide toutes les 1h via Notion)
-- Images GBP : `wetdry-bansko-marketing/gbp-images/`
-  - `sofa-1080x1080.png` — avant/après diván (2160×2160 réels)
-  - `carpet-1080x1080.png` — avant/après kilim (2160×2160 réels)
-  - `carpet-hotel-1080x1080.png` — avant/après moquette hôtel (2160×2160 réels)
-  - `cover-1200x675.png` — photo de couverture GBP (2400×1350 réels, ratio 16:9)
-  - Régénérer : `node screenshot.js` (utilise Playwright depuis freelanceos/node_modules)
-- **Règles images GBP** : pas de prix, pas de téléphone, pas d'URL, pas de QR code — Google rejette
+- English : +359 882 862 228 → WhatsApp `359882862228`
+- Български : +359 876 850 385 → WhatsApp `359876850385`, utilisé aussi en RU
 
 ---
 
-## Ce qu'il NE faut PAS faire
+## Ce qu'il ne faut PAS faire
 
-- ❌ Hardcoder du texte visible dans les composants (tout vient du JSON)
-- ❌ Hardcoder des couleurs hex ou noms de fonts dans les composants
-- ❌ Mentionner "eau à 95°C" ou "température" dans le contenu
-- ❌ Mentionner le nom de la machine (Kärcher Puzzi) dans le contenu visible **ni dans les meta JSON**
-- ❌ Committer `.env.local` ou tout fichier contenant des tokens
-- ❌ Utiliser `sizes="100vw"` sur des images dans une grille
-- ❌ Utiliser `box-shadow` dans les animations (non GPU composité)
-- ❌ Hardcoder les URLs réseaux sociaux dans les composants
-- ❌ Mettre `hidden`/`lg:hidden` directement sur un élément avec classe CSS custom (`btn-gold`, `whatsapp-fab`) — utiliser un wrapper `<div>`
-- ❌ Ajouter `style={{ fontFamily: '...' }}` inline — utiliser `className="font-display"`
-- ❌ Modifier `app/layout.tsx` sans penser à l'impact sur `/en` (le layout est partagé)
-- ❌ Upload des images GBP avec prix, téléphone, URL ou QR code — Google les rejette
+- Hardcoder du texte visible dans un composant
+- Hardcoder une couleur hex ou un nom de font
+- Ajouter une clé dans un seul JSON sur trois
+- Mentionner une température ou le nom de la machine, y compris dans les meta
+- Réintroduire des prix : le site n'affiche aucun tarif, tout passe par le devis
+- Committer `.env.local` ou un token
+- `sizes="100vw"` sur une image en grille
+- `box-shadow` animé
+- Mettre `hidden` ou `lg:hidden` directement sur un élément `.btn-gold` ou `.whatsapp-fab`, utiliser un wrapper `<div>`
+- Modifier un `layout.tsx` sans répercuter sur les deux autres
+- Renommer une clé de service sans mettre à jour l'enum de `/api/contact` et les dossiers de galerie
+
+---
+
+## Phase 2 (à venir)
+
+Les 7 pages `/services/<slug>` dans les 3 langues, le hub `/services`, la nav qui pointe vers le hub, les galeries par service, le préremplissage du formulaire par query string, et le rebranchement de `Technology` et `Comparison` sur la page `upholstery-cleaning`.
+
+Objectif métier : donner à Google la preuve des services pour débloquer l'élargissement de la fiche Business, catégorie par catégorie.
