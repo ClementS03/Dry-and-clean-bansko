@@ -1,5 +1,6 @@
 User-agent: *
 Allow: /
 Disallow: /api/
+Disallow: /gallery/README.md
 
 Sitemap: https://wetdrycleaningbansko.com/sitemap.xml
