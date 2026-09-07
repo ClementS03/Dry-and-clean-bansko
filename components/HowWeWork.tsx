@@ -25,13 +25,15 @@ export default function HowWeWork() {
           {h.steps.map((step, i) => (
             <div
               key={step.number}
-              className="relative p-6 reveal card-dark"
+              className="p-6 reveal card-dark"
               style={{ transitionDelay: `${i * 80}ms` }}
             >
-              <div className="absolute text-5xl font-bold leading-none top-4 right-4 font-display text-gold/10">
-                {step.number}
+              <div className="flex items-center justify-between mb-1">
+                <span className="inline-flex items-center justify-center w-10 h-10 rounded-sm border border-gold/30 bg-gold/10 font-display text-base font-bold tracking-wider text-gold">
+                  {step.number}
+                </span>
+                <Icon name={step.icon} className="w-7 h-7 text-gold/40" />
               </div>
-              <Icon name={step.icon} className="w-7 h-7 text-gold" />
               <h3 className="mt-4 mb-2 text-lg tracking-wide uppercase font-display text-cream">
                 {step.title}
               </h3>
