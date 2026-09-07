@@ -22,7 +22,7 @@ const EmailSvg = () => (
   </svg>
 )
 
-export default function Contact() {
+export default function Contact({ preselect }: { preselect?: string }) {
   const { t } = useLanguage()
   const c = t.contact
   const ref = useScrollReveal()
@@ -109,7 +109,7 @@ export default function Contact() {
 
         {/* ── Lead form (same as hero) ── */}
         <div className="reveal max-w-lg mx-auto" style={{ transitionDelay: '200ms' }}>
-          <LeadForm />
+          <LeadForm preselect={preselect} />
         </div>
 
       </div>

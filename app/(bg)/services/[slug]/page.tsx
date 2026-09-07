@@ -117,7 +117,7 @@ export default async function ServiceRoute({ params }: Params) {
       <Navbar />
       <main>
         <ServicePage slug={slug} pairs={pairs} prefix={PREFIX} />
-        <Contact />
+        <Contact preselect={service.key} />
       </main>
       <Footer />
       <WhatsAppFAB />
