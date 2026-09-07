@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import content from "@/content/ru.json";
-import { getGalleryPairs, getGalleryCover } from "@/lib/gallery";
+import { getGalleryPairs, getGalleryCover, getOgImage } from "@/lib/gallery";
 import { LanguageProvider } from "@/context/LanguageContext";
 import Navbar from "@/components/Navbar";
 import ServicePage from "@/components/ServicePage";
@@ -33,7 +33,9 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const page = PAGES[slug];
   if (!page) return {};
 
-  const image = getGalleryCover(slug) ?? OG_FALLBACK;
+  // OG dediee, sinon photo du service, sinon OG de la langue.
+  // Voir public/og/README.md
+  const image = getOgImage(slug) ?? getGalleryCover(slug) ?? OG_FALLBACK;
 
   return {
     title: { absolute: page.metaTitle },

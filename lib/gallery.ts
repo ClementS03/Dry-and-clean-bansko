@@ -45,3 +45,16 @@ export function getGalleryPairs(slug: string): GalleryPair[] {
 export function getGalleryCover(slug: string): string | null {
   return getGalleryPairs(slug)[0]?.after ?? null
 }
+
+/**
+ * OG dediee d une page, deposee dans public/og/<slug>.jpg.
+ * Voir public/og/README.md pour les specs et l ordre de priorite.
+ */
+export function getOgImage(slug: string): string | null {
+  for (const ext of EXTENSIONS) {
+    if (fs.existsSync(path.join(process.cwd(), 'public', 'og', slug + ext))) {
+      return `/og/${slug}${ext}`
+    }
+  }
+  return null
+}
