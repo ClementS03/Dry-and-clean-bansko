@@ -5,7 +5,7 @@ import { useScrollReveal } from '@/hooks/useScrollReveal'
 export default function HotelsPricing() {
   const { t, lang } = useLanguage()
   const p = t.hotels.pricing
-  const pricingAnchor = lang === 'en' ? '/en#pricing' : lang === 'ru' ? '/ru#pricing' : '/#pricing'
+  const quoteAnchor = lang === 'en' ? '/en#quote' : lang === 'ru' ? '/ru#quote' : '/#quote'
   const ref = useScrollReveal()
   return (
     <section className="section-pad bg-ink">
@@ -15,7 +15,7 @@ export default function HotelsPricing() {
           <div className="text-2xl">💶</div>
           <div>
             <p className="text-cream/70 text-sm">{p.publicNote}</p>
-            <a href={pricingAnchor} className="text-gold text-sm hover:text-gold/80 transition-colors mt-1 inline-block">
+            <a href={quoteAnchor} className="text-gold text-sm hover:text-gold/80 transition-colors mt-1 inline-block">
               {p.publicLinkLabel}
             </a>
           </div>

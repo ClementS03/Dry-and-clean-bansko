@@ -254,8 +254,8 @@
     "badge": "How we work",
     "title": "Injection-Extraction",
     "titleSub": "Deep cleaning from the inside",
-    "subtitle": "Three steps — one visible result",
-    "description": "Unlike traditional surface cleaning, injection-extraction technology penetrates directly into the fabric — injecting water mixed with cleaning solution, then immediately extracting it along with all the dirt. The fabric is left barely damp and dries in 2–4 hours.",
+    "subtitle": "Three steps, one visible result",
+    "description": "Unlike traditional surface cleaning, injection-extraction technology penetrates directly into the fabric, injecting water mixed with cleaning solution, then immediately extracting it along with all the dirt. The fabric is left barely damp and dries in 2–4 hours.",
     "videoUrl": "",
     "videoLabel": "Watch the machine in action",
     "steps": [
@@ -263,7 +263,7 @@
         "number": "01",
         "icon": "💧",
         "title": "Injection",
-        "description": "Water mixed with the right cleaning solution is sprayed under pressure directly into the fabric — reaching deep into the fibres where dirt hides."
+        "description": "Water mixed with the right cleaning solution is sprayed under pressure directly into the fabric, reaching deep into the fibres where dirt hides."
       },
       {
         "number": "02",
@@ -275,7 +275,7 @@
         "number": "03",
         "icon": "⚡",
         "title": "Extraction",
-        "description": "The machine immediately suctions back the water along with all the broken-down dirt. The fabric stays barely damp — no risk of mould."
+        "description": "The machine immediately suctions back the water along with all the broken-down dirt. The fabric stays barely damp, no risk of mould."
       }
     ],
     "features": [
@@ -287,7 +287,7 @@
       {
         "icon": "🌿",
         "title": "Right product for each fabric",
-        "description": "We select the product based on the material — safe for children and pets."
+        "description": "We select the product based on the material, safe for children and pets."
       },
       {
         "icon": "⏱️",
@@ -297,7 +297,7 @@
       {
         "icon": "✅",
         "title": "Visible result from the 1st clean",
-        "description": "No guessing whether it worked — the difference is immediately visible."
+        "description": "No guessing whether it worked, the difference is immediately visible."
       }
     ],
     "stats": [
@@ -366,12 +366,12 @@
       {
         "icon": "🚐",
         "title": "We come to you",
-        "description": "No need to transport anything. We arrive with all equipment — at home, hotel or office."
+        "description": "No need to transport anything. We arrive with all equipment, at home, hotel or office."
       },
       {
         "icon": "✅",
         "title": "Fully insured",
-        "description": "Accidental damage during our work is covered at our cost — no risk to you."
+        "description": "Accidental damage during our work is covered at our cost, no risk to you."
       },
       {
         "icon": "⚡",
@@ -386,7 +386,7 @@
       {
         "icon": "📍",
         "title": "Local & accessible",
-        "description": "Bansko, Razlog, Dobrinishte and the whole Bansko-Razlog valley — we know the region."
+        "description": "Bansko, Razlog, Dobrinishte and the whole Bansko-Razlog valley, we know the region."
       },
       {
         "icon": "💬",
@@ -439,7 +439,7 @@
       },
       {
         "q": "How long does it take to dry?",
-        "a": "With injection-extraction, fabric dries in 2–4 hours — much faster than traditional wet cleaning. You can use your furniture the same day."
+        "a": "With injection-extraction, fabric dries in 2–4 hours, much faster than traditional wet cleaning. You can use your furniture the same day."
       },
       {
         "q": "Is it safe for children and pets?",
@@ -447,7 +447,7 @@
       },
       {
         "q": "Can you remove old stains?",
-        "a": "In most cases — yes. Injection-extraction is very effective even on stubborn stains. With prior information about the stain type, we can assess the chance of full removal."
+        "a": "In most cases, yes. Injection-extraction is very effective even on stubborn stains. With prior information about the stain type, we can assess the chance of full removal."
       },
       {
         "q": "How do you set the price and how do I pay?",
@@ -455,7 +455,7 @@
       },
       {
         "q": "Which areas do you cover?",
-        "a": "We cover Bansko, Razlog, Dobrinishte, Banya and the entire Bansko-Razlog valley. For more distant locations — contact us."
+        "a": "We cover Bansko, Razlog, Dobrinishte, Banya and the entire Bansko-Razlog valley. For more distant locations, contact us."
       },
       {
         "q": "How much does sofa cleaning cost in Bansko?",
@@ -475,11 +475,11 @@
       },
       {
         "q": "Do you work during ski season and on weekends?",
-        "a": "Yes, we work every day from 08:00 to 20:00, including weekends and public holidays. Ski season (December–March) is our busiest period — we recommend booking at least 1–2 days in advance to secure your preferred time slot."
+        "a": "Yes, we work every day from 08:00 to 20:00, including weekends and public holidays. Ski season (December–March) is our busiest period, we recommend booking at least 1–2 days in advance to secure your preferred time slot."
       },
       {
         "q": "How often should sofas and mattresses be cleaned?",
-        "a": "We recommend cleaning sofas at least once a year with normal use, or every 6 months if you have pets or young children. Mattresses should ideally be cleaned every 6–12 months — dust mites thrive in uncleaned mattresses and are a common cause of allergies and poor sleep."
+        "a": "We recommend cleaning sofas at least once a year with normal use, or every 6 months if you have pets or young children. Mattresses should ideally be cleaned every 6–12 months, dust mites thrive in uncleaned mattresses and are a common cause of allergies and poor sleep."
       },
       {
         "q": "What do you clean besides upholstery?",
@@ -570,9 +570,6 @@
     "beforeLabel": "Before",
     "afterLabel": "After",
     "sliderHint": "← Drag to compare →",
-    "placeholderBefore": "BEFORE photo",
-    "placeholderAfter": "AFTER photo",
-    "addPhotoNote": "Add photos to /public/ — see GUIDE.md for instructions",
     "pairs": [
       {
         "label": "Sofa"
@@ -603,7 +600,7 @@
       {
         "icon": "⚡",
         "title": "Fast turnaround",
-        "description": "We clean between check-out and check-in — even same-day with advance notice."
+        "description": "We clean between check-out and check-in, even same-day with advance notice."
       },
       {
         "icon": "📦",
@@ -618,7 +615,7 @@
       {
         "icon": "✅",
         "title": "Fully insured",
-        "description": "Accidental damage during our work is covered at our cost — no risk to you."
+        "description": "Accidental damage during our work is covered at our cost, no risk to you."
       }
     ],
     "cta": "Request a business offer",
@@ -693,7 +690,7 @@
       },
       "restaurant": {
         "title": "Night service for restaurants",
-        "description": "Cleaning outside restaurant opening hours — zero disruption to your business.",
+        "description": "Cleaning outside restaurant opening hours, zero disruption to your business.",
         "price": "By agreement"
       }
     },
@@ -713,7 +710,7 @@
         {
           "number": "03",
           "title": "Schedule around your guests",
-          "description": "We work around your guests — night hours, early mornings, between check-out and check-in."
+          "description": "We work around your guests, night hours, early mornings, between check-out and check-in."
         }
       ]
     },
@@ -745,7 +742,7 @@
     "socialProof": {
       "ratingLabel": "See our reviews on Google",
       "referencesTitle": "Our business clients",
-      "referencesEmpty": "First contracts incoming — your spot is here.",
+      "referencesEmpty": "First contracts incoming, your spot is here.",
       "subtitle": "See what our clients say on Google"
     },
     "faq": {
@@ -761,7 +758,7 @@
         },
         {
           "q": "Do we sign a contract?",
-          "a": "For monthly contracts — yes. For one-off cleaning we work without a formal contract, just a written quote."
+          "a": "For monthly contracts, yes. For one-off cleaning we work without a formal contract, just a written quote."
         },
         {
           "q": "Do you issue invoices?",
@@ -777,7 +774,7 @@
         },
         {
           "q": "Can you clean on the check-out / check-in day?",
-          "a": "Yes — that's exactly what we're here for. We schedule around your guest turnover, including tight windows between checkout and check-in."
+          "a": "Yes, that's exactly what we're here for. We schedule around your guest turnover, including tight windows between checkout and check-in."
         },
         {
           "q": "Are the cleaning products safe for the next guests?",
@@ -865,7 +862,7 @@
     },
     "cta": {
       "heading": "Prefer to reach us directly?",
-      "sub": "Message us and we'll reply within a few hours — no commitment.",
+      "sub": "Message us and we'll reply within a few hours, no commitment.",
       "label": "Request a free on-site inspection",
       "whatsappMsg": "Hello! I would like a free on-site inspection and quote for a hotel / rental property."
     },

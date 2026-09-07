@@ -54,27 +54,11 @@ const cssVars = `
 export const metadata: Metadata = {
   metadataBase: new URL(DOMAIN),
   title: {
-    default: "Чистка мебели Банско | Wet&Dry Cleaning",
+    default: ruContent.meta.title,
     template: "%s | Wet&Dry Cleaning Банско",
   },
-  description:
-    "Профессиональная чистка диванов, матрасов, ковров и штор в Банско и окрестностях. Технология инъекционной экстракции. Приедем к вам. Цены от 20€.",
-  keywords: [
-    "чистка мебели Банско",
-    "чистка дивана Банско",
-    "химчистка дивана Банско",
-    "чистка матраса Банско",
-    "чистка ковра Банско",
-    "чистка штор Банско",
-    "чистка автомобильных сидений Банско",
-    "химчистка мебели Банско",
-    "инъекция экстракция Банско",
-    "Wet Dry cleaning Банско",
-    "Банско",
-    "Разлог",
-    "Добриниште",
-    "Баня",
-  ],
+  description: ruContent.meta.description,
+  keywords: ruContent.meta.keywords.split(", "),
   authors: [{ name: "Wet&Dry Cleaning Bansko" }],
   creator: "Wet&Dry Cleaning Bansko",
   alternates: {
@@ -89,9 +73,8 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     url: `${DOMAIN}/ru`,
-    title: "Чистка мебели Банско | Wet&Dry Cleaning",
-    description:
-      "Профессиональная чистка диванов, матрасов и ковров в Банско. Технология инъекционной экстракции. Приедем к вам. Цены от 20€.",
+    title: ruContent.meta.title,
+    description: ruContent.meta.description,
     siteName: "Wet&Dry Cleaning Bansko",
     locale: "ru_RU",
     images: [
@@ -225,39 +208,11 @@ export default async function RootLayoutRU({
     }),
     hasOfferCatalog: {
       "@type": "OfferCatalog",
-      name: "Услуги чистки мебели в Банско",
-      itemListElement: [
-        {
-          "@type": "Offer",
-          itemOffered: { "@type": "Service", name: "Чистка дивана Банско" },
-          price: "25",
-          priceCurrency: "EUR",
-        },
-        {
-          "@type": "Offer",
-          itemOffered: { "@type": "Service", name: "Чистка матраса Банско" },
-          price: "20",
-          priceCurrency: "EUR",
-        },
-        {
-          "@type": "Offer",
-          itemOffered: { "@type": "Service", name: "Чистка ковра Банско" },
-          price: "4",
-          priceCurrency: "EUR",
-        },
-        {
-          "@type": "Offer",
-          itemOffered: { "@type": "Service", name: "Чистка штор Банско" },
-          price: "15",
-          priceCurrency: "EUR",
-        },
-        {
-          "@type": "Offer",
-          itemOffered: { "@type": "Service", name: "Чистка автомобильных сидений Банско" },
-          price: "25",
-          priceCurrency: "EUR",
-        },
-      ],
+      name: ruContent.services.title,
+      itemListElement: ruContent.services.items.map((service) => ({
+        "@type": "Offer",
+        itemOffered: { "@type": "Service", name: service.name },
+      })),
     },
   };
 

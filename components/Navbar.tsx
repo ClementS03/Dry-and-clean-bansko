@@ -55,16 +55,22 @@ export default function Navbar() {
     return () => document.removeEventListener('mousedown', handler)
   }, [langOpen]);
 
+  const businessPath = homePath === "/" ? "/business" : `${homePath}/business`;
+
   const links = [
     { label: t.nav.services, href: "#services" },
-    { label: t.nav.technology, href: "#technology" },
-    { label: t.nav.prices, href: "#pricing" },
+    { label: t.nav.business, href: businessPath },
+    { label: t.nav.quote, href: "#quote" },
     { label: t.nav.faq, href: "#faq" },
     { label: t.nav.contact, href: "#contact" },
   ];
 
   const handleNav = (href: string) => {
     setMenuOpen(false);
+    if (href.startsWith("/")) {
+      router.push(href);
+      return;
+    }
     const el = document.querySelector(href);
     if (el) {
       el.scrollIntoView({ behavior: "smooth" });

@@ -15,30 +15,30 @@ import Footer from "@/components/Footer"
 import WhatsAppFAB from "@/components/WhatsAppFAB"
 
 export const metadata: Metadata = {
-  title: "Чистка для отелей Банско",
-  description: "Профессиональная чистка мебели для отелей, гостевых домов и Airbnb в Банско. Бесплатный выезд на осмотр. Ежемесячные договоры от 400€.",
+  title: "Cleaning for business in Bansko | Wet&Dry Cleaning",
+  description: "Professional cleaning for hotels, guesthouses, rental flats, restaurants and production sites in Bansko. Free on-site visit and an individual offer.",
   alternates: {
-    canonical: "/ru/hotels",
+    canonical: "/en/business",
     languages: {
-      "bg-BG": "/hotels",
-      "en": "/en/hotels",
-      "ru": "/ru/hotels",
-      "x-default": "/hotels",
+      "bg-BG": "/business",
+      "en": "/en/business",
+      "ru": "/ru/business",
+      "x-default": "/business",
     },
   },
   openGraph: {
-    url: "https://wetdrycleaningbansko.com/ru/hotels",
-    title: "Чистка для отелей Банско",
-    images: [{ url: "/og-hotels-ru.jpg", width: 1200, height: 630, alt: "Wet&Dry Cleaning — чистка мебели для отелей в Банско" }],
+    url: "https://wetdrycleaningbansko.com/en/business",
+    title: "Cleaning for business in Bansko | Wet&Dry Cleaning",
+    images: [{ url: "/og-hotels.jpg", width: 1200, height: 630, alt: "Wet&Dry Cleaning, furniture cleaning for hotels in Bansko" }],
   },
   twitter: {
-    images: ["/og-hotels-ru.jpg"],
+    images: ["/og-hotels.jpg"],
   },
 }
 
-export default function HotelsRU() {
+export default function HotelsEN() {
   return (
-    <LanguageProvider initialLang="ru">
+    <LanguageProvider initialLang="en">
       <Navbar />
       <main>
         <HotelsHero />
@@ -48,7 +48,7 @@ export default function HotelsRU() {
         <HotelsReassurance />
         <HotelsSocialProof />
         <HotelsFAQ />
-        <section id="hotels-devis" className="section-pad bg-ink">
+        <section id="business-devis" className="section-pad bg-ink">
           <div className="max-w-2xl mx-auto px-4 sm:px-6">
             <HotelsLeadForm />
           </div>

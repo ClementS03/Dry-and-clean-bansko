@@ -1,11 +1,18 @@
 "use client";
 
+import { usePathname } from "next/navigation";
 import { useLanguage } from "@/context/LanguageContext";
 
 export default function Footer() {
   const { t } = useLanguage();
   const f = t.footer;
   const year = new Date().getFullYear();
+  const pathname = usePathname();
+  const prefix = pathname.startsWith("/en")
+    ? "/en"
+    : pathname.startsWith("/ru")
+      ? "/ru"
+      : "";
 
   return (
     <footer className="px-4 py-10 border-t bg-ink-800 border-gold/10 sm:px-6">
@@ -52,8 +59,9 @@ export default function Footer() {
             {f.links.map((link) => (
               <a
                 key={link.href}
-                href={link.href}
+                href={link.href.startsWith("/") ? `${prefix}${link.href}` : link.href}
                 onClick={(e) => {
+                  if (link.href.startsWith("/")) return;
                   e.preventDefault();
                   document
                     .querySelector(link.href)

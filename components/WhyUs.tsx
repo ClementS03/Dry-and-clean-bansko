@@ -9,7 +9,7 @@ export default function WhyUs() {
   const ref = useScrollReveal()
 
   return (
-    <section id="why" className="section-pad bg-ink-800 relative overflow-hidden">
+    <section id="why" className="section-pad bg-ink relative overflow-hidden">
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gold/30 to-transparent" />
       {/* Gold accent top right */}
       <div

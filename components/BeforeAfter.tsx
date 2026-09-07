@@ -4,6 +4,7 @@ import { useState, useRef } from "react";
 import { useLanguage } from "@/context/LanguageContext";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import Image from "next/image";
+import type { GalleryPair } from "@/lib/gallery";
 
 function SliderCard({
   label,
@@ -12,8 +13,6 @@ function SliderCard({
   beforeLabel,
   afterLabel,
   sliderHint,
-  placeholderBefore,
-  placeholderAfter,
 }: {
   label: string;
   before: string;
@@ -21,8 +20,6 @@ function SliderCard({
   beforeLabel: string;
   afterLabel: string;
   sliderHint: string;
-  placeholderBefore: string;
-  placeholderAfter: string;
 }) {
   const [pos, setPos] = useState(50);
   const trackRef = useRef<HTMLDivElement>(null);
@@ -124,16 +121,15 @@ function SliderCard({
   );
 }
 
-export default function BeforeAfter() {
+export default function BeforeAfter({ pairs }: { pairs: GalleryPair[] }) {
   const { t } = useLanguage();
   const g = t.gallery;
   const ref = useScrollReveal();
 
-  const pairs = [
-    { before: "/before-sofa.jpg", after: "/after-sofa.jpg" },
-    { before: "/before-carpet.jpg", after: "/after-carpet.jpg" },
-    { before: "/before-carpet2.jpg", after: "/after-carpet2.jpg" },
-  ];
+  // Aucune photo deposee : la section disparait, pas de placeholder.
+  if (pairs.length === 0) return null;
+
+  const shown = pairs.slice(0, 6);
 
   return (
     <section
@@ -154,8 +150,8 @@ export default function BeforeAfter() {
         </div>
 
         <div className="grid gap-6 md:grid-cols-3">
-          {pairs.map((pair, i) => (
-            <div key={i} style={{ transitionDelay: `${i * 100}ms` }}>
+          {shown.map((pair, i) => (
+            <div key={pair.after} style={{ transitionDelay: `${i * 100}ms` }}>
               <SliderCard
                 label={g.pairs[i]?.label ?? ""}
                 before={pair.before}
@@ -163,8 +159,6 @@ export default function BeforeAfter() {
                 beforeLabel={g.beforeLabel}
                 afterLabel={g.afterLabel}
                 sliderHint={g.sliderHint}
-                placeholderBefore={g.placeholderBefore}
-                placeholderAfter={g.placeholderAfter}
               />
             </div>
           ))}

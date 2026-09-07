@@ -3,7 +3,10 @@
 import { useState } from "react";
 import { useLanguage } from "@/context/LanguageContext";
 
-export default function LeadForm() {
+/** Services dont le devis se raisonne en surface plutot qu en nombre d objets. */
+const SURFACE_SERVICES = ["deep", "renovation", "turnover", "windows", "pressure", "industrial"];
+
+export default function LeadForm({ preselect }: { preselect?: string }) {
   const { t } = useLanguage();
   const f = t.hero.form;
   const whatsappNum = t.whatsapp.number;
@@ -14,20 +17,40 @@ export default function LeadForm() {
   const [sendingEmail, setSendingEmail] = useState(false);
   const [emailError, setEmailError] = useState(false);
   const [honeypot, setHoneypot] = useState("");
-  const [selectedServices, setServices] = useState<string[]>([]);
+
+  const [audience, setAudience] = useState<"private" | "business">("private");
+  const [frequency, setFrequency] = useState<"once" | "recurring">("once");
+  const [selectedServices, setServices] = useState<string[]>(preselect ? [preselect] : []);
+  const [textileItems, setTextileItems] = useState<string[]>([]);
   const [quantity, setQuantity] = useState("");
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [location, setLocation] = useState("");
   const [errors, setErrors] = useState<Record<string, string>>({});
 
-  const toggleService = (value: string) => {
-    setServices((prev) =>
-      prev.includes(value) ? prev.filter((s) => s !== value) : [...prev, value],
-    );
-  };
+  const toggle = (list: string[], set: (v: string[]) => void, value: string) =>
+    set(list.includes(value) ? list.filter((v) => v !== value) : [...list, value]);
 
-  const validate2 = () => {
+  const textileOpen = selectedServices.includes("textile");
+  const hasSurface = selectedServices.some((s) => SURFACE_SERVICES.includes(s));
+
+  const quantityPlaceholder =
+    textileOpen && hasSurface
+      ? f.quantityPlaceholderMixed
+      : hasSurface
+        ? f.quantityPlaceholderSurface
+        : f.quantityPlaceholderTextile;
+
+  const labelOf = (value: string) => f.services.find((s) => s.value === value)?.label ?? value;
+  const textileLabelOf = (value: string) =>
+    f.textileItems.find((s) => s.value === value)?.label ?? value;
+
+  const serviceLabels = selectedServices.map(labelOf).join(", ");
+  const textileLabels = textileItems.map(textileLabelOf).join(", ");
+  const audienceLabel = f.audience.find((a) => a.value === audience)?.label ?? "";
+  const frequencyLabel = f.frequency.find((a) => a.value === frequency)?.label ?? "";
+
+  const validate = () => {
     const e: Record<string, string> = {};
     if (!phone.trim()) e.phone = f.validationPhone;
     if (!location.trim()) e.location = f.validationLocation;
@@ -35,36 +58,31 @@ export default function LeadForm() {
     return Object.keys(e).length === 0;
   };
 
-  const svcLabels = selectedServices
-    .map((v) => f.services.find((s) => s.value === v)?.label ?? v)
-    .join(", ");
-
   const handleWhatsApp = () => {
-    if (!validate2()) return;
+    if (!validate()) return;
     const lines = [
-      `🛋️ *${f.title}*`,
+      `*${f.title}*`,
       "",
-      `📋 ${f.serviceLabel}: ${svcLabels}`,
-      quantity ? `📐 ${f.quantityLabel}: ${quantity}` : null,
-      name ? `👤 ${f.nameLabel}: ${name}` : null,
-      `📞 ${f.phoneLabel}: ${phone}`,
-      `📍 ${f.locationLabel}: ${location}`,
+      `${f.audienceLabel}: ${audienceLabel}`,
+      `${f.serviceLabel}: ${serviceLabels}`,
+      textileLabels ? `${f.textileLabel}: ${textileLabels}` : null,
+      audience === "business" ? `${f.frequencyLabel}: ${frequencyLabel}` : null,
+      quantity ? `${f.quantityLabel}: ${quantity}` : null,
+      name ? `${f.nameLabel}: ${name}` : null,
+      `${f.phoneLabel}: ${phone}`,
+      `${f.locationLabel}: ${location}`,
       "",
-      `_wetdrycleaningbansko.com_`,
+      "wetdrycleaningbansko.com",
     ]
       .filter(Boolean)
       .join("\n");
-    window.open(
-      `https://wa.me/${whatsappNum}?text=${encodeURIComponent(lines)}`,
-      "_blank",
-      "noopener",
-    );
+    window.open(`https://wa.me/${whatsappNum}?text=${encodeURIComponent(lines)}`, "_blank", "noopener");
     setSubmitMethod("whatsapp");
     setSent(true);
   };
 
   const handleEmail = async () => {
-    if (!validate2()) return;
+    if (!validate()) return;
     setSendingEmail(true);
     setEmailError(false);
     try {
@@ -72,9 +90,14 @@ export default function LeadForm() {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          service: svcLabels,
-          quantity: quantity || "—",
-          name: name || "—",
+          audience,
+          frequency: audience === "business" ? frequency : "",
+          service: serviceLabels,
+          serviceKeys: selectedServices,
+          textile: textileLabels,
+          textileKeys: textileItems,
+          quantity,
+          name,
           phone,
           location,
           _hp: honeypot,
@@ -97,7 +120,10 @@ export default function LeadForm() {
     setSent(false);
     setSubmitMethod(null);
     setStep(1);
-    setServices([]);
+    setAudience("private");
+    setFrequency("once");
+    setServices(preselect ? [preselect] : []);
+    setTextileItems([]);
     setQuantity("");
     setName("");
     setPhone("");
@@ -107,14 +133,26 @@ export default function LeadForm() {
 
   const EmailIcon = () => (
     <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5}
-        d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth={1.5}
+        d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+      />
     </svg>
   );
 
+  const chip = (active: boolean) =>
+    `px-3 py-2.5 rounded-sm border text-sm transition-all duration-200 ${
+      active
+        ? "border-gold bg-gold/10 text-gold font-medium"
+        : "border-gold/15 bg-white/[0.03] text-cream/70 hover:border-gold/35 hover:text-cream"
+    }`;
+
+  const fieldLabel = "block text-xs text-cream/50 uppercase tracking-widest mb-1.5";
+
   return (
     <div className="overflow-hidden border rounded-sm shadow-2xl bg-ink-700 border-gold/20 shadow-black/60">
-      {/* Header */}
       <div className="px-6 py-4 bg-gold">
         <div className="text-xl font-bold tracking-wider uppercase font-display text-ink">
           {f.title}
@@ -124,9 +162,7 @@ export default function LeadForm() {
 
       <div className="p-6">
         {sent ? (
-          /* ── Success ── */
           <div className="py-8 text-center">
-            <div className="mb-4 text-5xl">✅</div>
             <h3 className="mb-2 text-xl tracking-wide uppercase font-display text-gold">
               {f.successTitle}
             </h3>
@@ -134,34 +170,50 @@ export default function LeadForm() {
               {submitMethod === "email" ? f.successTextEmail : f.successText}
             </p>
             <button onClick={reset} className="px-4 py-2 mt-6 text-xs btn-outline">
-              ← {f.newRequest}
+              {f.newRequest}
             </button>
           </div>
         ) : step === 1 ? (
-          /* ── Step 1: services ── */
           <div>
-            <p className="mb-4 text-xs font-semibold tracking-widest uppercase text-cream/50">
-              {f.step1Title}
-            </p>
+            {/* Prive ou pro : qualifie le lead avant meme le telephone */}
+            <label className={fieldLabel}>{f.audienceLabel}</label>
+            <div className="grid grid-cols-2 gap-2 mb-6">
+              {f.audience.map((option) => (
+                <button
+                  key={option.value}
+                  onClick={() => setAudience(option.value as "private" | "business")}
+                  className={chip(audience === option.value)}
+                >
+                  {option.label}
+                </button>
+              ))}
+            </div>
 
-            <div className="grid grid-cols-2 gap-2 mb-5">
-              {f.services.map((svc) => {
-                const active = selectedServices.includes(svc.value);
+            <label className={fieldLabel}>{f.serviceLabel}</label>
+            <div className="grid grid-cols-2 gap-2 mb-4">
+              {f.services.map((service) => {
+                const active = selectedServices.includes(service.value);
                 return (
                   <button
-                    key={svc.value}
-                    onClick={() => toggleService(svc.value)}
-                    className={`relative text-left px-3 py-3 rounded-sm border text-sm transition-all duration-200 ${
-                      active
-                        ? "border-gold bg-gold/10 text-gold font-medium"
-                        : "border-gold/15 bg-white/[0.03] text-cream/70 hover:border-gold/35 hover:text-cream"
-                    }`}
+                    key={service.value}
+                    onClick={() => toggle(selectedServices, setServices, service.value)}
+                    className={`${chip(active)} relative text-left`}
                   >
-                    {svc.label}
+                    {service.label}
                     {active && (
                       <span className="absolute top-1.5 right-1.5 w-4 h-4 bg-gold rounded-full flex items-center justify-center">
-                        <svg className="w-2.5 h-2.5 text-ink" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
+                        <svg
+                          className="w-2.5 h-2.5 text-ink"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={3}
+                            d="M5 13l4 4L19 7"
+                          />
                         </svg>
                       </span>
                     )}
@@ -170,21 +222,54 @@ export default function LeadForm() {
               })}
             </div>
 
+            {/* Sous-selection textile : se deplie sans ajouter une etape */}
+            {textileOpen && (
+              <div className="p-4 mb-4 border rounded-sm border-gold/15 bg-gold/[0.04]">
+                <label className={fieldLabel}>{f.textileLabel}</label>
+                <div className="flex flex-wrap gap-2">
+                  {f.textileItems.map((item) => (
+                    <button
+                      key={item.value}
+                      onClick={() => toggle(textileItems, setTextileItems, item.value)}
+                      className={`${chip(textileItems.includes(item.value))} py-1.5 text-xs`}
+                    >
+                      {item.label}
+                    </button>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {audience === "business" && (
+              <div className="mb-4">
+                <label className={fieldLabel}>{f.frequencyLabel}</label>
+                <div className="grid grid-cols-2 gap-2">
+                  {f.frequency.map((option) => (
+                    <button
+                      key={option.value}
+                      onClick={() => setFrequency(option.value as "once" | "recurring")}
+                      className={chip(frequency === option.value)}
+                    >
+                      {option.label}
+                    </button>
+                  ))}
+                </div>
+              </div>
+            )}
+
             {selectedServices.length > 0 && (
               <p className="mb-4 text-xs text-cream/40">
-                ✓ {selectedServices.length}{" "}
+                {selectedServices.length}{" "}
                 {selectedServices.length === 1 ? f.selectedLabel : f.selectedLabelPlural}
               </p>
             )}
 
             <div className="mb-5">
-              <label className="block text-xs text-cream/50 uppercase tracking-widest mb-1.5">
-                {f.quantityLabel}
-              </label>
+              <label className={fieldLabel}>{f.quantityLabel}</label>
               <input
                 type="text"
                 className="input-dark"
-                placeholder={f.quantityPlaceholder}
+                placeholder={quantityPlaceholder}
                 value={quantity}
                 onChange={(e) => setQuantity(e.target.value)}
               />
@@ -203,7 +288,6 @@ export default function LeadForm() {
             </button>
           </div>
         ) : (
-          /* ── Step 2: contact + send options ── */
           <div>
             <button
               onClick={() => setStep(1)}
@@ -217,9 +301,7 @@ export default function LeadForm() {
 
             <div className="mb-5 space-y-4">
               <div>
-                <label className="block text-xs text-cream/50 uppercase tracking-widest mb-1.5">
-                  {f.nameLabel}
-                </label>
+                <label className={fieldLabel}>{f.nameLabel}</label>
                 <input
                   type="text"
                   className="input-dark"
@@ -229,9 +311,7 @@ export default function LeadForm() {
                 />
               </div>
               <div>
-                <label className="block text-xs text-cream/50 uppercase tracking-widest mb-1.5">
-                  {f.phoneLabel}
-                </label>
+                <label className={fieldLabel}>{f.phoneLabel}</label>
                 <input
                   type="tel"
                   className={`input-dark ${errors.phone ? "border-red-500" : ""}`}
@@ -242,14 +322,10 @@ export default function LeadForm() {
                     setErrors((p) => ({ ...p, phone: "" }));
                   }}
                 />
-                {errors.phone && (
-                  <p className="mt-1 text-xs text-red-400">{errors.phone}</p>
-                )}
+                {errors.phone && <p className="mt-1 text-xs text-red-400">{errors.phone}</p>}
               </div>
               <div>
-                <label className="block text-xs text-cream/50 uppercase tracking-widest mb-1.5">
-                  {f.locationLabel}
-                </label>
+                <label className={fieldLabel}>{f.locationLabel}</label>
                 <input
                   type="text"
                   className={`input-dark ${errors.location ? "border-red-500" : ""}`}
@@ -260,28 +336,24 @@ export default function LeadForm() {
                     setErrors((p) => ({ ...p, location: "" }));
                   }}
                 />
-                {errors.location && (
-                  <p className="mt-1 text-xs text-red-400">{errors.location}</p>
-                )}
+                {errors.location && <p className="mt-1 text-xs text-red-400">{errors.location}</p>}
               </div>
             </div>
 
-            {/* ── WhatsApp primary — mobile + tablet (< lg) ── */}
             <div className="lg:hidden">
               <button
                 onClick={handleWhatsApp}
-                className="btn-gold w-full justify-center py-3 text-sm animate-pulse-gold"
+                className="justify-center w-full py-3 text-sm btn-gold animate-pulse-gold"
               >
                 {f.submitBtn}
               </button>
             </div>
 
-            {/* ── Email primary — desktop (lg+) ── */}
             <div className="hidden lg:block">
               <button
                 onClick={handleEmail}
                 disabled={sendingEmail}
-                className="btn-gold w-full justify-center py-3 text-sm disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:translate-y-0 disabled:hover:shadow-none"
+                className="justify-center w-full py-3 text-sm btn-gold disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:translate-y-0 disabled:hover:shadow-none"
               >
                 {sendingEmail ? (
                   <span className="animate-pulse">{f.sendingLabel}</span>
@@ -294,16 +366,12 @@ export default function LeadForm() {
               </button>
             </div>
 
-            {/* ── Divider — mobile + tablet only ── */}
-            <div className="lg:hidden flex items-center gap-3 my-3">
+            <div className="flex items-center gap-3 my-3 lg:hidden">
               <div className="flex-1 h-px bg-gold/10" />
-              <span className="text-xs tracking-widest uppercase text-cream/25">
-                {f.orLabel}
-              </span>
+              <span className="text-xs tracking-widest uppercase text-cream/25">{f.orLabel}</span>
               <div className="flex-1 h-px bg-gold/10" />
             </div>
 
-            {/* ── Email secondary — mobile + tablet only ── */}
             <div className="lg:hidden">
               <button
                 onClick={handleEmail}
@@ -321,25 +389,18 @@ export default function LeadForm() {
               </button>
             </div>
 
-            {/* ── Error message ── */}
             {emailError && (
-              <p className="mt-2 text-xs text-center text-red-400">
-                {f.emailErrorMsg}
-              </p>
+              <p className="mt-2 text-xs text-center text-red-400">{f.emailErrorMsg}</p>
             )}
 
-            {/* ── Disclaimer (mobile/tablet: WA mention, desktop: email mention) ── */}
-            <p className="mt-3 text-xs text-center text-cream/30 lg:hidden">
-              {f.disclaimer}
-            </p>
-            <p className="mt-3 text-xs text-center text-cream/30 hidden lg:block">
+            <p className="mt-3 text-xs text-center text-cream/30 lg:hidden">{f.disclaimer}</p>
+            <p className="hidden mt-3 text-xs text-center text-cream/30 lg:block">
               {f.disclaimerEmail}
             </p>
           </div>
         )}
       </div>
 
-      {/* Honeypot — hidden from humans, auto-filled by bots */}
       <input
         type="text"
         name="website"
@@ -351,7 +412,6 @@ export default function LeadForm() {
         style={{ position: "absolute", left: "-9999px", opacity: 0, height: 0, width: 0 }}
       />
 
-      {/* Progress bar */}
       {!sent && (
         <div className="flex border-t border-gold/10">
           {[1, 2].map((n) => (

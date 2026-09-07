@@ -30,7 +30,7 @@ export default function Contact() {
   const waUrl = `https://wa.me/${c.whatsappNumber}?text=${encodeURIComponent(c.whatsappMsg)}`
 
   return (
-    <section id="contact" className="section-pad bg-ink relative overflow-hidden">
+    <section id="contact" className="section-pad bg-ink-800 relative overflow-hidden">
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gold/30 to-transparent" />
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[80vw] h-[50vh] opacity-[0.06] pointer-events-none"
         style={{ background: 'radial-gradient(ellipse at top, var(--gold), transparent 65%)' }} />

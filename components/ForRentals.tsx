@@ -7,7 +7,7 @@ export default function ForRentals() {
   const { t, lang } = useLanguage()
   const r = t.rentals
   const ref = useScrollReveal()
-  const hotelsPath = lang === 'en' ? '/en/hotels' : lang === 'ru' ? '/ru/hotels' : '/hotels'
+  const businessPath = lang === 'en' ? '/en/business' : lang === 'ru' ? '/ru/business' : '/business'
 
   const waUrl = `https://wa.me/${t.contact.whatsappNumber}?text=${encodeURIComponent(r.whatsappMsg)}`
 
@@ -85,7 +85,7 @@ export default function ForRentals() {
           <div className="reveal flex flex-col items-center justify-center h-full gap-6 p-8 card-dark text-center" style={{ transitionDelay: '150ms' }}>
             <div className="text-5xl">🏨</div>
             <p className="text-cream/60 text-sm leading-relaxed max-w-xs">{r.teaser}</p>
-            <a href={hotelsPath} className="btn-gold px-6 py-3 text-sm">
+            <a href={businessPath} className="btn-gold px-6 py-3 text-sm">
               {r.hotelsLink}
             </a>
           </div>

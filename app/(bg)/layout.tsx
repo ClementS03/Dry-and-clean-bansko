@@ -54,34 +54,11 @@ const cssVars = `
 export const metadata: Metadata = {
   metadataBase: new URL(DOMAIN),
   title: {
-    default: "Пране на мебели Банско | Wet&Dry Cleaning",
+    default: bgContent.meta.title,
     template: "%s | Wet&Dry Cleaning Банско",
   },
-  description:
-    "Професионално пране на дивани, матраци, килими и завеси в Банско и региона. Injection-extraction технология. Идваме при вас. Цени от 20€.",
-  keywords: [
-    "пране на мебели Банско",
-    "пране диван Банско",
-    "пране килим Банско",
-    "пране матрак Банско",
-    "пране завеси Банско",
-    "пране авто седалки Банско",
-    "почистване мебели Разлог",
-    "пране на място",
-    "injection extraction Банско",
-    "Wet Dry cleaning Банско",
-    "furniture cleaning Bansko",
-    "sofa cleaning Bansko",
-    "carpet cleaning Bansko",
-    "upholstery cleaning Bansko Bulgaria",
-    "mattress cleaning Bansko",
-    "airbnb cleaning Bansko",
-    "hotel cleaning Bansko",
-    "Банско",
-    "Разлог",
-    "Добринище",
-    "Баня",
-  ],
+  description: bgContent.meta.description,
+  keywords: bgContent.meta.keywords.split(", "),
   authors: [{ name: "Wet&Dry Cleaning Bansko" }],
   creator: "Wet&Dry Cleaning Bansko",
   alternates: {
@@ -96,9 +73,8 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     url: DOMAIN,
-    title: "Пране на мебели Банско | Wet&Dry Cleaning",
-    description:
-      "Injection-extraction технология — директно при вас. Дивани, матраци, килими, завеси. Цени от 20€.",
+    title: bgContent.meta.title,
+    description: bgContent.meta.description,
     siteName: "Wet&Dry Cleaning Bansko",
     locale: "bg_BG",
     images: [
@@ -232,39 +208,11 @@ export default async function RootLayoutBG({
     }),
     hasOfferCatalog: {
       "@type": "OfferCatalog",
-      name: "Услуги за пране на мебели в Банско",
-      itemListElement: [
-        {
-          "@type": "Offer",
-          itemOffered: { "@type": "Service", name: "Пране на диван Банско" },
-          price: "25",
-          priceCurrency: "EUR",
-        },
-        {
-          "@type": "Offer",
-          itemOffered: { "@type": "Service", name: "Пране на матрак Банско" },
-          price: "20",
-          priceCurrency: "EUR",
-        },
-        {
-          "@type": "Offer",
-          itemOffered: { "@type": "Service", name: "Пране на килим Банско" },
-          price: "4",
-          priceCurrency: "EUR",
-        },
-        {
-          "@type": "Offer",
-          itemOffered: { "@type": "Service", name: "Пране на завеси Банско" },
-          price: "15",
-          priceCurrency: "EUR",
-        },
-        {
-          "@type": "Offer",
-          itemOffered: { "@type": "Service", name: "Пране на авто седалки Банско" },
-          price: "25",
-          priceCurrency: "EUR",
-        },
-      ],
+      name: bgContent.services.title,
+      itemListElement: bgContent.services.items.map((service) => ({
+        "@type": "Offer",
+        itemOffered: { "@type": "Service", name: service.name },
+      })),
     },
   };
 

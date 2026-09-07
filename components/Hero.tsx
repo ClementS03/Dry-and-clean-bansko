@@ -2,6 +2,7 @@
 
 import { useLanguage } from '@/context/LanguageContext'
 import LeadForm from '@/components/LeadForm'
+import Icon from '@/components/Icon'
 
 export default function Hero() {
   const { t } = useLanguage()
@@ -32,7 +33,7 @@ export default function Hero() {
           <div className="grid grid-cols-2 gap-3 mb-8">
             {t.trust.map((item, i) => (
               <div key={i} className="flex items-center gap-2.5">
-                <span className="text-xl">{item.icon}</span>
+                <Icon name={item.icon} className="w-5 h-5 text-gold" />
                 <span className="text-sm text-cream/70 font-medium">{item.label}</span>
               </div>
             ))}

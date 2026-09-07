@@ -1,3 +1,20 @@
+# /hotels a ete renomme /business. Ces URLs sont indexees depuis juillet
+# et ont servi en prospection, elles doivent continuer a resoudre.
+[[redirects]]
+  from = "/hotels"
+  to = "/business"
+  status = 301
+
+[[redirects]]
+  from = "/en/hotels"
+  to = "/en/business"
+  status = 301
+
+[[redirects]]
+  from = "/ru/hotels"
+  to = "/ru/business"
+  status = 301
+
 [[redirects]]
   from = "https://www.wetdrycleaningbansko.com/*"
   to = "https://wetdrycleaningbansko.com/:splat"

@@ -1,32 +1,40 @@
 import { LanguageProvider } from "@/context/LanguageContext";
+import { getGalleryPairs, getGalleryCover } from "@/lib/gallery";
+import content from "@/content/ru.json";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import Services from "@/components/Services";
-import Technology from "@/components/Technology";
+import HowWeWork from "@/components/HowWeWork";
 import BeforeAfter from "@/components/BeforeAfter";
-import Comparison from "@/components/Comparison";
 import WhyUs from "@/components/WhyUs";
 import ForRentals from "@/components/ForRentals";
-import Pricing from "@/components/Pricing";
+import Quote from "@/components/Quote";
 import Reviews from "@/components/Reviews";
 import FAQ from "@/components/FAQ";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import WhatsAppFAB from "@/components/WhatsAppFAB";
 
-export default function HomeRU() {
+export default function Home() {
+  // Les photos sont lues au build depuis public/gallery/<slug>/
+  const pairs = getGalleryPairs("home");
+  const covers = Object.fromEntries(
+    content.services.items
+      .map((service) => [service.key, getGalleryCover(service.slug)])
+      .filter(([, cover]) => cover),
+  ) as Record<string, string>;
+
   return (
     <LanguageProvider initialLang="ru">
       <Navbar />
       <main>
         <Hero />
-        <Services />
-        <Technology />
-        <BeforeAfter />
-        <Comparison />
+        <Services covers={covers} />
+        <HowWeWork />
+        <BeforeAfter pairs={pairs} />
         <WhyUs />
         <ForRentals />
-        <Pricing />
+        <Quote />
         <Reviews />
         <FAQ />
         <Contact />
