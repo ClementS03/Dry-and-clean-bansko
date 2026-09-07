@@ -8,7 +8,7 @@ Contexte projet pour Claude Code et tout assistant AI travaillant sur ce repo.
 
 Site d'une entreprise de nettoyage professionnel à Bansko, Bulgarie. Positionnement multi-services depuis septembre 2026, cible principalement B2B.
 
-- **Stack** : Next.js 15 (App Router), TypeScript, Tailwind CSS
+- **Stack** : Next.js 16 (App Router), TypeScript, Tailwind CSS
 - **Hébergement** : Netlify, auto-deploy sur push `main`
 - **Domaine** : wetdrycleaningbansko.com
 - **Langues** : bulgare (défaut `/`), anglais (`/en`), russe (`/ru`)
@@ -238,9 +238,16 @@ Les textes se valident en anglais, le bulgare et le russe en sont dérivés.
 
 ```bash
 npm run dev      # http://localhost:3000, /en, /ru
+npm run lint     # controle de types seul, rapide, n ecrit pas dans .next
 npm run build    # obligatoire avant tout push
 git push origin main
 ```
+
+**Le bundler est epingle sur webpack** (`--webpack` dans les scripts `dev` et `build`). Turbopack, devenu le defaut en Next 16, echoue a collecter les pages sur les routes dynamiques imbriquees dans un route group : `Cannot find module for page: /en/services/[slug]`. A retester a chaque montee de Next, et a retirer quand ce sera corrige.
+
+`agentRules: false` dans `next.config.js` empeche Next de reecrire une section dans ce fichier a chaque `next dev`.
+
+Ne jamais lancer `npm run build` pendant qu un `npm run dev` tourne : les deux ecrivent dans `.next` et le serveur de dev se retrouve a charger des chunks de production. Symptome : `Cannot find module ./xxx.js`. Remede : Ctrl+C, `rm -rf .next`, `npm run dev`.
 
 Netlify redéploie automatiquement. Délai environ 1 à 2 minutes. Délai avis Notion vers site environ 60 s.
 
