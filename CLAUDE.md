@@ -289,8 +289,18 @@ Bansko · Разлог · Добринище · Баня. Belitsa a été retir�
 
 ---
 
-## Phase 2 (à venir)
+## Pages services
 
-Les 7 pages `/services/<slug>` dans les 3 langues, le hub `/services`, la nav qui pointe vers le hub, les galeries par service, le préremplissage du formulaire par query string, et le rebranchement de `Technology` et `Comparison` sur la page `upholstery-cleaning`.
+Route dynamique `app/<groupe>/services/[slug]/page.tsx` avec `generateStaticParams` alimenté par `services.items`. Ajouter un service se fait entièrement dans les JSON : une entrée dans `services.items` (avec `key`, `slug`, `icon`) et une dans `servicePages`, plus la clé dans l'enum de `/api/contact` et un dossier de galerie. Aucun fichier de route à créer.
 
-Objectif métier : donner à Google la preuve des services pour débloquer l'élargissement de la fiche Business, catégorie par catégorie.
+Chaque page rend : hero avec `LeadForm` pré-rempli sur le service, liste `includes`, galerie du dossier `public/gallery/<slug>/`, `HowWeWork`, FAQ propre au service, `Quote`, liens vers les autres services, `Contact`. La page `upholstery-cleaning` rend en plus `Technology` et `Comparison`.
+
+Schemas : `Service` et `FAQPage` sont injectés par la page, pas par le layout. **Le `FAQPage` de la home vit dans les pages home**, pas dans les layouts, sinon toutes les pages porteraient la FAQ de l'accueil et les pages services en auraient deux.
+
+Les `metadata.title` des pages services et business utilisent `{ absolute: ... }` : le template du layout ajoute déjà « | Wet&Dry Cleaning Банско » et doublerait le suffixe.
+
+`public/sitemap.xml` compte 30 URLs : 3 langues × (home, hub, business, 7 services).
+
+## Reste à faire
+
+Photos des 6 nouveaux services dans leurs dossiers de galerie, OG images dédiées aux pages services, relecture native du russe, Lighthouse mobile, et la re-soumission de la fiche Google catégorie par catégorie une fois les pages en ligne.

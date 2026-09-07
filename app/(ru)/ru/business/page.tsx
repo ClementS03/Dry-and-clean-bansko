@@ -15,7 +15,7 @@ import Footer from "@/components/Footer"
 import WhatsAppFAB from "@/components/WhatsAppFAB"
 
 export const metadata: Metadata = {
-  title: "Уборка для бизнеса в Банско | Wet&Dry Cleaning",
+  title: { absolute: "Уборка для бизнеса в Банско | Wet&Dry Cleaning" },
   description: "Профессиональная уборка для отелей, гостевых домов, квартир под аренду, ресторанов и производственных объектов в Банско. Бесплатный осмотр и индивидуальное предложение.",
   alternates: {
     canonical: "/ru/business",

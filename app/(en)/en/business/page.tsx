@@ -15,7 +15,7 @@ import Footer from "@/components/Footer"
 import WhatsAppFAB from "@/components/WhatsAppFAB"
 
 export const metadata: Metadata = {
-  title: "Cleaning for business in Bansko | Wet&Dry Cleaning",
+  title: { absolute: "Cleaning for business in Bansko | Wet&Dry Cleaning" },
   description: "Professional cleaning for hotels, guesthouses, rental flats, restaurants and production sites in Bansko. Free on-site visit and an individual offer.",
   alternates: {
     canonical: "/en/business",

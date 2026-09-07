@@ -220,6 +220,215 @@
       }
     ]
   },
+  "servicesHub": {
+    "metaTitle": "Our cleaning services in Bansko | Wet&Dry Cleaning",
+    "metaDescription": "Upholstery cleaning, deep cleaning, post-construction, guest turnover, windows, pressure washing and industrial cleaning in Bansko and the valley.",
+    "badge": "Services",
+    "title": "What we clean in Bansko",
+    "intro": "Seven services, one team, one number to call. We work for private homes, rental flats, guesthouses, hotels, restaurants and production sites across Bansko, Razlog, Dobrinishte and Banya.",
+    "includesTitle": "What the job covers",
+    "faqTitle": "Questions",
+    "backLabel": "All services",
+    "otherTitle": "Our other services"
+  },
+  "servicePages": {
+    "upholstery-cleaning": {
+      "metaTitle": "Upholstery and textile cleaning in Bansko | Wet&Dry Cleaning",
+      "metaDescription": "Sofas, mattresses, carpets, curtains and car seats cleaned at your place in Bansko. Injection-extraction, dries in 2 to 4 hours. Free offer within a few hours.",
+      "h1": "Upholstery and textile cleaning in Bansko",
+      "intro": "We clean sofas, mattresses, carpets, curtains and car seats where they are. No transport, no dismantling. The machine injects a cleaning solution deep into the fabric and pulls it straight back out with the dirt, so the textile is left barely damp and dries in 2 to 4 hours.",
+      "includes": [
+        "Sofas, armchairs and corner units, any fabric",
+        "Mattresses, including dust mite and allergen removal",
+        "Carpets, rugs and fitted carpet",
+        "Curtains cleaned in place, no removal needed",
+        "Car seats, mats and headliner",
+        "Stain and odour treatment, including pet smells"
+      ],
+      "faq": [
+        {
+          "q": "Do I need to move the furniture?",
+          "a": "No. We come with everything we need and clean on the spot. We only ask for a little space around the piece."
+        },
+        {
+          "q": "How long before I can use it again?",
+          "a": "The fabric is barely damp when we leave. Two to four hours and it is ready to use."
+        },
+        {
+          "q": "Will old stains come out?",
+          "a": "Most of the time, yes. Send a photo of the stain and we will tell you honestly what to expect before we start."
+        }
+      ]
+    },
+    "deep-cleaning": {
+      "metaTitle": "Deep cleaning for flats and houses in Bansko | Wet&Dry Cleaning",
+      "metaDescription": "Top-to-bottom deep cleaning of flats and houses in Bansko, Razlog, Dobrinishte and Banya. Free offer within a few hours.",
+      "h1": "Deep cleaning in Bansko",
+      "intro": "The clean you do once or twice a year, not the weekly one. We take a flat or a house room by room, from degreasing the kitchen to the skirting boards. Useful before moving in, after a season, or when a rental needs to go back to a proper standard.",
+      "includes": [
+        "Kitchen, including inside cupboards, oven and extractor",
+        "Bathroom, limescale and grout",
+        "Floors, skirting boards and door frames",
+        "Windows from the inside, frames and sills",
+        "Dust on every surface, radiators and light fittings included",
+        "Upholstery and mattresses on request, with the injection-extraction machine"
+      ],
+      "faq": [
+        {
+          "q": "How long does a deep clean take?",
+          "a": "A one-bedroom flat is usually half a day, a house takes longer. We tell you before we start, once we know the size and the state."
+        },
+        {
+          "q": "Do you bring your own products and equipment?",
+          "a": "Yes, everything. You do not need to provide anything."
+        },
+        {
+          "q": "Can you do it between two tenants?",
+          "a": "Yes. Tell us the date the keys change and we work around it."
+        }
+      ]
+    },
+    "post-construction-cleaning": {
+      "metaTitle": "Post-construction cleaning in Bansko | Wet&Dry Cleaning",
+      "metaDescription": "We clear plaster dust, paint and glue after building work in Bansko and the valley. The place goes back ready to move into.",
+      "h1": "Post-construction cleaning in Bansko",
+      "intro": "Building dust settles everywhere and comes back twice before it gives up. We take the site through several passes until the surfaces stay clean, then deal with paint marks, glue and silicone residue. We hand back a place someone can move into the same week.",
+      "includes": [
+        "Several passes on plaster and cement dust until it stops coming back",
+        "Paint, glue, adhesive tape and silicone residue",
+        "Windows, frames and protective film removal",
+        "Radiators, sockets, switches and door frames",
+        "Floors, including grout washing",
+        "Packaging and small waste removal on request"
+      ],
+      "faq": [
+        {
+          "q": "When should we come in?",
+          "a": "Once the trades are finished and the big debris is out. If we come too early the dust starts again."
+        },
+        {
+          "q": "Do you take the rubble away?",
+          "a": "We remove packaging and small waste. Skips and building rubble are a separate job, tell us and we quote it."
+        },
+        {
+          "q": "Can you work in an occupied building?",
+          "a": "Yes. In a hotel or a block of flats we work outside your busy hours and keep the corridors clear."
+        }
+      ]
+    },
+    "airbnb-turnover": {
+      "metaTitle": "Guest turnover cleaning in Bansko | Wet&Dry Cleaning",
+      "metaDescription": "Cleaning between guests for rental flats and guesthouses in Bansko. We work in the window between check-out and check-in.",
+      "h1": "Guest turnover cleaning in Bansko",
+      "intro": "Between one guest leaving and the next arriving there is often just a few hours. We work inside that window, the same way every time, so the flat is photo-ready and nothing gets forgotten in the rush. In high season we hold a slot for you rather than giving it to whoever calls first.",
+      "includes": [
+        "The full flat, kitchen, bathroom, floors and surfaces",
+        "Beds made and linen changed",
+        "Bins emptied, consumables checked and restocked",
+        "Windows and mirrors, so the photos still match the listing",
+        "A message if something is broken, stained or missing",
+        "Upholstery and mattress cleaning between seasons"
+      ],
+      "faq": [
+        {
+          "q": "How fast can you come after check-out?",
+          "a": "Usually within one to two hours. On a recurring contract your property gets priority."
+        },
+        {
+          "q": "Do you handle the linen?",
+          "a": "We change it and can set the used set aside for your laundry service. Tell us how you want it organised."
+        },
+        {
+          "q": "Can we book a whole season?",
+          "a": "Yes. A recurring contract fixes your slots ahead and brings the price per visit down."
+        }
+      ]
+    },
+    "window-cleaning": {
+      "metaTitle": "Window and glass cleaning in Bansko | Wet&Dry Cleaning",
+      "metaDescription": "Windows, shopfronts and glass façades cleaned inside and out in Bansko. Frames and sills included.",
+      "h1": "Window and glass cleaning in Bansko",
+      "intro": "Glass shows every streak, so we do the frames and the sills too. Homes, shops, restaurants and offices. For anything above the ground floor or hard to reach we use poles, and we tell you upfront how high we can safely get.",
+      "includes": [
+        "Windows inside and out, frames, sills and rubber seals",
+        "Shopfronts and glass doors",
+        "Glass façades and balcony balustrades",
+        "Skylights and roof windows where access allows",
+        "Insect screens taken out, washed and put back",
+        "Regular schedule for shops and restaurants"
+      ],
+      "faq": [
+        {
+          "q": "Do you clean above the ground floor?",
+          "a": "Yes, with poles from the ground where the height allows. Beyond that we tell you honestly that the job needs proper access equipment."
+        },
+        {
+          "q": "How often should a shopfront be done?",
+          "a": "In the centre of Bansko most shops go for every two weeks in season and monthly the rest of the year."
+        },
+        {
+          "q": "Do you work in winter?",
+          "a": "Yes, with products that work below zero. We avoid the coldest hours."
+        }
+      ]
+    },
+    "pressure-washing": {
+      "metaTitle": "Pressure washing in Bansko | Wet&Dry Cleaning",
+      "metaDescription": "Terraces, driveways, yards and façades pressure washed in Bansko and the valley. Moss, mud and green build-up removed.",
+      "h1": "Pressure washing in Bansko",
+      "intro": "Stone, concrete and wood go green here, between the snowmelt and the summer rain. High pressure lifts moss, mud and the black film that builds up over the seasons. We set the pressure to the surface, because the same setting that cleans concrete will destroy soft wood.",
+      "includes": [
+        "Terraces, paths and paved yards",
+        "Driveways, parking spaces and garage floors",
+        "Façades, plinths and stone walls",
+        "Wooden decking and fences, at reduced pressure",
+        "Stairs, balustrades and outdoor furniture",
+        "Seasonal wash, before summer or after the snow"
+      ],
+      "faq": [
+        {
+          "q": "Will it damage the wood?",
+          "a": "Not if the pressure is set right. We test on a hidden corner first and work at a lower setting on soft wood."
+        },
+        {
+          "q": "Do you need a water and power supply?",
+          "a": "Yes, a normal outdoor tap and a socket are enough. Tell us if you have neither and we will arrange it."
+        },
+        {
+          "q": "When is the best time?",
+          "a": "Spring, once the snow has gone, and early autumn. Those are the two moments when the result lasts longest."
+        }
+      ]
+    },
+    "industrial-cleaning": {
+      "metaTitle": "Industrial and large-surface cleaning in Bansko | Wet&Dry Cleaning",
+      "metaDescription": "Warehouses, production halls and retail floors cleaned in Bansko and the region. We work to a schedule, outside your opening hours. Invoice provided.",
+      "h1": "Industrial and large-surface cleaning in Bansko",
+      "intro": "Large floors need machines and a plan, not more people with mops. We survey the site, agree a schedule that fits around your operation, and come back on the same days so the standard holds. Every job is invoiced.",
+      "includes": [
+        "Warehouse and production hall floors",
+        "Retail floors, aisles and stockrooms",
+        "Restaurant kitchens and back of house, at night",
+        "Common areas, stairwells and corridors",
+        "Glass fronts and entrance areas",
+        "Recurring contracts, weekly, monthly or seasonal"
+      ],
+      "faq": [
+        {
+          "q": "Do you work outside opening hours?",
+          "a": "Yes, that is usually the point. Nights, early mornings, weekends, whatever fits your operation."
+        },
+        {
+          "q": "Can you handle a large site?",
+          "a": "Yes. We size the crew and the equipment at the site visit and tell you what is realistic per session."
+        },
+        {
+          "q": "Do you invoice companies?",
+          "a": "Yes, an invoice is issued for every job. That is standard for us, not an option."
+        }
+      ]
+    }
+  },
   "howWeWork": {
     "badge": "How we work",
     "title": "From first message to finished job",
@@ -518,7 +727,7 @@
     "links": [
       {
         "label": "Services",
-        "href": "#services"
+        "href": "/services"
       },
       {
         "label": "For business",

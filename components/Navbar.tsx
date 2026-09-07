@@ -55,11 +55,12 @@ export default function Navbar() {
     return () => document.removeEventListener('mousedown', handler)
   }, [langOpen]);
 
-  const businessPath = homePath === "/" ? "/business" : `${homePath}/business`;
+  const routePath = (segment: string) =>
+    homePath === "/" ? `/${segment}` : `${homePath}/${segment}`;
 
   const links = [
-    { label: t.nav.services, href: "#services" },
-    { label: t.nav.business, href: businessPath },
+    { label: t.nav.services, href: routePath("services") },
+    { label: t.nav.business, href: routePath("business") },
     { label: t.nav.quote, href: "#quote" },
     { label: t.nav.faq, href: "#faq" },
     { label: t.nav.contact, href: "#contact" },
