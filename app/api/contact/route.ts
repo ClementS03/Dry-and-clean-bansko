@@ -45,6 +45,17 @@ function row(label: string, value: string, alt: boolean) {
     </tr>`
 }
 
+/** Version texte du mail. Un HTML sans alternative text/plain est un
+ *  signal de spam classique, Gmail le penalise. */
+function plainText(fields: [string, string][]): string {
+  return [
+    'New quote request',
+    'wetdrycleaningbansko.com',
+    '',
+    ...fields.map(([label, value]) => `${label}: ${value}`),
+  ].join('\n')
+}
+
 // Limitation de debit. La memoire n est pas partagee entre instances Netlify,
 // donc ce n est pas un rempart absolu : cela arrete les envois repetes depuis
 // une meme session, pas une attaque distribuee. Un service dedie serait
@@ -128,6 +139,19 @@ export async function POST(req: NextRequest) {
   const isBusiness = audience === 'business'
   const frequencyLabel = frequency === 'recurring' ? 'Recurring' : frequency === 'once' ? 'One-off' : ''
 
+  const fields: [string, string][] = [
+    ['Type', isBusiness ? 'Business' : 'Private'],
+    ['Service(s)', service || serviceKeys.join(', ')],
+    ...(textile || textileKeys.length
+      ? ([['Textile items', textile || textileKeys.join(', ')]] as [string, string][])
+      : []),
+    ...(frequencyLabel ? ([['Frequency', frequencyLabel]] as [string, string][]) : []),
+    ...(quantity ? ([['Details', quantity]] as [string, string][]) : []),
+    ...(name ? ([['Name', name]] as [string, string][]) : []),
+    ['Phone', phone],
+    ['Location', location],
+  ]
+
   const rows = [
     row('Type', isBusiness ? 'Business' : 'Private', false),
     row('Service(s)', service || serviceKeys.join(', '), true),
@@ -151,6 +175,7 @@ export async function POST(req: NextRequest) {
       from: FROM,
       to: [TO_EMAIL],
       subject: `${isBusiness ? '[B2B] ' : ''}New lead - ${service || serviceKeys.join(', ')}`,
+      text: plainText(fields),
       html: `
         <div style="font-family:sans-serif;max-width:560px;margin:0 auto;color:#1a1a1a;">
           <div style="background:#F5C400;padding:16px 24px;border-radius:4px 4px 0 0;">
