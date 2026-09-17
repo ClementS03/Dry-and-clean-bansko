@@ -24,8 +24,9 @@ Tu déposes, tu commit, tu push. Rien d'autre à toucher.
 Pour chaque page service, le site prend la première image disponible :
 
 1. `public/og/<slug>.jpg` si elle existe
-2. sinon la première photo « après » de `public/gallery/<slug>/`
-3. sinon l'image OG de la langue (`og-image-bg.jpg`, `og-image.jpg`, `og-image-ru.jpg`)
+2. sinon l'image OG de la langue (`og-image-bg.jpg`, `og-image.jpg`, `og-image-ru.jpg`)
+
+Une photo brute de galerie ne sert **pas** d'image de partage : sans texte ni logo, elle donne moins envie de cliquer que la carte dessinée. En revanche elle sert toujours de vignette sur la carte du service, où elle est à sa place.
 
 Tu ne peux donc pas casser un aperçu en oubliant un fichier. Chaque image que tu ajoutes remplace juste un cran moins bon.
 

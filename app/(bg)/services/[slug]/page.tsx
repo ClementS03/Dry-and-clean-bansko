@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import content from "@/content/bg.json";
-import { getGalleryPairs, getGalleryCover, getOgImage } from "@/lib/gallery";
+import { getGalleryPairs, getOgImage } from "@/lib/gallery";
 import { LanguageProvider } from "@/context/LanguageContext";
 import Navbar from "@/components/Navbar";
 import ServicePage from "@/components/ServicePage";
@@ -33,9 +33,10 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const page = PAGES[slug];
   if (!page) return {};
 
-  // OG dediee, sinon photo du service, sinon OG de la langue.
+  // OG dediee si elle existe, sinon celle de la langue. Une photo brute
+  // sans texte ni logo convertit moins bien qu une carte dessinee.
   // Voir public/og/README.md
-  const image = getOgImage(slug) ?? getGalleryCover(slug) ?? OG_FALLBACK;
+  const image = getOgImage(slug) ?? OG_FALLBACK;
 
   return {
     title: { absolute: page.metaTitle },
