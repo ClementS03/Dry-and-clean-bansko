@@ -11,7 +11,7 @@ import WhatsAppFAB from "@/components/WhatsAppFAB";
 
 const DOMAIN = "https://wetdrycleaningbansko.com";
 // OG dediee si elle existe, sinon celle de la langue. Voir public/og/README.md
-const OG_IMAGE = getOgImage("services") ?? "/og-image.jpg";
+const OG_IMAGE = getOgImage("services", "en") ?? "/og-default.jpg";
 
 export const metadata: Metadata = {
   title: { absolute: content.servicesHub.metaTitle },

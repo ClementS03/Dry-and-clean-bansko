@@ -15,6 +15,13 @@ import { fileURLToPath, pathToFileURL } from "node:url";
 import path from "node:path";
 import fs from "node:fs";
 
+const CONTENT = Object.fromEntries(
+  ["bg", "en", "ru"].map((lang) => [
+    lang,
+    JSON.parse(fs.readFileSync(new URL(`../content/${lang}.json`, import.meta.url), "utf8")),
+  ]),
+);
+
 const require = createRequire(import.meta.url);
 const { chromium } = require(process.env.PLAYWRIGHT_PATH ?? "../../freelanceos/node_modules/playwright");
 
@@ -67,6 +74,17 @@ const croppedFrom = (file) => {
          style="width:${w}px;height:${h}px;margin-left:${-srcW * cropX * scale}px;margin-top:${(H - h) / 2}px">
   </div>`;
 };
+
+/**
+ * Panneau droit de l OG par defaut : aucune photo, la liste des sept
+ * services. Le canape ne doit vendre que le textile, pas la vitrerie.
+ */
+const serviceList = (lang) => `
+  <div class="pane pane-list">
+    <ul class="slist">
+      ${CONTENT[lang].services.items.map((s) => `<li>${s.name}</li>`).join("")}
+    </ul>
+  </div>`;
 
 const IMAGES = [
   {
@@ -123,6 +141,60 @@ const IMAGES = [
     domain: "wetdrycleaningbansko.com/business",
     pane: croppedFrom("og-hotels-ru.jpg"),
   },
+  {
+    file: "og-default-bg.jpg",
+    kicker: "Банско · Разлог · Добринище · Баня",
+    title: ["Едно обаждане,", "седем услуги."],
+    text: "Професионално почистване за дома и бизнеса, на място при вас.",
+    badges: ["Идваме при вас", "Безплатна оферта"],
+    domain: "wetdrycleaningbansko.com",
+    pane: serviceList("bg"),
+  },
+  {
+    file: "og-default.jpg",
+    kicker: "Bansko · Razlog · Dobrinishte · Banya",
+    title: ["One call,", "seven services."],
+    text: "Professional cleaning for homes and businesses, at your place.",
+    badges: ["We come to you", "Free offer"],
+    domain: "wetdrycleaningbansko.com",
+    pane: serviceList("en"),
+  },
+  {
+    file: "og-default-ru.jpg",
+    kicker: "Банско · Разлог · Добринище · Баня",
+    title: ["Один звонок,", "семь услуг."],
+    text: "Профессиональная уборка для дома и бизнеса, у вас на месте.",
+    badges: ["Приезжаем к вам", "Бесплатное предложение"],
+    domain: "wetdrycleaningbansko.com",
+    pane: serviceList("ru"),
+  },
+  {
+    file: "og/upholstery-cleaning-bg.jpg",
+    kicker: "Дивани · Матраци · Килими · Завеси",
+    title: ["Като", "нови."],
+    text: "Пране на мека мебел и текстил на място в Банско.",
+    badges: ["Изсъхва за 2–4 часа", "Безплатна оферта"],
+    domain: "wetdrycleaningbansko.com",
+    pane: beforeAfter.replace("%BEFORE%", "Преди").replace("%AFTER%", "След"),
+  },
+  {
+    file: "og/upholstery-cleaning-en.jpg",
+    kicker: "Sofas · Mattresses · Carpets · Curtains",
+    title: ["Like new", "again."],
+    text: "Upholstery and textile cleaning at your place in Bansko.",
+    badges: ["Dries in 2–4 hours", "Free offer"],
+    domain: "wetdrycleaningbansko.com",
+    pane: beforeAfter.replace("%BEFORE%", "Before").replace("%AFTER%", "After"),
+  },
+  {
+    file: "og/upholstery-cleaning-ru.jpg",
+    kicker: "Диваны · Матрасы · Ковры · Шторы",
+    title: ["Как", "новые."],
+    text: "Химчистка мягкой мебели и текстиля у вас в Банско.",
+    badges: ["Сохнет за 2–4 часа", "Бесплатное предложение"],
+    domain: "wetdrycleaningbansko.com",
+    pane: beforeAfter.replace("%BEFORE%", "До").replace("%AFTER%", "После"),
+  },
 ];
 
 const html = (d) => `<!doctype html>
@@ -158,6 +230,12 @@ const html = (d) => `<!doctype html>
   .rule { position:absolute; top:50%; left:0; right:0; height:3px; background:#F5C400;
           transform:translateY(-1.5px); z-index:2; }
   .crop { display:block; object-fit:cover; }
+  .pane-list { display:flex; align-items:center; padding:0 48px;
+               background:radial-gradient(ellipse at 60% 40%, rgba(245,196,0,.10), #0A0A0A 72%); }
+  .slist { list-style:none; border-left:2px solid rgba(245,196,0,.45); padding-left:24px; }
+  .slist li { font-family:Oswald,sans-serif; font-weight:500; font-size:20px; letter-spacing:.05em;
+              text-transform:uppercase; color:#F5F0E8; padding:9px 0; }
+  .slist li + li { border-top:1px solid rgba(245,240,232,.09); }
   .tag { position:absolute; top:16px; left:16px; font-family:Oswald,sans-serif; font-weight:700;
          font-size:13px; letter-spacing:.1em; text-transform:uppercase; padding:5px 11px; border-radius:3px; }
   .tag-dark { background:rgba(10,10,10,.82); color:#F5F0E8; }

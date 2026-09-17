@@ -6,6 +6,15 @@ L'image qui s'affiche quand quelqu'un colle un lien du site dans WhatsApp, Faceb
 
 Dépose le fichier ici, nommé d'après la page :
 
+Une image par langue si tu veux un texte traduit, sinon une seule pour les trois :
+
+```
+public/og/window-cleaning-bg.jpg    ← sert /services/window-cleaning
+public/og/window-cleaning-en.jpg    ← sert /en/services/window-cleaning
+public/og/window-cleaning-ru.jpg    ← sert /ru/services/window-cleaning
+public/og/window-cleaning.jpg       ← sert les trois si les variantes manquent
+```
+
 ```
 public/og/upholstery-cleaning.jpg
 public/og/deep-cleaning.jpg
@@ -23,8 +32,13 @@ Tu déposes, tu commit, tu push. Rien d'autre à toucher.
 
 Pour chaque page service, le site prend la première image disponible :
 
-1. `public/og/<slug>.jpg` si elle existe
-2. sinon l'image OG de la langue (`og-image-bg.jpg`, `og-image.jpg`, `og-image-ru.jpg`)
+1. `public/og/<slug>-<langue>.jpg`
+2. sinon `public/og/<slug>.jpg`
+3. sinon l'**OG par défaut** de la langue : `og-default-bg.jpg`, `og-default.jpg`, `og-default-ru.jpg`
+
+L'OG par défaut ne montre aucune photo. Elle affiche le logo, la zone couverte, « Un appel, sept services » et la liste des sept prestations. C'est volontaire : le canapé ne doit vendre que le textile, pas la vitrerie ni la haute pression. Elle se régénère avec le reste et reprend automatiquement les noms de services depuis les JSON.
+
+L'accueil garde le canapé avant/après (`og-image-*.jpg`), et la page textile a la sienne (`og/upholstery-cleaning-*.jpg`).
 
 Une photo brute de galerie ne sert **pas** d'image de partage : sans texte ni logo, elle donne moins envie de cliquer que la carte dessinée. En revanche elle sert toujours de vignette sur la carte du service, où elle est à sa place.
 

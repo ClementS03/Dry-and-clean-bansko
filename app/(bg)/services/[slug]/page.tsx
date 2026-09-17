@@ -12,7 +12,7 @@ import WhatsAppFAB from "@/components/WhatsAppFAB";
 const DOMAIN = "https://wetdrycleaningbansko.com";
 const PREFIX = "";
 
-const OG_FALLBACK = "/og-image-bg.jpg";
+const OG_FALLBACK = "/og-default-bg.jpg";
 
 type PageContent = {
   metaTitle: string;
@@ -36,7 +36,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   // OG dediee si elle existe, sinon celle de la langue. Une photo brute
   // sans texte ni logo convertit moins bien qu une carte dessinee.
   // Voir public/og/README.md
-  const image = getOgImage(slug) ?? OG_FALLBACK;
+  const image = getOgImage(slug, "bg") ?? OG_FALLBACK;
 
   return {
     title: { absolute: page.metaTitle },

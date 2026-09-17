@@ -50,10 +50,15 @@ export function getGalleryCover(slug: string): string | null {
  * OG dediee d une page, deposee dans public/og/<slug>.jpg.
  * Voir public/og/README.md pour les specs et l ordre de priorite.
  */
-export function getOgImage(slug: string): string | null {
-  for (const ext of EXTENSIONS) {
-    if (fs.existsSync(path.join(process.cwd(), 'public', 'og', slug + ext))) {
-      return `/og/${slug}${ext}`
+export function getOgImage(slug: string, lang?: string): string | null {
+  // Une OG par langue si elle existe, sinon une OG unique pour les trois
+  const names = lang ? [`${slug}-${lang}`, slug] : [slug]
+
+  for (const name of names) {
+    for (const ext of EXTENSIONS) {
+      if (fs.existsSync(path.join(process.cwd(), 'public', 'og', name + ext))) {
+        return `/og/${name}${ext}`
+      }
     }
   }
   return null
