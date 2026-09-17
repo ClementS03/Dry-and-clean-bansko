@@ -72,3 +72,6 @@ coverage/
 
 # Claude Code
 .claude/
+
+# Brouillons de sessions agent, jamais du code
+.superpowers/

@@ -1,87 +1,109 @@
 # Images Open Graph
 
-L'image qui s'affiche quand quelqu'un colle un lien du site dans WhatsApp, Facebook, LinkedIn ou un SMS. C'est souvent la première chose qu'un prospect voit de toi.
+L'image qui s'affiche quand quelqu'un colle un lien du site dans WhatsApp, Facebook, LinkedIn ou un SMS. C'est souvent la première chose qu'un prospect voit du site.
 
-## Comment en ajouter une
+---
 
-Dépose le fichier ici, nommé d'après la page :
+## Ce que chaque page affiche aujourd'hui
 
-Une image par langue si tu veux un texte traduit, sinon une seule pour les trois :
+| Pages | Image | Contenu |
+|---|---|---|
+| Accueil (`/`, `/en`, `/ru`) | `og-image-*.jpg` | Canapé avant/après |
+| Page textile (les 3 langues) | `og/upholstery-cleaning-*.jpg` | Canapé avant/après, badge séchage |
+| Hub et les 6 autres services | `og-default-*.jpg` | **Aucune photo**, la liste des 7 services |
+| Page business (les 3 langues) | `og-hotels-*.jpg` | Chambre d'hôtel |
+
+Le canapé ne sert que là où il vend quelque chose. Une page vitres ou haute pression ne doit pas se partager avec un salon.
+
+---
+
+## Ajouter une image pour un service
+
+Dépose le fichier ici, nommé d'après le slug du service. Tu commit, tu push, c'est en ligne. Aucun code ni JSON à toucher.
 
 ```
-public/og/window-cleaning-bg.jpg    ← sert /services/window-cleaning
-public/og/window-cleaning-en.jpg    ← sert /en/services/window-cleaning
-public/og/window-cleaning-ru.jpg    ← sert /ru/services/window-cleaning
-public/og/window-cleaning.jpg       ← sert les trois si les variantes manquent
+public/og/window-cleaning.jpg       ← sert les 3 langues
 ```
 
+Si tu veux un texte traduit, une image par langue :
+
 ```
-public/og/upholstery-cleaning.jpg
-public/og/deep-cleaning.jpg
-public/og/post-construction-cleaning.jpg
-public/og/airbnb-turnover.jpg
-public/og/window-cleaning.jpg
-public/og/pressure-washing.jpg
-public/og/industrial-cleaning.jpg
-public/og/services.jpg              ← le hub /services
+public/og/window-cleaning-bg.jpg    ← /services/window-cleaning
+public/og/window-cleaning-en.jpg    ← /en/services/window-cleaning
+public/og/window-cleaning-ru.jpg    ← /ru/services/window-cleaning
 ```
 
-Tu déposes, tu commit, tu push. Rien d'autre à toucher.
+Les slugs disponibles : `upholstery-cleaning` · `deep-cleaning` · `post-construction-cleaning` · `airbnb-turnover` · `window-cleaning` · `pressure-washing` · `industrial-cleaning`, plus `services` pour le hub.
 
-## L'ordre de priorité
-
-Pour chaque page service, le site prend la première image disponible :
+### L'ordre de priorité
 
 1. `public/og/<slug>-<langue>.jpg`
 2. sinon `public/og/<slug>.jpg`
-3. sinon l'**OG par défaut** de la langue : `og-default-bg.jpg`, `og-default.jpg`, `og-default-ru.jpg`
+3. sinon l'OG par défaut de la langue
 
-L'OG par défaut ne montre aucune photo. Elle affiche le logo, la zone couverte, « Un appel, sept services » et la liste des sept prestations. C'est volontaire : le canapé ne doit vendre que le textile, pas la vitrerie ni la haute pression. Elle se régénère avec le reste et reprend automatiquement les noms de services depuis les JSON.
+Tu ne peux donc pas casser un aperçu en oubliant un fichier. Chaque image ajoutée remplace juste un cran moins bon.
 
-L'accueil garde le canapé avant/après (`og-image-*.jpg`), et la page textile a la sienne (`og/upholstery-cleaning-*.jpg`).
+Une photo brute de la galerie ne sert **pas** d'image de partage : sans texte ni logo, elle donne moins envie de cliquer qu'une carte dessinée. Elle reste en revanche la vignette de la carte du service sur l'accueil et le hub, où elle est à sa place.
 
-Une photo brute de galerie ne sert **pas** d'image de partage : sans texte ni logo, elle donne moins envie de cliquer que la carte dessinée. En revanche elle sert toujours de vignette sur la carte du service, où elle est à sa place.
-
-Tu ne peux donc pas casser un aperçu en oubliant un fichier. Chaque image que tu ajoutes remplace juste un cran moins bon.
+---
 
 ## Les specs
 
-- **1200 × 630 pixels**, exactement. C'est le format que WhatsApp, Facebook et LinkedIn attendent.
+- **1200 × 630 pixels**, exactement. C'est ce qu'attendent WhatsApp, Facebook et LinkedIn.
 - JPG, moins de 300 Ko.
-- Une **photo réelle** du service, pas un fond uni ni un logo seul. Une carte avec juste le logo ne donne aucune raison de cliquer.
-- Une phrase courte en Oswald, blanc ou crème, sur un dégradé sombre en bas de l'image pour rester lisible.
+- Une **photo réelle du service**. C'est ce qui fait cliquer : une terrasse verte de mousse à côté de la même terrasse propre vaut mieux que n'importe quel texte.
+- Une phrase courte en Oswald, blanc ou crème, sur fond sombre pour rester lisible.
 - Le logo en petit dans un coin, pas au centre.
-- Le texte reste **loin des bords** : certaines plateformes recadrent jusqu'à 10% sur les côtés.
+- Le nom de domaine en bas, en doré, comme sur les images existantes.
+- Le texte reste **loin des bords** : certaines plateformes rognent jusqu'à 10 % sur les côtés.
 
-## Ce qu'il ne faut pas y mettre
+**L'exception, c'est l'OG par défaut.** Elle n'a aucune photo et c'est assumé : elle remplace l'image manquante par de l'information utile, la liste des sept services. Un fond uni avec seulement un logo ne marcherait pas, une liste de prestations si.
 
-Pas de prix. Pas de numéro de téléphone. Pas d'URL. Pas de QR code. Ce sont les mêmes règles que pour les visuels Google Business, et pour la même raison : ça fait publicité et ça se fait rejeter ou ignorer.
+### Ce qu'il ne faut pas y mettre
 
-## Régénérer les OG principales
+Pas de prix. Pas de numéro de téléphone. Pas de QR code. Le site n'affiche aucun tarif, une OG qui en annonce un le contredit.
 
-Les six images d'accueil et de page business sont générées par un script, pas dessinées à la main :
+Attention à ne pas confondre avec les **visuels Google Business**, plus stricts : eux n'acceptent ni prix, ni téléphone, ni URL, ni QR code. Sur une OG, le domaine en bas est normal et souhaitable.
+
+---
+
+## Régénérer les images
+
+Les douze images sont générées par un script, pas dessinées à la main :
 
 ```bash
 node scripts/make-og.mjs
 ```
 
-Textes, badges et photos se modifient dans `scripts/make-og.mjs`. Les photos sources des pages business sont dans `scripts/og-source/` : elles n'existent nulle part ailleurs, ne les supprime pas. Le script écrit toujours en 1200 × 630 et peut se relancer autant de fois que voulu sans dégrader le résultat.
-
-Playwright n'est pas une dépendance du projet, le script le prend dans le dossier voisin `freelanceos`. Si tu le déplaces : `PLAYWRIGHT_PATH=... node scripts/make-og.mjs`.
-
-## Les fichiers déjà en place
-
-Ils vivent à la racine de `public/`, pas dans ce dossier, et ils sont déjà en cache chez Facebook et WhatsApp. Les renommer casserait les aperçus des liens déjà partagés en prospection, donc on les laisse où ils sont.
+Ça produit :
 
 ```
-public/og-image-bg.jpg      accueil BG
-public/og-image.jpg         accueil EN
-public/og-image-ru.jpg      accueil RU
-public/og-hotels-bg.jpg     /business BG
-public/og-hotels.jpg        /business EN
-public/og-hotels-ru.jpg     /business RU
+public/og-image-bg.jpg  og-image.jpg  og-image-ru.jpg          accueil
+public/og-default-bg.jpg  og-default.jpg  og-default-ru.jpg    défaut, 7 services
+public/og-hotels-bg.jpg  og-hotels.jpg  og-hotels-ru.jpg       business
+public/og/upholstery-cleaning-{bg,en,ru}.jpg                   page textile
 ```
+
+Textes, badges et photos se modifient dans `scripts/make-og.mjs`. L'OG par défaut lit les noms de services directement dans `content/*.json` : renomme un service ou ajoutes-en un huitième, relance le script, la liste suit.
+
+Le script écrit toujours en 1200 × 630 et se relance autant de fois que voulu sans dégrader le résultat.
+
+**Ne supprime pas `scripts/og-source/`.** Les photos de chambre d'hôtel des pages business n'existent nulle part ailleurs, elles ont été extraites des anciennes images.
+
+Playwright n'est pas une dépendance du projet, le script le prend dans le dossier voisin `freelanceos`. S'il bouge : `PLAYWRIGHT_PATH=... node scripts/make-og.mjs`.
+
+---
 
 ## Après avoir remplacé une image
 
-WhatsApp et Facebook gardent les aperçus en cache longtemps. Passe l'URL dans le **Facebook Sharing Debugger** et clique « Scrape Again » avant de renvoyer le lien à un prospect, sinon il verra l'ancienne image.
+WhatsApp et Facebook gardent les aperçus en cache longtemps. Passe l'URL dans le **Facebook Sharing Debugger** et clique « Scrape Again » avant de renvoyer le lien à un prospect, sinon il verra encore l'ancienne image.
+
+C'est valable pour toutes les URLs déjà partagées en prospection.
+
+---
+
+## Pourquoi les anciennes images sont à la racine de `public/`
+
+`og-image-*.jpg` et `og-hotels-*.jpg` sont en cache chez Facebook et WhatsApp depuis la première prospection. Les déplacer dans ce dossier casserait les aperçus des liens déjà envoyés. On les laisse où elles sont, leur emplacement n'a aucun effet SEO.
+
+Ce fichier est exclu des moteurs dans `public/robots.txt`.

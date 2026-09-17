@@ -83,7 +83,7 @@ Workflow : déposer les fichiers, commiter, pusher. Aucun code ni JSON à touche
 
 ## Images Open Graph
 
-`public/og/<slug>.jpg` en 1200x630. Le site prend `og/<slug>-<langue>.jpg`, sinon `og/<slug>.jpg`, sinon l'OG par défaut de la langue (`og-default-*.jpg`), qui ne montre aucune photo et liste les sept services. Une photo brute de galerie ne sert pas d'image de partage, elle n'a ni texte ni logo ; elle reste en revanche la vignette de la carte du service. Détails et specs dans `public/og/README.md`. Les six OG principales se régénèrent avec `node scripts/make-og.mjs`.
+`public/og/<slug>.jpg` en 1200x630. Le site prend `og/<slug>-<langue>.jpg`, sinon `og/<slug>.jpg`, sinon l'OG par défaut de la langue (`og-default-*.jpg`), qui ne montre aucune photo et liste les sept services. Une photo brute de galerie ne sert pas d'image de partage, elle n'a ni texte ni logo ; elle reste en revanche la vignette de la carte du service. Détails et specs dans `public/og/README.md`. Les douze OG se régénèrent avec `node scripts/make-og.mjs`.
 
 Les OG historiques (`og-image-*.jpg`, `og-hotels-*.jpg`) restent à la racine de `public/` : elles sont en cache chez Facebook et WhatsApp et ont servi en prospection, les renommer casserait les aperçus déjà partagés.
 
