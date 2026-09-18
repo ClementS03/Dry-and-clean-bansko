@@ -77,17 +77,12 @@ export default function Footer() {
           {/* Phone quick */}
           <div className="flex flex-col items-center gap-1 md:items-end">
             <a
-              href={`tel:${t.contact.phoneEN.replace(/\s/g, "")}`}
-              className="text-sm transition-colors text-cream/50 hover:text-gold md:pointer-events-none md:cursor-default"
+              href={`tel:${t.contact.phone.replace(/\s/g, "")}`}
+              className="text-sm tracking-wide transition-colors font-display text-cream/70 hover:text-gold md:pointer-events-none md:cursor-default"
             >
-              🇬🇧 {t.contact.phoneEN}
+              {t.contact.phone}
             </a>
-            <a
-              href={`tel:${t.contact.phoneBG.replace(/\s/g, "")}`}
-              className="text-sm transition-colors text-cream/50 hover:text-gold md:pointer-events-none md:cursor-default"
-            >
-              🇧🇬 {t.contact.phoneBG}
-            </a>
+            <span className="text-xs text-center text-cream/55 md:text-right">{t.contact.messaging}</span>
             <a
               href={t.contact.reviewUrl}
               target="_blank"

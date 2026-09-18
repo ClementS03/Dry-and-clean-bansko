@@ -283,8 +283,11 @@ Bansko · Разлог · Добринище · Баня. Belitsa a été retir�
 
 ## Contacts
 
-- English : +359 882 862 228 → WhatsApp `359882862228`
-- Български : +359 876 850 385 → WhatsApp `359876850385`, utilisé aussi en RU
+**Un seul numéro sur tout le site** : +359 882 862 228, WhatsApp `359882862228`.
+
+Le second numéro (876 850 385) a été retiré en septembre 2026. Les trois langues partagent désormais le même numéro, ce qui a supprimé au passage une incohérence : sur `/en`, le formulaire pointait vers un numéro et le bouton WhatsApp flottant vers l autre.
+
+WhatsApp est le seul canal cliquable. Telegram et Viber sont **mentionnés** sur le même numéro via `contact.messaging`, sans lien : `t.me` ne résout que si le numéro est trouvable par recherche, et `viber://` échoue en silence sur un navigateur desktop.
 
 ---
 

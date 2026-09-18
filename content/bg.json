@@ -703,9 +703,10 @@
   "contact": {
     "title": "Свържи се с нас",
     "subtitle": "Идваме при вас в Банско и региона",
-    "phoneEN": "+359 882 862 228",
-    "phoneBG": "+359 876 850 385",
-    "whatsappNumber": "359876850385",
+    "phone": "+359 882 862 228",
+    "phoneLabel": "Телефон",
+    "messaging": "Най-бързо отговаряме в WhatsApp, Telegram или Viber. Същият номер.",
+    "whatsappNumber": "359882862228",
     "whatsappMsg": "Здравейте! Бих искал/а да получа оферта за пране на мебели.",
     "area": "Банско · Разлог · Добринище · Баня",
     "hours": "Пон–Нед: 08:00 – 20:00",
@@ -714,8 +715,6 @@
     "waBtn": "Пиши по WhatsApp",
     "emailBtn": "Изпрати имейл",
     "reassurance": "✓ Без ангажимент · Отговор до няколко часа · Безплатна оферта",
-    "phoneENLabel": "English",
-    "phoneBGLabel": "Български",
     "reviewUrl": "https://g.page/r/CU4pAGZ9UMLpEBM/review",
     "googleMapsUrl": "https://share.google/clusbr8qexFPhAj92",
     "reviewCta": "Оставете отзив в Google"
@@ -769,7 +768,7 @@
   },
   "whatsapp": {
     "tooltip": "Пиши ни по WhatsApp",
-    "number": "359876850385",
+    "number": "359882862228",
     "message": "Здравейте! Бих искал/а да получа оферта за пране на мебели."
   },
   "gallery": {

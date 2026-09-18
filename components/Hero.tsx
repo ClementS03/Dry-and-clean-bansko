@@ -39,15 +39,13 @@ export default function Hero() {
             ))}
           </div>
 
-          <div className="flex flex-col sm:flex-row gap-3">
-            <a href={`tel:${t.contact.phoneEN.replace(/\s/g, '')}`}
-              className="flex items-center gap-2 text-sm text-cream/60 hover:text-gold transition-colors md:pointer-events-none md:cursor-default">
-              <span>🇬🇧</span><span>{t.contact.phoneEN}</span>
+          <div className="flex flex-col gap-1.5">
+            <a href={`tel:${t.contact.phone.replace(/\s/g, '')}`}
+              className="flex items-center gap-2 text-sm text-cream/70 hover:text-gold transition-colors md:pointer-events-none md:cursor-default">
+              <Icon name="phone" className="w-4 h-4 text-gold" />
+              <span className="font-display tracking-wide">{t.contact.phone}</span>
             </a>
-            <a href={`tel:${t.contact.phoneBG.replace(/\s/g, '')}`}
-              className="flex items-center gap-2 text-sm text-cream/60 hover:text-gold transition-colors md:pointer-events-none md:cursor-default">
-              <span>🇧🇬</span><span>{t.contact.phoneBG}</span>
-            </a>
+            <span className="text-xs text-cream/55">{t.contact.messaging}</span>
           </div>
         </div>
 

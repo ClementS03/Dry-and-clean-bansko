@@ -48,22 +48,12 @@ export default function Contact({ preselect }: { preselect?: string }) {
 
           {/* Left: phone cards + area */}
           <div className="reveal space-y-4">
-            <a href={`tel:${c.phoneEN.replace(/\s/g, '')}`}
+            <a href={`tel:${c.phone.replace(/\s/g, '')}`}
               className="flex items-center gap-4 p-5 card-dark group md:pointer-events-none md:cursor-default">
-              <span className="text-2xl">🇬🇧</span>
               <div className="flex-1">
-                <div className="text-cream/60 text-xs uppercase tracking-widest mb-0.5">{c.phoneENLabel}</div>
-                <div className="font-display text-xl text-cream group-hover:text-gold transition-colors duration-200">{c.phoneEN}</div>
-              </div>
-              <PhoneSvg />
-            </a>
-
-            <a href={`tel:${c.phoneBG.replace(/\s/g, '')}`}
-              className="flex items-center gap-4 p-5 card-dark group md:pointer-events-none md:cursor-default">
-              <span className="text-2xl">🇧🇬</span>
-              <div className="flex-1">
-                <div className="text-cream/60 text-xs uppercase tracking-widest mb-0.5">{c.phoneBGLabel}</div>
-                <div className="font-display text-xl text-cream group-hover:text-gold transition-colors duration-200">{c.phoneBG}</div>
+                <div className="text-cream/60 text-xs uppercase tracking-widest mb-0.5">{c.phoneLabel}</div>
+                <div className="font-display text-xl text-cream group-hover:text-gold transition-colors duration-200">{c.phone}</div>
+                <div className="text-cream/55 text-xs mt-1.5">{c.messaging}</div>
               </div>
               <PhoneSvg />
             </a>
@@ -89,7 +79,7 @@ export default function Contact({ preselect }: { preselect?: string }) {
             </a>
 
             <div className="md:hidden w-full">
-              <a href={`tel:${c.phoneEN.replace(/\s/g, '')}`} className="btn-gold w-full justify-center px-6 py-5 text-base">
+              <a href={`tel:${c.phone.replace(/\s/g, '')}`} className="btn-gold w-full justify-center px-6 py-5 text-base">
                 <PhoneSvg />{c.callBtn}
               </a>
             </div>

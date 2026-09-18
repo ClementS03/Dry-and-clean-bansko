@@ -703,8 +703,9 @@
   "contact": {
     "title": "Get in touch",
     "subtitle": "We come to you in Bansko & surroundings",
-    "phoneEN": "+359 882 862 228",
-    "phoneBG": "+359 876 850 385",
+    "phone": "+359 882 862 228",
+    "phoneLabel": "Phone",
+    "messaging": "Fastest by WhatsApp, Telegram or Viber. Same number.",
     "whatsappNumber": "359882862228",
     "whatsappMsg": "Hello! I would like to get a quote for furniture cleaning.",
     "area": "Bansko · Razlog · Dobrinishte · Banya",
@@ -714,8 +715,6 @@
     "waBtn": "Message on WhatsApp",
     "emailBtn": "Send an email",
     "reassurance": "✓ No commitment · Reply within a few hours · Free quote",
-    "phoneENLabel": "English",
-    "phoneBGLabel": "Bulgarian",
     "reviewUrl": "https://g.page/r/CU4pAGZ9UMLpEBM/review",
     "googleMapsUrl": "https://share.google/clusbr8qexFPhAj92",
     "reviewCta": "Leave a Google review"
@@ -769,7 +768,7 @@
   },
   "whatsapp": {
     "tooltip": "Message us on WhatsApp",
-    "number": "359876850385",
+    "number": "359882862228",
     "message": "Hello! I would like to get a quote for furniture cleaning."
   },
   "gallery": {

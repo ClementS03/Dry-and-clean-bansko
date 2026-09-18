@@ -134,7 +134,7 @@ export default async function RootLayoutEN({
     description:
       "Professional furniture cleaning with injection-extraction technology in Bansko and surroundings. We come to you — sofas, mattresses, carpets, curtains, car seats.",
     url: DOMAIN,
-    telephone: ["+359882862228", "+359876850385"],
+    telephone: "+359882862228",
     email: "wetdrycleanbansko@gmail.com",
     image: [`${DOMAIN}/og-image.jpg`],
     logo: `${DOMAIN}/logo.png`,

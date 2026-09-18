@@ -703,9 +703,10 @@
   "contact": {
     "title": "Свяжитесь с нами",
     "subtitle": "Ответим в течение нескольких часов",
-    "phoneEN": "+359 882 862 228",
-    "phoneBG": "+359 876 850 385",
-    "whatsappNumber": "359876850385",
+    "phone": "+359 882 862 228",
+    "phoneLabel": "Телефон",
+    "messaging": "Быстрее всего отвечаем в WhatsApp, Telegram или Viber. Тот же номер.",
+    "whatsappNumber": "359882862228",
     "whatsappMsg": "Здравствуйте! Хотел бы получить оценку стоимости чистки мебели.",
     "area": "Банско · Разлог · Добринище · Баня",
     "hours": "Пн–Вс: 08:00 – 20:00",
@@ -714,8 +715,6 @@
     "waBtn": "Написать в WhatsApp",
     "emailBtn": "Отправить email",
     "reassurance": "✓ Без обязательств · Ответ в течение нескольких часов · Бесплатное предложение",
-    "phoneENLabel": "Английский",
-    "phoneBGLabel": "Болгарский",
     "reviewUrl": "https://g.page/r/CU4pAGZ9UMLpEBM/review",
     "googleMapsUrl": "https://share.google/clusbr8qexFPhAj92",
     "reviewCta": "Оставить отзыв в Google"
@@ -769,7 +768,7 @@
   },
   "whatsapp": {
     "tooltip": "Написать нам в WhatsApp",
-    "number": "359876850385",
+    "number": "359882862228",
     "message": "Здравствуйте! Хотел бы получить оценку стоимости чистки мебели."
   },
   "gallery": {
