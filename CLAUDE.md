@@ -31,7 +31,7 @@ Le nettoyage textile est **un** service appliqué à 5 objets, pas 5 services. L
 | `pressure` | Водоструйка | `pressure-washing` |
 | `industrial` | Индустриално почистване | `industrial-cleaning` |
 
-Sous-objets de `textile` : `sofa` · `mattress` · `carpet` · `curtains` · `car`.
+Sous-objets de `textile` : `sofa` · `mattress` · `carpet` · `car`. Les rideaux ont été retirés en septembre 2026 : difficiles à traiter à la machine, sans demande et sans rentabilité.
 
 Ces clés sont les identifiants stables du projet : elles servent dans `content/*.json`, dans le formulaire, dans la validation serveur de `/api/contact` et dans les noms de dossiers de galerie. Les slugs sont en anglais et partagés par les trois langues.
 
@@ -262,7 +262,7 @@ Netlify redéploie automatiquement. Délai environ 1 à 2 minutes. Délai avis N
 - JSON-LD `LocalBusiness + ProfessionalService + CleaningService` dans les 3 layouts, avec `hasOfferCatalog` généré depuis `services.items` (sans prix), `aggregateRating` Notion, `serviceArea` GeoCircle 20 km, horaires, `sameAs`
 - JSON-LD `FAQPage` généré depuis `faq.items`
 - `metadata` title, description et keywords pilotés par `meta.*` du JSON
-- `public/sitemap.xml` : 6 URLs avec hreflang complet
+- `public/sitemap.xml` : 30 URLs avec hreflang complet, 3 langues × (accueil, hub, business, 7 services)
 - `public/robots.txt` : `Disallow: /api/`
 - `public/llms.txt` : fiche business pour les LLM, à maintenir cohérente avec le site
 - `/hotels` a été renommé `/business` en septembre 2026, 301 dans `netlify.toml`
@@ -332,4 +332,8 @@ Les `metadata.title` des pages services et business utilisent `{ absolute: ... }
 
 ## Reste à faire
 
-Photos des 6 nouveaux services dans leurs dossiers de galerie, OG images dédiées aux pages services, relecture native du russe, Lighthouse mobile, et la re-soumission de la fiche Google catégorie par catégorie une fois les pages en ligne.
+Photos avant/après des six nouveaux services, dans leurs dossiers de galerie. C est le blocage principal : Google a refusé l élargissement de la fiche Business faute de preuves sur le site.
+
+Ensuite : OG dédiées par service, Lighthouse mobile jamais mesuré, RC professionnelle à confirmer avant de continuer à afficher « assurés », et re-soumission de la fiche Google catégorie par catégorie au fur et à mesure des photos.
+
+La limitation de débit de `/api/contact` vit en mémoire de fonction serverless. Un bot distribué sur plusieurs IP passe à travers. À remplacer par un stockage partagé (Netlify Blobs, Upstash) seulement si du spam arrive réellement.
