@@ -8,7 +8,7 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://wetdrycleaningbansko.com/en"/>
     <xhtml:link rel="alternate" hreflang="ru" href="https://wetdrycleaningbansko.com/ru"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://wetdrycleaningbansko.com/"/>
-    <lastmod>2026-07-19</lastmod><changefreq>weekly</changefreq><priority>1.0</priority>
+    <lastmod>2026-09-17</lastmod><changefreq>weekly</changefreq><priority>1.0</priority>
   </url>
 
   <url>
@@ -17,7 +17,7 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://wetdrycleaningbansko.com/en"/>
     <xhtml:link rel="alternate" hreflang="ru" href="https://wetdrycleaningbansko.com/ru"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://wetdrycleaningbansko.com/"/>
-    <lastmod>2026-07-19</lastmod><changefreq>weekly</changefreq><priority>0.9</priority>
+    <lastmod>2026-09-17</lastmod><changefreq>weekly</changefreq><priority>0.9</priority>
   </url>
 
   <url>
@@ -26,34 +26,250 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://wetdrycleaningbansko.com/en"/>
     <xhtml:link rel="alternate" hreflang="ru" href="https://wetdrycleaningbansko.com/ru"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://wetdrycleaningbansko.com/"/>
-    <lastmod>2026-07-19</lastmod><changefreq>weekly</changefreq><priority>0.9</priority>
+    <lastmod>2026-09-17</lastmod><changefreq>weekly</changefreq><priority>0.9</priority>
   </url>
 
   <url>
-    <loc>https://wetdrycleaningbansko.com/hotels</loc>
-    <xhtml:link rel="alternate" hreflang="bg-BG" href="https://wetdrycleaningbansko.com/hotels"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://wetdrycleaningbansko.com/en/hotels"/>
-    <xhtml:link rel="alternate" hreflang="ru" href="https://wetdrycleaningbansko.com/ru/hotels"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://wetdrycleaningbansko.com/hotels"/>
-    <lastmod>2026-07-19</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
+    <loc>https://wetdrycleaningbansko.com/services</loc>
+    <xhtml:link rel="alternate" hreflang="bg-BG" href="https://wetdrycleaningbansko.com/services"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://wetdrycleaningbansko.com/en/services"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://wetdrycleaningbansko.com/ru/services"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wetdrycleaningbansko.com/services"/>
+    <lastmod>2026-09-17</lastmod><changefreq>weekly</changefreq><priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://wetdrycleaningbansko.com/en/hotels</loc>
-    <xhtml:link rel="alternate" hreflang="bg-BG" href="https://wetdrycleaningbansko.com/hotels"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://wetdrycleaningbansko.com/en/hotels"/>
-    <xhtml:link rel="alternate" hreflang="ru" href="https://wetdrycleaningbansko.com/ru/hotels"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://wetdrycleaningbansko.com/hotels"/>
-    <lastmod>2026-07-19</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
+    <loc>https://wetdrycleaningbansko.com/en/services</loc>
+    <xhtml:link rel="alternate" hreflang="bg-BG" href="https://wetdrycleaningbansko.com/services"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://wetdrycleaningbansko.com/en/services"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://wetdrycleaningbansko.com/ru/services"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wetdrycleaningbansko.com/services"/>
+    <lastmod>2026-09-17</lastmod><changefreq>weekly</changefreq><priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://wetdrycleaningbansko.com/ru/hotels</loc>
-    <xhtml:link rel="alternate" hreflang="bg-BG" href="https://wetdrycleaningbansko.com/hotels"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://wetdrycleaningbansko.com/en/hotels"/>
-    <xhtml:link rel="alternate" hreflang="ru" href="https://wetdrycleaningbansko.com/ru/hotels"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://wetdrycleaningbansko.com/hotels"/>
-    <lastmod>2026-07-19</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
+    <loc>https://wetdrycleaningbansko.com/ru/services</loc>
+    <xhtml:link rel="alternate" hreflang="bg-BG" href="https://wetdrycleaningbansko.com/services"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://wetdrycleaningbansko.com/en/services"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://wetdrycleaningbansko.com/ru/services"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wetdrycleaningbansko.com/services"/>
+    <lastmod>2026-09-17</lastmod><changefreq>weekly</changefreq><priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://wetdrycleaningbansko.com/business</loc>
+    <xhtml:link rel="alternate" hreflang="bg-BG" href="https://wetdrycleaningbansko.com/business"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://wetdrycleaningbansko.com/en/business"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://wetdrycleaningbansko.com/ru/business"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wetdrycleaningbansko.com/business"/>
+    <lastmod>2026-09-17</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://wetdrycleaningbansko.com/en/business</loc>
+    <xhtml:link rel="alternate" hreflang="bg-BG" href="https://wetdrycleaningbansko.com/business"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://wetdrycleaningbansko.com/en/business"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://wetdrycleaningbansko.com/ru/business"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wetdrycleaningbansko.com/business"/>
+    <lastmod>2026-09-17</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://wetdrycleaningbansko.com/ru/business</loc>
+    <xhtml:link rel="alternate" hreflang="bg-BG" href="https://wetdrycleaningbansko.com/business"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://wetdrycleaningbansko.com/en/business"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://wetdrycleaningbansko.com/ru/business"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wetdrycleaningbansko.com/business"/>
+    <lastmod>2026-09-17</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://wetdrycleaningbansko.com/services/upholstery-cleaning</loc>
+    <xhtml:link rel="alternate" hreflang="bg-BG" href="https://wetdrycleaningbansko.com/services/upholstery-cleaning"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://wetdrycleaningbansko.com/en/services/upholstery-cleaning"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://wetdrycleaningbansko.com/ru/services/upholstery-cleaning"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wetdrycleaningbansko.com/services/upholstery-cleaning"/>
+    <lastmod>2026-09-17</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://wetdrycleaningbansko.com/en/services/upholstery-cleaning</loc>
+    <xhtml:link rel="alternate" hreflang="bg-BG" href="https://wetdrycleaningbansko.com/services/upholstery-cleaning"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://wetdrycleaningbansko.com/en/services/upholstery-cleaning"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://wetdrycleaningbansko.com/ru/services/upholstery-cleaning"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wetdrycleaningbansko.com/services/upholstery-cleaning"/>
+    <lastmod>2026-09-17</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://wetdrycleaningbansko.com/ru/services/upholstery-cleaning</loc>
+    <xhtml:link rel="alternate" hreflang="bg-BG" href="https://wetdrycleaningbansko.com/services/upholstery-cleaning"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://wetdrycleaningbansko.com/en/services/upholstery-cleaning"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://wetdrycleaningbansko.com/ru/services/upholstery-cleaning"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wetdrycleaningbansko.com/services/upholstery-cleaning"/>
+    <lastmod>2026-09-17</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://wetdrycleaningbansko.com/services/deep-cleaning</loc>
+    <xhtml:link rel="alternate" hreflang="bg-BG" href="https://wetdrycleaningbansko.com/services/deep-cleaning"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://wetdrycleaningbansko.com/en/services/deep-cleaning"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://wetdrycleaningbansko.com/ru/services/deep-cleaning"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wetdrycleaningbansko.com/services/deep-cleaning"/>
+    <lastmod>2026-09-17</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://wetdrycleaningbansko.com/en/services/deep-cleaning</loc>
+    <xhtml:link rel="alternate" hreflang="bg-BG" href="https://wetdrycleaningbansko.com/services/deep-cleaning"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://wetdrycleaningbansko.com/en/services/deep-cleaning"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://wetdrycleaningbansko.com/ru/services/deep-cleaning"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wetdrycleaningbansko.com/services/deep-cleaning"/>
+    <lastmod>2026-09-17</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://wetdrycleaningbansko.com/ru/services/deep-cleaning</loc>
+    <xhtml:link rel="alternate" hreflang="bg-BG" href="https://wetdrycleaningbansko.com/services/deep-cleaning"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://wetdrycleaningbansko.com/en/services/deep-cleaning"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://wetdrycleaningbansko.com/ru/services/deep-cleaning"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wetdrycleaningbansko.com/services/deep-cleaning"/>
+    <lastmod>2026-09-17</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://wetdrycleaningbansko.com/services/post-construction-cleaning</loc>
+    <xhtml:link rel="alternate" hreflang="bg-BG" href="https://wetdrycleaningbansko.com/services/post-construction-cleaning"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://wetdrycleaningbansko.com/en/services/post-construction-cleaning"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://wetdrycleaningbansko.com/ru/services/post-construction-cleaning"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wetdrycleaningbansko.com/services/post-construction-cleaning"/>
+    <lastmod>2026-09-17</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://wetdrycleaningbansko.com/en/services/post-construction-cleaning</loc>
+    <xhtml:link rel="alternate" hreflang="bg-BG" href="https://wetdrycleaningbansko.com/services/post-construction-cleaning"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://wetdrycleaningbansko.com/en/services/post-construction-cleaning"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://wetdrycleaningbansko.com/ru/services/post-construction-cleaning"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wetdrycleaningbansko.com/services/post-construction-cleaning"/>
+    <lastmod>2026-09-17</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://wetdrycleaningbansko.com/ru/services/post-construction-cleaning</loc>
+    <xhtml:link rel="alternate" hreflang="bg-BG" href="https://wetdrycleaningbansko.com/services/post-construction-cleaning"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://wetdrycleaningbansko.com/en/services/post-construction-cleaning"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://wetdrycleaningbansko.com/ru/services/post-construction-cleaning"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wetdrycleaningbansko.com/services/post-construction-cleaning"/>
+    <lastmod>2026-09-17</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://wetdrycleaningbansko.com/services/airbnb-turnover</loc>
+    <xhtml:link rel="alternate" hreflang="bg-BG" href="https://wetdrycleaningbansko.com/services/airbnb-turnover"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://wetdrycleaningbansko.com/en/services/airbnb-turnover"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://wetdrycleaningbansko.com/ru/services/airbnb-turnover"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wetdrycleaningbansko.com/services/airbnb-turnover"/>
+    <lastmod>2026-09-17</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://wetdrycleaningbansko.com/en/services/airbnb-turnover</loc>
+    <xhtml:link rel="alternate" hreflang="bg-BG" href="https://wetdrycleaningbansko.com/services/airbnb-turnover"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://wetdrycleaningbansko.com/en/services/airbnb-turnover"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://wetdrycleaningbansko.com/ru/services/airbnb-turnover"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wetdrycleaningbansko.com/services/airbnb-turnover"/>
+    <lastmod>2026-09-17</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://wetdrycleaningbansko.com/ru/services/airbnb-turnover</loc>
+    <xhtml:link rel="alternate" hreflang="bg-BG" href="https://wetdrycleaningbansko.com/services/airbnb-turnover"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://wetdrycleaningbansko.com/en/services/airbnb-turnover"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://wetdrycleaningbansko.com/ru/services/airbnb-turnover"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wetdrycleaningbansko.com/services/airbnb-turnover"/>
+    <lastmod>2026-09-17</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://wetdrycleaningbansko.com/services/window-cleaning</loc>
+    <xhtml:link rel="alternate" hreflang="bg-BG" href="https://wetdrycleaningbansko.com/services/window-cleaning"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://wetdrycleaningbansko.com/en/services/window-cleaning"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://wetdrycleaningbansko.com/ru/services/window-cleaning"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wetdrycleaningbansko.com/services/window-cleaning"/>
+    <lastmod>2026-09-17</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://wetdrycleaningbansko.com/en/services/window-cleaning</loc>
+    <xhtml:link rel="alternate" hreflang="bg-BG" href="https://wetdrycleaningbansko.com/services/window-cleaning"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://wetdrycleaningbansko.com/en/services/window-cleaning"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://wetdrycleaningbansko.com/ru/services/window-cleaning"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wetdrycleaningbansko.com/services/window-cleaning"/>
+    <lastmod>2026-09-17</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://wetdrycleaningbansko.com/ru/services/window-cleaning</loc>
+    <xhtml:link rel="alternate" hreflang="bg-BG" href="https://wetdrycleaningbansko.com/services/window-cleaning"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://wetdrycleaningbansko.com/en/services/window-cleaning"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://wetdrycleaningbansko.com/ru/services/window-cleaning"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wetdrycleaningbansko.com/services/window-cleaning"/>
+    <lastmod>2026-09-17</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://wetdrycleaningbansko.com/services/pressure-washing</loc>
+    <xhtml:link rel="alternate" hreflang="bg-BG" href="https://wetdrycleaningbansko.com/services/pressure-washing"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://wetdrycleaningbansko.com/en/services/pressure-washing"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://wetdrycleaningbansko.com/ru/services/pressure-washing"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wetdrycleaningbansko.com/services/pressure-washing"/>
+    <lastmod>2026-09-17</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://wetdrycleaningbansko.com/en/services/pressure-washing</loc>
+    <xhtml:link rel="alternate" hreflang="bg-BG" href="https://wetdrycleaningbansko.com/services/pressure-washing"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://wetdrycleaningbansko.com/en/services/pressure-washing"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://wetdrycleaningbansko.com/ru/services/pressure-washing"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wetdrycleaningbansko.com/services/pressure-washing"/>
+    <lastmod>2026-09-17</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://wetdrycleaningbansko.com/ru/services/pressure-washing</loc>
+    <xhtml:link rel="alternate" hreflang="bg-BG" href="https://wetdrycleaningbansko.com/services/pressure-washing"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://wetdrycleaningbansko.com/en/services/pressure-washing"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://wetdrycleaningbansko.com/ru/services/pressure-washing"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wetdrycleaningbansko.com/services/pressure-washing"/>
+    <lastmod>2026-09-17</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://wetdrycleaningbansko.com/services/industrial-cleaning</loc>
+    <xhtml:link rel="alternate" hreflang="bg-BG" href="https://wetdrycleaningbansko.com/services/industrial-cleaning"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://wetdrycleaningbansko.com/en/services/industrial-cleaning"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://wetdrycleaningbansko.com/ru/services/industrial-cleaning"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wetdrycleaningbansko.com/services/industrial-cleaning"/>
+    <lastmod>2026-09-17</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://wetdrycleaningbansko.com/en/services/industrial-cleaning</loc>
+    <xhtml:link rel="alternate" hreflang="bg-BG" href="https://wetdrycleaningbansko.com/services/industrial-cleaning"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://wetdrycleaningbansko.com/en/services/industrial-cleaning"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://wetdrycleaningbansko.com/ru/services/industrial-cleaning"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wetdrycleaningbansko.com/services/industrial-cleaning"/>
+    <lastmod>2026-09-17</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://wetdrycleaningbansko.com/ru/services/industrial-cleaning</loc>
+    <xhtml:link rel="alternate" hreflang="bg-BG" href="https://wetdrycleaningbansko.com/services/industrial-cleaning"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://wetdrycleaningbansko.com/en/services/industrial-cleaning"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://wetdrycleaningbansko.com/ru/services/industrial-cleaning"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wetdrycleaningbansko.com/services/industrial-cleaning"/>
+    <lastmod>2026-09-17</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
   </url>
 
 </urlset>

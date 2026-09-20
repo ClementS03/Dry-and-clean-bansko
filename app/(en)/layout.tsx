@@ -54,28 +54,11 @@ const cssVars = `
 export const metadata: Metadata = {
   metadataBase: new URL(DOMAIN),
   title: {
-    default: "Furniture Cleaning Bansko | Wet&Dry Cleaning",
+    default: enContent.meta.title,
     template: "%s | Wet&Dry Cleaning Bansko",
   },
-  description:
-    "Professional sofa, mattress, carpet & curtain cleaning in Bansko and surroundings. Injection-extraction technology. We come to you. From €20.",
-  keywords: [
-    "furniture cleaning Bansko",
-    "sofa cleaning Bansko",
-    "carpet cleaning Bansko",
-    "mattress cleaning Bansko",
-    "curtain cleaning Bansko",
-    "car seat cleaning Bansko",
-    "upholstery cleaning Bansko Bulgaria",
-    "airbnb cleaning Bansko",
-    "hotel cleaning Bansko",
-    "injection extraction Bansko",
-    "Wet Dry cleaning Bansko",
-    "Bansko",
-    "Razlog",
-    "Dobrinishte",
-    "Banya",
-  ],
+  description: enContent.meta.description,
+  keywords: enContent.meta.keywords.split(", "),
   authors: [{ name: "Wet&Dry Cleaning Bansko" }],
   creator: "Wet&Dry Cleaning Bansko",
   alternates: {
@@ -90,9 +73,8 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     url: `${DOMAIN}/en`,
-    title: "Furniture Cleaning Bansko | Wet&Dry Cleaning",
-    description:
-      "Professional sofa, mattress & carpet cleaning in Bansko. Injection-extraction technology. We come to you. From €20.",
+    title: enContent.meta.title,
+    description: enContent.meta.description,
     siteName: "Wet&Dry Cleaning Bansko",
     locale: "en_GB",
     images: [
@@ -100,14 +82,14 @@ export const metadata: Metadata = {
         url: "/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "Wet&Dry Cleaning Bansko — furniture cleaning service",
+        alt: "Wet&Dry Cleaning Bansko, furniture cleaning service",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Furniture Cleaning Bansko | Wet&Dry Cleaning",
-    description: "Professional on-site furniture cleaning in Bansko, Bulgaria.",
+    title: enContent.meta.title,
+    description: enContent.meta.description,
     images: ["/og-image.jpg"],
   },
   icons: {
@@ -145,22 +127,12 @@ export default async function RootLayoutEN({
 }) {
   const reviewStats = await getReviewStats();
 
-  const faqSchema = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: enContent.faq.items.map((item) => ({
-      "@type": "Question",
-      name: item.q,
-      acceptedAnswer: { "@type": "Answer", text: item.a },
-    })),
-  };
-
   const localBusinessSchema = {
     "@context": "https://schema.org",
     "@type": ["LocalBusiness", "ProfessionalService", "CleaningService"],
     name: "Wet&Dry Cleaning Bansko",
     description:
-      "Professional furniture cleaning with injection-extraction technology in Bansko and surroundings. We come to you — sofas, mattresses, carpets, curtains, car seats.",
+      enContent.meta.description,
     url: DOMAIN,
     telephone: ["+359882862228", "+359876850385"],
     email: "wetdrycleanbansko@gmail.com",
@@ -192,7 +164,7 @@ export default async function RootLayoutEN({
     ],
     priceRange: "€€",
     currenciesAccepted: "EUR",
-    paymentAccepted: "Cash, Bank transfer",
+    paymentAccepted: "Cash, Bank transfer, Revolut",
     areaServed: [
       { "@type": "City", name: "Bansko" },
       { "@type": "City", name: "Razlog" },
@@ -226,39 +198,11 @@ export default async function RootLayoutEN({
     }),
     hasOfferCatalog: {
       "@type": "OfferCatalog",
-      name: "Furniture cleaning services Bansko",
-      itemListElement: [
-        {
-          "@type": "Offer",
-          itemOffered: { "@type": "Service", name: "Sofa cleaning Bansko" },
-          price: "25",
-          priceCurrency: "EUR",
-        },
-        {
-          "@type": "Offer",
-          itemOffered: { "@type": "Service", name: "Mattress cleaning Bansko" },
-          price: "20",
-          priceCurrency: "EUR",
-        },
-        {
-          "@type": "Offer",
-          itemOffered: { "@type": "Service", name: "Carpet cleaning Bansko" },
-          price: "4",
-          priceCurrency: "EUR",
-        },
-        {
-          "@type": "Offer",
-          itemOffered: { "@type": "Service", name: "Curtain cleaning Bansko" },
-          price: "15",
-          priceCurrency: "EUR",
-        },
-        {
-          "@type": "Offer",
-          itemOffered: { "@type": "Service", name: "Car seat cleaning Bansko" },
-          price: "25",
-          priceCurrency: "EUR",
-        },
-      ],
+      name: enContent.services.title,
+      itemListElement: enContent.services.items.map((service) => ({
+        "@type": "Offer",
+        itemOffered: { "@type": "Service", name: service.name },
+      })),
     },
   };
 
@@ -272,14 +216,10 @@ export default async function RootLayoutEN({
         <style suppressHydrationWarning dangerouslySetInnerHTML={{ __html: cssVars }} />
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
-        />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema).replace(/</g, "\\u003c") }}
         />
       </head>
-      <body>{children}</body>
+      <body suppressHydrationWarning>{children}</body>
     </html>
   );
 }

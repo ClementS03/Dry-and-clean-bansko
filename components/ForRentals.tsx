@@ -1,13 +1,14 @@
 'use client'
 
 import { useLanguage } from '@/context/LanguageContext'
+import Icon from '@/components/Icon'
 import { useScrollReveal } from '@/hooks/useScrollReveal'
 
 export default function ForRentals() {
   const { t, lang } = useLanguage()
   const r = t.rentals
   const ref = useScrollReveal()
-  const hotelsPath = lang === 'en' ? '/en/hotels' : lang === 'ru' ? '/ru/hotels' : '/hotels'
+  const businessPath = lang === 'en' ? '/en/business' : lang === 'ru' ? '/ru/business' : '/business'
 
   const waUrl = `https://wa.me/${t.contact.whatsappNumber}?text=${encodeURIComponent(r.whatsappMsg)}`
 
@@ -37,13 +38,13 @@ export default function ForRentals() {
 
           {/* Left: value props — each card reveals individually (stagger like WhyUs) */}
           <div className="space-y-5">
-            {r.items.slice(0, 3).map((item, i) => (
+            {r.items.map((item, i) => (
               <div
                 key={i}
                 className="flex gap-4 p-5 card-dark reveal"
                 style={{ transitionDelay: `${i * 100}ms` }}
               >
-                <div className="text-2xl flex-shrink-0 mt-0.5">{item.icon}</div>
+                <Icon name={item.icon} className="flex-shrink-0 w-6 h-6 mt-0.5 text-gold" />
                 <div>
                   <div className="font-display text-base text-gold uppercase tracking-wide mb-1">
                     {item.title}
@@ -56,7 +57,7 @@ export default function ForRentals() {
             ))}
 
             {/* Trust line */}
-            <p className="text-cream/30 text-xs text-center pt-2">📍 {r.trust}</p>
+            <p className="text-cream/55 text-xs text-center pt-2">📍 {r.trust}</p>
 
             {/* WhatsApp CTA — mobile/tablet */}
             <div className="lg:hidden pt-2">
@@ -70,10 +71,10 @@ export default function ForRentals() {
               </a>
             </div>
 
-            {/* Email CTA — desktop */}
+            {/* CTA desktop vers la page business */}
             <div className="hidden lg:block pt-2">
               <a
-                href={`mailto:${t.contact.email}?subject=${encodeURIComponent(r.cta)}`}
+                href={businessPath}
                 className="btn-gold w-full justify-center py-4 text-base"
               >
                 {r.cta} →
@@ -85,7 +86,7 @@ export default function ForRentals() {
           <div className="reveal flex flex-col items-center justify-center h-full gap-6 p-8 card-dark text-center" style={{ transitionDelay: '150ms' }}>
             <div className="text-5xl">🏨</div>
             <p className="text-cream/60 text-sm leading-relaxed max-w-xs">{r.teaser}</p>
-            <a href={hotelsPath} className="btn-gold px-6 py-3 text-sm">
+            <a href={businessPath} className="btn-gold px-6 py-3 text-sm">
               {r.hotelsLink}
             </a>
           </div>

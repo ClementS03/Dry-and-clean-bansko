@@ -1,11 +1,12 @@
 'use client'
-import { useState } from 'react'
+import { useId, useState } from 'react'
 import { useLanguage } from '@/context/LanguageContext'
 
 type Step = 'step1' | 'step2' | 'success'
 
 export default function HotelsLeadForm() {
-  const { t } = useLanguage()
+  const uid = useId()
+  const { t, lang } = useLanguage()
   const f = t.hotels.form
 
   const [step, setStep] = useState<Step>('step1')
@@ -15,6 +16,10 @@ export default function HotelsLeadForm() {
   const [name, setName] = useState('')
   const [phone, setPhone] = useState('')
   const [establishment, setEstablishment] = useState('')
+  const [sending, setSending] = useState(false)
+  const [emailError, setEmailError] = useState(false)
+  const [phoneError, setPhoneError] = useState(false)
+  const [honeypot, setHoneypot] = useState('')
 
   const toggleService = (val: string) =>
     setServices(prev => prev.includes(val) ? prev.filter(s => s !== val) : [...prev, val])
@@ -38,8 +43,47 @@ export default function HotelsLeadForm() {
   ].filter(Boolean).join('\n')
 
   const waUrl = `https://wa.me/${t.contact.whatsappNumber}?text=${encodeURIComponent(waMessage)}`
-  const emailSubject = `B2B - ${typeLabel}${establishment ? ` - ${establishment}` : ''}`
-  const emailUrl = `mailto:${t.contact.email}?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(waMessage)}`
+  // Sur desktop le lead part par l API, comme le formulaire de l accueil.
+  // Le mailto precedent dependait d une messagerie configuree chez le visiteur.
+  const handleEmail = async () => {
+    if (!phone.trim()) {
+      setPhoneError(true)
+      return
+    }
+    setSending(true)
+    setEmailError(false)
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          audience: 'business',
+          frequency: '',
+          service: serviceLabels,
+          serviceKeys: services,
+          quantity: units,
+          establishment: [typeLabel, establishment].filter(Boolean).join(' - '),
+          name,
+          phone,
+          location: '',
+          lang,
+          _hp: honeypot,
+        }),
+      })
+      if (res.ok) {
+        setStep('success')
+      } else {
+        // La raison exacte reste dans la console, l utilisateur voit un
+        // message neutre. 403 origine, 429 debit, 503 cle absente.
+        console.error('[contact] envoi refuse, statut ' + res.status, await res.clone().text())
+        setEmailError(true)
+      }
+    } catch {
+      setEmailError(true)
+    } finally {
+      setSending(false)
+    }
+  }
 
   if (step === 'success') {
     return (
@@ -60,10 +104,10 @@ export default function HotelsLeadForm() {
           <h3 className="font-display text-lg text-cream uppercase tracking-wide">{f.step1Title}</h3>
 
           <div>
-            <label className="block text-xs text-cream/50 uppercase tracking-widest mb-2">{f.typeLabel}</label>
-            <div className="grid grid-cols-2 gap-2">
+            <span id={`${uid}-type`} className="block text-xs text-cream/50 uppercase tracking-widest mb-2">{f.typeLabel}</span>
+            <div role="group" aria-labelledby={`${uid}-type`} className="grid grid-cols-2 gap-2">
               {f.types.map(tp => (
-                <button key={tp.value} onClick={() => setType(tp.value)}
+                <button key={tp.value} onClick={() => setType(tp.value)} aria-pressed={type === tp.value}
                   className={`p-3 text-xs text-left rounded-sm border transition-colors font-body ${
                     type === tp.value
                       ? 'border-gold bg-gold/10 text-gold'
@@ -76,10 +120,10 @@ export default function HotelsLeadForm() {
           </div>
 
           <div>
-            <label className="block text-xs text-cream/50 uppercase tracking-widest mb-2">{f.servicesLabel}</label>
-            <div className="grid grid-cols-2 gap-2">
+            <span id={`${uid}-services`} className="block text-xs text-cream/50 uppercase tracking-widest mb-2">{f.servicesLabel}</span>
+            <div role="group" aria-labelledby={`${uid}-services`} className="grid grid-cols-1 gap-2 sm:grid-cols-2">
               {f.services.map(sv => (
-                <button key={sv.value} onClick={() => toggleService(sv.value)}
+                <button key={sv.value} onClick={() => toggleService(sv.value)} aria-pressed={services.includes(sv.value)}
                   className={`p-3 text-xs text-left rounded-sm border transition-colors font-body ${
                     services.includes(sv.value)
                       ? 'border-gold bg-gold/10 text-gold'
@@ -92,8 +136,8 @@ export default function HotelsLeadForm() {
           </div>
 
           <div>
-            <label className="block text-xs text-cream/50 uppercase tracking-widest mb-2">{f.unitsLabel}</label>
-            <input value={units} onChange={e => setUnits(e.target.value)}
+            <label htmlFor={`${uid}-units`} className="block text-xs text-cream/50 uppercase tracking-widest mb-2">{f.unitsLabel}</label>
+            <input suppressHydrationWarning id={`${uid}-units`} value={units} onChange={e => setUnits(e.target.value)}
               placeholder={f.unitsPlaceholder} className="input-dark w-full text-sm" />
           </div>
 
@@ -114,38 +158,69 @@ export default function HotelsLeadForm() {
 
           <div className="space-y-3">
             <div>
-              <label className="block text-xs text-cream/50 uppercase tracking-widest mb-1">{f.nameLabel}</label>
-              <input value={name} onChange={e => setName(e.target.value)}
+              <label htmlFor={`${uid}-name`} className="block text-xs text-cream/50 uppercase tracking-widest mb-1">{f.nameLabel}</label>
+              <input suppressHydrationWarning id={`${uid}-name`} value={name} onChange={e => setName(e.target.value)}
                 placeholder={f.namePlaceholder} className="input-dark w-full text-sm" />
             </div>
             <div>
-              <label className="block text-xs text-cream/50 uppercase tracking-widest mb-1">{f.phoneLabel}</label>
-              <input value={phone} onChange={e => setPhone(e.target.value)}
-                placeholder={f.phonePlaceholder} className="input-dark w-full text-sm" />
+              <label htmlFor={`${uid}-phone`} className="block text-xs text-cream/50 uppercase tracking-widest mb-1">{f.phoneLabel}</label>
+              <input suppressHydrationWarning id={`${uid}-phone`} value={phone}
+                aria-invalid={phoneError}
+                aria-describedby={phoneError ? `${uid}-phone-error` : undefined}
+                onChange={e => { setPhone(e.target.value); setPhoneError(false) }}
+                placeholder={f.phonePlaceholder} className={`input-dark w-full text-sm ${phoneError ? 'border-red-500' : ''}`} />
+              {phoneError && (
+                <p id={`${uid}-phone-error`} role="alert" className="mt-1 text-xs text-red-400">
+                  {t.hero.form.validationPhone}
+                </p>
+              )}
             </div>
             <div>
-              <label className="block text-xs text-cream/50 uppercase tracking-widest mb-1">{f.establishmentLabel}</label>
-              <input value={establishment} onChange={e => setEstablishment(e.target.value)}
+              <label htmlFor={`${uid}-establishment`} className="block text-xs text-cream/50 uppercase tracking-widest mb-1">{f.establishmentLabel}</label>
+              <input suppressHydrationWarning id={`${uid}-establishment`} value={establishment} onChange={e => setEstablishment(e.target.value)}
                 placeholder={f.establishmentPlaceholder} className="input-dark w-full text-sm" />
             </div>
           </div>
 
           <div className="lg:hidden space-y-2">
-            <a href={phone ? waUrl : undefined} target="_blank" rel="noopener noreferrer"
-              onClick={() => phone && setStep('success')}
-              className={`btn-gold w-full justify-center py-3 text-sm ${!phone ? 'opacity-40 pointer-events-none' : ''}`}>
+            <a href={waUrl} target="_blank" rel="noopener noreferrer"
+              onClick={() => setStep('success')}
+              className="btn-gold w-full justify-center py-3 text-sm">
               {f.submitBtn}
             </a>
-            <p className="text-cream/30 text-xs text-center">{f.disclaimer}</p>
+            <p className="text-cream/55 text-xs text-center">{f.disclaimer}</p>
           </div>
 
           <div className="hidden lg:block space-y-2">
-            <a href={phone ? emailUrl : undefined} onClick={() => phone && setStep('success')}
-              className={`btn-gold w-full justify-center py-3 text-sm ${!phone ? 'opacity-40 pointer-events-none' : ''}`}>
-              {f.emailBtn}
-            </a>
-            <p className="text-cream/30 text-xs text-center">{f.disclaimerEmail}</p>
+            <button onClick={handleEmail} disabled={sending}
+              className="btn-gold w-full justify-center py-3 text-sm disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:translate-y-0 disabled:hover:shadow-none">
+              {sending ? <span className="animate-pulse">{t.hero.form.sendingLabel}</span> : f.emailBtn}
+            </button>
+            {emailError && (
+              <p className="text-xs text-center text-red-400">{t.hero.form.emailErrorMsg}</p>
+            )}
+            <div className="text-xs text-center text-cream/55">
+              {f.disclaimerEmail}
+              <div className="mt-1.5">
+                {t.hero.form.emailDirect}{' '}
+                <a href={`mailto:${t.contact.email}`} className="transition-colors text-gold/80 hover:text-gold">
+                  {t.contact.email}
+                </a>
+              </div>
+            </div>
           </div>
+
+          <input
+            suppressHydrationWarning
+            type="text"
+            name="website"
+            value={honeypot}
+            onChange={e => setHoneypot(e.target.value)}
+            tabIndex={-1}
+            autoComplete="off"
+            aria-hidden="true"
+            style={{ position: 'absolute', left: '-9999px', opacity: 0, height: 0, width: 0 }}
+          />
         </>
       )}
     </div>

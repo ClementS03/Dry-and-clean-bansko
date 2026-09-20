@@ -54,27 +54,11 @@ const cssVars = `
 export const metadata: Metadata = {
   metadataBase: new URL(DOMAIN),
   title: {
-    default: "Чистка мебели Банско | Wet&Dry Cleaning",
+    default: ruContent.meta.title,
     template: "%s | Wet&Dry Cleaning Банско",
   },
-  description:
-    "Профессиональная чистка диванов, матрасов, ковров и штор в Банско и окрестностях. Технология инъекционной экстракции. Приедем к вам. Цены от 20€.",
-  keywords: [
-    "чистка мебели Банско",
-    "чистка дивана Банско",
-    "химчистка дивана Банско",
-    "чистка матраса Банско",
-    "чистка ковра Банско",
-    "чистка штор Банско",
-    "чистка автомобильных сидений Банско",
-    "химчистка мебели Банско",
-    "инъекция экстракция Банско",
-    "Wet Dry cleaning Банско",
-    "Банско",
-    "Разлог",
-    "Добриниште",
-    "Баня",
-  ],
+  description: ruContent.meta.description,
+  keywords: ruContent.meta.keywords.split(", "),
   authors: [{ name: "Wet&Dry Cleaning Bansko" }],
   creator: "Wet&Dry Cleaning Bansko",
   alternates: {
@@ -89,9 +73,8 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     url: `${DOMAIN}/ru`,
-    title: "Чистка мебели Банско | Wet&Dry Cleaning",
-    description:
-      "Профессиональная чистка диванов, матрасов и ковров в Банско. Технология инъекционной экстракции. Приедем к вам. Цены от 20€.",
+    title: ruContent.meta.title,
+    description: ruContent.meta.description,
     siteName: "Wet&Dry Cleaning Bansko",
     locale: "ru_RU",
     images: [
@@ -99,14 +82,14 @@ export const metadata: Metadata = {
         url: "/og-image-ru.jpg",
         width: 1200,
         height: 630,
-        alt: "Wet&Dry Cleaning Bansko — чистка мебели",
+        alt: "Wet&Dry Cleaning Bansko, чистка мебели",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Чистка мебели Банско | Wet&Dry Cleaning",
-    description: "Профессиональная выездная чистка мебели в Банско, Болгария.",
+    title: ruContent.meta.title,
+    description: ruContent.meta.description,
     images: ["/og-image-ru.jpg"],
   },
   icons: {
@@ -144,22 +127,12 @@ export default async function RootLayoutRU({
 }) {
   const reviewStats = await getReviewStats();
 
-  const faqSchema = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: ruContent.faq.items.map((item) => ({
-      "@type": "Question",
-      name: item.q,
-      acceptedAnswer: { "@type": "Answer", text: item.a },
-    })),
-  };
-
   const localBusinessSchema = {
     "@context": "https://schema.org",
     "@type": ["LocalBusiness", "ProfessionalService", "CleaningService"],
     name: "Wet&Dry Cleaning Bansko",
     description:
-      "Профессиональная чистка мебели с технологией инъекционной экстракции в Банско и окрестностях. Приедем к вам — диваны, матрасы, ковры, шторы, автомобильные сиденья.",
+      ruContent.meta.description,
     url: DOMAIN,
     telephone: ["+359882862228", "+359876850385"],
     email: "wetdrycleanbansko@gmail.com",
@@ -191,7 +164,7 @@ export default async function RootLayoutRU({
     ],
     priceRange: "€€",
     currenciesAccepted: "EUR",
-    paymentAccepted: "Cash, Bank transfer",
+    paymentAccepted: "Cash, Bank transfer, Revolut",
     areaServed: [
       { "@type": "City", name: "Bansko" },
       { "@type": "City", name: "Razlog" },
@@ -225,39 +198,11 @@ export default async function RootLayoutRU({
     }),
     hasOfferCatalog: {
       "@type": "OfferCatalog",
-      name: "Услуги чистки мебели в Банско",
-      itemListElement: [
-        {
-          "@type": "Offer",
-          itemOffered: { "@type": "Service", name: "Чистка дивана Банско" },
-          price: "25",
-          priceCurrency: "EUR",
-        },
-        {
-          "@type": "Offer",
-          itemOffered: { "@type": "Service", name: "Чистка матраса Банско" },
-          price: "20",
-          priceCurrency: "EUR",
-        },
-        {
-          "@type": "Offer",
-          itemOffered: { "@type": "Service", name: "Чистка ковра Банско" },
-          price: "4",
-          priceCurrency: "EUR",
-        },
-        {
-          "@type": "Offer",
-          itemOffered: { "@type": "Service", name: "Чистка штор Банско" },
-          price: "15",
-          priceCurrency: "EUR",
-        },
-        {
-          "@type": "Offer",
-          itemOffered: { "@type": "Service", name: "Чистка автомобильных сидений Банско" },
-          price: "25",
-          priceCurrency: "EUR",
-        },
-      ],
+      name: ruContent.services.title,
+      itemListElement: ruContent.services.items.map((service) => ({
+        "@type": "Offer",
+        itemOffered: { "@type": "Service", name: service.name },
+      })),
     },
   };
 
@@ -271,14 +216,10 @@ export default async function RootLayoutRU({
         <style suppressHydrationWarning dangerouslySetInnerHTML={{ __html: cssVars }} />
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
-        />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema).replace(/</g, "\\u003c") }}
         />
       </head>
-      <body>{children}</body>
+      <body suppressHydrationWarning>{children}</body>
     </html>
   );
 }

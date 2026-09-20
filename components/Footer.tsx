@@ -1,11 +1,18 @@
 "use client";
 
+import { usePathname } from "next/navigation";
 import { useLanguage } from "@/context/LanguageContext";
 
 export default function Footer() {
   const { t } = useLanguage();
   const f = t.footer;
   const year = new Date().getFullYear();
+  const pathname = usePathname();
+  const prefix = pathname.startsWith("/en")
+    ? "/en"
+    : pathname.startsWith("/ru")
+      ? "/ru"
+      : "";
 
   return (
     <footer className="px-4 py-10 border-t bg-ink-800 border-gold/10 sm:px-6">
@@ -16,7 +23,7 @@ export default function Footer() {
             <div className="text-base tracking-wider uppercase font-display text-cream">
               {f.company}
             </div>
-            <div className="mt-1 text-xs text-cream/35">{f.tagline}</div>
+            <div className="mt-1 text-xs text-cream/55">{f.tagline}</div>
             <div className="flex items-center justify-center md:justify-start gap-4 mt-4">
               {f.social.map((s) => (
                 <a
@@ -25,7 +32,7 @@ export default function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={s.label}
-                  className="text-cream/30 hover:text-gold transition-colors duration-200"
+                  className="text-cream/55 hover:text-gold transition-colors duration-200"
                 >
                   {s.icon === "instagram" && (
                     <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
@@ -52,14 +59,15 @@ export default function Footer() {
             {f.links.map((link) => (
               <a
                 key={link.href}
-                href={link.href}
+                href={link.href.startsWith("/") ? `${prefix}${link.href}` : link.href}
                 onClick={(e) => {
+                  if (link.href.startsWith("/")) return;
                   e.preventDefault();
                   document
                     .querySelector(link.href)
                     ?.scrollIntoView({ behavior: "smooth" });
                 }}
-                className="text-xs tracking-widest uppercase transition-colors text-cream/40 hover:text-gold font-display"
+                className="text-xs tracking-widest uppercase transition-colors text-cream/60 hover:text-gold font-display"
               >
                 {link.label}
               </a>
@@ -69,17 +77,18 @@ export default function Footer() {
           {/* Phone quick */}
           <div className="flex flex-col items-center gap-1 md:items-end">
             <a
-              href={`tel:${t.contact.phoneEN.replace(/\s/g, "")}`}
-              className="text-sm transition-colors text-cream/50 hover:text-gold md:pointer-events-none md:cursor-default"
+              href={`tel:${t.contact.phone.replace(/\s/g, "")}`}
+              className="text-sm tracking-wide transition-colors font-display text-cream/70 hover:text-gold md:pointer-events-none md:cursor-default"
             >
-              🇬🇧 {t.contact.phoneEN}
+              {t.contact.phone}
             </a>
             <a
-              href={`tel:${t.contact.phoneBG.replace(/\s/g, "")}`}
-              className="text-sm transition-colors text-cream/50 hover:text-gold md:pointer-events-none md:cursor-default"
+              href={`tel:${t.contact.phoneSecondary.replace(/\s/g, "")}`}
+              className="text-sm tracking-wide transition-colors font-display text-cream/70 hover:text-gold md:pointer-events-none md:cursor-default"
             >
-              🇧🇬 {t.contact.phoneBG}
+              {t.contact.phoneSecondary}
             </a>
+            <span className="text-xs text-center text-cream/55 md:text-right">{t.contact.messaging}</span>
             <a
               href={t.contact.reviewUrl}
               target="_blank"
@@ -93,7 +102,7 @@ export default function Footer() {
 
         <div className="mt-8 mb-6 gold-divider" />
         {/* pb-16 on mobile to avoid WhatsApp FAB overlap, sm:pb-0 on desktop */}
-        <div className="flex flex-col items-center justify-between gap-2 pb-16 text-xs sm:flex-row text-cream/25 sm:pb-0">
+        <div className="flex flex-col items-center justify-between gap-2 pb-16 text-xs sm:flex-row text-cream/55 sm:pb-0">
           <span>
             {f.credit}{" "}
             <a

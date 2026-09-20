@@ -13,7 +13,7 @@ export default function HotelsHowItWorks() {
         <div className="grid sm:grid-cols-3 gap-8">
           {h.steps.map((step, i) => (
             <div key={i} className="reveal flex flex-col gap-4" style={{ transitionDelay: `${i * 100}ms` }}>
-              <div className="font-display text-5xl text-gold/20 leading-none">{step.number}</div>
+              <span className="inline-flex items-center justify-center w-10 h-10 rounded-sm border border-gold/30 bg-gold/10 font-display text-base font-bold tracking-wider text-gold">{step.number}</span>
               <h3 className="font-display text-lg text-gold uppercase tracking-wide">{step.title}</h3>
               <p className="text-cream/55 text-sm leading-relaxed">{step.description}</p>
             </div>

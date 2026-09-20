@@ -1,5 +1,6 @@
 'use client'
 import { useLanguage } from '@/context/LanguageContext'
+import Icon from '@/components/Icon'
 import { useScrollReveal } from '@/hooks/useScrollReveal'
 
 export default function HotelsExtras() {
@@ -12,7 +13,7 @@ export default function HotelsExtras() {
     <section className="py-14 bg-ink border-t border-gold/5">
       <div ref={ref} className="max-w-4xl mx-auto px-4 sm:px-6 text-center">
         <div className="reveal font-display text-xs uppercase tracking-[0.2em] text-gold/50 mb-2">{e.title}</div>
-        <p className="reveal text-cream/40 text-sm mb-7 max-w-lg mx-auto">{e.subtitle}</p>
+        <p className="reveal text-cream/60 text-sm mb-7 max-w-lg mx-auto">{e.subtitle}</p>
         <div className="flex flex-wrap justify-center gap-x-8 gap-y-3 mb-7">
           {e.items.map((it, i) => (
             <div
@@ -20,7 +21,7 @@ export default function HotelsExtras() {
               className="reveal flex items-center gap-2 text-cream/55 text-sm"
               style={{ transitionDelay: `${i * 60}ms` }}
             >
-              <span className="text-base">{it.icon}</span> {it.label}
+              <Icon name={it.icon} className="w-4 h-4 text-gold" /> {it.label}
             </div>
           ))}
         </div>

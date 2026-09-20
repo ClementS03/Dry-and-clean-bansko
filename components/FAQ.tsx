@@ -11,7 +11,7 @@ export default function FAQ() {
   const [open, setOpen] = useState<number | null>(0)
 
   return (
-    <section id="faq" className="section-pad bg-ink-800 relative overflow-hidden">
+    <section id="faq" className="section-pad bg-ink relative overflow-hidden">
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gold/30 to-transparent" />
 
       <div ref={ref} className="max-w-3xl mx-auto px-4 sm:px-6">

@@ -4,6 +4,7 @@ import { useState, useRef } from "react";
 import { useLanguage } from "@/context/LanguageContext";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import Image from "next/image";
+import type { GalleryPair } from "@/lib/gallery";
 
 function SliderCard({
   label,
@@ -12,8 +13,7 @@ function SliderCard({
   beforeLabel,
   afterLabel,
   sliderHint,
-  placeholderBefore,
-  placeholderAfter,
+  subject,
 }: {
   label: string;
   before: string;
@@ -21,11 +21,22 @@ function SliderCard({
   beforeLabel: string;
   afterLabel: string;
   sliderHint: string;
-  placeholderBefore: string;
-  placeholderAfter: string;
+  subject?: string;
 }) {
   const [pos, setPos] = useState(50);
+  const altFor = (state: string) => [subject, label, state].filter(Boolean).join(", ");
   const trackRef = useRef<HTMLDivElement>(null);
+
+  // Alternative clavier au glisser : fleches, Home et End
+  const onKeyDown = (e: React.KeyboardEvent) => {
+    const step = e.shiftKey ? 10 : 2;
+    if (e.key === "ArrowLeft") setPos((p) => Math.max(5, p - step));
+    else if (e.key === "ArrowRight") setPos((p) => Math.min(95, p + step));
+    else if (e.key === "Home") setPos(5);
+    else if (e.key === "End") setPos(95);
+    else return;
+    e.preventDefault();
+  };
 
   const getPos = (clientX: number) => {
     const rect = trackRef.current?.getBoundingClientRect();
@@ -56,12 +67,20 @@ function SliderCard({
         onMouseMove={(e) => e.buttons === 1 && getPos(e.clientX)}
         onTouchMove={(e) => getPos(e.touches[0].clientX)}
         onClick={(e) => getPos(e.clientX)}
+        onKeyDown={onKeyDown}
+        tabIndex={0}
+        role="slider"
+        aria-label={altFor(sliderHint)}
+        aria-valuemin={5}
+        aria-valuemax={95}
+        aria-valuenow={Math.round(pos)}
+        aria-valuetext={`${Math.round(pos)}%`}
       >
         {/* After */}
         <div className="absolute inset-0 flex items-center justify-center bg-ink-600">
           <Image
             src={after}
-            alt={`${label} — ${afterLabel}`}
+            alt={altFor(afterLabel)}
             fill
             sizes="(max-width: 768px) 100vw, 33vw"
             loading="lazy"
@@ -77,7 +96,7 @@ function SliderCard({
           <div className="absolute inset-0 flex items-center justify-center bg-ink-700">
             <Image
               src={before}
-              alt={`${label} — ${beforeLabel}`}
+              alt={altFor(beforeLabel)}
               fill
               sizes="(max-width: 768px) 100vw, 33vw"
               loading="lazy"
@@ -118,22 +137,27 @@ function SliderCard({
       </div>
 
       <div className="px-4 py-2.5 text-center">
-        <span className="text-xs text-cream/35">{sliderHint}</span>
+        <span className="text-xs text-cream/55">{sliderHint}</span>
       </div>
     </div>
   );
 }
 
-export default function BeforeAfter() {
+export default function BeforeAfter({
+  pairs,
+  subject,
+}: {
+  pairs: GalleryPair[];
+  subject?: string;
+}) {
   const { t } = useLanguage();
   const g = t.gallery;
   const ref = useScrollReveal();
 
-  const pairs = [
-    { before: "/before-sofa.jpg", after: "/after-sofa.jpg" },
-    { before: "/before-carpet.jpg", after: "/after-carpet.jpg" },
-    { before: "/before-carpet2.jpg", after: "/after-carpet2.jpg" },
-  ];
+  // Aucune photo deposee : la section disparait, pas de placeholder.
+  if (pairs.length === 0) return null;
+
+  const shown = pairs.slice(0, 6);
 
   return (
     <section
@@ -154,8 +178,8 @@ export default function BeforeAfter() {
         </div>
 
         <div className="grid gap-6 md:grid-cols-3">
-          {pairs.map((pair, i) => (
-            <div key={i} style={{ transitionDelay: `${i * 100}ms` }}>
+          {shown.map((pair, i) => (
+            <div key={pair.after} style={{ transitionDelay: `${i * 100}ms` }}>
               <SliderCard
                 label={g.pairs[i]?.label ?? ""}
                 before={pair.before}
@@ -163,8 +187,7 @@ export default function BeforeAfter() {
                 beforeLabel={g.beforeLabel}
                 afterLabel={g.afterLabel}
                 sliderHint={g.sliderHint}
-                placeholderBefore={g.placeholderBefore}
-                placeholderAfter={g.placeholderAfter}
+                subject={subject}
               />
             </div>
           ))}

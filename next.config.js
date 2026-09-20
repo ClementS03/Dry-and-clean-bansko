@@ -7,6 +7,9 @@ const nextConfig = {
     // Cache optimized images aggressively (1 year)
     minimumCacheTTL: 31536000,
   },
+  // Next 16 ajoute sa propre section a CLAUDE.md a chaque demarrage.
+  // Le fichier est ecrit a la main et tenu a jour, on refuse la generation.
+  agentRules: false,
   // Compression
   compress: true,
   // Trailing slash for cleaner URLs

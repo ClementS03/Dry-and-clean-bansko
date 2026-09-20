@@ -1,11 +1,12 @@
 'use client'
 import { useLanguage } from '@/context/LanguageContext'
+import Icon from '@/components/Icon'
 import { useScrollReveal } from '@/hooks/useScrollReveal'
 
 export default function HotelsPricing() {
   const { t, lang } = useLanguage()
   const p = t.hotels.pricing
-  const pricingAnchor = lang === 'en' ? '/en#pricing' : lang === 'ru' ? '/ru#pricing' : '/#pricing'
+  const quoteAnchor = lang === 'en' ? '/en#quote' : lang === 'ru' ? '/ru#quote' : '/#quote'
   const ref = useScrollReveal()
   return (
     <section className="section-pad bg-ink">
@@ -15,7 +16,7 @@ export default function HotelsPricing() {
           <div className="text-2xl">💶</div>
           <div>
             <p className="text-cream/70 text-sm">{p.publicNote}</p>
-            <a href={pricingAnchor} className="text-gold text-sm hover:text-gold/80 transition-colors mt-1 inline-block">
+            <a href={quoteAnchor} className="text-gold text-sm hover:text-gold/80 transition-colors mt-1 inline-block">
               {p.publicLinkLabel}
             </a>
           </div>
@@ -29,12 +30,12 @@ export default function HotelsPricing() {
           <div className="flex flex-wrap gap-4">
             {p.monthly.factors.map((f, i) => (
               <div key={i} className="flex items-center gap-2 text-cream/60 text-sm">
-                <span>{f.icon}</span> {f.label}
+                <Icon name={f.icon} className="w-4 h-4 text-gold" /> {f.label}
               </div>
             ))}
           </div>
         </div>
-        <div className="grid sm:grid-cols-2 gap-6">
+        <div className="grid sm:grid-cols-3 gap-6">
           <div className="reveal p-5 card-dark">
             <h3 className="font-display text-base text-gold uppercase tracking-wide mb-2">{p.seasonal.title}</h3>
             <p className="text-cream/55 text-sm leading-relaxed">{p.seasonal.description}</p>
@@ -42,7 +43,7 @@ export default function HotelsPricing() {
           <div className="reveal p-5 card-dark">
             <h3 className="font-display text-base text-gold uppercase tracking-wide mb-2">{p.restaurant.title}</h3>
             <p className="text-cream/55 text-sm leading-relaxed">{p.restaurant.description}</p>
-            <div className="mt-3 text-cream/40 text-xs">{p.restaurant.price}</div>
+            <div className="mt-3 text-cream/60 text-xs">{p.restaurant.price}</div>
           </div>
         </div>
       </div>

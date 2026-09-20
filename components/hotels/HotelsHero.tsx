@@ -8,7 +8,7 @@ export default function HotelsHero() {
 
   const scrollToForm = (e: React.MouseEvent) => {
     e.preventDefault()
-    document.getElementById('hotels-devis')?.scrollIntoView({ behavior: 'smooth' })
+    document.getElementById('business-devis')?.scrollIntoView({ behavior: 'smooth' })
   }
   return (
     <section className="relative min-h-[60vh] flex items-center section-pad bg-ink overflow-hidden">
@@ -28,7 +28,7 @@ export default function HotelsHero() {
             </a>
           </div>
           <div className="hidden lg:block">
-            <a href="#hotels-devis" onClick={scrollToForm} className="btn-gold px-8 py-4 text-base">
+            <a href="#business-devis" onClick={scrollToForm} className="btn-gold px-8 py-4 text-base">
               {h.cta} →
             </a>
           </div>

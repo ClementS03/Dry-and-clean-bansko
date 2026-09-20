@@ -22,7 +22,7 @@ const EmailSvg = () => (
   </svg>
 )
 
-export default function Contact() {
+export default function Contact({ preselect }: { preselect?: string }) {
   const { t } = useLanguage()
   const c = t.contact
   const ref = useScrollReveal()
@@ -30,7 +30,7 @@ export default function Contact() {
   const waUrl = `https://wa.me/${c.whatsappNumber}?text=${encodeURIComponent(c.whatsappMsg)}`
 
   return (
-    <section id="contact" className="section-pad bg-ink relative overflow-hidden">
+    <section id="contact" className="section-pad bg-ink-800 relative overflow-hidden">
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gold/30 to-transparent" />
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[80vw] h-[50vh] opacity-[0.06] pointer-events-none"
         style={{ background: 'radial-gradient(ellipse at top, var(--gold), transparent 65%)' }} />
@@ -48,22 +48,21 @@ export default function Contact() {
 
           {/* Left: phone cards + area */}
           <div className="reveal space-y-4">
-            <a href={`tel:${c.phoneEN.replace(/\s/g, '')}`}
+            <a href={`tel:${c.phone.replace(/\s/g, '')}`}
               className="flex items-center gap-4 p-5 card-dark group md:pointer-events-none md:cursor-default">
-              <span className="text-2xl">🇬🇧</span>
               <div className="flex-1">
-                <div className="text-cream/40 text-xs uppercase tracking-widest mb-0.5">{c.phoneENLabel}</div>
-                <div className="font-display text-xl text-cream group-hover:text-gold transition-colors duration-200">{c.phoneEN}</div>
+                <div className="text-cream/60 text-xs uppercase tracking-widest mb-0.5">{c.phoneLabel}</div>
+                <div className="font-display text-xl text-cream group-hover:text-gold transition-colors duration-200">{c.phone}</div>
+                <div className="text-cream/55 text-xs mt-1.5">{c.messaging}</div>
               </div>
               <PhoneSvg />
             </a>
 
-            <a href={`tel:${c.phoneBG.replace(/\s/g, '')}`}
+            <a href={`tel:${c.phoneSecondary.replace(/\s/g, '')}`}
               className="flex items-center gap-4 p-5 card-dark group md:pointer-events-none md:cursor-default">
-              <span className="text-2xl">🇧🇬</span>
               <div className="flex-1">
-                <div className="text-cream/40 text-xs uppercase tracking-widest mb-0.5">{c.phoneBGLabel}</div>
-                <div className="font-display text-xl text-cream group-hover:text-gold transition-colors duration-200">{c.phoneBG}</div>
+                <div className="text-cream/60 text-xs uppercase tracking-widest mb-0.5">{c.phoneSecondaryLabel}</div>
+                <div className="font-display text-xl text-cream group-hover:text-gold transition-colors duration-200">{c.phoneSecondary}</div>
               </div>
               <PhoneSvg />
             </a>
@@ -87,20 +86,19 @@ export default function Contact() {
               style={{ background: 'linear-gradient(135deg,#25D366 0%,#1ebe5c 100%)' }}>
               <WaSvg />{c.waBtn}
             </a>
+            <p className="text-xs text-center lg:hidden text-cream/55">{c.messagingShort}</p>
 
-            <div className="md:hidden w-full">
-              <a href={`tel:${c.phoneEN.replace(/\s/g, '')}`} className="btn-gold w-full justify-center px-6 py-5 text-base">
-                <PhoneSvg />{c.callBtn}
+            {/* Le formulaire juste en dessous envoie le lead. Cette adresse est
+                la pour qui prefere ecrire lui-meme, elle ne doit pas lui faire
+                concurrence sous forme de gros bouton. */}
+            <div className="hidden text-center lg:block">
+              <a href={`mailto:${c.email}`}
+                className="inline-flex items-center gap-2 text-sm transition-colors text-cream/70 hover:text-gold">
+                <EmailSvg />{c.email}
               </a>
             </div>
 
-            <div className="hidden lg:block text-center">
-              <a href={`mailto:${c.email}`} className="btn-gold w-full justify-center px-6 py-5 text-base">
-                <EmailSvg />{c.emailBtn}
-              </a>
-            </div>
-
-            <p className="text-center text-cream/35 text-xs">{c.reassurance}</p>
+            <p className="text-center text-cream/55 text-xs">{c.reassurance}</p>
           </div>
         </div>
 
@@ -109,7 +107,7 @@ export default function Contact() {
 
         {/* ── Lead form (same as hero) ── */}
         <div className="reveal max-w-lg mx-auto" style={{ transitionDelay: '200ms' }}>
-          <LeadForm />
+          <LeadForm preselect={preselect} />
         </div>
 
       </div>
