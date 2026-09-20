@@ -86,12 +86,7 @@ export default function Contact({ preselect }: { preselect?: string }) {
               style={{ background: 'linear-gradient(135deg,#25D366 0%,#1ebe5c 100%)' }}>
               <WaSvg />{c.waBtn}
             </a>
-
-            <div className="md:hidden w-full">
-              <a href={`tel:${c.phone.replace(/\s/g, '')}`} className="btn-gold w-full justify-center px-6 py-5 text-base">
-                <PhoneSvg />{c.callBtn}
-              </a>
-            </div>
+            <p className="text-xs text-center lg:hidden text-cream/55">{c.messagingShort}</p>
 
             {/* Le formulaire juste en dessous envoie le lead. Cette adresse est
                 la pour qui prefere ecrire lui-meme, elle ne doit pas lui faire

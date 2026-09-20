@@ -149,7 +149,7 @@ Ordre des sections de la home :
 Trois route groups, chacun avec son propre `layout.tsx`. **Un changement de layout doit être répliqué dans les trois.**
 
 - `LanguageProvider initialLang` est posé dans chaque page, jamais dans un layout.
-- localStorage (`wetdry_lang`) n'est lu que si `initialLang === 'bg'`, et n'accepte que `bg` et `en`.
+- **L'URL est la seule source de vérité.** L'ancienne mémorisation en localStorage (`wetdry_lang`) a été supprimée : elle affichait la home bulgare en anglais à tout visiteur ayant cliqué EN une fois, alors que Google avait indexé du bulgare sur cette URL. Le provider purge la clé résiduelle au montage.
 - Le sélecteur de langue préserve la page courante : `/business` mène à `/en/business`.
 - hreflang déclaré à trois endroits qui doivent rester cohérents : `alternates.languages` de chaque layout, de chaque page `business`, et `public/sitemap.xml`.
 

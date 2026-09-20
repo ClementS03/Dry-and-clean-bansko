@@ -711,12 +711,12 @@
     "area": "Банско · Разлог · Добринище · Баня",
     "hours": "Пон–Нед: 08:00 – 20:00",
     "email": "wetdrycleanbansko@gmail.com",
-    "callBtn": "Обади се сега",
     "waBtn": "Пиши по WhatsApp",
     "reassurance": "✓ Без ангажимент · Отговор до няколко часа · Безплатна оферта",
     "reviewUrl": "https://g.page/r/CU4pAGZ9UMLpEBM/review",
     "googleMapsUrl": "https://share.google/clusbr8qexFPhAj92",
-    "reviewCta": "Оставете отзив в Google"
+    "reviewCta": "Оставете отзив в Google",
+    "messagingShort": "Също в Telegram и Viber"
   },
   "footer": {
     "company": "Wet&Dry Cleaning Bansko",

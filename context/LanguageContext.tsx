@@ -32,24 +32,22 @@ export function LanguageProvider({
   const [lang, setLangState] = useState<Lang>(initialLang)
   const [mounted, setMounted] = useState(false)
 
+  // L URL est la seule source de verite : / est bulgare, /en anglais,
+  // /ru russe. Le selecteur de langue navigue, il ne bascule plus le
+  // rendu cote client. L ancienne memorisation en localStorage affichait
+  // la home bulgare en anglais a tout visiteur ayant clique EN une fois,
+  // alors que Google avait indexe du bulgare sur cette URL.
   useEffect(() => {
     setMounted(true)
     document.documentElement.lang = initialLang
-    if (initialLang === 'bg') {
-      try {
-        const saved = localStorage.getItem('wetdry_lang') as Lang
-        if (saved === 'bg' || saved === 'en') {
-          setLangState(saved)
-          document.documentElement.lang = saved
-        }
-      } catch {}
-    }
+    try {
+      localStorage.removeItem('wetdry_lang')
+    } catch {}
   }, [initialLang])
 
   const setLang = (l: Lang) => {
     setLangState(l)
     document.documentElement.lang = l
-    try { localStorage.setItem('wetdry_lang', l) } catch {}
   }
 
   if (!mounted) {
