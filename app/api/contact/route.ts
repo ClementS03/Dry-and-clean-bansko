@@ -77,19 +77,26 @@ function clientIp(req: NextRequest): string {
   )
 }
 
-function isRateLimited(ip: string): boolean {
+function recentAttempts(ip: string): number[] {
   const now = Date.now()
-  const recent = (attempts.get(ip) ?? []).filter((t) => now - t < WINDOW_MS)
-  recent.push(now)
-  attempts.set(ip, recent)
+  return (attempts.get(ip) ?? []).filter((t) => now - t < WINDOW_MS)
+}
+
+/** Lecture seule : une saisie refusee ne doit pas consommer le quota. */
+function isOverLimit(ip: string): boolean {
+  return recentAttempts(ip).length >= MAX_PER_WINDOW
+}
+
+/** Appele seulement quand un email va reellement partir. */
+function recordAttempt(ip: string): void {
+  const now = Date.now()
+  attempts.set(ip, [...recentAttempts(ip), now])
 
   if (attempts.size > 500) {
     for (const [key, times] of attempts) {
       if (!times.some((t) => now - t < WINDOW_MS)) attempts.delete(key)
     }
   }
-
-  return recent.length > MAX_PER_WINDOW
 }
 
 /**
@@ -138,7 +145,10 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: 'Forbidden', origin, host }, { status: 403 })
   }
 
-  if (!isDev && isRateLimited(clientIp(req))) {
+  // Seuls les envois aboutis comptent : une faute de frappe repetee ne doit
+  // pas bloquer un vrai prospect pendant dix minutes.
+  const ip = clientIp(req)
+  if (!isDev && isOverLimit(ip)) {
     return NextResponse.json({ error: 'Too many requests' }, { status: 429 })
   }
 
@@ -253,6 +263,8 @@ export async function POST(req: NextRequest) {
     }
     return NextResponse.json({ error: 'Email service not configured' }, { status: 503 })
   }
+
+  if (!isDev) recordAttempt(ip)
 
   const resend = new Resend(process.env.RESEND_API_KEY)
 
