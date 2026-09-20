@@ -92,11 +92,14 @@ export async function POST(req: NextRequest) {
   // une requete sans en-tete Origin, et startsWith acceptait aussi
   // https://wetdrycleaningbansko.com.exemple-malveillant.com
   const origin = req.headers.get('origin') ?? ''
-  if (!ALLOWED_ORIGINS.includes(origin)) {
+  const isDev = process.env.NODE_ENV !== 'production'
+  const localOrigin = /^http:\/\/(localhost|127\.0\.0\.1|\d+\.\d+\.\d+\.\d+)(:\d+)?$/.test(origin)
+
+  if (!ALLOWED_ORIGINS.includes(origin) && !(isDev && localOrigin)) {
     return NextResponse.json({ error: 'Forbidden' }, { status: 403 })
   }
 
-  if (isRateLimited(clientIp(req))) {
+  if (!isDev && isRateLimited(clientIp(req))) {
     return NextResponse.json({ error: 'Too many requests' }, { status: 429 })
   }
 
@@ -173,6 +176,21 @@ export async function POST(req: NextRequest) {
     </tr>`,
     location ? row('Location', location, true) : '',
   ].join('')
+
+  if (!process.env.RESEND_API_KEY) {
+    // Sans cle, le lead ne peut pas partir. En developpement on l affiche
+    // dans la console du serveur pour pouvoir tester le parcours complet,
+    // en production on remonte une erreur explicite plutot qu un echec muet.
+    console.error(
+      '[contact] RESEND_API_KEY absente. Ajoutez-la dans .env.local en local, ' +
+        'et verifiez les variables du site sur Netlify en production.',
+    )
+    if (isDev) {
+      console.info('[contact] lead recu en developpement :\n' + plainText(fields))
+      return NextResponse.json({ ok: true, devNoEmail: true })
+    }
+    return NextResponse.json({ error: 'Email service not configured' }, { status: 503 })
+  }
 
   const resend = new Resend(process.env.RESEND_API_KEY)
 
