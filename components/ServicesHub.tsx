@@ -15,6 +15,22 @@ type ServiceItem = {
   items?: string[]
 }
 
+/**
+ * Quinconce : une carte large puis une etroite, inverse a la rangee suivante.
+ * La derniere carte remplit ce qui reste de sa rangee, donc le motif tient
+ * meme si un huitieme service est ajoute plus tard.
+ */
+const PATTERN = [2, 1, 1, 2]
+const SPAN: Record<number, string> = { 1: '', 2: 'lg:col-span-2', 3: 'lg:col-span-3' }
+
+function spanOf(index: number, total: number): string {
+  if (index < total - 1) return SPAN[PATTERN[index % 4]]
+  let used = 0
+  for (let i = 0; i < index; i++) used += PATTERN[i % 4]
+  const rest = 3 - (used % 3)
+  return SPAN[rest === 0 ? 3 : rest]
+}
+
 export default function ServicesHub({ covers = {} }: { covers?: Record<string, string> }) {
   const { t, lang } = useLanguage()
   const hub = t.servicesHub
@@ -41,16 +57,17 @@ export default function ServicesHub({ covers = {} }: { covers?: Record<string, s
           <p className="text-base leading-relaxed text-cream/60">{hub.intro}</p>
         </div>
 
-        <div ref={ref} className="grid items-start gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        <div ref={ref} className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {services.map((service, i) => {
             const cover = covers[service.key]
-            const wide = i === 0
+            const span = spanOf(i, services.length)
+            const wide = span !== ''
 
             return (
               <Link
                 key={service.slug}
                 href={`${prefix}/services/${service.slug}`}
-                className={`reveal card-dark group relative overflow-hidden flex flex-col ${wide ? 'lg:col-span-2' : ''}`}
+                className={`reveal card-dark group relative overflow-hidden flex flex-col ${span}`}
                 style={{ transitionDelay: `${i * 70}ms` }}
               >
                 {cover && (
@@ -67,7 +84,7 @@ export default function ServicesHub({ covers = {} }: { covers?: Record<string, s
                   </div>
                 )}
 
-                <div className="flex flex-col flex-1 p-6">
+                <div className="flex flex-col justify-center flex-1 p-6">
                   {!cover && <Icon name={service.icon} className="w-8 h-8 mb-4 text-gold" />}
 
                   <h2 className="mb-2 text-xl tracking-wide uppercase transition-colors duration-300 font-display text-cream group-hover:text-gold">

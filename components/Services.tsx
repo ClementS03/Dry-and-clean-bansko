@@ -20,6 +20,22 @@ type ServiceItem = {
  * covers : vignette optionnelle par service, alimentee par public/gallery/<slug>/after-1.
  * Tant qu'un service n'a pas de photo, sa carte affiche son icone.
  */
+/**
+ * Quinconce : une carte large puis une etroite, inverse a la rangee suivante.
+ * La derniere carte remplit ce qui reste de sa rangee, donc le motif tient
+ * meme si un huitieme service est ajoute plus tard.
+ */
+const PATTERN = [2, 1, 1, 2]
+const SPAN: Record<number, string> = { 1: '', 2: 'lg:col-span-2', 3: 'lg:col-span-3' }
+
+function spanOf(index: number, total: number): string {
+  if (index < total - 1) return SPAN[PATTERN[index % 4]]
+  let used = 0
+  for (let i = 0; i < index; i++) used += PATTERN[i % 4]
+  const rest = 3 - (used % 3)
+  return SPAN[rest === 0 ? 3 : rest]
+}
+
 export default function Services({ covers = {} }: { covers?: Record<string, string> }) {
   const { t, lang } = useLanguage()
   const ref = useScrollReveal()
@@ -38,16 +54,17 @@ export default function Services({ covers = {} }: { covers?: Record<string, stri
           </h2>
         </div>
 
-        <div ref={ref} className="grid items-start gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        <div ref={ref} className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {services.map((service, i) => {
             const cover = covers[service.key]
-            const wide = i === 0
+            const span = spanOf(i, services.length)
+            const wide = span !== ''
 
             return (
               <Link
                 key={service.key}
                 href={`${prefix}/services/${service.slug}`}
-                className={`reveal card-dark group relative overflow-hidden flex flex-col ${wide ? 'lg:col-span-2' : ''}`}
+                className={`reveal card-dark group relative overflow-hidden flex flex-col ${span}`}
                 style={{ transitionDelay: `${i * 70}ms` }}
               >
                 {cover && (
@@ -64,7 +81,7 @@ export default function Services({ covers = {} }: { covers?: Record<string, stri
                   </div>
                 )}
 
-                <div className="flex flex-col flex-1 p-6">
+                <div className="flex flex-col justify-center flex-1 p-6">
                   {service.tag && (
                     <div className="absolute px-2 py-0.5 text-xs font-bold tracking-wider uppercase rounded-sm top-4 right-4 bg-gold text-ink font-display">
                       {service.tag}
