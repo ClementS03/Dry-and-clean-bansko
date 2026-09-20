@@ -24,7 +24,7 @@ const SERVICE_KEYS = [
   'other',
 ]
 
-const TEXTILE_KEYS = ['sofa', 'mattress', 'carpet', 'curtains', 'car']
+const TEXTILE_KEYS = ['sofa', 'mattress', 'carpet', 'car']
 
 function sanitize(value: unknown, maxLen = 300): string {
   if (typeof value !== 'string') return ''

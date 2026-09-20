@@ -38,7 +38,7 @@ export default function Services({ covers = {} }: { covers?: Record<string, stri
           </h2>
         </div>
 
-        <div ref={ref} className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        <div ref={ref} className="grid items-start gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {services.map((service, i) => {
             const cover = covers[service.key]
             const wide = i === 0
@@ -51,7 +51,7 @@ export default function Services({ covers = {} }: { covers?: Record<string, stri
                 style={{ transitionDelay: `${i * 70}ms` }}
               >
                 {cover && (
-                  <div className="relative overflow-hidden aspect-video bg-ink-600">
+                  <div className={`relative overflow-hidden bg-ink-600 ${wide ? "aspect-[21/9]" : "aspect-video"}`}>
                     <Image
                       src={cover}
                       alt={service.name}

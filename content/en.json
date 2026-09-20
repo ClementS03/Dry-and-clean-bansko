@@ -105,10 +105,6 @@
           "label": "Carpet & rug"
         },
         {
-          "value": "curtains",
-          "label": "Curtains"
-        },
-        {
           "value": "car",
           "label": "Car seats"
         }
@@ -159,13 +155,12 @@
         "slug": "upholstery-cleaning",
         "icon": "sofa",
         "name": "Upholstery & textile cleaning",
-        "description": "Sofas, mattresses, carpets, curtains and car seats. We clean them at your place, with an injection-extraction machine.",
+        "description": "Sofas, mattresses, carpets and car seats. We clean them at your place, with an injection-extraction machine.",
         "tag": "Most booked",
         "items": [
           "Sofa & armchair",
           "Mattress",
           "Carpet & rug",
-          "Curtains",
           "Car seats"
         ]
       },
@@ -233,14 +228,13 @@
   "servicePages": {
     "upholstery-cleaning": {
       "metaTitle": "Upholstery cleaning in Bansko | Wet&Dry Cleaning",
-      "metaDescription": "Sofas, mattresses, carpets, curtains and car seats cleaned at your place in Bansko. Injection-extraction, dries in 2 to 4 hours. Free offer within a few hours.",
+      "metaDescription": "Sofas, mattresses, carpets and car seats cleaned at your place in Bansko. Injection-extraction, dries in 2 to 4 hours. Free offer within a few hours.",
       "h1": "Upholstery and textile cleaning in Bansko",
-      "intro": "We clean sofas, mattresses, carpets, curtains and car seats where they are. No transport, no dismantling. The machine injects a cleaning solution deep into the fabric and pulls it straight back out with the dirt, so the textile is left barely damp and dries in 2 to 4 hours.",
+      "intro": "We clean sofas, mattresses, carpets and car seats where they are. No transport, no dismantling. The machine injects a cleaning solution deep into the fabric and pulls it straight back out with the dirt, so the textile is left barely damp and dries in 2 to 4 hours.",
       "includes": [
         "Sofas, armchairs and corner units, any fabric",
         "Mattresses, including dust mite and allergen removal",
         "Carpets, rugs and fitted carpet",
-        "Curtains cleaned in place, no removal needed",
         "Car seats, mats and headliner",
         "Stain and odour treatment, including pet smells"
       ],
@@ -707,7 +701,7 @@
     "phoneSecondary": "+359 876 850 385",
     "phoneSecondaryLabel": "Bulgarian",
     "whatsappNumber": "359882862228",
-    "whatsappMsg": "Hello! I would like to get a quote for furniture cleaning.",
+    "whatsappMsg": "Hello! I would like a quote for cleaning.",
     "area": "Bansko · Razlog · Dobrinishte · Banya",
     "hours": "Mon–Sun: 08:00 – 20:00",
     "email": "wetdrycleanbansko@gmail.com",
@@ -768,7 +762,7 @@
   "whatsapp": {
     "tooltip": "Message us on WhatsApp",
     "number": "359882862228",
-    "message": "Hello! I would like to get a quote for furniture cleaning."
+    "message": "Hello! I would like a quote for cleaning."
   },
   "gallery": {
     "badge": "📸 Results",

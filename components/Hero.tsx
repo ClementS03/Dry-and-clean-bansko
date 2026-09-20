@@ -23,7 +23,7 @@ export default function Hero() {
         <div className="animate-fade-up" style={{ animationDelay: '0.1s', animationFillMode: 'both' }}>
           <div className="section-badge mb-6">{t.hero.badge}</div>
 
-          <h1 className="font-display text-5xl sm:text-6xl lg:text-7xl font-bold uppercase leading-none tracking-tight mb-4">
+          <h1 className="mb-4 text-4xl font-bold leading-none tracking-tight uppercase break-words font-display sm:text-6xl lg:text-7xl">
             <span className="text-cream block">{t.hero.title}</span>
             <span className="text-gold-gradient block">{t.hero.titleHighlight}</span>
           </h1>

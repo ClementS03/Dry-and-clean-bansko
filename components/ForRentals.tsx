@@ -70,10 +70,10 @@ export default function ForRentals() {
               </a>
             </div>
 
-            {/* Email CTA — desktop */}
+            {/* CTA desktop vers la page business */}
             <div className="hidden lg:block pt-2">
               <a
-                href={`mailto:${t.contact.email}?subject=${encodeURIComponent(r.cta)}`}
+                href={businessPath}
                 className="btn-gold w-full justify-center py-4 text-base"
               >
                 {r.cta} →

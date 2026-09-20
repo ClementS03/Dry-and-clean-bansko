@@ -61,7 +61,7 @@ export default function HotelsEN() {
         <HotelsExtras />
       </main>
       <Footer />
-      <WhatsAppFAB />
+      <WhatsAppFAB message={content.hotels.cta.whatsappMsg} />
     </LanguageProvider>
   )
 }

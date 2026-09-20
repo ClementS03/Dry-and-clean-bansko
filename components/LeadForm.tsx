@@ -144,7 +144,7 @@ export default function LeadForm({ preselect }: { preselect?: string }) {
   );
 
   const chip = (active: boolean) =>
-    `px-3 py-2.5 rounded-sm border text-sm transition-all duration-200 ${
+    `px-3 py-2.5 rounded-sm border text-sm leading-snug break-words transition-all duration-200 ${
       active
         ? "border-gold bg-gold/10 text-gold font-medium"
         : "border-gold/15 bg-white/[0.03] text-cream/70 hover:border-gold/35 hover:text-cream"
@@ -191,7 +191,7 @@ export default function LeadForm({ preselect }: { preselect?: string }) {
             </div>
 
             <span id={`${uid}-service`} className={fieldLabel}>{f.serviceLabel}</span>
-            <div role="group" aria-labelledby={`${uid}-service`} className="grid grid-cols-2 gap-2 mb-4">
+            <div role="group" aria-labelledby={`${uid}-service`} className="grid grid-cols-1 gap-2 mb-4 sm:grid-cols-2">
               {f.services.map((service) => {
                 const active = selectedServices.includes(service.value);
                 return (

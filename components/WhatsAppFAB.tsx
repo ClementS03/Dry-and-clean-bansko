@@ -3,12 +3,12 @@
 import { useState } from 'react'
 import { useLanguage } from '@/context/LanguageContext'
 
-export default function WhatsAppFAB() {
+export default function WhatsAppFAB({ message }: { message?: string }) {
   const { t } = useLanguage()
   const wa = t.whatsapp
   const [hover, setHover] = useState(false)
 
-  const url = `https://wa.me/${wa.number}?text=${encodeURIComponent(wa.message)}`
+  const url = `https://wa.me/${wa.number}?text=${encodeURIComponent(message ?? wa.message)}`
 
   return (
     <div className="fixed bottom-6 right-6 z-50 flex items-center gap-3 lg:hidden">

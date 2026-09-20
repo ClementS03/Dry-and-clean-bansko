@@ -114,7 +114,7 @@ export default function HotelsLeadForm() {
 
           <div>
             <span id={`${uid}-services`} className="block text-xs text-cream/50 uppercase tracking-widest mb-2">{f.servicesLabel}</span>
-            <div role="group" aria-labelledby={`${uid}-services`} className="grid grid-cols-2 gap-2">
+            <div role="group" aria-labelledby={`${uid}-services`} className="grid grid-cols-1 gap-2 sm:grid-cols-2">
               {f.services.map(sv => (
                 <button key={sv.value} onClick={() => toggleService(sv.value)} aria-pressed={services.includes(sv.value)}
                   className={`p-3 text-xs text-left rounded-sm border transition-colors font-body ${

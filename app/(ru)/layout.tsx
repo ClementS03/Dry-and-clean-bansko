@@ -82,7 +82,7 @@ export const metadata: Metadata = {
         url: "/og-image-ru.jpg",
         width: 1200,
         height: 630,
-        alt: "Wet&Dry Cleaning Bansko — чистка мебели",
+        alt: "Wet&Dry Cleaning Bansko, чистка мебели",
       },
     ],
   },
@@ -132,7 +132,7 @@ export default async function RootLayoutRU({
     "@type": ["LocalBusiness", "ProfessionalService", "CleaningService"],
     name: "Wet&Dry Cleaning Bansko",
     description:
-      "Профессиональная чистка мебели с технологией инъекционной экстракции в Банско и окрестностях. Приедем к вам — диваны, матрасы, ковры, шторы, автомобильные сиденья.",
+      ruContent.meta.description,
     url: DOMAIN,
     telephone: ["+359882862228", "+359876850385"],
     email: "wetdrycleanbansko@gmail.com",

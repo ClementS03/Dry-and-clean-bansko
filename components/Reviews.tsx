@@ -13,7 +13,6 @@ const SERVICE_ICONS: Record<string, string> = {
   "Kilim/Moquette": "🏠",
   "Carpet/Rug": "🏠",
   Rideaux: "🪟",
-  Curtains: "🪟",
   "Sièges auto": "🚗",
   "Car seats": "🚗",
 };

@@ -5,7 +5,6 @@ export default function HotelsCTA() {
   const { t } = useLanguage()
   const cta = t.hotels.cta
   const waUrl = `https://wa.me/${t.contact.whatsappNumber}?text=${encodeURIComponent(cta.whatsappMsg)}`
-  const emailUrl = `mailto:${t.contact.email}?subject=${encodeURIComponent(cta.label)}`
   return (
     <section className="section-pad bg-ink-800 relative overflow-hidden">
       <div className="absolute inset-0 pointer-events-none"
@@ -21,7 +20,14 @@ export default function HotelsCTA() {
           </a>
         </div>
         <div className="hidden lg:block">
-          <a href={emailUrl} className="btn-gold px-10 py-4 text-base">
+          <a
+            href="#business-devis"
+            onClick={(e) => {
+              e.preventDefault()
+              document.querySelector('#business-devis')?.scrollIntoView({ behavior: 'smooth' })
+            }}
+            className="btn-gold px-10 py-4 text-base"
+          >
             {cta.label} →
           </a>
         </div>

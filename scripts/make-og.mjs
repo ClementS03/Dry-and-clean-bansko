@@ -170,7 +170,7 @@ const IMAGES = [
   },
   {
     file: "og/upholstery-cleaning-bg.jpg",
-    kicker: "Дивани · Матраци · Килими · Завеси",
+    kicker: "Дивани · Матраци · Килими · Авто седалки",
     title: ["Като", "нови."],
     text: "Пране на мека мебел и текстил на място в Банско.",
     badges: ["Изсъхва за 2–4 часа", "Безплатна оферта"],
@@ -179,7 +179,7 @@ const IMAGES = [
   },
   {
     file: "og/upholstery-cleaning-en.jpg",
-    kicker: "Sofas · Mattresses · Carpets · Curtains",
+    kicker: "Sofas · Mattresses · Carpets · Car seats",
     title: ["Like new", "again."],
     text: "Upholstery and textile cleaning at your place in Bansko.",
     badges: ["Dries in 2–4 hours", "Free offer"],
@@ -188,7 +188,7 @@ const IMAGES = [
   },
   {
     file: "og/upholstery-cleaning-ru.jpg",
-    kicker: "Диваны · Матрасы · Ковры · Шторы",
+    kicker: "Диваны · Матрасы · Ковры · Автосиденья",
     title: ["Как", "новые."],
     text: "Химчистка мягкой мебели и текстиля у вас в Банско.",
     badges: ["Сохнет за 2–4 часа", "Бесплатное предложение"],
