@@ -1,6 +1,7 @@
 'use client'
 
 import { useLanguage } from '@/context/LanguageContext'
+import Icon from '@/components/Icon'
 import { useScrollReveal } from '@/hooks/useScrollReveal'
 
 export default function ForRentals() {
@@ -43,7 +44,7 @@ export default function ForRentals() {
                 className="flex gap-4 p-5 card-dark reveal"
                 style={{ transitionDelay: `${i * 100}ms` }}
               >
-                <div className="text-2xl flex-shrink-0 mt-0.5">{item.icon}</div>
+                <Icon name={item.icon} className="flex-shrink-0 w-6 h-6 mt-0.5 text-gold" />
                 <div>
                   <div className="font-display text-base text-gold uppercase tracking-wide mb-1">
                     {item.title}

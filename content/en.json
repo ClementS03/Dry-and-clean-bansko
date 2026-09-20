@@ -236,7 +236,8 @@
         "Mattresses, including dust mite and allergen removal",
         "Carpets, rugs and fitted carpet",
         "Car seats, mats and headliner",
-        "Stain and odour treatment, including pet smells"
+        "Stain and odour treatment, including pet smells",
+        "Fabric test before we start, so there are no surprises"
       ],
       "faq": [
         {
@@ -796,17 +797,17 @@
     "subtitle": "Hotels, guesthouses, rental flats, restaurants and production sites. We work around your guests and your schedule.",
     "items": [
       {
-        "icon": "⚡",
+        "icon": "zap",
         "title": "Fast turnaround",
         "description": "We clean between check-out and check-in, even same-day with advance notice."
       },
       {
-        "icon": "📦",
+        "icon": "package",
         "title": "Volume",
         "description": "More units or repeat visits means better terms."
       },
       {
-        "icon": "📅",
+        "icon": "calendar-days",
         "title": "Seasonal contracts",
         "description": "End-of-ski-season or pre-summer cleaning contracts. Planned, no surprises."
       }

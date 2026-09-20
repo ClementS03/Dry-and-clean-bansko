@@ -3,7 +3,7 @@
 import {
   AppWindow, BedDouble, Building2, CalendarDays, Camera, Check, Clock, Droplets,
   Factory, FileText, Gauge, HardHat, Home, KeyRound, Leaf, List, MapPin, MessageCircle,
-  Monitor, Phone, Receipt, Repeat, Ruler, ShieldCheck, Sofa, Sparkles, Star, Sun, Truck,
+  Monitor, Package, Phone, Receipt, Repeat, Ruler, ShieldCheck, Sofa, Sparkles, Star, Sun, Truck,
   Utensils, Zap, type LucideIcon,
 } from 'lucide-react'
 
@@ -27,6 +27,7 @@ const ICONS: Record<string, LucideIcon> = {
   'map-pin': MapPin,
   'message-circle': MessageCircle,
   monitor: Monitor,
+  package: Package,
   phone: Phone,
   receipt: Receipt,
   repeat: Repeat,

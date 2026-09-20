@@ -35,7 +35,7 @@ export default function HotelsPricing() {
             ))}
           </div>
         </div>
-        <div className="grid sm:grid-cols-2 gap-6">
+        <div className="grid sm:grid-cols-3 gap-6">
           <div className="reveal p-5 card-dark">
             <h3 className="font-display text-base text-gold uppercase tracking-wide mb-2">{p.seasonal.title}</h3>
             <p className="text-cream/55 text-sm leading-relaxed">{p.seasonal.description}</p>

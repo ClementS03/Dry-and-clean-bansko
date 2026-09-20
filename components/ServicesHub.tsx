@@ -16,19 +16,26 @@ type ServiceItem = {
 }
 
 /**
- * Quinconce : une carte large puis une etroite, inverse a la rangee suivante.
- * La derniere carte remplit ce qui reste de sa rangee, donc le motif tient
- * meme si un huitieme service est ajoute plus tard.
+ * Premiere carte : deux colonnes sur deux rangees, avec les deux cartes
+ * suivantes empilees dans la colonne de droite. Sa hauteur est donc
+ * absorbee au lieu de laisser du vide a cote d une carte orpheline.
+ * Les suivantes alternent etroite et large, et la derniere boucle sa
+ * rangee, donc le motif tient si un service est ajoute.
  */
-const PATTERN = [2, 1, 1, 2]
+const TAIL = [1, 2, 2, 1]
 const SPAN: Record<number, string> = { 1: '', 2: 'lg:col-span-2', 3: 'lg:col-span-3' }
 
 function spanOf(index: number, total: number): string {
-  if (index < total - 1) return SPAN[PATTERN[index % 4]]
-  let used = 0
-  for (let i = 0; i < index; i++) used += PATTERN[i % 4]
-  const rest = 3 - (used % 3)
-  return SPAN[rest === 0 ? 3 : rest]
+  if (index === 0) return 'lg:col-span-2 lg:row-span-2'
+  if (index === 1 || index === 2) return ''
+
+  if (index === total - 1) {
+    let used = 0
+    for (let j = 3; j < index; j++) used += TAIL[(j - 3) % 4]
+    const rest = 3 - (used % 3)
+    return SPAN[rest === 0 ? 3 : rest]
+  }
+  return SPAN[TAIL[(index - 3) % 4]]
 }
 
 export default function ServicesHub({ covers = {} }: { covers?: Record<string, string> }) {
@@ -61,6 +68,7 @@ export default function ServicesHub({ covers = {} }: { covers?: Record<string, s
           {services.map((service, i) => {
             const cover = covers[service.key]
             const span = spanOf(i, services.length)
+            const featured = i === 0
             const wide = span !== ''
 
             return (
@@ -71,7 +79,11 @@ export default function ServicesHub({ covers = {} }: { covers?: Record<string, s
                 style={{ transitionDelay: `${i * 70}ms` }}
               >
                 {cover && (
-                  <div className={`relative overflow-hidden bg-ink-600 ${wide ? "aspect-[21/9]" : "aspect-video"}`}>
+                  <div
+                    className={`relative overflow-hidden bg-ink-600 ${
+                      featured ? "flex-1 min-h-[240px]" : wide ? "aspect-[21/9]" : "aspect-video"
+                    }`}
+                  >
                     <Image
                       src={cover}
                       alt={service.name}
@@ -84,7 +96,7 @@ export default function ServicesHub({ covers = {} }: { covers?: Record<string, s
                   </div>
                 )}
 
-                <div className="flex flex-col justify-center flex-1 p-6">
+                <div className={`flex flex-col p-6 ${featured ? "" : "justify-center flex-1"}`}>
                   {!cover && <Icon name={service.icon} className="w-8 h-8 mb-4 text-gold" />}
 
                   <h2 className="mb-2 text-xl tracking-wide uppercase transition-colors duration-300 font-display text-cream group-hover:text-gold">
