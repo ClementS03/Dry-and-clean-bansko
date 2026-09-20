@@ -69,8 +69,14 @@ export default function HotelsLeadForm() {
           _hp: honeypot,
         }),
       })
-      if (res.ok) setStep('success')
-      else setEmailError(true)
+      if (res.ok) {
+        setStep('success')
+      } else {
+        // La raison exacte reste dans la console, l utilisateur voit un
+        // message neutre. 403 origine, 429 debit, 503 cle absente.
+        console.error('[contact] envoi refuse, statut ' + res.status, await res.clone().text())
+        setEmailError(true)
+      }
     } catch {
       setEmailError(true)
     } finally {

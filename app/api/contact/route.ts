@@ -5,12 +5,24 @@ const TO_EMAIL = 'wetdrycleanbansko@gmail.com'
 
 const FROM = 'Wet&Dry Bansko <noreply@wetdrycleaningbansko.com>'
 
+/**
+ * Netlify expose l URL du deploiement en cours. Sans cela, un deploy de
+ * branche ou une preview repondait 403 : son origine
+ * https://<branche>--<site>.netlify.app ne figurait nulle part, et le
+ * formulaire semblait casse alors qu il etait simplement refuse.
+ *   URL              domaine principal du site
+ *   DEPLOY_URL       URL unique de ce deploiement
+ *   DEPLOY_PRIME_URL URL de la branche ou de la pull request
+ */
 const ALLOWED_ORIGINS = [
   'https://wetdrycleaningbansko.com',
   'https://www.wetdrycleaningbansko.com',
   'http://localhost:3000',
   'http://localhost:3001',
-]
+  process.env.URL,
+  process.env.DEPLOY_URL,
+  process.env.DEPLOY_PRIME_URL,
+].filter((o): o is string => Boolean(o))
 
 /** Doit rester aligne sur services[].key dans content/*.json. */
 const SERVICE_KEYS = [
@@ -93,10 +105,19 @@ export async function POST(req: NextRequest) {
   // https://wetdrycleaningbansko.com.exemple-malveillant.com
   const origin = req.headers.get('origin') ?? ''
   const isDev = process.env.NODE_ENV !== 'production'
-  const localOrigin = /^http:\/\/(localhost|127\.0\.0\.1|\d+\.\d+\.\d+\.\d+)(:\d+)?$/.test(origin)
+  const isPreview = process.env.CONTEXT !== undefined && process.env.CONTEXT !== 'production'
+  const localOrigin = /^http:\/\/(localhost|127\.0\.0\.1|\d+\.\d+\.\d+\.\d+)(:\d+)?\/?$/.test(origin)
+  // Filet de securite pour les previews, dont l URL change a chaque deploiement
+  const previewOrigin = /^https:\/\/[a-z0-9-]+\.netlify\.app\/?$/.test(origin)
 
-  if (!ALLOWED_ORIGINS.includes(origin) && !(isDev && localOrigin)) {
-    return NextResponse.json({ error: 'Forbidden' }, { status: 403 })
+  const allowed =
+    ALLOWED_ORIGINS.includes(origin) ||
+    (isDev && localOrigin) ||
+    (isPreview && previewOrigin)
+
+  if (!allowed) {
+    console.warn('[contact] origine refusee :', origin || '(absente)')
+    return NextResponse.json({ error: 'Forbidden', origin }, { status: 403 })
   }
 
   if (!isDev && isRateLimited(clientIp(req))) {

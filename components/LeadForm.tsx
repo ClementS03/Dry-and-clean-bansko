@@ -104,6 +104,14 @@ export default function LeadForm({ preselect }: { preselect?: string }) {
           _hp: honeypot,
         }),
       });
+      if (!res.ok) {
+        // La raison exacte reste dans la console, l utilisateur voit un
+        // message neutre. 403 origine, 429 debit, 503 cle absente.
+        console.error(
+          '[contact] envoi refuse, statut ' + res.status,
+          await res.clone().text(),
+        )
+      }
       if (res.ok) {
         setSubmitMethod("email");
         setSent(true);
