@@ -10,8 +10,7 @@
     "quote": "Quote",
     "faq": "FAQ",
     "contact": "Contact",
-    "cta": "Free offer",
-    "langSwitch": "БГ"
+    "cta": "Free offer"
   },
   "hero": {
     "badge": "📍 Bansko · Razlog · Dobrinishte · Banya",
@@ -38,7 +37,6 @@
       "validationPhone": "Please enter a phone number",
       "validationLocation": "Please enter your location",
       "newRequest": "New request",
-      "orLabel": "or",
       "emailBtn": "Send by email",
       "sendingLabel": "Sending...",
       "disclaimerEmail": "No commitment. We'll contact you by phone.",
@@ -129,7 +127,8 @@
       "quantityLabel": "Details (optional)",
       "quantityPlaceholderTextile": "e.g. 1 three-seater sofa, 2 mattresses",
       "quantityPlaceholderSurface": "e.g. ~80 m², 3 rooms, 40 m² terrace",
-      "quantityPlaceholderMixed": "e.g. 1 three-seater sofa and a 40 m² terrace"
+      "quantityPlaceholderMixed": "e.g. 1 three-seater sofa and a 40 m² terrace",
+      "emailDirect": "Or write to us directly:"
     }
   },
   "trust": [
@@ -522,8 +521,7 @@
         "value": "Same day",
         "label": "Ready"
       }
-    ],
-    "techBadge": "Injection-Extraction"
+    ]
   },
   "comparison": {
     "badge": "Comparison",
@@ -704,8 +702,10 @@
     "title": "Get in touch",
     "subtitle": "We come to you in Bansko & surroundings",
     "phone": "+359 882 862 228",
-    "phoneLabel": "Phone",
+    "phoneLabel": "English",
     "messaging": "Fastest by WhatsApp, Telegram or Viber. Same number.",
+    "phoneSecondary": "+359 876 850 385",
+    "phoneSecondaryLabel": "Bulgarian",
     "whatsappNumber": "359882862228",
     "whatsappMsg": "Hello! I would like to get a quote for furniture cleaning.",
     "area": "Bansko · Razlog · Dobrinishte · Banya",
@@ -713,7 +713,6 @@
     "email": "wetdrycleanbansko@gmail.com",
     "callBtn": "Call now",
     "waBtn": "Message on WhatsApp",
-    "emailBtn": "Send an email",
     "reassurance": "✓ No commitment · Reply within a few hours · Free quote",
     "reviewUrl": "https://g.page/r/CU4pAGZ9UMLpEBM/review",
     "googleMapsUrl": "https://share.google/clusbr8qexFPhAj92",

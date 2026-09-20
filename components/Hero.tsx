@@ -40,11 +40,20 @@ export default function Hero() {
           </div>
 
           <div className="flex flex-col gap-1.5">
-            <a href={`tel:${t.contact.phone.replace(/\s/g, '')}`}
-              className="flex items-center gap-2 text-sm text-cream/70 hover:text-gold transition-colors md:pointer-events-none md:cursor-default">
-              <Icon name="phone" className="w-4 h-4 text-gold" />
-              <span className="font-display tracking-wide">{t.contact.phone}</span>
-            </a>
+            <div className="flex flex-col gap-1.5 sm:flex-row sm:gap-5">
+              <a href={`tel:${t.contact.phone.replace(/\s/g, '')}`}
+                className="flex items-center gap-2 text-sm text-cream/70 hover:text-gold transition-colors md:pointer-events-none md:cursor-default">
+                <Icon name="phone" className="w-4 h-4 text-gold" />
+                <span className="font-display tracking-wide">{t.contact.phone}</span>
+                <span className="text-xs text-cream/55">{t.contact.phoneLabel}</span>
+              </a>
+              <a href={`tel:${t.contact.phoneSecondary.replace(/\s/g, '')}`}
+                className="flex items-center gap-2 text-sm text-cream/70 hover:text-gold transition-colors md:pointer-events-none md:cursor-default">
+                <Icon name="phone" className="w-4 h-4 text-gold/50" />
+                <span className="font-display tracking-wide">{t.contact.phoneSecondary}</span>
+                <span className="text-xs text-cream/55">{t.contact.phoneSecondaryLabel}</span>
+              </a>
+            </div>
             <span className="text-xs text-cream/55">{t.contact.messaging}</span>
           </div>
         </div>

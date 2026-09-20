@@ -61,7 +61,6 @@ export default function LeadForm({ preselect }: { preselect?: string }) {
   };
 
   const handleWhatsApp = () => {
-    if (!validate()) return;
     const lines = [
       `*${f.title}*`,
       "",
@@ -385,37 +384,21 @@ export default function LeadForm({ preselect }: { preselect?: string }) {
               </button>
             </div>
 
-            <div className="flex items-center gap-3 my-3 lg:hidden">
-              <div className="flex-1 h-px bg-gold/10" />
-              <span className="text-xs tracking-widest uppercase text-cream/55">{f.orLabel}</span>
-              <div className="flex-1 h-px bg-gold/10" />
-            </div>
-
-            <div className="lg:hidden">
-              <button
-                onClick={handleEmail}
-                disabled={sendingEmail}
-                className="flex items-center justify-center w-full gap-2 py-3 text-sm transition-all duration-200 border rounded-sm border-gold/20 text-cream/50 hover:text-cream hover:border-gold/40 disabled:opacity-40"
-              >
-                {sendingEmail ? (
-                  <span className="animate-pulse">{f.sendingLabel}</span>
-                ) : (
-                  <>
-                    <EmailIcon />
-                    {f.emailBtn}
-                  </>
-                )}
-              </button>
-            </div>
+            <p className="mt-3 text-xs text-center text-cream/55 lg:hidden">{f.disclaimer}</p>
 
             {emailError && (
               <p className="mt-2 text-xs text-center text-red-400">{f.emailErrorMsg}</p>
             )}
 
-            <p className="mt-3 text-xs text-center text-cream/55 lg:hidden">{f.disclaimer}</p>
-            <p className="hidden mt-3 text-xs text-center text-cream/55 lg:block">
+            <div className="hidden mt-3 text-xs text-center lg:block text-cream/55">
               {f.disclaimerEmail}
-            </p>
+              <div className="mt-1.5">
+                {f.emailDirect}{" "}
+                <a href={`mailto:${t.contact.email}`} className="transition-colors text-gold/80 hover:text-gold">
+                  {t.contact.email}
+                </a>
+              </div>
+            </div>
           </div>
         )}
       </div>

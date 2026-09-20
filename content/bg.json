@@ -10,8 +10,7 @@
     "quote": "Оферта",
     "faq": "Въпроси",
     "contact": "Контакт",
-    "cta": "Безплатна оферта",
-    "langSwitch": "EN"
+    "cta": "Безплатна оферта"
   },
   "hero": {
     "badge": "📍 Банско · Разлог · Добринище · Баня",
@@ -38,7 +37,6 @@
       "validationPhone": "Моля въведи телефонен номер",
       "validationLocation": "Моля въведи населено място",
       "newRequest": "Ново запитване",
-      "orLabel": "или",
       "emailBtn": "Изпрати по имейл",
       "sendingLabel": "Изпраща се...",
       "disclaimerEmail": "Без ангажимент. Ще се свържем с теб по телефон.",
@@ -129,7 +127,8 @@
       "quantityLabel": "Детайли (по желание)",
       "quantityPlaceholderTextile": "напр. 1 диван 3-местен, 2 матрака",
       "quantityPlaceholderSurface": "напр. ~80 м², 3 стаи, тераса 40 м²",
-      "quantityPlaceholderMixed": "напр. 1 диван 3-местен и тераса 40 м²"
+      "quantityPlaceholderMixed": "напр. 1 диван 3-местен и тераса 40 м²",
+      "emailDirect": "Или ни пишете директно:"
     }
   },
   "trust": [
@@ -522,8 +521,7 @@
         "value": "1 ден",
         "label": "Готово"
       }
-    ],
-    "techBadge": "Injection-Extraction"
+    ]
   },
   "comparison": {
     "badge": "Сравнение",
@@ -704,8 +702,10 @@
     "title": "Свържи се с нас",
     "subtitle": "Идваме при вас в Банско и региона",
     "phone": "+359 882 862 228",
-    "phoneLabel": "Телефон",
+    "phoneLabel": "Английски",
     "messaging": "Най-бързо отговаряме в WhatsApp, Telegram или Viber. Същият номер.",
+    "phoneSecondary": "+359 876 850 385",
+    "phoneSecondaryLabel": "Български",
     "whatsappNumber": "359882862228",
     "whatsappMsg": "Здравейте! Бих искал/а да получа оферта за пране на мебели.",
     "area": "Банско · Разлог · Добринище · Баня",
@@ -713,7 +713,6 @@
     "email": "wetdrycleanbansko@gmail.com",
     "callBtn": "Обади се сега",
     "waBtn": "Пиши по WhatsApp",
-    "emailBtn": "Изпрати имейл",
     "reassurance": "✓ Без ангажимент · Отговор до няколко часа · Безплатна оферта",
     "reviewUrl": "https://g.page/r/CU4pAGZ9UMLpEBM/review",
     "googleMapsUrl": "https://share.google/clusbr8qexFPhAj92",

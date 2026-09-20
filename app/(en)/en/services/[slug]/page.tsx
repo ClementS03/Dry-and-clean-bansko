@@ -91,7 +91,7 @@ export default async function ServiceRoute({ params }: Params) {
       "@type": "LocalBusiness",
       name: "Wet&Dry Cleaning Bansko",
       url: DOMAIN,
-      telephone: "+359882862228",
+      telephone: ["+359882862228", "+359876850385"],
     },
   };
 

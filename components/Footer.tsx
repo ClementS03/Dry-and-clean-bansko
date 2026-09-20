@@ -82,6 +82,12 @@ export default function Footer() {
             >
               {t.contact.phone}
             </a>
+            <a
+              href={`tel:${t.contact.phoneSecondary.replace(/\s/g, "")}`}
+              className="text-sm tracking-wide transition-colors font-display text-cream/70 hover:text-gold md:pointer-events-none md:cursor-default"
+            >
+              {t.contact.phoneSecondary}
+            </a>
             <span className="text-xs text-center text-cream/55 md:text-right">{t.contact.messaging}</span>
             <a
               href={t.contact.reviewUrl}

@@ -10,8 +10,7 @@
     "quote": "Предложение",
     "faq": "Вопросы",
     "contact": "Контакт",
-    "cta": "Бесплатное предложение",
-    "langSwitch": "БГ"
+    "cta": "Бесплатное предложение"
   },
   "hero": {
     "badge": "📍 Банско · Разлог · Добринище · Баня",
@@ -38,7 +37,6 @@
       "validationPhone": "Пожалуйста, укажите номер телефона",
       "validationLocation": "Пожалуйста, укажите ваш адрес",
       "newRequest": "Новый запрос",
-      "orLabel": "или",
       "emailBtn": "Отправить по email",
       "sendingLabel": "Отправка...",
       "disclaimerEmail": "Без обязательств. Мы свяжемся с вами по телефону.",
@@ -129,7 +127,8 @@
       "quantityLabel": "Детали (по желанию)",
       "quantityPlaceholderTextile": "напр. 1 диван 3-местный, 2 матраса",
       "quantityPlaceholderSurface": "напр. ~80 м², 3 комнаты, терраса 40 м²",
-      "quantityPlaceholderMixed": "напр. 1 диван 3-местный и терраса 40 м²"
+      "quantityPlaceholderMixed": "напр. 1 диван 3-местный и терраса 40 м²",
+      "emailDirect": "Или напишите нам напрямую:"
     }
   },
   "trust": [
@@ -522,8 +521,7 @@
         "value": "В тот же день",
         "label": "Готово"
       }
-    ],
-    "techBadge": "Инжекция-Экстракция"
+    ]
   },
   "comparison": {
     "badge": "Сравнение",
@@ -704,8 +702,10 @@
     "title": "Свяжитесь с нами",
     "subtitle": "Ответим в течение нескольких часов",
     "phone": "+359 882 862 228",
-    "phoneLabel": "Телефон",
+    "phoneLabel": "Английский",
     "messaging": "Быстрее всего отвечаем в WhatsApp, Telegram или Viber. Тот же номер.",
+    "phoneSecondary": "+359 876 850 385",
+    "phoneSecondaryLabel": "Болгарский",
     "whatsappNumber": "359882862228",
     "whatsappMsg": "Здравствуйте! Хотел бы получить оценку стоимости чистки мебели.",
     "area": "Банско · Разлог · Добринище · Баня",
@@ -713,7 +713,6 @@
     "email": "wetdrycleanbansko@gmail.com",
     "callBtn": "Позвонить",
     "waBtn": "Написать в WhatsApp",
-    "emailBtn": "Отправить email",
     "reassurance": "✓ Без обязательств · Ответ в течение нескольких часов · Бесплатное предложение",
     "reviewUrl": "https://g.page/r/CU4pAGZ9UMLpEBM/review",
     "googleMapsUrl": "https://share.google/clusbr8qexFPhAj92",

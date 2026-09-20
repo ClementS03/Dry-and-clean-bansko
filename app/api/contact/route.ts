@@ -131,8 +131,12 @@ export async function POST(req: NextRequest) {
   const name = sanitize(body.name, 100)
   const phone = sanitize(body.phone, 30)
   const location = sanitize(body.location, 100)
+  const establishment = sanitize(body.establishment, 120)
 
-  if (!phone || !location || serviceKeys.length === 0) {
+  // Le telephone est indispensable : sur ce canal il n y a ni WhatsApp ni
+  // adresse email pour rappeler le prospect. La localite reste facultative,
+  // le formulaire business collecte un nom d etablissement a la place.
+  if (!phone || serviceKeys.length === 0) {
     return NextResponse.json({ error: 'Missing required fields' }, { status: 422 })
   }
 
@@ -148,8 +152,9 @@ export async function POST(req: NextRequest) {
     ...(frequencyLabel ? ([['Frequency', frequencyLabel]] as [string, string][]) : []),
     ...(quantity ? ([['Details', quantity]] as [string, string][]) : []),
     ...(name ? ([['Name', name]] as [string, string][]) : []),
+    ...(establishment ? ([['Establishment', establishment]] as [string, string][]) : []),
     ['Phone', phone],
-    ['Location', location],
+    ...(location ? ([['Location', location]] as [string, string][]) : []),
   ]
 
   const rows = [
@@ -160,18 +165,33 @@ export async function POST(req: NextRequest) {
     frequencyLabel ? row('Frequency', frequencyLabel, true) : '',
     quantity ? row('Details', quantity, false) : '',
     name ? row('Name', name, true) : '',
+    establishment ? row('Establishment', establishment, false) : '',
     `
     <tr>
       <td style="padding:10px 12px;font-weight:600;background:#fff;border:1px solid #eee;">Phone</td>
       <td style="padding:10px 12px;background:#fff;border:1px solid #eee;font-size:16px;font-weight:700;">${phone}</td>
     </tr>`,
-    row('Location', location, true),
+    location ? row('Location', location, true) : '',
   ].join('')
 
   const resend = new Resend(process.env.RESEND_API_KEY)
 
+  // Resend limite le debit a quelques envois par seconde. Si plusieurs
+  // prospects valident en meme temps, un envoi peut etre refuse. Sans
+  // reprise le lead serait perdu et le visiteur verrait une erreur.
+  const sendWithRetry = async (payload: Parameters<typeof resend.emails.send>[0]) => {
+    let lastError: unknown
+    for (let attempt = 0; attempt < 3; attempt++) {
+      if (attempt > 0) await new Promise((r) => setTimeout(r, attempt * 700))
+      const { error } = await resend.emails.send(payload)
+      if (!error) return
+      lastError = error
+    }
+    throw lastError
+  }
+
   try {
-    await resend.emails.send({
+    await sendWithRetry({
       from: FROM,
       to: [TO_EMAIL],
       subject: `${isBusiness ? '[B2B] ' : ''}New lead - ${service || serviceKeys.join(', ')}`,

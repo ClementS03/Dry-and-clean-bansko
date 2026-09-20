@@ -58,6 +58,15 @@ export default function Contact({ preselect }: { preselect?: string }) {
               <PhoneSvg />
             </a>
 
+            <a href={`tel:${c.phoneSecondary.replace(/\s/g, '')}`}
+              className="flex items-center gap-4 p-5 card-dark group md:pointer-events-none md:cursor-default">
+              <div className="flex-1">
+                <div className="text-cream/60 text-xs uppercase tracking-widest mb-0.5">{c.phoneSecondaryLabel}</div>
+                <div className="font-display text-xl text-cream group-hover:text-gold transition-colors duration-200">{c.phoneSecondary}</div>
+              </div>
+              <PhoneSvg />
+            </a>
+
             <div className="p-5 card-dark space-y-3">
               <div className="flex items-center gap-3">
                 <span className="text-xl">📍</span>
@@ -84,9 +93,13 @@ export default function Contact({ preselect }: { preselect?: string }) {
               </a>
             </div>
 
-            <div className="hidden lg:block text-center">
-              <a href={`mailto:${c.email}`} className="btn-gold w-full justify-center px-6 py-5 text-base">
-                <EmailSvg />{c.emailBtn}
+            {/* Le formulaire juste en dessous envoie le lead. Cette adresse est
+                la pour qui prefere ecrire lui-meme, elle ne doit pas lui faire
+                concurrence sous forme de gros bouton. */}
+            <div className="hidden text-center lg:block">
+              <a href={`mailto:${c.email}`}
+                className="inline-flex items-center gap-2 text-sm transition-colors text-cream/70 hover:text-gold">
+                <EmailSvg />{c.email}
               </a>
             </div>
 

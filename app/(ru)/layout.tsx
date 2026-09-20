@@ -134,7 +134,7 @@ export default async function RootLayoutRU({
     description:
       "Профессиональная чистка мебели с технологией инъекционной экстракции в Банско и окрестностях. Приедем к вам — диваны, матрасы, ковры, шторы, автомобильные сиденья.",
     url: DOMAIN,
-    telephone: "+359882862228",
+    telephone: ["+359882862228", "+359876850385"],
     email: "wetdrycleanbansko@gmail.com",
     image: [`${DOMAIN}/og-image.jpg`],
     logo: `${DOMAIN}/logo.png`,

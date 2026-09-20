@@ -16,6 +16,10 @@ export default function HotelsLeadForm() {
   const [name, setName] = useState('')
   const [phone, setPhone] = useState('')
   const [establishment, setEstablishment] = useState('')
+  const [sending, setSending] = useState(false)
+  const [emailError, setEmailError] = useState(false)
+  const [phoneError, setPhoneError] = useState(false)
+  const [honeypot, setHoneypot] = useState('')
 
   const toggleService = (val: string) =>
     setServices(prev => prev.includes(val) ? prev.filter(s => s !== val) : [...prev, val])
@@ -39,8 +43,40 @@ export default function HotelsLeadForm() {
   ].filter(Boolean).join('\n')
 
   const waUrl = `https://wa.me/${t.contact.whatsappNumber}?text=${encodeURIComponent(waMessage)}`
-  const emailSubject = `B2B - ${typeLabel}${establishment ? ` - ${establishment}` : ''}`
-  const emailUrl = `mailto:${t.contact.email}?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(waMessage)}`
+  // Sur desktop le lead part par l API, comme le formulaire de l accueil.
+  // Le mailto precedent dependait d une messagerie configuree chez le visiteur.
+  const handleEmail = async () => {
+    if (!phone.trim()) {
+      setPhoneError(true)
+      return
+    }
+    setSending(true)
+    setEmailError(false)
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          audience: 'business',
+          frequency: '',
+          service: serviceLabels,
+          serviceKeys: services,
+          quantity: units,
+          establishment: [typeLabel, establishment].filter(Boolean).join(' - '),
+          name,
+          phone,
+          location: '',
+          _hp: honeypot,
+        }),
+      })
+      if (res.ok) setStep('success')
+      else setEmailError(true)
+    } catch {
+      setEmailError(true)
+    } finally {
+      setSending(false)
+    }
+  }
 
   if (step === 'success') {
     return (
@@ -122,8 +158,15 @@ export default function HotelsLeadForm() {
             <div>
               <label htmlFor={`${uid}-phone`} className="block text-xs text-cream/50 uppercase tracking-widest mb-1">{f.phoneLabel}</label>
               <input suppressHydrationWarning id={`${uid}-phone`} value={phone}
-                onChange={e => setPhone(e.target.value)}
-                placeholder={f.phonePlaceholder} className="input-dark w-full text-sm" />
+                aria-invalid={phoneError}
+                aria-describedby={phoneError ? `${uid}-phone-error` : undefined}
+                onChange={e => { setPhone(e.target.value); setPhoneError(false) }}
+                placeholder={f.phonePlaceholder} className={`input-dark w-full text-sm ${phoneError ? 'border-red-500' : ''}`} />
+              {phoneError && (
+                <p id={`${uid}-phone-error`} role="alert" className="mt-1 text-xs text-red-400">
+                  {t.hero.form.validationPhone}
+                </p>
+              )}
             </div>
             <div>
               <label htmlFor={`${uid}-establishment`} className="block text-xs text-cream/50 uppercase tracking-widest mb-1">{f.establishmentLabel}</label>
@@ -142,12 +185,35 @@ export default function HotelsLeadForm() {
           </div>
 
           <div className="hidden lg:block space-y-2">
-            <a href={emailUrl} onClick={() => setStep('success')}
-              className="btn-gold w-full justify-center py-3 text-sm">
-              {f.emailBtn}
-            </a>
-            <p className="text-cream/55 text-xs text-center">{f.disclaimerEmail}</p>
+            <button onClick={handleEmail} disabled={sending}
+              className="btn-gold w-full justify-center py-3 text-sm disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:translate-y-0 disabled:hover:shadow-none">
+              {sending ? <span className="animate-pulse">{t.hero.form.sendingLabel}</span> : f.emailBtn}
+            </button>
+            {emailError && (
+              <p className="text-xs text-center text-red-400">{t.hero.form.emailErrorMsg}</p>
+            )}
+            <div className="text-xs text-center text-cream/55">
+              {f.disclaimerEmail}
+              <div className="mt-1.5">
+                {t.hero.form.emailDirect}{' '}
+                <a href={`mailto:${t.contact.email}`} className="transition-colors text-gold/80 hover:text-gold">
+                  {t.contact.email}
+                </a>
+              </div>
+            </div>
           </div>
+
+          <input
+            suppressHydrationWarning
+            type="text"
+            name="website"
+            value={honeypot}
+            onChange={e => setHoneypot(e.target.value)}
+            tabIndex={-1}
+            autoComplete="off"
+            aria-hidden="true"
+            style={{ position: 'absolute', left: '-9999px', opacity: 0, height: 0, width: 0 }}
+          />
         </>
       )}
     </div>

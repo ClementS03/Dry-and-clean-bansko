@@ -184,7 +184,11 @@ Comportement par device :
 | Bouton Appeler | visible | masqué | masqué |
 | Bouton WhatsApp Contact | visible | visible | masqué |
 | WhatsApp FAB | visible | visible | masqué |
-| LeadForm CTA primaire | WhatsApp | WhatsApp | Email Resend |
+| LeadForm CTA primaire | WhatsApp | WhatsApp | Envoi Resend |
+
+Sur mobile, **WhatsApp est le seul bouton d envoi** des deux formulaires : le client écrit depuis son propre numéro, donc aucune validation ne bloque le clic.
+
+Sur desktop, les deux formulaires **postent sur `/api/contact`**. Le téléphone y est obligatoire, sans lui le lead est injoignable. L adresse email est affichée en texte simple sous le bouton, pour qui préfère écrire lui-même. Plus aucun `mailto:` ne sert de soumission : il dépendait de la messagerie configurée chez le visiteur et perdait des leads en silence.
 
 ---
 
@@ -283,11 +287,18 @@ Bansko · Разлог · Добринище · Баня. Belitsa a été retir�
 
 ## Contacts
 
-**Un seul numéro sur tout le site** : +359 882 862 228, WhatsApp `359882862228`.
+**Deux numéros affichés, un seul destinataire WhatsApp.**
 
-Le second numéro (876 850 385) a été retiré en septembre 2026. Les trois langues partagent désormais le même numéro, ce qui a supprimé au passage une incohérence : sur `/en`, le formulaire pointait vers un numéro et le bouton WhatsApp flottant vers l autre.
+| | Numéro | Rôle |
+|---|---|---|
+| Principal | +359 882 862 228 | Étiqueté « anglais ». **Tout WhatsApp arrive ici** (`contact.whatsappNumber` et `whatsapp.number`, identiques dans les 3 langues). Telegram et Viber sont mentionnés sur ce numéro. |
+| Secondaire | +359 876 850 385 | Étiqueté « bulgare ». Affiché et cliquable en `tel:`, mais aucun WhatsApp ne lui est envoyé. |
 
-WhatsApp est le seul canal cliquable. Telegram et Viber sont **mentionnés** sur le même numéro via `contact.messaging`, sans lien : `t.me` ne résout que si le numéro est trouvable par recherche, et `viber://` échoue en silence sur un navigateur desktop.
+Les deux figurent dans le `telephone` du JSON-LD et dans `llms.txt`.
+
+Telegram et Viber ne sont **pas** cliquables : `t.me` ne résout que si le numéro est trouvable par recherche, et `viber://` échoue en silence sur un navigateur desktop. Ils sont mentionnés en texte via `contact.messaging`.
+
+Conséquence assumée : un client bulgare qui écrit sur WhatsApp arrive sur le numéro anglais.
 
 ---
 
