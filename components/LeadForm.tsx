@@ -9,7 +9,7 @@ const SURFACE_SERVICES = ["deep", "renovation", "turnover", "windows", "pressure
 export default function LeadForm({ preselect }: { preselect?: string }) {
   // Le formulaire est rendu deux fois par page, les id doivent etre uniques
   const uid = useId();
-  const { t } = useLanguage();
+  const { t, lang } = useLanguage();
   const f = t.hero.form;
   const whatsappNum = t.whatsapp.number;
 
@@ -101,6 +101,7 @@ export default function LeadForm({ preselect }: { preselect?: string }) {
           name,
           phone,
           location,
+          lang,
           _hp: honeypot,
         }),
       });

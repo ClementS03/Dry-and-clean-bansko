@@ -51,12 +51,13 @@ function row(label: string, value: string, alt: boolean) {
 
 /** Version texte du mail. Un HTML sans alternative text/plain est un
  *  signal de spam classique, Gmail le penalise. */
-function plainText(fields: [string, string][]): string {
+function plainText(fields: [string, string][], waLink = ''): string {
   return [
     'New quote request',
     'wetdrycleaningbansko.com',
     '',
     ...fields.map(([label, value]) => `${label}: ${value}`),
+    ...(waLink ? ['', `Repondre sur WhatsApp : https://wa.me/${waLink}`] : []),
   ].join('\n')
 }
 
@@ -89,6 +90,25 @@ function isRateLimited(ip: string): boolean {
   }
 
   return recent.length > MAX_PER_WINDOW
+}
+
+/**
+ * Numero utilisable par wa.me : chiffres seuls, indicatif pays inclus.
+ * Un numero bulgare saisi en 0888... devient 3598888...
+ */
+function waNumber(raw: string): string {
+  let digits = raw.replace(/[^\d+]/g, '')
+  if (digits.startsWith('+')) digits = digits.slice(1)
+  else if (digits.startsWith('00')) digits = digits.slice(2)
+  else if (digits.startsWith('0')) digits = '359' + digits.slice(1)
+  return digits.replace(/\D/g, '')
+}
+
+/** Message de reponse prerempli, dans la langue de la page consultee. */
+const REPLY_INTRO: Record<string, string> = {
+  bg: 'Здравейте! Относно вашето запитване от сайта:',
+  en: 'Hello! Regarding your request from our website:',
+  ru: 'Здравствуйте! По поводу вашего запроса с сайта:',
 }
 
 export async function POST(req: NextRequest) {
@@ -154,6 +174,7 @@ export async function POST(req: NextRequest) {
   const phone = sanitize(body.phone, 30)
   const location = sanitize(body.location, 100)
   const establishment = sanitize(body.establishment, 120)
+  const lang = body.lang === 'en' || body.lang === 'ru' ? body.lang : 'bg'
 
   // Le telephone est indispensable : sur ce canal il n y a ni WhatsApp ni
   // adresse email pour rappeler le prospect. La localite reste facultative,
@@ -196,6 +217,28 @@ export async function POST(req: NextRequest) {
     location ? row('Location', location, true) : '',
   ].join('')
 
+
+  const waLink = waNumber(phone)
+  const replyText = encodeURIComponent(
+    `${REPLY_INTRO[lang]} ${service || serviceKeys.join(', ')}`,
+  )
+
+  const actions = waLink
+    ? `
+        <div style="margin-top:20px;text-align:center;">
+          <a href="https://wa.me/${waLink}?text=${replyText}"
+             style="display:inline-block;background:#25D366;color:#fff;text-decoration:none;
+                    font-weight:700;font-size:15px;padding:13px 26px;border-radius:4px;">
+            Reply on WhatsApp
+          </a>
+          <a href="tel:${phone.replace(/\s/g, '')}"
+             style="display:inline-block;margin-left:10px;border:1px solid #d5d5d5;color:#1a1a1a;
+                    text-decoration:none;font-weight:600;font-size:15px;padding:12px 24px;border-radius:4px;">
+            Call
+          </a>
+        </div>`
+    : ''
+
   if (!process.env.RESEND_API_KEY) {
     // Sans cle, le lead ne peut pas partir. En developpement on l affiche
     // dans la console du serveur pour pouvoir tester le parcours complet,
@@ -232,15 +275,16 @@ export async function POST(req: NextRequest) {
       from: FROM,
       to: [TO_EMAIL],
       subject: `${isBusiness ? '[B2B] ' : ''}New lead - ${service || serviceKeys.join(', ')}`,
-      text: plainText(fields),
+      text: plainText(fields, waLink),
       html: `
         <div style="font-family:sans-serif;max-width:560px;margin:0 auto;color:#1a1a1a;">
           <div style="background:#F5C400;padding:16px 24px;border-radius:4px 4px 0 0;">
             <h2 style="margin:0;font-size:20px;color:#0A0A0A;">New quote request</h2>
-            <p style="margin:4px 0 0;font-size:13px;color:#0A0A0A;opacity:0.7;">wetdrycleaningbansko.com</p>
+            <p style="margin:5px 0 0;font-size:13px;font-weight:600;color:#0A0A0A;">wetdrycleaningbansko.com</p>
           </div>
           <div style="background:#f9f9f9;padding:24px;border:1px solid #e5e5e5;border-top:none;border-radius:0 0 4px 4px;">
             <table style="width:100%;border-collapse:collapse;">${rows}</table>
+            ${actions}
           </div>
         </div>
       `,

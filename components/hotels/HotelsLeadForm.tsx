@@ -6,7 +6,7 @@ type Step = 'step1' | 'step2' | 'success'
 
 export default function HotelsLeadForm() {
   const uid = useId()
-  const { t } = useLanguage()
+  const { t, lang } = useLanguage()
   const f = t.hotels.form
 
   const [step, setStep] = useState<Step>('step1')
@@ -66,6 +66,7 @@ export default function HotelsLeadForm() {
           name,
           phone,
           location: '',
+          lang,
           _hp: honeypot,
         }),
       })
