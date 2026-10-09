@@ -1,7 +1,7 @@
 'use client'
 
 import {
-  AppWindow, BedDouble, Building2, CalendarDays, Camera, Check, Clock, Droplets,
+  AppWindow, BedDouble, Building2, CalendarDays, Camera, Car, Check, Clock, Droplets,
   Factory, FileText, Gauge, HardHat, Home, KeyRound, Leaf, List, MapPin, MessageCircle,
   Monitor, Package, Phone, Receipt, Repeat, Ruler, ShieldCheck, Sofa, Sparkles, Star, Sun, Truck,
   Utensils, Zap, type LucideIcon,
@@ -13,6 +13,7 @@ const ICONS: Record<string, LucideIcon> = {
   'building-2': Building2,
   'calendar-days': CalendarDays,
   camera: Camera,
+  car: Car,
   check: Check,
   clock: Clock,
   droplets: Droplets,

@@ -4,17 +4,58 @@ import { useEffect, useState, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useLanguage } from "@/context/LanguageContext";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
+import Icon from "@/components/Icon";
 
-const SERVICE_ICONS: Record<string, string> = {
-  "Canapé/Fauteuil": "🛋️",
-  "Sofa/Armchair": "🛋️",
-  Matelas: "🛏️",
-  Mattress: "🛏️",
-  "Kilim/Moquette": "🏠",
-  "Carpet/Rug": "🏠",
-  Rideaux: "🪟",
-  "Sièges auto": "🚗",
-  "Car seats": "🚗",
+/**
+ * Les tags viennent du multi-select Notion, saisis a la main. On accepte
+ * plusieurs ecritures et on affiche ensuite le libelle traduit, pour qu un
+ * visiteur bulgare ne lise pas "Sofa" en anglais. Une valeur inconnue
+ * s affiche telle quelle, sans icone, plutot que de casser.
+ */
+const SERVICE_KEYS: Record<string, string> = {
+  // objets textile
+  sofa: 'sofa',
+  'sofa/armchair': 'sofa',
+  'canape/fauteuil': 'sofa',
+  'canapé/fauteuil': 'sofa',
+  mattress: 'mattress',
+  matelas: 'mattress',
+  carpet: 'carpet',
+  'carpet/rug': 'carpet',
+  'kilim/moquette': 'carpet',
+  car: 'car',
+  'car seats': 'car',
+  'sieges auto': 'car',
+  'sièges auto': 'car',
+  // services
+  textile: 'textile',
+  'upholstery-cleaning': 'textile',
+  deep: 'deep',
+  'deep-cleaning': 'deep',
+  renovation: 'renovation',
+  'post-construction-cleaning': 'renovation',
+  turnover: 'turnover',
+  'airbnb-turnover': 'turnover',
+  windows: 'windows',
+  'window-cleaning': 'windows',
+  pressure: 'pressure',
+  'pressure-washing': 'pressure',
+  industrial: 'industrial',
+  'industrial-cleaning': 'industrial',
+};
+
+const SERVICE_ICON: Record<string, string> = {
+  sofa: 'sofa',
+  mattress: 'bed-double',
+  carpet: 'home',
+  car: 'car',
+  textile: 'sofa',
+  deep: 'sparkles',
+  renovation: 'hard-hat',
+  turnover: 'key-round',
+  windows: 'app-window',
+  pressure: 'droplets',
+  industrial: 'factory',
 };
 
 interface Review {
@@ -43,6 +84,22 @@ function StarRating({ rating }: { rating: number }) {
 }
 
 function ReviewCard({ review }: { review: Review }) {
+  const { t } = useLanguage();
+
+  /** Libelle traduit du service, depuis le contenu. Null si la valeur
+   *  saisie dans Notion ne correspond a rien de connu. */
+  const labelFor = (key?: string): string | null => {
+    if (!key) return null;
+    const textile = (t.hero.form.textileItems as { value: string; label: string }[]).find(
+      (i) => i.value === key,
+    );
+    if (textile) return textile.label;
+    const service = (t.services.items as { key: string; name: string }[]).find(
+      (x) => x.key === key,
+    );
+    return service?.name ?? null;
+  };
+
   return (
     <div className="flex flex-col h-full gap-4 p-6 border rounded-sm bg-ink-700 border-gold/15">
       {/* Header */}
@@ -75,15 +132,20 @@ function ReviewCard({ review }: { review: Review }) {
       {/* Services */}
       {review.services.length > 0 && (
         <div className="flex flex-wrap gap-2 pt-3 border-t border-gold/10">
-          {review.services.map((svc) => (
-            <span
-              key={svc}
-              className="inline-flex items-center gap-1.5 bg-gold/8 border border-gold/15 rounded-sm px-2.5 py-1 text-xs text-cream/60"
-            >
-              <span>{SERVICE_ICONS[svc] ?? "✓"}</span>
-              <span>{svc}</span>
-            </span>
-          ))}
+          {review.services.map((svc) => {
+            const key = SERVICE_KEYS[svc.trim().toLowerCase()]
+            return (
+              <span
+                key={svc}
+                className="inline-flex items-center gap-1.5 bg-gold/8 border border-gold/15 rounded-sm px-2.5 py-1 text-xs text-cream/60"
+              >
+                {key && SERVICE_ICON[key] && (
+                  <Icon name={SERVICE_ICON[key]} className="w-3.5 h-3.5 text-gold" />
+                )}
+                <span>{labelFor(key) ?? svc}</span>
+              </span>
+            )
+          })}
         </div>
       )}
     </div>
