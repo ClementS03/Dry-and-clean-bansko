@@ -8,7 +8,6 @@ import HotelsPricing from "@/components/hotels/HotelsPricing"
 import HotelsHowItWorks from "@/components/hotels/HotelsHowItWorks"
 import HotelsLeadForm from "@/components/hotels/HotelsLeadForm"
 import HotelsReassurance from "@/components/hotels/HotelsReassurance"
-import HotelsCaseStudy from "@/components/hotels/HotelsCaseStudy"
 import Reviews from "@/components/Reviews"
 import BeforeAfter from "@/components/BeforeAfter"
 import { getGalleryPairs } from "@/lib/gallery"
@@ -55,7 +54,6 @@ export default function HotelsEN() {
         <HotelsHowItWorks />
         <HotelsPricing />
         <HotelsReassurance />
-        <HotelsCaseStudy />
         <BeforeAfter pairs={pairs} />
         <Reviews bg="bg-ink" />
         <HotelsFAQ />

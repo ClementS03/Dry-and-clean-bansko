@@ -91,7 +91,7 @@ function ReviewCard({ review }: { review: Review }) {
   const { t } = useLanguage();
 
   /** Libelle traduit du service, depuis le contenu. Null si la valeur
-   *  saisie dans Notion ne correspond a rien de connu. */
+   *  inscrite dans reviews.items ne correspond a rien de connu. */
   const labelFor = (key?: string): string | null => {
     if (!key) return null;
     const textile = (t.hero.form.textileItems as { value: string; label: string }[]).find(

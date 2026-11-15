@@ -28,7 +28,8 @@
         "short": "RU",
         "name": "Русский"
       }
-    ]
+    ],
+    "menuAria": "Open menu"
   },
   "hero": {
     "badge": "📍 Bansko · Razlog · Dobrinishte · Banya",
@@ -251,7 +252,7 @@
       "intro": "We clean sofas, mattresses, carpets and car seats where they are. No transport, no dismantling. The machine injects a cleaning solution deep into the fabric and pulls it straight back out with the dirt, so the textile is left barely damp, and our professional air mover dries it fast.",
       "includes": [
         "Sofas, armchairs and corner units, any fabric",
-        "Mattresses, including dust mite and allergen removal",
+        "Mattresses, both sides",
         "Carpets, rugs and fitted carpet",
         "Car seats, mats and headliner",
         "Stain and odour treatment, including pet smells",
@@ -1047,7 +1048,7 @@
         },
         {
           "q": "Do you handle properties with many units?",
-          "a": "Yes. In October we cleaned the carpets of 11 rooms in a hotel in Dobrinishte, over two days. We assess the volume during the on-site visit and propose a schedule."
+          "a": "Yes. We assess the volume during the on-site visit and propose a realistic schedule."
         },
         {
           "q": "Do we sign a contract?",
@@ -1182,11 +1183,6 @@
       ],
       "cta": "Ask us about it →",
       "whatsappMsg": "Hello! I'd like to know more about your digital services for my establishment."
-    },
-    "caseStudy": {
-      "badge": "Recent job",
-      "title": "Hotel in Dobrinishte, October 2026",
-      "text": "Carpets in 11 rooms, cleaned over two days: 7 rooms on the first day, then 4 more."
     }
   },
   "legal": {

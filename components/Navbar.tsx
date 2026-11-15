@@ -301,7 +301,7 @@ export default function Navbar() {
             <button
               className="md:hidden p-1.5 text-cream/80 hover:text-gold transition-colors"
               onClick={() => setMenuOpen((v) => !v)}
-              aria-label="Toggle menu"
+              aria-label={t.nav.menuAria}
             >
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path
