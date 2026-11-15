@@ -194,7 +194,7 @@ Sur desktop, les deux formulaires **postent sur `/api/contact`**. Le téléphone
 
 ## Avis clients
 
-Notion a été débranché en novembre 2026. Les avis sont recopiés à la main dans `reviews.items` des trois JSON : texte d'origine mot pour mot (`text`, `textLang`), traduction dans la langue de la page (`translation`, vide si même langue), `source` (`google` ou vide), `date` (mois approximatif). `Reviews.tsx` garde le slider et ajoute le badge « 5,0 sur Google » + lien vers la fiche. Pour changer les avis : nouvelle capture de la fiche Google, recopier, supprimer la capture. Aucun `aggregateRating` dans le JSON-LD : Google ignore les avis auto-déclarés.
+Notion a été débranché en novembre 2026. Les avis sont recopiés à la main dans `reviews.items` des trois JSON : texte d origine mot pour mot, sans traduction (`text`, `textLang`), `source` (`google` ou vide), `date` (mois approximatif). `Reviews.tsx` garde le slider (hauteur fixée sur l avis le plus long, la page ne saute pas) et ajoute le badge « 5,0 sur Google » + lien vers la fiche. Pour changer les avis : nouvelle capture de la fiche Google, recopier, supprimer la capture. Aucun `aggregateRating` dans le JSON-LD : Google ignore les avis auto-déclarés.
 
 ---
 

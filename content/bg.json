@@ -812,7 +812,6 @@
         ],
         "text": "I’m very happy with my almost new sofa! It was so dirty that I couldn’t believe it was my sofa after he finished clening it. High reccomend it",
         "textLang": "en",
-        "translation": "Много съм доволна от почти новия си диван! Беше толкова мръсен, че след почистването не повярвах, че е моят. Горещо препоръчвам.",
         "source": "google",
         "date": "октомври 2026"
       },
@@ -825,7 +824,6 @@
         ],
         "text": "Отлично почистване на добра цена, идват на адрес в Банско и става доста бързо. Препоръчвам, и качвам снимка на резултата, от кучета килима беше станал мармалад 😂",
         "textLang": "bg",
-        "translation": "",
         "source": "google",
         "date": "юни 2026"
       },
@@ -838,7 +836,6 @@
         ],
         "text": "Очень довольна выполненной работой,мой ковёр, после чистки, выглядит как новый. Если хотите за маленькие деньги обновить свои вещи, смело обращайтесь,рекомендую!",
         "textLang": "ru",
-        "translation": "Много съм доволна от свършената работа. След почистването килимът ми изглежда като нов. Ако искате да обновите вещите си за малко пари, обърнете се смело към тях, препоръчвам!",
         "source": "google",
         "date": "юни 2026"
       },
@@ -851,7 +848,6 @@
         ],
         "text": "Fantastic job! I honestly didn’t expect my sofas to look this clean again. Super friendly team and great results, I’ll definitely use them again! :))",
         "textLang": "en",
-        "translation": "Страхотна работа! Честно казано не очаквах диваните ми отново да изглеждат толкова чисти. Много любезен екип и чудесен резултат, определено ще ги ползвам пак!",
         "source": "",
         "date": ""
       },
@@ -864,7 +860,6 @@
         ],
         "text": "Good job! My car seats feels fresh)",
         "textLang": "en",
-        "translation": "Добра работа! Седалките в колата ми са като нови.",
         "source": "",
         "date": ""
       },
@@ -877,7 +872,6 @@
         ],
         "text": "Fast work, good price and clean job",
         "textLang": "en",
-        "translation": "Бърза работа, добра цена и чисто изпълнение.",
         "source": "",
         "date": ""
       }
@@ -888,7 +882,6 @@
     "cta": "Вижте всички отзиви в Google",
     "url": "https://g.page/r/CU4pAGZ9UMLpEBM",
     "sourceLabel": "Google",
-    "translationLabel": "Превод",
     "prev": "Предишен отзив",
     "next": "Следващ отзив"
   },

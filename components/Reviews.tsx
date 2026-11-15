@@ -65,7 +65,6 @@ interface Review {
   services: string[];
   text: string;
   textLang: string;
-  translation: string;
   source: string;
   date: string;
 }
@@ -138,12 +137,6 @@ function ReviewCard({ review }: { review: Review }) {
         <p lang={review.textLang} className="text-sm leading-relaxed text-cream/65">
           {review.text}
         </p>
-        {review.translation && (
-          <p className="mt-3 text-xs leading-relaxed text-cream/50">
-            <span className="uppercase tracking-wide text-gold/60">{t.reviews.translationLabel}: </span>
-            {review.translation}
-          </p>
-        )}
       </div>
 
       {/* Services */}
@@ -207,9 +200,18 @@ function ReviewCarousel({ reviews }: { reviews: Review[] }) {
   return (
     <div className="relative">
       {/* Cards */}
-      <div className="relative min-h-[220px] overflow-hidden">
+      {/* Tous les avis sont empiles, invisibles, dans la meme cellule de grille :
+          le bloc prend la hauteur du plus long et la page ne saute plus. */}
+      <div className="relative grid overflow-hidden">
+        {reviews.map((r) => (
+          <div key={`sizer-${r.id}`} aria-hidden="true" className="invisible [grid-area:1/1]">
+            <ReviewCard review={r} />
+          </div>
+        ))}
+        <div className="[grid-area:1/1]">
         <AnimatePresence mode="wait" custom={direction}>
           <motion.div
+            className="h-full"
             key={reviews[active].id}
             custom={direction}
             variants={variants}
@@ -221,6 +223,7 @@ function ReviewCarousel({ reviews }: { reviews: Review[] }) {
             <ReviewCard review={reviews[active]} />
           </motion.div>
         </AnimatePresence>
+        </div>
       </div>
 
       {/* Controls */}
