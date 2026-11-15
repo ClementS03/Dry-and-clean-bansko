@@ -8,7 +8,9 @@ import HotelsPricing from "@/components/hotels/HotelsPricing"
 import HotelsHowItWorks from "@/components/hotels/HotelsHowItWorks"
 import HotelsLeadForm from "@/components/hotels/HotelsLeadForm"
 import HotelsReassurance from "@/components/hotels/HotelsReassurance"
-import HotelsSocialProof from "@/components/hotels/HotelsSocialProof"
+import Reviews from "@/components/Reviews"
+import BeforeAfter from "@/components/BeforeAfter"
+import { getGalleryPairs } from "@/lib/gallery"
 import HotelsFAQ from "@/components/hotels/HotelsFAQ"
 import HotelsCTA from "@/components/hotels/HotelsCTA"
 import HotelsExtras from "@/components/hotels/HotelsExtras"
@@ -24,7 +26,7 @@ export const metadata: Metadata = {
       "bg-BG": "/business",
       "en": "/en/business",
       "ru": "/ru/business",
-      "x-default": "/business",
+      "x-default": "/en/business",
     },
   },
   openGraph: {
@@ -41,6 +43,8 @@ export const metadata: Metadata = {
 }
 
 export default function HotelsBG() {
+  // Photos du chantier : public/gallery/business/, la galerie apparait seule
+  const pairs = getGalleryPairs("business")
   return (
     <LanguageProvider initialLang="bg">
       <Navbar />
@@ -50,7 +54,8 @@ export default function HotelsBG() {
         <HotelsHowItWorks />
         <HotelsPricing />
         <HotelsReassurance />
-        <HotelsSocialProof />
+        <BeforeAfter pairs={pairs} />
+        <Reviews bg="bg-ink" />
         <HotelsFAQ />
         <section id="business-devis" className="section-pad bg-ink">
           <div className="max-w-2xl mx-auto px-4 sm:px-6">

@@ -100,7 +100,29 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-8 mb-6 gold-divider" />
+        {/* Zones d intervention, en texte pour le SEO local */}
+        <p className="mt-8 text-xs text-center text-cream/55 md:text-left">
+          <span className="tracking-widest uppercase font-display text-cream/70">{f.areasLabel}</span>{" "}
+          {f.areas}
+        </p>
+
+        <div className="mt-6 mb-6 gold-divider" />
+
+        {/* Mentions legales : loi bulgare sur le commerce electronique */}
+        <div className="mb-6 space-y-1 text-xs leading-relaxed text-center text-cream/55 md:text-left">
+          <p>{f.legal.company}</p>
+          <p>{f.legal.address}</p>
+          <p>{f.legal.register}</p>
+          <p>
+            {t.contact.phone} · {t.contact.email} ·{" "}
+            <a
+              href={`${prefix}/privacy`}
+              className="underline transition-colors underline-offset-2 decoration-gold/30 text-gold/70 hover:text-gold"
+            >
+              {t.legal.privacyLabel}
+            </a>
+          </p>
+        </div>
         {/* pb-16 on mobile to avoid WhatsApp FAB overlap, sm:pb-0 on desktop */}
         <div className="flex flex-col items-center justify-between gap-2 pb-16 text-xs sm:flex-row text-cream/55 sm:pb-0">
           <span>

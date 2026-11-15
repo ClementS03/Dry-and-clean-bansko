@@ -1,7 +1,7 @@
 {
   "meta": {
     "title": "Upholstery & professional cleaning Bansko | Wet&Dry Cleaning",
-    "description": "Upholstery cleaning, deep cleaning, windows, pressure washing and post-construction cleaning in Bansko and the surrounding area. Free offer within a few hours.",
+    "description": "Upholstery cleaning, deep cleaning, windows, pressure washing and post-construction cleaning in Bansko, Razlog and Dobrinishte. Free quote from photos.",
     "keywords": "cleaning Bansko, upholstery cleaning Bansko, sofa cleaning Bansko, deep cleaning Bansko, post construction cleaning Bansko, window cleaning Bansko, pressure washing Bansko, industrial cleaning Bansko, airbnb turnover cleaning Bansko, Razlog, Dobrinishte, Banya"
   },
   "nav": {
@@ -10,7 +10,26 @@
     "quote": "Quote",
     "faq": "FAQ",
     "contact": "Contact",
-    "cta": "Free offer"
+    "cta": "Free offer",
+    "langAria": "Choose language",
+    "languages": [
+      {
+        "code": "bg",
+        "short": "BG",
+        "name": "Български"
+      },
+      {
+        "code": "en",
+        "short": "EN",
+        "name": "English"
+      },
+      {
+        "code": "ru",
+        "short": "RU",
+        "name": "Русский"
+      }
+    ],
+    "menuAria": "Open menu"
   },
   "hero": {
     "badge": "📍 Bansko · Razlog · Dobrinishte · Banya",
@@ -19,7 +38,7 @@
     "subtitle": "Upholstery cleaning, deep cleaning, windows, pressure washing and post-construction work in Bansko and the valley. We bring the equipment to you.",
     "form": {
       "title": "Get a free quote",
-      "subtitle": "We reply within a few hours",
+      "subtitle": "Send photos, get a fixed price",
       "step1Title": "What to clean?",
       "step2Title": "Your details",
       "nameLabel": "Your name",
@@ -31,16 +50,16 @@
       "nextBtn": "Continue →",
       "backBtn": "← Back",
       "submitBtn": "Send via WhatsApp →",
-      "disclaimer": "No commitment. You'll receive a reply on WhatsApp within a few hours.",
+      "disclaimer": "No commitment. We reply on WhatsApp with a fixed price.",
       "successTitle": "✓ Request sent!",
-      "successText": "We'll get back to you on WhatsApp within a few hours.",
+      "successText": "We'll get back to you on WhatsApp as soon as we can.",
       "validationPhone": "Please enter a phone number",
       "validationLocation": "Please enter your location",
       "newRequest": "New request",
       "emailBtn": "Send by email",
       "sendingLabel": "Sending...",
-      "disclaimerEmail": "No commitment. We reply within a few hours, by WhatsApp or phone.",
-      "successTextEmail": "We received your request. We reply within a few hours.",
+      "disclaimerEmail": "No commitment. We reply by WhatsApp or phone.",
+      "successTextEmail": "We received your request. We'll get back to you as soon as we can.",
       "emailErrorMsg": "Failed to send. Please try again.",
       "selectedLabel": "selected",
       "selectedLabelPlural": "selected",
@@ -134,7 +153,7 @@
     },
     {
       "icon": "zap",
-      "label": "Offer within hours"
+      "label": "Quote from photos"
     },
     {
       "icon": "building-2",
@@ -142,7 +161,7 @@
     },
     {
       "icon": "shield-check",
-      "label": "Insured, invoices for businesses"
+      "label": "Invoices for businesses"
     }
   ],
   "services": {
@@ -228,12 +247,12 @@
   "servicePages": {
     "upholstery-cleaning": {
       "metaTitle": "Upholstery cleaning in Bansko | Wet&Dry Cleaning",
-      "metaDescription": "Sofas, mattresses, carpets and car seats cleaned at your place in Bansko. Injection-extraction, dries in 2 to 4 hours. Free offer within a few hours.",
+      "metaDescription": "Sofas, mattresses, carpets and car seats cleaned at your place in Bansko. Injection-extraction and fast drying with a professional air mover. Free quote.",
       "h1": "Upholstery and textile cleaning in Bansko",
-      "intro": "We clean sofas, mattresses, carpets and car seats where they are. No transport, no dismantling. The machine injects a cleaning solution deep into the fabric and pulls it straight back out with the dirt, so the textile is left barely damp and dries in 2 to 4 hours.",
+      "intro": "We clean sofas, mattresses, carpets and car seats where they are. No transport, no dismantling. The machine injects a cleaning solution deep into the fabric and pulls it straight back out with the dirt, so the textile is left barely damp, and our professional air mover dries it fast.",
       "includes": [
         "Sofas, armchairs and corner units, any fabric",
-        "Mattresses, including dust mite and allergen removal",
+        "Mattresses, both sides",
         "Carpets, rugs and fitted carpet",
         "Car seats, mats and headliner",
         "Stain and odour treatment, including pet smells",
@@ -246,7 +265,7 @@
         },
         {
           "q": "How long before I can use it again?",
-          "a": "The fabric is barely damp when we leave. Two to four hours and it is ready to use."
+          "a": "The fabric is barely damp when we leave and our air mover speeds up drying. The time depends on the fabric and the airing. We tell you how long to wait before you use it."
         },
         {
           "q": "Will old stains come out?",
@@ -256,7 +275,7 @@
     },
     "deep-cleaning": {
       "metaTitle": "Deep cleaning in Bansko | Wet&Dry Cleaning",
-      "metaDescription": "Top-to-bottom deep cleaning of flats and houses in Bansko, Razlog, Dobrinishte and Banya. Free offer within a few hours.",
+      "metaDescription": "Top-to-bottom deep cleaning of flats and houses in Bansko, Razlog, Dobrinishte and Banya. Free quote from photos.",
       "h1": "Deep cleaning in Bansko",
       "intro": "The clean you do once or twice a year, not the weekly one. We take a flat or a house room by room, from degreasing the kitchen to the skirting boards. Useful before moving in, after a season, or when a rental needs to go back to a proper standard.",
       "includes": [
@@ -311,10 +330,10 @@
       ]
     },
     "airbnb-turnover": {
-      "metaTitle": "Guest turnover cleaning in Bansko | Wet&Dry Cleaning",
-      "metaDescription": "Cleaning between guests for rental flats and guesthouses in Bansko. We work in the window between check-out and check-in.",
-      "h1": "Guest turnover cleaning in Bansko",
-      "intro": "Between one guest leaving and the next arriving there is often just a few hours. We work inside that window, the same way every time, so the flat is photo-ready and nothing gets forgotten in the rush. In high season we hold a slot for you rather than giving it to whoever calls first.",
+      "metaTitle": "Airbnb & Booking cleaning in Bansko | Wet&Dry Cleaning",
+      "metaDescription": "Turnover cleaning for Airbnb and Booking flats and guesthouses in Bansko. We work in the window between check-out and check-in.",
+      "h1": "Airbnb and Booking turnover cleaning in Bansko",
+      "intro": "Between one Airbnb or Booking guest leaving and the next arriving there is often just a few hours. We work inside that window, the same way every time, so the flat is photo-ready and nothing gets forgotten in the rush. In high season we hold a slot for you rather than giving it to whoever calls first.",
       "includes": [
         "The full flat, kitchen, bathroom, floors and surfaces",
         "Beds made and linen changed",
@@ -326,7 +345,7 @@
       "faq": [
         {
           "q": "How fast can you come after check-out?",
-          "a": "Usually within one to two hours. On a recurring contract your property gets priority."
+          "a": "We come in the window you give us. On a recurring contract your slots are booked ahead. In ski season, book early."
         },
         {
           "q": "Do you handle the linen?",
@@ -368,7 +387,7 @@
     },
     "pressure-washing": {
       "metaTitle": "Pressure washing in Bansko | Wet&Dry Cleaning",
-      "metaDescription": "Terraces, driveways, yards and facades pressure washed in Bansko, Razlog and Dobrinishte. Moss, mud and green build-up removed. Free offer.",
+      "metaDescription": "Terraces, driveways, yards and facades pressure washed in Bansko, Razlog and Dobrinishte. Moss, mud and green build-up removed. Free quote.",
       "h1": "Pressure washing in Bansko",
       "intro": "Stone, concrete and wood go green here, between the snowmelt and the summer rain. High pressure lifts moss, mud and the black film that builds up over the seasons. We set the pressure to the surface, because the same setting that cleans concrete will destroy soft wood.",
       "includes": [
@@ -437,7 +456,7 @@
         "number": "02",
         "icon": "file-text",
         "title": "Offer",
-        "description": "You get a price within hours. We fix it before we start."
+        "description": "You get a fixed price from the photos. It doesn't change when we arrive."
       },
       {
         "number": "03",
@@ -458,7 +477,7 @@
     "title": "Injection-Extraction",
     "titleSub": "Deep cleaning from the inside",
     "subtitle": "Three steps, one visible result",
-    "description": "Unlike traditional surface cleaning, injection-extraction technology penetrates directly into the fabric, injecting water mixed with cleaning solution, then immediately extracting it along with all the dirt. The fabric is left barely damp and dries in 2–4 hours.",
+    "description": "Unlike traditional surface cleaning, injection-extraction technology penetrates directly into the fabric, injecting water mixed with cleaning solution, then immediately extracting it along with all the dirt. The fabric is left barely damp, and a professional air mover dries it fast.",
     "videoUrl": "",
     "videoLabel": "Watch the machine in action",
     "steps": [
@@ -472,13 +491,13 @@
         "number": "02",
         "icon": "🌀",
         "title": "Product action",
-        "description": "The specialised cleaning solution breaks down stains, bacteria, dust mites and allergens. Product choice depends on the fabric type and level of soiling."
+        "description": "The cleaning solution loosens stains and dirt. We choose the product for the fabric type and how dirty it is."
       },
       {
         "number": "03",
         "icon": "⚡",
         "title": "Extraction",
-        "description": "The machine immediately suctions back the water along with all the broken-down dirt. The fabric stays barely damp, no risk of mould."
+        "description": "The machine immediately pulls the water back out with the loosened dirt. The fabric is left barely damp."
       }
     ],
     "features": [
@@ -490,12 +509,12 @@
       {
         "icon": "🌿",
         "title": "Right product for each fabric",
-        "description": "We select the product based on the material, safe for children and pets."
+        "description": "We choose the product based on the material."
       },
       {
         "icon": "⏱️",
-        "title": "Dries in 2–4 hours",
-        "description": "Minimal water, maximum result. Furniture ready to use the same day."
+        "title": "Fast drying",
+        "description": "Little water, and a professional air mover to speed up drying."
       },
       {
         "icon": "✅",
@@ -505,16 +524,16 @@
     ],
     "stats": [
       {
-        "value": "2–4h",
-        "label": "Drying"
+        "value": "On site",
+        "label": "No transport"
       },
       {
-        "value": "100%",
-        "label": "Extraction"
+        "value": "Free",
+        "label": "Quote from photos"
       },
       {
-        "value": "Same day",
-        "label": "Ready"
+        "value": "7/7",
+        "label": "Days a week"
       }
     ]
   },
@@ -531,27 +550,9 @@
         "ourGood": true
       },
       {
-        "label": "Mites & bacteria",
-        "our": "Removed deep down",
-        "classic": "Remain",
-        "ourGood": true
-      },
-      {
-        "label": "Disinfection",
-        "our": "Yes",
-        "classic": "No",
-        "ourGood": true
-      },
-      {
         "label": "Drying time",
-        "our": "2–4 hours",
-        "classic": "Up to 24 hours",
-        "ourGood": true
-      },
-      {
-        "label": "Mould risk",
-        "our": "Minimal",
-        "classic": "High",
+        "our": "Fast, with a professional air mover",
+        "classic": "Slow, air drying",
         "ourGood": true
       },
       {
@@ -572,18 +573,18 @@
       },
       {
         "icon": "✅",
-        "title": "Fully insured",
-        "description": "Accidental damage during our work is covered at our cost, no risk to you."
+        "title": "Price fixed before we start",
+        "description": "You send photos, we give one price. It doesn't change on the day."
       },
       {
         "icon": "⚡",
-        "title": "Fast & convenient",
-        "description": "Most jobs take between one and three hours. We work weekends too."
+        "title": "Every day, 8 am to 8 pm",
+        "description": "Weekends included. We fit around your schedule."
       },
       {
         "icon": "🌿",
-        "title": "Family safe",
-        "description": "Certified products. Safe for children, babies and pets."
+        "title": "We bring everything",
+        "description": "Machine, products and a professional air mover for fast drying. You only need water and power."
       },
       {
         "icon": "📍",
@@ -592,8 +593,8 @@
       },
       {
         "icon": "💬",
-        "title": "Reply within a few hours",
-        "description": "Message us on WhatsApp and get a quote within a few hours."
+        "title": "Quote on WhatsApp",
+        "description": "Send a few photos and get a fixed price. Most jobs need no visit."
       }
     ]
   },
@@ -630,7 +631,7 @@
       "We invoice businesses, and private customers on request."
     ],
     "cta": "Get your offer",
-    "note": "Send photos and you get an offer within a few hours."
+    "note": "Send photos and get a fixed offer."
   },
   "faq": {
     "title": "Frequently asked questions",
@@ -641,11 +642,11 @@
       },
       {
         "q": "How long does upholstery take to dry?",
-        "a": "With injection-extraction the fabric dries in 2 to 4 hours, much faster than traditional wet cleaning. You can use your furniture the same day."
+        "a": "It depends on the fabric and how well the room is aired. We use a professional air mover, which cuts the drying time a lot. Before we leave, we tell you how long to wait before using your furniture."
       },
       {
         "q": "Is it safe for children and pets?",
-        "a": "Yes. We only use certified, biodegradable products. Once dry, they leave no harmful residues."
+        "a": "We use professional products made for upholstery. If someone at home has allergies, tell us before we come and we will adapt."
       },
       {
         "q": "What if something cannot be cleaned?",
@@ -653,19 +654,23 @@
       },
       {
         "q": "How do you set the price and how do I pay?",
-        "a": "Send us photos and a few details and you get an offer within a few hours. The price is fixed before we start. You pay after the job, by cash, bank transfer or Revolut. Businesses get an invoice, private customers on request."
+        "a": "Send us photos and a few details and we send you a price. The price is fixed before we start. You pay after the job, by cash, bank transfer or Revolut. Businesses get an invoice, private customers on request."
+      },
+      {
+        "q": "What should I send to get a quote?",
+        "a": "A few photos of what needs cleaning, the rough size (number of seats, square metres) and the town. For stains, a close-up helps. We reply with a fixed price."
       },
       {
         "q": "Which areas do you cover?",
-        "a": "We cover Bansko, Razlog, Dobrinishte, Banya and the entire Bansko-Razlog valley. For more distant locations, contact us."
+        "a": "We work in Bansko, Razlog, Dobrinishte, Banya and the whole Bansko-Razlog valley, with no travel fee. For Blagoevgrad, Simitli, Belitsa, Yakoruda, Gotse Delchev, Sandanski and further away, travel is included in the quote."
       },
       {
         "q": "How much does sofa cleaning cost in Bansko?",
-        "a": "It depends on the size of the sofa, the fabric and its condition. That is why we quote from photos instead of a flat rate. Send us a photo and you get an exact price within a few hours. We fix it before we start and you pay after the job."
+        "a": "It depends on the size of the sofa, the fabric and its condition. That is why we quote from photos instead of a flat rate. Send us a photo and you get an exact price. We fix it before we start and you pay after the job."
       },
       {
         "q": "Can you remove pet odours and smells?",
-        "a": "Yes. The injection-extraction method extracts contaminants from deep within the fabric, including odours from dogs, cats and cigarette smoke. For stronger odours, we apply enzyme-based treatments at no extra charge. Most clients report complete odour elimination after a single treatment."
+        "a": "Yes. Our pre-spray contains enzymes that break down organic odours from pets and smoke, and it is part of the normal price. Urine or very heavy soiling needs extra work, so we quote it separately after seeing photos. If the smell is deep in the padding, we tell you honestly before we start."
       },
       {
         "q": "Do you work with hotels and rental flats in Bansko?",
@@ -673,7 +678,7 @@
       },
       {
         "q": "Do you cover Dobrinishte, Banya and Razlog?",
-        "a": "Yes, we cover Dobrinishte, Banya, Razlog and all villages in the Bansko-Razlog valley with no extra travel charge. For locations outside this area, please contact us in advance to confirm availability."
+        "a": "Yes. Dobrinishte, Banya, Razlog and every village in the Bansko-Razlog valley come with no travel fee. Outside the valley, travel is included in the quote."
       },
       {
         "q": "Do you work during ski season and on weekends?",
@@ -697,19 +702,19 @@
     "title": "Get in touch",
     "subtitle": "We come to you in Bansko & surroundings",
     "phone": "+359 882 862 228",
-    "phoneLabel": "English",
-    "messaging": "Fastest by WhatsApp, Telegram or Viber. Same number.",
+    "phoneLabel": "Calls in English and French",
+    "messaging": "WhatsApp, Telegram and Viber on the first number.",
     "phoneSecondary": "+359 876 850 385",
-    "phoneSecondaryLabel": "Bulgarian",
+    "phoneSecondaryLabel": "Calls in Bulgarian and Russian",
     "whatsappNumber": "359882862228",
     "whatsappMsg": "Hello! I would like a quote for cleaning.",
     "area": "Bansko · Razlog · Dobrinishte · Banya",
     "hours": "Mon–Sun: 08:00 – 20:00",
     "email": "wetdrycleanbansko@gmail.com",
     "waBtn": "Message on WhatsApp",
-    "reassurance": "✓ No commitment · Reply within a few hours · Free quote",
+    "reassurance": "✓ No commitment · Fixed price · Free quote",
     "reviewUrl": "https://g.page/r/CU4pAGZ9UMLpEBM/review",
-    "googleMapsUrl": "https://share.google/clusbr8qexFPhAj92",
+    "googleMapsUrl": "https://g.page/r/CU4pAGZ9UMLpEBM",
     "reviewCta": "Leave a Google review",
     "messagingShort": "Also on Telegram and Viber"
   },
@@ -758,7 +763,14 @@
         "href": "https://www.tiktok.com/@wetdryclean.bansko",
         "icon": "tiktok"
       }
-    ]
+    ],
+    "legal": {
+      "company": "VOLYA GRUP EDPK („ВОЛЯ ГРУП“ ЕДПК) · UIC 208994501",
+      "address": "Registered office: 5 Sv. Ivan St., floor 1, apt. 6, 2770 Bansko, Bulgaria",
+      "register": "Registered in the Commercial Register of the Bulgarian Registry Agency"
+    },
+    "areasLabel": "Areas",
+    "areas": "Bansko · Razlog · Dobrinishte · Banya · Bansko-Razlog valley · Blagoevgrad and the region"
   },
   "whatsapp": {
     "tooltip": "Message us on WhatsApp",
@@ -788,7 +800,90 @@
     "badge": "Client reviews",
     "title": "What clients say",
     "subtitle": "Real feedback from our clients in Bansko & surroundings.",
-    "ariaLabel": "Review"
+    "ariaLabel": "Review",
+    "items": [
+      {
+        "id": "gabriella",
+        "name": "Gabriella V.",
+        "rating": 5,
+        "services": [
+          "sofa",
+          "mattress"
+        ],
+        "text": "I’m very happy with my almost new sofa! It was so dirty that I couldn’t believe it was my sofa after he finished clening it. High reccomend it",
+        "textLang": "en",
+        "source": "google",
+        "date": "October 2026"
+      },
+      {
+        "id": "evrigama",
+        "name": "EvriGama",
+        "rating": 5,
+        "services": [
+          "carpet"
+        ],
+        "text": "Отлично почистване на добра цена, идват на адрес в Банско и става доста бързо. Препоръчвам, и качвам снимка на резултата, от кучета килима беше станал мармалад 😂",
+        "textLang": "bg",
+        "source": "google",
+        "date": "June 2026"
+      },
+      {
+        "id": "marina",
+        "name": "Marina G.",
+        "rating": 5,
+        "services": [
+          "carpet"
+        ],
+        "text": "Очень довольна выполненной работой,мой ковёр, после чистки, выглядит как новый. Если хотите за маленькие деньги обновить свои вещи, смело обращайтесь,рекомендую!",
+        "textLang": "ru",
+        "source": "google",
+        "date": "June 2026"
+      },
+      {
+        "id": "andrew",
+        "name": "Andrew W.",
+        "rating": 5,
+        "services": [
+          "sofa"
+        ],
+        "text": "Fantastic job! I honestly didn’t expect my sofas to look this clean again. Super friendly team and great results, I’ll definitely use them again! :))",
+        "textLang": "en",
+        "source": "",
+        "date": ""
+      },
+      {
+        "id": "nina",
+        "name": "Nina T.",
+        "rating": 5,
+        "services": [
+          "car"
+        ],
+        "text": "Good job! My car seats feels fresh)",
+        "textLang": "en",
+        "source": "",
+        "date": ""
+      },
+      {
+        "id": "andrey",
+        "name": "Andrey",
+        "rating": 5,
+        "services": [
+          "car"
+        ],
+        "text": "Fast work, good price and clean job",
+        "textLang": "en",
+        "source": "",
+        "date": ""
+      }
+    ],
+    "rating": "5,0",
+    "ratingLabel": "on Google",
+    "ratingAria": "Rated 5.0 out of 5 on Google",
+    "cta": "See all reviews on Google",
+    "url": "https://g.page/r/CU4pAGZ9UMLpEBM",
+    "sourceLabel": "Google",
+    "prev": "Previous review",
+    "next": "Next review"
   },
   "rentals": {
     "badge": "For business",
@@ -798,8 +893,8 @@
     "items": [
       {
         "icon": "zap",
-        "title": "Fast turnaround",
-        "description": "We clean between check-out and check-in, even same-day with advance notice."
+        "title": "Between check-out and check-in",
+        "description": "We clean in the window between guests, on an agreed schedule."
       },
       {
         "icon": "package",
@@ -825,8 +920,8 @@
     },
     "hero": {
       "badge": "🏨 For businesses",
-      "title": "Your guests notice cleanliness.",
-      "subtitle": "Professional cleaning for hotels, guesthouses, rental flats, restaurants and production sites in Bansko and the surrounding area.",
+      "title": "Cleaning for hotels and businesses in Bansko",
+      "subtitle": "Your guests notice cleanliness. We clean for hotels, guesthouses, rental property managers, spas, restaurants and production sites in Bansko and the valley.",
       "cta": "Free on-site inspection & quote",
       "ctaWhatsappMsg": "Hello! I would like a free on-site inspection and quote for a hotel / rental property."
     },
@@ -835,7 +930,7 @@
       "items": [
         {
           "icon": "building-2",
-          "label": "Hotels"
+          "label": "Hotels and spas"
         },
         {
           "icon": "home",
@@ -843,7 +938,11 @@
         },
         {
           "icon": "sofa",
-          "label": "Airbnb apartments"
+          "label": "Airbnb and Booking flats"
+        },
+        {
+          "icon": "key-round",
+          "label": "Rental property managers"
         },
         {
           "icon": "utensils",
@@ -913,18 +1012,18 @@
       "items": [
         {
           "icon": "clock",
-          "title": "Dries in 2–4 hours",
-          "description": "Furniture ready to use shortly after cleaning."
+          "title": "Fast drying",
+          "description": "A professional air mover speeds up drying, so rooms are back in use sooner."
         },
         {
           "icon": "leaf",
           "title": "Low-foam professional products",
-          "description": "Specialised products for hotel textiles. No foam residue."
+          "description": "Products chosen for hotel textiles."
         },
         {
-          "icon": "shield-check",
-          "title": "Professional liability insurance",
-          "description": "If we accidentally damage anything during our work, it's covered at our cost. No risk for you."
+          "icon": "map-pin",
+          "title": "On-site visit for big jobs",
+          "description": "For large sites we come and look before we quote. The price is fixed before we start."
         },
         {
           "icon": "receipt",
@@ -933,20 +1032,16 @@
         }
       ]
     },
-    "socialProof": {
-      "ratingLabel": "See our reviews on Google",
-      "subtitle": "See what our clients say on Google"
-    },
     "faq": {
       "title": "Frequently asked questions",
       "items": [
         {
           "q": "How quickly can you clean after check-out?",
-          "a": "Typically we start within 1–2 hours after check-out. Regular contract clients are prioritised."
+          "a": "We come in the window you give us. Contract clients get their slots booked ahead."
         },
         {
           "q": "Do you handle properties with many units?",
-          "a": "Yes. We have capacity for hotels with 20+ rooms. We assess volume during the on-site visit and propose a schedule."
+          "a": "Yes. We assess the volume during the on-site visit and propose a realistic schedule."
         },
         {
           "q": "Do we sign a contract?",
@@ -970,7 +1065,7 @@
         },
         {
           "q": "Are the cleaning products safe for the next guests?",
-          "a": "Yes. We use certified low-foam products with no strong odours. Furniture is fully ready to use after 2–4 hours of drying."
+          "a": "We use professional low-foam products. Drying time depends on the fabric and the airing. Our air mover shortens it, and we tell you when the room can be used."
         }
       ]
     },
@@ -1044,17 +1139,17 @@
       "backBtn": "← Back",
       "submitBtn": "Send via WhatsApp →",
       "emailBtn": "Send by email →",
-      "disclaimer": "No commitment. We reply within a few hours.",
-      "disclaimerEmail": "No commitment. We reply within a few hours, by WhatsApp or phone.",
+      "disclaimer": "No commitment. We reply with a written offer.",
+      "disclaimerEmail": "No commitment. We reply by WhatsApp or phone.",
       "successTitle": "✓ Request sent!",
-      "successText": "We'll get back to you on WhatsApp within a few hours.",
-      "successTextEmail": "We received your request. We'll be in touch shortly.",
+      "successText": "We'll get back to you on WhatsApp as soon as we can.",
+      "successTextEmail": "We received your request. We'll get back to you as soon as we can.",
       "newRequest": "New request",
       "waIntro": "Hello! B2B cleaning enquiry:"
     },
     "cta": {
       "heading": "Prefer to reach us directly?",
-      "sub": "Message us and we'll reply within a few hours, no commitment.",
+      "sub": "Message us, no commitment.",
       "label": "Request a free on-site inspection",
       "whatsappMsg": "Hello! I would like a free on-site inspection and quote for a hotel / rental property."
     },
@@ -1082,5 +1177,64 @@
       "cta": "Ask us about it →",
       "whatsappMsg": "Hello! I'd like to know more about your digital services for my establishment."
     }
+  },
+  "legal": {
+    "privacyNote": "We use your details only for your quote and the job.",
+    "privacyLabel": "Privacy policy"
+  },
+  "privacy": {
+    "metaTitle": "Privacy policy | Wet&Dry Cleaning Bansko",
+    "metaDescription": "How Wet&Dry Cleaning Bansko (VOLYA GRUP EDPK) uses the details you send for a quote: what we collect, why, for how long and your rights.",
+    "title": "Privacy policy",
+    "updated": "Last updated: 15 November 2026",
+    "sections": [
+      {
+        "title": "Who we are",
+        "paragraphs": [
+          "Wet&Dry Cleaning Bansko is run by VOLYA GRUP EDPK („ВОЛЯ ГРУП“ ЕДПК), UIC 208994501, registered office: 5 Sv. Ivan St., floor 1, apt. 6, 2770 Bansko, Bulgaria. We are the controller of your personal data.",
+          "Contact for any privacy question: wetdrycleanbansko@gmail.com or +359 882 862 228."
+        ]
+      },
+      {
+        "title": "What we collect",
+        "paragraphs": [
+          "Only what you send us: your name, phone number, email address, the address where we work, the photos you send for the quote, the details of the job, and the messages you send us on WhatsApp, Viber or Telegram."
+        ]
+      },
+      {
+        "title": "Why we use it",
+        "paragraphs": [
+          "To prepare your quote, to do the job and to issue the invoice.",
+          "Legal basis: steps taken at your request before a contract and the contract itself (GDPR art. 6(1)(b)), and our legal obligation to keep accounting records (GDPR art. 6(1)(c))."
+        ]
+      },
+      {
+        "title": "How long we keep it",
+        "paragraphs": [
+          "Quote requests that do not lead to a job: 12 months, then deleted.",
+          "Invoices and accounting documents: for the period required by Bulgarian accounting law."
+        ]
+      },
+      {
+        "title": "Who receives it",
+        "paragraphs": [
+          "Nobody buys or receives your data for marketing. To run the business we use: Netlify (website hosting), Resend (delivery of the website form by email), Google (Gmail), Meta (WhatsApp), Viber, Telegram, and our accountant.",
+          "Some of these providers may process data outside the European Union under their own legal safeguards."
+        ]
+      },
+      {
+        "title": "Your rights",
+        "paragraphs": [
+          "You can ask to see, correct or delete your data, to limit or object to its use, and to receive it in a portable format. Write to wetdrycleanbansko@gmail.com.",
+          "You can also file a complaint with the Bulgarian Commission for Personal Data Protection (КЗЛД), www.cpdp.bg."
+        ]
+      },
+      {
+        "title": "Cookies",
+        "paragraphs": [
+          "This website sets no cookies and uses no tracking or advertising tools. Fonts are served from our own website."
+        ]
+      }
+    ]
   }
 }

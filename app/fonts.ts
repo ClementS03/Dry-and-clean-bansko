@@ -16,9 +16,11 @@ export const oswald = Oswald({
   variable: "--font-display-next",
 });
 
+// Police variable (pas de liste de graisses) : en novembre 2026 Google sert
+// les graisses fixes de DM Sans sous une URL sans extension, que next/font
+// ne sait pas lire, et le build echoue. La version variable reste en woff2.
 export const dmSans = DM_Sans({
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600"],
   display: "swap",
   variable: "--font-body-next",
 });

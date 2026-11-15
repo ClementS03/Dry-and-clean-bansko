@@ -22,7 +22,7 @@ export const metadata: Metadata = {
       "bg-BG": "/services",
       en: "/en/services",
       ru: "/ru/services",
-      "x-default": "/services",
+      "x-default": "/en/services",
     },
   },
   openGraph: {

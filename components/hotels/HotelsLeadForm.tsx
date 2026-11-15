@@ -1,6 +1,7 @@
 'use client'
 import { useId, useState } from 'react'
 import { useLanguage } from '@/context/LanguageContext'
+import PrivacyNote from '@/components/PrivacyNote'
 
 type Step = 'step1' | 'step2' | 'success'
 
@@ -209,6 +210,7 @@ export default function HotelsLeadForm() {
               </div>
             </div>
           </div>
+          <PrivacyNote />
 
           <input
             suppressHydrationWarning
