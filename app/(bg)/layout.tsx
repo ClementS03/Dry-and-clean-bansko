@@ -1,38 +1,12 @@
 import type { Metadata } from "next";
 import "../globals.css";
-import { Client } from "@notionhq/client";
-import { unstable_cache } from "next/cache";
 import bgContent from "@/content/bg.json";
 import { oswald, dmSans } from "../fonts";
+import { DOMAIN, GEO, localBusinessSchema, jsonLd } from "@/lib/schema";
 
 // eslint-disable-next-line @typescript-eslint/no-require-imports
 const { colors } = require("@/config/design");
 
-const getReviewStats = unstable_cache(
-  async () => {
-    const token = process.env.NOTION_TOKEN;
-    const databaseId = process.env.NOTION_DATABASE_ID;
-    if (!token || !databaseId) return null;
-    try {
-      const notion = new Client({ auth: token });
-      const response = await notion.databases.query({
-        database_id: databaseId,
-        filter: { property: "To Approved", checkbox: { equals: true } },
-      });
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      const ratings = response.results.map((p: any) => p.properties["Stars"]?.number ?? 5);
-      if (ratings.length === 0) return null;
-      const avg = ratings.reduce((a: number, b: number) => a + b, 0) / ratings.length;
-      return { avg: Math.round(avg * 10) / 10, count: ratings.length };
-    } catch {
-      return null;
-    }
-  },
-  ["reviews-schema"],
-  { revalidate: 3600 }
-);
-
-const DOMAIN = "https://wetdrycleaningbansko.com";
 
 const cssVars = `
 :root {
@@ -67,7 +41,7 @@ export const metadata: Metadata = {
       "bg-BG": "/",
       "en": "/en",
       "ru": "/ru",
-      "x-default": "/",
+      "x-default": "/en",
     },
   },
   openGraph: {
@@ -109,8 +83,8 @@ export const metadata: Metadata = {
   other: {
     "geo.region": "BG-BL",
     "geo.placename": "Bansko",
-    "geo.position": "41.8395;23.4882",
-    ICBM: "41.8395, 23.4882",
+    "geo.position": `${GEO.latitude};${GEO.longitude}`,
+    ICBM: `${GEO.latitude}, ${GEO.longitude}`,
   },
 };
 
@@ -120,92 +94,11 @@ export const viewport = {
   themeColor: colors.gold,
 };
 
-export default async function RootLayoutBG({
+export default function RootLayoutBG({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  const reviewStats = await getReviewStats();
-
-  const localBusinessSchema = {
-    "@context": "https://schema.org",
-    "@type": ["LocalBusiness", "ProfessionalService", "CleaningService"],
-    name: "Wet&Dry Cleaning Bansko",
-    description:
-      bgContent.meta.description,
-    url: DOMAIN,
-    telephone: ["+359882862228", "+359876850385"],
-    email: "wetdrycleanbansko@gmail.com",
-    image: [`${DOMAIN}/og-image.jpg`],
-    logo: `${DOMAIN}/logo.png`,
-    address: {
-      "@type": "PostalAddress",
-      streetAddress: "Sv. Ivan Rilski",
-      addressLocality: "Bansko",
-      addressRegion: "Blagoevgrad",
-      postalCode: "2770",
-      addressCountry: "BG",
-    },
-    geo: {
-      "@type": "GeoCoordinates",
-      latitude: 41.8395,
-      longitude: 23.4882,
-    },
-    openingHoursSpecification: [
-      {
-        "@type": "OpeningHoursSpecification",
-        dayOfWeek: [
-          "Monday", "Tuesday", "Wednesday", "Thursday",
-          "Friday", "Saturday", "Sunday",
-        ],
-        opens: "08:00",
-        closes: "20:00",
-      },
-    ],
-    priceRange: "€€",
-    currenciesAccepted: "EUR",
-    paymentAccepted: "Cash, Bank transfer, Revolut",
-    areaServed: [
-      { "@type": "City", name: "Bansko" },
-      { "@type": "City", name: "Razlog" },
-      { "@type": "City", name: "Dobrinishte" },
-      { "@type": "City", name: "Banya" },
-    ],
-    serviceArea: {
-      "@type": "GeoCircle",
-      geoMidpoint: {
-        "@type": "GeoCoordinates",
-        latitude: 41.8395,
-        longitude: 23.4882,
-      },
-      geoRadius: 20000,
-    },
-    sameAs: [
-      "https://g.page/r/CU4pAGZ9UMLpEBM",
-      "https://www.instagram.com/wetdryclean.bansko/",
-      "https://www.facebook.com/profile.php?id=61588508592574",
-      "https://www.tiktok.com/@wetdryclean.bansko",
-    ],
-    dateModified: new Date().toISOString().split("T")[0],
-    ...(reviewStats && {
-      aggregateRating: {
-        "@type": "AggregateRating",
-        ratingValue: reviewStats.avg,
-        reviewCount: reviewStats.count,
-        bestRating: "5",
-        worstRating: "1",
-      },
-    }),
-    hasOfferCatalog: {
-      "@type": "OfferCatalog",
-      name: bgContent.services.title,
-      itemListElement: bgContent.services.items.map((service) => ({
-        "@type": "Offer",
-        itemOffered: { "@type": "Service", name: service.name },
-      })),
-    },
-  };
-
   return (
     <html
       lang="bg"
@@ -216,7 +109,7 @@ export default async function RootLayoutBG({
         <style suppressHydrationWarning dangerouslySetInnerHTML={{ __html: cssVars }} />
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema).replace(/</g, "\\u003c") }}
+          dangerouslySetInnerHTML={jsonLd(localBusinessSchema(bgContent, "bg"))}
         />
       </head>
       <body suppressHydrationWarning>{children}</body>

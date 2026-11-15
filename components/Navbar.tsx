@@ -57,11 +57,7 @@ export default function Navbar() {
     servicesCloseTimer.current = setTimeout(() => setServicesOpen(false), 250);
   };
 
-  const langs: { code: "bg" | "en" | "ru"; label: string }[] = [
-    { code: "bg", label: "БГ" },
-    { code: "en", label: "EN" },
-    { code: "ru", label: "RU" },
-  ];
+  const langs = t.nav.languages as { code: "bg" | "en" | "ru"; short: string; name: string }[];
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
@@ -104,6 +100,17 @@ export default function Navbar() {
       router.push(`${homePath === "/" ? "" : homePath}${href}`);
     }
   };
+
+  // Vrai lien <a href> pour Google, navigation douce au clic simple.
+  // Ctrl/Cmd-clic garde le comportement natif (nouvel onglet).
+  const navProps = (href: string) => ({
+    href,
+    onClick: (e: React.MouseEvent) => {
+      if (e.metaKey || e.ctrlKey || e.shiftKey || e.button !== 0) return;
+      e.preventDefault();
+      go(href);
+    },
+  });
 
   const handleLogo = (e: React.MouseEvent) => {
     e.preventDefault();
@@ -156,43 +163,43 @@ export default function Navbar() {
                   }}
                   onKeyDown={(e) => e.key === "Escape" && setServicesOpen(false)}
                 >
-                  <button
-                    onClick={() => go(link.href)}
+                  <a
+                    {...navProps(link.href)}
                     className={`${navLink} inline-flex items-center gap-1`}
                     aria-haspopup="true"
                     aria-expanded={servicesOpen}
                   >
                     {link.label}
                     <span className="text-[10px] leading-none">▾</span>
-                  </button>
+                  </a>
 
-                  {servicesOpen && (
-                    <div className="absolute left-0 z-50 pt-3 top-full">
+                  {(
+                    <div hidden={!servicesOpen} className="absolute left-0 z-50 pt-3 top-full">
                       <div className="py-2 border rounded-sm shadow-lg bg-ink-800 border-gold/20 shadow-black/50 min-w-[260px]">
                         {services.map((service) => (
-                          <button
+                          <a
                             key={service.slug}
-                            onClick={() => go(`${routePath("services")}/${service.slug}`)}
+                            {...navProps(`${routePath("services")}/${service.slug}`)}
                             className="block w-full px-4 py-2 text-xs tracking-wide text-left uppercase transition-colors font-display text-cream/60 hover:text-gold hover:bg-gold/5"
                           >
                             {service.name}
-                          </button>
+                          </a>
                         ))}
                         <div className="h-px my-2 bg-gold/10" />
-                        <button
-                          onClick={() => go(link.href)}
+                        <a
+                          {...navProps(link.href)}
                           className="block w-full px-4 py-2 text-xs tracking-wide text-left uppercase transition-colors font-display text-gold/70 hover:text-gold"
                         >
                           {t.servicesHub.backLabel}
-                        </button>
+                        </a>
                       </div>
                     </div>
                   )}
                 </div>
               ) : (
-                <button key={link.href} onClick={() => go(link.href)} className={navLink}>
+                <a key={link.href} {...navProps(link.href)} className={navLink}>
                   {link.label}
-                </button>
+                </a>
               ),
             )}
           </div>
@@ -207,27 +214,34 @@ export default function Navbar() {
             >
               <button
                 className="font-display text-xs font-semibold uppercase tracking-widest text-gold border border-gold/40 px-2.5 py-1 rounded-sm hover:bg-gold/10 transition-colors duration-200"
-                aria-haspopup="listbox"
+                aria-haspopup="true"
                 aria-expanded={langOpen}
-                aria-label="Select language"
+                aria-label={t.nav.langAria}
               >
-                {langs.find((l) => l.code === lang)?.label ?? "БГ"} ▾
+                {langs.find((l) => l.code === lang)?.short ?? "BG"} ▾
               </button>
-              {langOpen && (
-                <div className="absolute right-0 top-full mt-1 bg-ink-800 border border-gold/20 rounded-sm shadow-lg shadow-black/50 py-1 min-w-[56px] z-50">
+              {/* Toujours rendu (liens visibles pour Google), masque quand ferme */}
+              {(
+                <div hidden={!langOpen} className="absolute right-0 top-full mt-1 bg-ink-800 border border-gold/20 rounded-sm shadow-lg shadow-black/50 py-1 min-w-[120px] z-50">
                   {langs.map((l) => (
-                    <button
+                    <a
                       key={l.code}
-                      onClick={() => {
+                      href={getLangPath(l.code)}
+                      hrefLang={l.code}
+                      lang={l.code}
+                      aria-current={l.code === lang ? "page" : undefined}
+                      onClick={(e) => {
+                        if (e.metaKey || e.ctrlKey || e.shiftKey || e.button !== 0) return;
+                        e.preventDefault();
                         setLangOpen(false);
                         router.push(getLangPath(l.code));
                       }}
-                      className={`block w-full text-left px-3 py-1.5 text-xs font-display font-semibold uppercase tracking-widest transition-colors ${
+                      className={`block w-full text-left px-3 py-1.5 text-xs font-display font-semibold tracking-wide whitespace-nowrap transition-colors ${
                         l.code === lang ? "text-gold" : "text-cream/50 hover:text-gold"
                       }`}
                     >
-                      {l.label}
-                    </button>
+                      {l.name}
+                    </a>
                   ))}
                 </div>
               )}
@@ -237,27 +251,34 @@ export default function Navbar() {
               <button
                 onClick={() => setLangOpen((v) => !v)}
                 className="font-display text-xs font-semibold uppercase tracking-widest text-gold border border-gold/40 px-2.5 py-1 rounded-sm hover:bg-gold/10 transition-colors duration-200"
-                aria-haspopup="listbox"
+                aria-haspopup="true"
                 aria-expanded={langOpen}
-                aria-label="Select language"
+                aria-label={t.nav.langAria}
               >
-                {langs.find((l) => l.code === lang)?.label ?? "БГ"} ▾
+                {langs.find((l) => l.code === lang)?.short ?? "BG"} ▾
               </button>
-              {langOpen && (
-                <div className="absolute right-0 top-full mt-1 bg-ink-800 border border-gold/20 rounded-sm shadow-lg shadow-black/50 py-1 min-w-[56px] z-50">
+              {/* Toujours rendu (liens visibles pour Google), masque quand ferme */}
+              {(
+                <div hidden={!langOpen} className="absolute right-0 top-full mt-1 bg-ink-800 border border-gold/20 rounded-sm shadow-lg shadow-black/50 py-1 min-w-[120px] z-50">
                   {langs.map((l) => (
-                    <button
+                    <a
                       key={l.code}
-                      onClick={() => {
+                      href={getLangPath(l.code)}
+                      hrefLang={l.code}
+                      lang={l.code}
+                      aria-current={l.code === lang ? "page" : undefined}
+                      onClick={(e) => {
+                        if (e.metaKey || e.ctrlKey || e.shiftKey || e.button !== 0) return;
+                        e.preventDefault();
                         setLangOpen(false);
                         router.push(getLangPath(l.code));
                       }}
-                      className={`block w-full text-left px-3 py-1.5 text-xs font-display font-semibold uppercase tracking-widest transition-colors ${
+                      className={`block w-full text-left px-3 py-1.5 text-xs font-display font-semibold tracking-wide whitespace-nowrap transition-colors ${
                         l.code === lang ? "text-gold" : "text-cream/50 hover:text-gold"
                       }`}
                     >
-                      {l.label}
-                    </button>
+                      {l.name}
+                    </a>
                   ))}
                 </div>
               )}
@@ -307,12 +328,12 @@ export default function Navbar() {
               link.hasMenu ? (
                 <div key={link.href} className="border-b border-white/5">
                   <div className="flex items-center justify-between">
-                    <button
-                      onClick={() => go(link.href)}
+                    <a
+                      {...navProps(link.href)}
                       className="flex-1 py-3 text-base tracking-wider text-left uppercase transition-colors font-display text-cream/80 hover:text-gold"
                     >
                       {link.label}
-                    </button>
+                    </a>
                     <button
                       onClick={() => setMobileServicesOpen((v) => !v)}
                       className="px-3 py-3 transition-colors text-gold/70 hover:text-gold"
@@ -328,25 +349,25 @@ export default function Navbar() {
                   {mobileServicesOpen && (
                     <div className="pb-2 pl-3 border-l border-gold/20 ml-1 mb-2 space-y-0.5">
                       {services.map((service) => (
-                        <button
+                        <a
                           key={service.slug}
-                          onClick={() => go(`${routePath("services")}/${service.slug}`)}
+                          {...navProps(`${routePath("services")}/${service.slug}`)}
                           className="block w-full py-2 text-xs tracking-wide text-left uppercase transition-colors font-display text-cream/55 hover:text-gold"
                         >
                           {service.name}
-                        </button>
+                        </a>
                       ))}
                     </div>
                   )}
                 </div>
               ) : (
-                <button
+                <a
                   key={link.href}
-                  onClick={() => go(link.href)}
+                  {...navProps(link.href)}
                   className="block w-full py-3 text-base tracking-wider text-left uppercase transition-colors border-b font-display text-cream/80 hover:text-gold border-white/5"
                 >
                   {link.label}
-                </button>
+                </a>
               ),
             )}
 

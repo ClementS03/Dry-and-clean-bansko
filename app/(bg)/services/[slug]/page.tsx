@@ -8,8 +8,8 @@ import ServicePage from "@/components/ServicePage";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import WhatsAppFAB from "@/components/WhatsAppFAB";
+import { DOMAIN, serviceSchema } from "@/lib/schema";
 
-const DOMAIN = "https://wetdrycleaningbansko.com";
 const PREFIX = "";
 
 const OG_FALLBACK = "/og-default-bg.jpg";
@@ -47,7 +47,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
         "bg-BG": `/services/${slug}`,
         en: `/en/services/${slug}`,
         ru: `/ru/services/${slug}`,
-        "x-default": `/services/${slug}`,
+        "x-default": `/en/services/${slug}`,
       },
     },
     openGraph: {
@@ -74,26 +74,7 @@ export default async function ServiceRoute({ params }: Params) {
   // Les photos sont lues au build depuis public/gallery/<slug>/
   const pairs = getGalleryPairs(slug);
 
-  const serviceSchema = {
-    "@context": "https://schema.org",
-    "@type": "Service",
-    name: service.name,
-    serviceType: service.name,
-    description: page.metaDescription,
-    url: `${DOMAIN}${PREFIX}/services/${slug}`,
-    areaServed: [
-      { "@type": "City", name: "Bansko" },
-      { "@type": "City", name: "Razlog" },
-      { "@type": "City", name: "Dobrinishte" },
-      { "@type": "City", name: "Banya" },
-    ],
-    provider: {
-      "@type": "LocalBusiness",
-      name: "Wet&Dry Cleaning Bansko",
-      url: DOMAIN,
-      telephone: ["+359882862228", "+359876850385"],
-    },
-  };
+  const serviceLd = serviceSchema(service.name, page.metaDescription, `${DOMAIN}${PREFIX}/services/${slug}`);
 
   const faqSchema = {
     "@context": "https://schema.org",
@@ -109,7 +90,7 @@ export default async function ServiceRoute({ params }: Params) {
     <LanguageProvider initialLang="bg">
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema).replace(/</g, "\\u003c") }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceLd).replace(/</g, "\\u003c") }}
       />
       <script
         type="application/ld+json"

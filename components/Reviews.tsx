@@ -7,10 +7,10 @@ import { useScrollReveal } from "@/hooks/useScrollReveal";
 import Icon from "@/components/Icon";
 
 /**
- * Les tags viennent du multi-select Notion, saisis a la main. On accepte
- * plusieurs ecritures et on affiche ensuite le libelle traduit, pour qu un
- * visiteur bulgare ne lise pas "Sofa" en anglais. Une valeur inconnue
- * s affiche telle quelle, sans icone, plutot que de casser.
+ * Avis recopies a la main dans content/*.json (reviews.items), depuis la
+ * fiche Google et les anciens avis du formulaire. Aucun appel reseau.
+ * Les tags de service sont des cles stables, traduites a l affichage.
+ * Une valeur inconnue s affiche telle quelle, sans icone.
  */
 const SERVICE_KEYS: Record<string, string> = {
   // objets textile
@@ -63,12 +63,16 @@ interface Review {
   name: string;
   rating: number;
   services: string[];
-  comment: string;
+  text: string;
+  textLang: string;
+  translation: string;
+  source: string;
+  date: string;
 }
 
-function StarRating({ rating }: { rating: number }) {
+function StarRating({ rating, label }: { rating: number; label?: string }) {
   return (
-    <div className="flex gap-0.5">
+    <div className="flex gap-0.5" role={label ? "img" : undefined} aria-label={label} aria-hidden={label ? undefined : true}>
       {[1, 2, 3, 4, 5].map((i) => (
         <svg
           key={i}
@@ -116,18 +120,31 @@ function ReviewCard({ review }: { review: Review }) {
               {review.name}
             </div>
             <StarRating rating={review.rating} />
+            {(review.source || review.date) && (
+              <div className="mt-1 text-xs text-cream/50">
+                {[review.source === "google" ? t.reviews.sourceLabel : "", review.date].filter(Boolean).join(" · ")}
+              </div>
+            )}
           </div>
         </div>
         {/* Quote mark */}
-        <span className="mt-1 font-serif text-4xl leading-none text-gold/20">
+        <span aria-hidden="true" className="mt-1 font-serif text-4xl leading-none text-gold/20">
           "
         </span>
       </div>
 
       {/* Comment */}
-      <p className="flex-1 text-sm leading-relaxed text-cream/65">
-        {review.comment}
-      </p>
+      <div className="flex-1">
+        <p lang={review.textLang} className="text-sm leading-relaxed text-cream/65">
+          {review.text}
+        </p>
+        {review.translation && (
+          <p className="mt-3 text-xs leading-relaxed text-cream/50">
+            <span className="uppercase tracking-wide text-gold/60">{t.reviews.translationLabel}: </span>
+            {review.translation}
+          </p>
+        )}
+      </div>
 
       {/* Services */}
       {review.services.length > 0 && (
@@ -214,13 +231,18 @@ function ReviewCarousel({ reviews }: { reviews: Review[] }) {
             <button
               key={i}
               onClick={() => go(i)}
-              className={`rounded-full transition-all duration-300 ${
-                i === active
-                  ? "w-5 h-2 bg-gold"
-                  : "w-2 h-2 bg-gold/25 hover:bg-gold/50"
-              }`}
+              className="flex items-center justify-center h-6 min-w-6 px-1"
               aria-label={`${t.reviews.ariaLabel} ${i + 1}`}
-            />
+              aria-current={i === active}
+            >
+              <span
+                className={`block rounded-full transition-all duration-300 ${
+                  i === active
+                    ? "w-5 h-2 bg-gold"
+                    : "w-2 h-2 bg-gold/25 hover:bg-gold/50"
+                }`}
+              />
+            </button>
           ))}
         </div>
 
@@ -228,6 +250,7 @@ function ReviewCarousel({ reviews }: { reviews: Review[] }) {
         <div className="flex gap-2">
           <button
             onClick={prev}
+            aria-label={t.reviews.prev}
             className="flex items-center justify-center transition-colors border rounded-sm w-9 h-9 border-gold/20 text-cream/50 hover:text-gold hover:border-gold/50"
           >
             <svg
@@ -246,6 +269,7 @@ function ReviewCarousel({ reviews }: { reviews: Review[] }) {
           </button>
           <button
             onClick={next}
+            aria-label={t.reviews.next}
             className="flex items-center justify-center transition-colors border rounded-sm w-9 h-9 border-gold/20 text-cream/50 hover:text-gold hover:border-gold/50"
           >
             <svg
@@ -269,42 +293,17 @@ function ReviewCarousel({ reviews }: { reviews: Review[] }) {
 }
 
 // ── Main export ───────────────────────────────────────────────────────
-export default function Reviews() {
+export default function Reviews({ bg = "bg-ink-800" }: { bg?: string }) {
   const { t } = useLanguage();
   const ref = useScrollReveal();
-  const [reviews, setReviews] = useState<Review[]>([]);
-  const [loaded, setLoaded] = useState(false);
+  const reviews = t.reviews.items as Review[];
 
-  useEffect(() => {
-    fetch("/api/reviews")
-      .then((r) => r.json())
-      .then((data) => {
-        // Shuffle and cap at 6
-        const shuffled = [...(data.reviews ?? [])].sort(
-          () => Math.random() - 0.5,
-        );
-        setReviews(shuffled.slice(0, 6));
-        setLoaded(true);
-      })
-      .catch(() => setLoaded(true));
-  }, []);
-
-  // Trigger reveal after reviews load (observer ran before section existed)
-  useEffect(() => {
-    if (loaded && reviews.length > 0 && ref.current) {
-      ref.current.querySelectorAll(".reveal").forEach((el) => {
-        el.classList.add("visible");
-      });
-    }
-  }, [loaded, reviews, ref]);
-
-  // Hidden while loading or if no reviews
-  if (!loaded || reviews.length === 0) return null;
+  if (reviews.length === 0) return null;
 
   return (
     <section
       id="reviews"
-      className="relative overflow-hidden section-pad bg-ink-800"
+      className={`relative overflow-hidden section-pad ${bg}`}
     >
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gold/30 to-transparent" />
 
@@ -320,6 +319,21 @@ export default function Reviews() {
           <p className="max-w-md mx-auto mt-3 text-sm text-cream/50">
             {t.reviews.subtitle}
           </p>
+          <div className="flex flex-col items-center gap-3 mt-6 sm:flex-row sm:justify-center">
+            <div className="flex items-center gap-2">
+              <span className="text-2xl font-semibold font-display text-cream">{t.reviews.rating}</span>
+              <StarRating rating={5} label={t.reviews.ratingAria} />
+              <span className="text-sm text-cream/60">{t.reviews.ratingLabel}</span>
+            </div>
+            <a
+              href={t.reviews.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-xs tracking-widest uppercase transition-colors border-b font-display text-gold border-gold/30 hover:border-gold"
+            >
+              {t.reviews.cta} →
+            </a>
+          </div>
         </div>
 
         {/* Single card or carousel */}

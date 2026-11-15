@@ -25,6 +25,7 @@ export default function Hero() {
 
           <h1 className="mb-4 text-4xl font-bold leading-none tracking-tight uppercase break-words font-display sm:text-6xl lg:text-7xl">
             <span className="text-cream block">{t.hero.title}</span>
+            {' '}
             <span className="text-gold-gradient block">{t.hero.titleHighlight}</span>
           </h1>
 

@@ -2,6 +2,7 @@
 
 import { useId, useState } from "react";
 import { useLanguage } from "@/context/LanguageContext";
+import PrivacyNote from "@/components/PrivacyNote";
 
 /** Services dont le devis se raisonne en surface plutot qu en nombre d objets. */
 const SURFACE_SERVICES = ["deep", "renovation", "turnover", "windows", "pressure", "industrial"];
@@ -408,6 +409,7 @@ export default function LeadForm({ preselect }: { preselect?: string }) {
                 </a>
               </div>
             </div>
+            <PrivacyNote />
           </div>
         )}
       </div>
