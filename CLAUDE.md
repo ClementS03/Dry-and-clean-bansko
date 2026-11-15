@@ -12,7 +12,7 @@ Site d'une entreprise de nettoyage professionnel à Bansko, Bulgarie. Positionne
 - **Hébergement** : Netlify, auto-deploy sur push `main`
 - **Domaine** : wetdrycleaningbansko.com
 - **Langues** : bulgare (défaut `/`), anglais (`/en`), russe (`/ru`)
-- **Avis** : Notion via API
+- **Avis** : recopiés à la main dans `reviews.items` des JSON (Google + anciens avis), aucune API
 - **Leads** : WhatsApp sur mobile et tablette, Resend sur desktop
 
 ---
@@ -122,7 +122,8 @@ app/
   (ru)/ru/page.tsx         route /ru
   (ru)/ru/business/page.tsx
   api/contact/route.ts     POST, Resend, validation d'enum sur les clés service
-  api/reviews/route.ts     GET, Notion, revalidate 60 s
+  (bg|en|ru)/privacy       politique de confidentialité, texte dans privacy.*
+  sitemap.ts               sitemap généré au build (33 URLs)
 
 components/
   Navbar  Hero  LeadForm  Services  HowWeWork  BeforeAfter  WhyUs
@@ -131,6 +132,7 @@ components/
   hotels/                       ← composants de la page /business
 
 lib/gallery.ts               scan de public/gallery/<slug>/
+lib/schema.ts                JSON-LD LocalBusiness (@id #business) et Service, source unique
 config/design.js             tokens
 content/{bg,en,ru}.json      contenu
 context/LanguageContext.tsx  provider i18n
@@ -151,15 +153,13 @@ Trois route groups, chacun avec son propre `layout.tsx`. **Un changement de layo
 - `LanguageProvider initialLang` est posé dans chaque page, jamais dans un layout.
 - **L'URL est la seule source de vérité.** L'ancienne mémorisation en localStorage (`wetdry_lang`) a été supprimée : elle affichait la home bulgare en anglais à tout visiteur ayant cliqué EN une fois, alors que Google avait indexé du bulgare sur cette URL. Le provider purge la clé résiduelle au montage.
 - Le sélecteur de langue préserve la page courante : `/business` mène à `/en/business`.
-- hreflang déclaré à trois endroits qui doivent rester cohérents : `alternates.languages` de chaque layout, de chaque page `business`, et `public/sitemap.xml`.
+- hreflang déclaré dans `alternates.languages` de chaque layout et de chaque page, et dans `app/sitemap.ts`. Le sélecteur de langue et la nav sont de vrais liens `<a href>`.
 
 ---
 
 ## Variables d'environnement
 
 ```bash
-NOTION_TOKEN=secret_...
-NOTION_DATABASE_ID=...
 RESEND_API_KEY=re_...
 ```
 
@@ -192,20 +192,9 @@ Sur desktop, les deux formulaires **postent sur `/api/contact`**. Le téléphone
 
 ---
 
-## Notion — database "Avis Clients"
+## Avis clients
 
-Noms réels des propriétés lus par le code :
-
-| Propriété | Type |
-|---|---|
-| `Firstname Surname` | Title |
-| `Stars` | Number |
-| `Services` | Multi-select |
-| `Review Text` | Rich text |
-| `Date` | Date |
-| `To Approved` | Checkbox |
-
-`/api/reviews` filtre `To Approved = true`, trie par `Date desc`, revalide toutes les 60 s. `Reviews.tsx` mélange et plafonne à 6. La section disparaît s'il n'y a aucun avis. Le même fetch alimente l'`AggregateRating` du JSON-LD, avec une clé de cache distincte par langue.
+Notion a été débranché en novembre 2026. Les avis sont recopiés à la main dans `reviews.items` des trois JSON : texte d'origine mot pour mot (`text`, `textLang`), traduction dans la langue de la page (`translation`, vide si même langue), `source` (`google` ou vide), `date` (mois approximatif). `Reviews.tsx` garde le slider et ajoute le badge « 5,0 sur Google » + lien vers la fiche. Pour changer les avis : nouvelle capture de la fiche Google, recopier, supprimer la capture. Aucun `aggregateRating` dans le JSON-LD : Google ignore les avis auto-déclarés.
 
 ---
 
@@ -253,16 +242,16 @@ git push origin main
 
 Ne jamais lancer `npm run build` pendant qu un `npm run dev` tourne : les deux ecrivent dans `.next` et le serveur de dev se retrouve a charger des chunks de production. Symptome : `Cannot find module ./xxx.js`. Remede : Ctrl+C, `rm -rf .next`, `npm run dev`.
 
-Netlify redéploie automatiquement. Délai environ 1 à 2 minutes. Délai avis Notion vers site environ 60 s.
+Netlify redéploie automatiquement. Délai environ 1 à 2 minutes.
 
 ---
 
 ## SEO
 
-- JSON-LD `LocalBusiness + ProfessionalService + CleaningService` dans les 3 layouts, avec `hasOfferCatalog` généré depuis `services.items` (sans prix), `aggregateRating` Notion, `serviceArea` GeoCircle 20 km, horaires, `sameAs`
+- JSON-LD `LocalBusiness + ProfessionalService` généré par `lib/schema.ts` (`CleaningService` n'existe pas dans schema.org) : `legalName`, `taxID`, adresse du siège, point Google, `areaServed` (vallée + région), `knowsLanguage`, `hasOfferCatalog`, sans prix ni `aggregateRating`. Les `Service` des pages services renvoient au `@id`
 - JSON-LD `FAQPage` généré depuis `faq.items`
 - `metadata` title, description et keywords pilotés par `meta.*` du JSON
-- `public/sitemap.xml` : 30 URLs avec hreflang complet, 3 langues × (accueil, hub, business, 7 services)
+- `app/sitemap.ts` : 33 URLs générées au build, hreflang complet, 3 langues × (accueil, hub, business, privacy, 7 services). `x-default` pointe sur l'anglais partout (layouts, pages, sitemap)
 - `public/robots.txt` : `Disallow: /api/`
 - `public/llms.txt` : fiche business pour les LLM, à maintenir cohérente avec le site
 - `/hotels` a été renommé `/business` en septembre 2026, 301 dans `netlify.toml`
@@ -271,7 +260,15 @@ Netlify redéploie automatiquement. Délai environ 1 à 2 minutes. Délai avis N
 
 ## Zone de service
 
-Bansko · Разлог · Добринище · Баня. Belitsa a été retiré, trop loin.
+Vallée Bansko-Razlog sans frais de déplacement (communes de Bansko et Razlog, 16 localités, liste dans `lib/schema.ts`). Région, déplacement inclus dans le devis : Благоевград, Симитли, Белица, Якоруда, Гоце Делчев, Сандански. Pas de page ville pour l'instant (décision du 15/11/2026).
+
+## Société
+
+„ВОЛЯ ГРУП“ ЕДПК (VOLYA GRUP EDPK), ЕИК 208994501, гр. Банско 2770, ул. „Св. Иван“ № 5, ет. 1, ап. 6. Pas de TVA. Bloc légal dans le pied de page (`footer.legal`), obligatoire (loi bulgare sur le commerce électronique).
+
+## Affirmations interdites
+
+Rien de non vérifié : ni assurance (TODO : remettre « Застраховани » quand le contrat RC pro sera signé), ni « сертифицирани », ni durée de séchage chiffrée (on dit : séchage rapide avec ventilateur professionnel), ni délai de réponse ou d'intervention. Clément travaille seul.
 
 ---
 
@@ -291,10 +288,10 @@ Bansko · Разлог · Добринище · Баня. Belitsa a été retir�
 
 | | Numéro | Rôle |
 |---|---|---|
-| Principal | +359 882 862 228 | Étiqueté « anglais ». **Tout WhatsApp arrive ici** (`contact.whatsappNumber` et `whatsapp.number`, identiques dans les 3 langues). Telegram et Viber sont mentionnés sur ce numéro. |
-| Secondaire | +359 876 850 385 | Étiqueté « bulgare ». Affiché et cliquable en `tel:`, mais aucun WhatsApp ne lui est envoyé. |
+| Principal | +359 882 862 228 | Appels en anglais et français (Clément). **Tout WhatsApp arrive ici** (`contact.whatsappNumber` et `whatsapp.number`, identiques dans les 3 langues). Telegram et Viber sont mentionnés sur ce numéro. |
+| Secondaire | +359 876 850 385 | Appels en bulgare et russe (Sofia). Affiché et cliquable en `tel:`, mais aucun WhatsApp ne lui est envoyé. |
 
-Les deux figurent dans le `telephone` du JSON-LD et dans `llms.txt`.
+Seul le principal figure dans le JSON-LD. Les deux sont dans `llms.txt`.
 
 Telegram et Viber ne sont **pas** cliquables : `t.me` ne résout que si le numéro est trouvable par recherche, et `viber://` échoue en silence sur un navigateur desktop. Ils sont mentionnés en texte via `contact.messaging`.
 
@@ -328,7 +325,7 @@ Schemas : `Service` et `FAQPage` sont injectés par la page, pas par le layout. 
 
 Les `metadata.title` des pages services et business utilisent `{ absolute: ... }` : le template du layout ajoute déjà « | Wet&Dry Cleaning Банско » et doublerait le suffixe.
 
-`public/sitemap.xml` compte 30 URLs : 3 langues × (home, hub, business, 7 services).
+Le sitemap est généré par `app/sitemap.ts` depuis `services.items`.
 
 ## Reste à faire
 
